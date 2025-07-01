@@ -64,7 +64,7 @@
 ## 🦾 Изображения деталей
 - **СтопаV3**:
 <div align="center">
-<img src="https://github.com/Yuexuan9/Tinker/raw/main/docs/images/t01.JPG" height="300" />
+<img src="https://github.com/EgorSolodnikov/Tinker_Sber/blob/main/3d_models/images/СтопаV3.jpg" height="30" />
 </div>
 
 [🔝 Наверх](#-навигация)
