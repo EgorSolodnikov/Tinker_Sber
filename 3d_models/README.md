@@ -1,4 +1,4 @@
-# Tinker 
+# Сборка робота Tinker 
 <div align="center">
 </div>
 
