@@ -43,7 +43,10 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/tinker_gui" TYPE PROGRAM FILES "/home/dmitrytorov/tinker_ros2/src/tinker_gui/src/gui_slider_node.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/tinker_gui" TYPE PROGRAM FILES
+    "/home/dmitrytorov/tinker_ros2/src/tinker_gui/src/gui_slider_node.py"
+    "/home/dmitrytorov/tinker_ros2/src/tinker_gui/src/test_data_publisher.py"
+    )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

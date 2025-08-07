@@ -42,7 +42,7 @@
 			{
 				"command" : 5,
 				"file" : 0,
-				"line" : 34,
+				"line" : 35,
 				"parent" : 0
 			},
 			{
@@ -229,7 +229,8 @@
 			"destination" : "lib/tinker_gui",
 			"paths" : 
 			[
-				"src/gui_slider_node.py"
+				"src/gui_slider_node.py",
+				"src/test_data_publisher.py"
 			],
 			"type" : "file"
 		},

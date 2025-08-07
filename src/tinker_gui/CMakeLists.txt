@@ -12,6 +12,7 @@ find_package(rclpy REQUIRED)
 install(
   PROGRAMS
     src/gui_slider_node.py
+    src/test_data_publisher.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

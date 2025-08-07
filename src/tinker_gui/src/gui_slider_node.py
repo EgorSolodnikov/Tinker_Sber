@@ -14,6 +14,18 @@ class MotorSliderNode(Node):
         self.kp = 0.0
         self.kd = 0.0
         self.create_timer(5.0, self.publish_kpkd)
+        # Подписки на data топики
+        self.motor_data = [0.0, 0.0, 0.0]
+        self.kpkd_data = [0.0, 0.0]
+        self.motor_data_sub = self.create_subscription(
+            Float32MultiArray, '/motors/data/motor_1', self.motor_data_callback, 10)
+        self.kpkd_data_sub = self.create_subscription(
+            Float32MultiArray, '/motors/data/kpkd', self.kpkd_data_callback, 10)
+
+    def motor_data_callback(self, msg):
+        self.motor_data = msg.data
+    def kpkd_data_callback(self, msg):
+        self.kpkd_data = msg.data
 
     def publish(self, values):
         msg = Float32MultiArray()
@@ -37,18 +49,24 @@ class SliderWindow(QWidget):
         self.layout = QVBoxLayout()
         self.sliders = []
         self.labels = []
+        self.data_labels = []
         self.publishing_enabled = True
         for i in range(3):
+            h_layout = QHBoxLayout()
             label = QLabel(f'Параметр {i+1}: 0')
             slider = QSlider(Qt.Horizontal)
             slider.setMinimum(0)
             slider.setMaximum(100)
             slider.setValue(0)
             slider.valueChanged.connect(self.make_on_change(i, label))
-            self.layout.addWidget(label)
-            self.layout.addWidget(slider)
+            data_label = QLabel('data: 0.0')
+            h_layout.addWidget(label)
+            h_layout.addWidget(slider)
+            h_layout.addWidget(data_label)
+            self.layout.addLayout(h_layout)
             self.sliders.append(slider)
             self.labels.append(label)
+            self.data_labels.append(data_label)
         # Добавляем поля для kp и kd
         kp_layout = QHBoxLayout()
         kp_label = QLabel('kp:')
@@ -57,8 +75,10 @@ class SliderWindow(QWidget):
         self.kp_spin.setRange(0.0, 100.0)
         self.kp_spin.setSingleStep(0.1)
         self.kp_spin.valueChanged.connect(self.on_kpkd_change)
+        self.kp_data_label = QLabel('data: 0.0')
         kp_layout.addWidget(kp_label)
         kp_layout.addWidget(self.kp_spin)
+        kp_layout.addWidget(self.kp_data_label)
         self.layout.addLayout(kp_layout)
 
         kd_layout = QHBoxLayout()
@@ -68,8 +88,10 @@ class SliderWindow(QWidget):
         self.kd_spin.setRange(0.0, 100.0)
         self.kd_spin.setSingleStep(0.1)
         self.kd_spin.valueChanged.connect(self.on_kpkd_change)
+        self.kd_data_label = QLabel('data: 0.0')
         kd_layout.addWidget(kd_label)
         kd_layout.addWidget(self.kd_spin)
+        kd_layout.addWidget(self.kd_data_label)
         self.layout.addLayout(kd_layout)
 
         # Кнопки Старт и Стоп
@@ -84,6 +106,10 @@ class SliderWindow(QWidget):
 
         self.setLayout(self.layout)
         self.update_ros()
+        # Таймер для обновления отображения данных
+        self.display_timer = QTimer(self)
+        self.display_timer.timeout.connect(self.update_data_labels)
+        self.display_timer.start(200)
 
     def make_on_change(self, idx, label):
         def on_change(value):
@@ -117,6 +143,19 @@ class SliderWindow(QWidget):
         for slider in self.sliders:
             slider.setValue(0)
         self.update_ros()
+
+    def update_data_labels(self):
+        # motor_1
+        for i, data_label in enumerate(self.data_labels):
+            val = 0.0
+            if i < len(self.ros_node.motor_data):
+                val = self.ros_node.motor_data[i]
+            data_label.setText(f'data: {val:.3f}')
+        # kpkd
+        kp_val = self.ros_node.kpkd_data[0] if len(self.ros_node.kpkd_data) > 0 else 0.0
+        kd_val = self.ros_node.kpkd_data[1] if len(self.ros_node.kpkd_data) > 1 else 0.0
+        self.kp_data_label.setText(f'data: {kp_val:.3f}')
+        self.kd_data_label.setText(f'data: {kd_val:.3f}')
 
 def main(args=None):
     rclpy.init(args=args)
