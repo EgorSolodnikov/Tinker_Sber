@@ -1,0 +1,16 @@
+/home/dmitrytorov/tinker_ros2/install/tinker_gui/lib/tinker_gui/gui_slider_node.py
+/home/dmitrytorov/tinker_ros2/install/tinker_gui/share/ament_index/resource_index/package_run_dependencies/tinker_gui
+/home/dmitrytorov/tinker_ros2/install/tinker_gui/share/ament_index/resource_index/parent_prefix_path/tinker_gui
+/home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/environment/ament_prefix_path.sh
+/home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/environment/ament_prefix_path.dsv
+/home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/environment/path.sh
+/home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/environment/path.dsv
+/home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/local_setup.bash
+/home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/local_setup.sh
+/home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/local_setup.zsh
+/home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/local_setup.dsv
+/home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/package.dsv
+/home/dmitrytorov/tinker_ros2/install/tinker_gui/share/ament_index/resource_index/packages/tinker_gui
+/home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/cmake/tinker_guiConfig.cmake
+/home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/cmake/tinker_guiConfig-version.cmake
+/home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/package.xml

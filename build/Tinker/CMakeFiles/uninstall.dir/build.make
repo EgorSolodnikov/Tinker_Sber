@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/dmitrytorov/Tinker_ros2/src/Tinker
+CMAKE_SOURCE_DIR = /home/dmitrytorov/tinker_ros2/src/tinker
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/dmitrytorov/Tinker_ros2/build/Tinker
+CMAKE_BINARY_DIR = /home/dmitrytorov/tinker_ros2/build/Tinker
 
 # Utility rule file for uninstall.
 
@@ -78,6 +78,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/dmitrytorov/Tinker_ros2/build/Tinker && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dmitrytorov/Tinker_ros2/src/Tinker /home/dmitrytorov/Tinker_ros2/src/Tinker /home/dmitrytorov/Tinker_ros2/build/Tinker /home/dmitrytorov/Tinker_ros2/build/Tinker /home/dmitrytorov/Tinker_ros2/build/Tinker/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/dmitrytorov/tinker_ros2/build/Tinker && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dmitrytorov/tinker_ros2/src/tinker /home/dmitrytorov/tinker_ros2/src/tinker /home/dmitrytorov/tinker_ros2/build/Tinker /home/dmitrytorov/tinker_ros2/build/Tinker /home/dmitrytorov/tinker_ros2/build/Tinker/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/uninstall.dir/depend
 

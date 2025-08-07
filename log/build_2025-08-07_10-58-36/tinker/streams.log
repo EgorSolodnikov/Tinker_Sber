@@ -1,0 +1,64 @@
+[0.019s] Invoking command in '/home/dmitrytorov/tinker_ros2/build/tinker': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/dmitrytorov/tinker_ros2/install/tinker_motor_gui:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_teleop:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_example:/home/dmitrytorov/ros2_learners/install/robot_math:/home/dmitrytorov/ros2_learners/install/ai_assitance:/home/dmitrytorov/pass_course_part1/install/twist_converter:/home/dmitrytorov/pass_course_part1/install/my_two_wheel_robot:/home/dmitrytorov/pass_course_part1/install/my_path_publisher:/home/dmitrytorov/pass_course_part1/install/my_fake_lidar:/opt/ros/humble /usr/bin/cmake /home/dmitrytorov/tinker_ros2/src/tinker -DCMAKE_INSTALL_PREFIX=/home/dmitrytorov/tinker_ros2/install/tinker
+[0.139s] -- The C compiler identification is GNU 11.4.0
+[0.257s] -- The CXX compiler identification is GNU 11.4.0
+[0.266s] -- Detecting C compiler ABI info
+[0.347s] -- Detecting C compiler ABI info - done
+[0.353s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.354s] -- Detecting C compile features
+[0.354s] -- Detecting C compile features - done
+[0.358s] -- Detecting CXX compiler ABI info
+[0.447s] -- Detecting CXX compiler ABI info - done
+[0.454s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.454s] -- Detecting CXX compile features
+[0.455s] -- Detecting CXX compile features - done
+[0.464s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.851s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.008s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.116s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.118s] -- Added test 'lint_cmake' to check CMake code style
+[1.119s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.121s] -- Added test 'xmllint' to check XML markup files
+[1.123s] -- Configuring done
+[1.127s] -- Generating done
+[1.128s] -- Build files have been written to: /home/dmitrytorov/tinker_ros2/build/tinker
+[1.133s] Invoked command in '/home/dmitrytorov/tinker_ros2/build/tinker' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/dmitrytorov/tinker_ros2/install/tinker_motor_gui:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_teleop:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_example:/home/dmitrytorov/ros2_learners/install/robot_math:/home/dmitrytorov/ros2_learners/install/ai_assitance:/home/dmitrytorov/pass_course_part1/install/twist_converter:/home/dmitrytorov/pass_course_part1/install/my_two_wheel_robot:/home/dmitrytorov/pass_course_part1/install/my_path_publisher:/home/dmitrytorov/pass_course_part1/install/my_fake_lidar:/opt/ros/humble /usr/bin/cmake /home/dmitrytorov/tinker_ros2/src/tinker -DCMAKE_INSTALL_PREFIX=/home/dmitrytorov/tinker_ros2/install/tinker
+[1.135s] Invoking command in '/home/dmitrytorov/tinker_ros2/build/tinker': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/dmitrytorov/tinker_ros2/install/tinker_motor_gui:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_teleop:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_example:/home/dmitrytorov/ros2_learners/install/robot_math:/home/dmitrytorov/ros2_learners/install/ai_assitance:/home/dmitrytorov/pass_course_part1/install/twist_converter:/home/dmitrytorov/pass_course_part1/install/my_two_wheel_robot:/home/dmitrytorov/pass_course_part1/install/my_path_publisher:/home/dmitrytorov/pass_course_part1/install/my_fake_lidar:/opt/ros/humble /usr/bin/cmake --build /home/dmitrytorov/tinker_ros2/build/tinker -- -j12 -l12
+[1.181s] Invoked command in '/home/dmitrytorov/tinker_ros2/build/tinker' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/dmitrytorov/tinker_ros2/install/tinker_motor_gui:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_teleop:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_example:/home/dmitrytorov/ros2_learners/install/robot_math:/home/dmitrytorov/ros2_learners/install/ai_assitance:/home/dmitrytorov/pass_course_part1/install/twist_converter:/home/dmitrytorov/pass_course_part1/install/my_two_wheel_robot:/home/dmitrytorov/pass_course_part1/install/my_path_publisher:/home/dmitrytorov/pass_course_part1/install/my_fake_lidar:/opt/ros/humble /usr/bin/cmake --build /home/dmitrytorov/tinker_ros2/build/tinker -- -j12 -l12
+[1.193s] Invoking command in '/home/dmitrytorov/tinker_ros2/build/tinker': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/dmitrytorov/tinker_ros2/install/tinker_motor_gui:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_teleop:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_example:/home/dmitrytorov/ros2_learners/install/robot_math:/home/dmitrytorov/ros2_learners/install/ai_assitance:/home/dmitrytorov/pass_course_part1/install/twist_converter:/home/dmitrytorov/pass_course_part1/install/my_two_wheel_robot:/home/dmitrytorov/pass_course_part1/install/my_path_publisher:/home/dmitrytorov/pass_course_part1/install/my_fake_lidar:/opt/ros/humble /usr/bin/cmake --install /home/dmitrytorov/tinker_ros2/build/tinker
+[1.201s] -- Install configuration: ""
+[1.201s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/launch
+[1.201s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/launch/description.launch.py
+[1.201s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/urdf
+[1.201s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/urdf/tinker_1.urdf.xacro
+[1.202s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/config
+[1.202s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/config/joint_names_tinker_urdf.yaml
+[1.202s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/rviz
+[1.202s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/meshes
+[1.202s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/meshes/link_r_ankle.STL
+[1.202s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/meshes/link_l_ankle.STL
+[1.202s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/meshes/link_r_knee.STL
+[1.202s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/meshes/link_l_pitch.STL
+[1.203s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/meshes/base_link.STL
+[1.208s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/meshes/link_r_yaw.STL
+[1.208s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/meshes/link_l_yaw.STL
+[1.208s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/meshes/link_l_roll.STL
+[1.209s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/meshes/link_l_knee.STL
+[1.209s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/meshes/link_r_roll.STL
+[1.209s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/meshes/link_r_pitch.STL
+[1.210s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/worlds
+[1.210s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/ament_index/resource_index/package_run_dependencies/tinker
+[1.210s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/ament_index/resource_index/parent_prefix_path/tinker
+[1.210s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/environment/ament_prefix_path.sh
+[1.210s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/environment/ament_prefix_path.dsv
+[1.210s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/environment/path.sh
+[1.210s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/environment/path.dsv
+[1.211s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/local_setup.bash
+[1.211s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/local_setup.sh
+[1.211s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/local_setup.zsh
+[1.211s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/local_setup.dsv
+[1.211s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/package.dsv
+[1.212s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/ament_index/resource_index/packages/tinker
+[1.212s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/cmake/tinkerConfig.cmake
+[1.212s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/cmake/tinkerConfig-version.cmake
+[1.212s] -- Installing: /home/dmitrytorov/tinker_ros2/install/tinker/share/tinker/package.xml
+[1.214s] Invoked command in '/home/dmitrytorov/tinker_ros2/build/tinker' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/dmitrytorov/tinker_ros2/install/tinker_motor_gui:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_teleop:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_example:/home/dmitrytorov/ros2_learners/install/robot_math:/home/dmitrytorov/ros2_learners/install/ai_assitance:/home/dmitrytorov/pass_course_part1/install/twist_converter:/home/dmitrytorov/pass_course_part1/install/my_two_wheel_robot:/home/dmitrytorov/pass_course_part1/install/my_path_publisher:/home/dmitrytorov/pass_course_part1/install/my_fake_lidar:/opt/ros/humble /usr/bin/cmake --install /home/dmitrytorov/tinker_ros2/build/tinker

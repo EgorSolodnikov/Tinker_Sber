@@ -1,8 +1,8 @@
-# Install script for directory: /home/dmitrytorov/Tinker_ros2/src/Tinker
+# Install script for directory: /home/dmitrytorov/tinker_ros2/src/tinker
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/dmitrytorov/Tinker_ros2/install/Tinker")
+  set(CMAKE_INSTALL_PREFIX "/home/dmitrytorov/tinker_ros2/install/Tinker")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -44,21 +44,21 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Tinker" TYPE DIRECTORY FILES
-    "/home/dmitrytorov/Tinker_ros2/src/Tinker/launch"
-    "/home/dmitrytorov/Tinker_ros2/src/Tinker/urdf"
-    "/home/dmitrytorov/Tinker_ros2/src/Tinker/config"
-    "/home/dmitrytorov/Tinker_ros2/src/Tinker/rviz"
-    "/home/dmitrytorov/Tinker_ros2/src/Tinker/meshes"
-    "/home/dmitrytorov/Tinker_ros2/src/Tinker/worlds"
+    "/home/dmitrytorov/tinker_ros2/src/tinker/launch"
+    "/home/dmitrytorov/tinker_ros2/src/tinker/urdf"
+    "/home/dmitrytorov/tinker_ros2/src/tinker/config"
+    "/home/dmitrytorov/tinker_ros2/src/tinker/rviz"
+    "/home/dmitrytorov/tinker_ros2/src/tinker/meshes"
+    "/home/dmitrytorov/tinker_ros2/src/tinker/worlds"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/dmitrytorov/Tinker_ros2/build/Tinker/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/Tinker")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/dmitrytorov/tinker_ros2/build/Tinker/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/Tinker")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/dmitrytorov/Tinker_ros2/build/Tinker/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/Tinker")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/dmitrytorov/tinker_ros2/build/Tinker/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/Tinker")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -66,7 +66,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Tinker/environment" TYPE FILE FILES "/home/dmitrytorov/Tinker_ros2/build/Tinker/ament_cmake_environment_hooks/ament_prefix_path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Tinker/environment" TYPE FILE FILES "/home/dmitrytorov/tinker_ros2/build/Tinker/ament_cmake_environment_hooks/ament_prefix_path.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -74,42 +74,42 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Tinker/environment" TYPE FILE FILES "/home/dmitrytorov/Tinker_ros2/build/Tinker/ament_cmake_environment_hooks/path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Tinker/environment" TYPE FILE FILES "/home/dmitrytorov/tinker_ros2/build/Tinker/ament_cmake_environment_hooks/path.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Tinker" TYPE FILE FILES "/home/dmitrytorov/Tinker_ros2/build/Tinker/ament_cmake_environment_hooks/local_setup.bash")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Tinker" TYPE FILE FILES "/home/dmitrytorov/tinker_ros2/build/Tinker/ament_cmake_environment_hooks/local_setup.bash")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Tinker" TYPE FILE FILES "/home/dmitrytorov/Tinker_ros2/build/Tinker/ament_cmake_environment_hooks/local_setup.sh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Tinker" TYPE FILE FILES "/home/dmitrytorov/tinker_ros2/build/Tinker/ament_cmake_environment_hooks/local_setup.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Tinker" TYPE FILE FILES "/home/dmitrytorov/Tinker_ros2/build/Tinker/ament_cmake_environment_hooks/local_setup.zsh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Tinker" TYPE FILE FILES "/home/dmitrytorov/tinker_ros2/build/Tinker/ament_cmake_environment_hooks/local_setup.zsh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Tinker" TYPE FILE FILES "/home/dmitrytorov/Tinker_ros2/build/Tinker/ament_cmake_environment_hooks/local_setup.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Tinker" TYPE FILE FILES "/home/dmitrytorov/tinker_ros2/build/Tinker/ament_cmake_environment_hooks/local_setup.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Tinker" TYPE FILE FILES "/home/dmitrytorov/Tinker_ros2/build/Tinker/ament_cmake_environment_hooks/package.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Tinker" TYPE FILE FILES "/home/dmitrytorov/tinker_ros2/build/Tinker/ament_cmake_environment_hooks/package.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/dmitrytorov/Tinker_ros2/build/Tinker/ament_cmake_index/share/ament_index/resource_index/packages/Tinker")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/dmitrytorov/tinker_ros2/build/Tinker/ament_cmake_index/share/ament_index/resource_index/packages/Tinker")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Tinker/cmake" TYPE FILE FILES
-    "/home/dmitrytorov/Tinker_ros2/build/Tinker/ament_cmake_core/TinkerConfig.cmake"
-    "/home/dmitrytorov/Tinker_ros2/build/Tinker/ament_cmake_core/TinkerConfig-version.cmake"
+    "/home/dmitrytorov/tinker_ros2/build/Tinker/ament_cmake_core/TinkerConfig.cmake"
+    "/home/dmitrytorov/tinker_ros2/build/Tinker/ament_cmake_core/TinkerConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Tinker" TYPE FILE FILES "/home/dmitrytorov/Tinker_ros2/src/Tinker/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Tinker" TYPE FILE FILES "/home/dmitrytorov/tinker_ros2/src/tinker/package.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -120,5 +120,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/dmitrytorov/Tinker_ros2/build/Tinker/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/dmitrytorov/tinker_ros2/build/Tinker/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
