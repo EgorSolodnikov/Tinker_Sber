@@ -1,0 +1,17 @@
+[0.023s] Invoking command in '/home/dmitrytorov/Tinker_ros2/build/Tinker': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_teleop:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_example:/home/dmitrytorov/ros2_learners/install/robot_math:/home/dmitrytorov/ros2_learners/install/ai_assitance:/home/dmitrytorov/pass_course_part1/install/twist_converter:/home/dmitrytorov/pass_course_part1/install/my_two_wheel_robot:/home/dmitrytorov/pass_course_part1/install/my_path_publisher:/home/dmitrytorov/pass_course_part1/install/my_fake_lidar:/opt/ros/humble /usr/bin/cmake --build /home/dmitrytorov/Tinker_ros2/build/Tinker -- -j12 -l12
+[0.049s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.178s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.229s] WARNING: Package name "Tinker" does not follow the naming conventions. It should start with a lower case letter and only contain lower case letters, digits, underscores, and dashes.
+[0.238s] [31mCMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:53 (message):
+[0.238s]   ament_package_xml() package name 'Tinker' in '/package.xml' does not match
+[0.239s]   current PROJECT_NAME 'my_robot'.  You must call project() with the same
+[0.239s]   package name before.
+[0.239s] Call Stack (most recent call first):
+[0.239s]   /opt/ros/humble/share/ament_lint_auto/cmake/ament_lint_auto_find_test_dependencies.cmake:31 (ament_package_xml)
+[0.239s]   CMakeLists.txt:23 (ament_lint_auto_find_test_dependencies)
+[0.239s] 
+[0.239s] [0m
+[0.240s] -- Configuring incomplete, errors occurred!
+[0.240s] See also "/home/dmitrytorov/Tinker_ros2/build/Tinker/CMakeFiles/CMakeOutput.log".
+[0.241s] gmake: *** [Makefile:226: cmake_check_build_system] Error 1
+[0.245s] Invoked command in '/home/dmitrytorov/Tinker_ros2/build/Tinker' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_teleop:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_example:/home/dmitrytorov/ros2_learners/install/robot_math:/home/dmitrytorov/ros2_learners/install/ai_assitance:/home/dmitrytorov/pass_course_part1/install/twist_converter:/home/dmitrytorov/pass_course_part1/install/my_two_wheel_robot:/home/dmitrytorov/pass_course_part1/install/my_path_publisher:/home/dmitrytorov/pass_course_part1/install/my_fake_lidar:/opt/ros/humble /usr/bin/cmake --build /home/dmitrytorov/Tinker_ros2/build/Tinker -- -j12 -l12

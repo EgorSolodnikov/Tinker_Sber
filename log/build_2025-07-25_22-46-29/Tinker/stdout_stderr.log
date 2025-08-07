@@ -1,0 +1,48 @@
+-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+WARNING: Package name "Tinker" does not follow the naming conventions. It should start with a lower case letter and only contain lower case letters, digits, underscores, and dashes.
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/dmitrytorov/Tinker_ros2/build/Tinker
+-- Install configuration: ""
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/launch
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/launch/description.launch.py
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/launch/launch_sim.launch.py
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/urdf
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/urdf/tinker.urdf.xacro
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/urdf/tinker_1.urdf
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/config
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/config/joint_names_tinker_urdf.yaml
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/rviz
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/meshes
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/meshes/link_r_ankle.STL
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/meshes/link_l_ankle.STL
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/meshes/link_r_knee.STL
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/meshes/link_l_pitch.STL
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/meshes/base_link.STL
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/meshes/link_r_yaw.STL
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/meshes/link_l_yaw.STL
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/meshes/link_l_roll.STL
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/meshes/link_l_knee.STL
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/meshes/link_r_roll.STL
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/meshes/link_r_pitch.STL
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/worlds
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/ament_index/resource_index/package_run_dependencies/Tinker
+-- Up-to-date: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/ament_index/resource_index/parent_prefix_path/Tinker
+-- Up-to-date: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/environment/ament_prefix_path.sh
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/environment/path.sh
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/environment/path.dsv
+-- Up-to-date: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/local_setup.bash
+-- Up-to-date: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/local_setup.sh
+-- Up-to-date: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/local_setup.zsh
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/local_setup.dsv
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/package.dsv
+-- Up-to-date: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/ament_index/resource_index/packages/Tinker
+-- Up-to-date: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/cmake/TinkerConfig.cmake
+-- Up-to-date: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/cmake/TinkerConfig-version.cmake
+-- Installing: /home/dmitrytorov/Tinker_ros2/install/Tinker/share/Tinker/package.xml
