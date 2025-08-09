@@ -1,8 +1,0 @@
-source;share/Tinker/hook/cmake_prefix_path.ps1
-source;share/Tinker/hook/cmake_prefix_path.dsv
-source;share/Tinker/hook/cmake_prefix_path.sh
-source;share/Tinker/local_setup.bash
-source;share/Tinker/local_setup.dsv
-source;share/Tinker/local_setup.ps1
-source;share/Tinker/local_setup.sh
-source;share/Tinker/local_setup.zsh

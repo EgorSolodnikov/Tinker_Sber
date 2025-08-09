@@ -1,3 +1,0 @@
-[console_scripts]
-gui_node = tinker_motor_gui.gui_node:main
-publisher_node = tinker_motor_gui.publisher_node:main

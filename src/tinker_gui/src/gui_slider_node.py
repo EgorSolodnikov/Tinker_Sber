@@ -1,161 +1,326 @@
 #!/usr/bin/env python3
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QSlider, QLabel, QDoubleSpinBox, QHBoxLayout, QPushButton
+from typing import List
+from PyQt5.QtWidgets import (
+    QApplication,
+    QWidget,
+    QVBoxLayout,
+    QHBoxLayout,
+    QGridLayout,
+    QSlider,
+    QLabel,
+    QGroupBox,
+    QScrollArea,
+)
 from PyQt5.QtCore import Qt, QTimer
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Float32MultiArray
+from sensor_msgs.msg import JointState, Imu
+
+MOTOR_COUNT = 5
+
+# Порядок полей для /motors/commands/motor_N
+MOTOR_PARAM_FIELDS = [
+    'id', 'enable', 'reset_zero', 'reset_error',
+    'acc_calibrate', 'gyro_calibrate', 'mag_calibrate',
+    'beep_state', 'kp', 'kd'
+]
 
 class MotorSliderNode(Node):
     def __init__(self):
-        super().__init__('motor_slider_gui')
-        self.publisher_ = self.create_publisher(Float32MultiArray, '/motors/commands/motor_1', 10)
-        self.kpkd_publisher_ = self.create_publisher(Float32MultiArray, '/motors/commands/kpkd', 10)
-        self.kp = 0.0
-        self.kd = 0.0
-        self.create_timer(5.0, self.publish_kpkd)
-        # Подписки на data топики
-        self.motor_data = [0.0, 0.0, 0.0]
-        self.kpkd_data = [0.0, 0.0]
-        self.motor_data_sub = self.create_subscription(
-            Float32MultiArray, '/motors/data/motor_1', self.motor_data_callback, 10)
-        self.kpkd_data_sub = self.create_subscription(
-            Float32MultiArray, '/motors/data/kpkd', self.kpkd_data_callback, 10)
+        super().__init__('tinker_rqt')
+        # /motors/commands (общий JointState)
+        self.commands_publisher = self.create_publisher(JointState, '/motors/commands', 10)
+        # /motors/commands/motor_i (индивидуальные настройки каждого мотора)
+        self.motor_publishers: List = []
+        for i in range(MOTOR_COUNT):
+            topic = f'/motors/commands/motor_{i+1}'
+            self.motor_publishers.append(
+                self.create_publisher(Float32MultiArray, topic, 10)
+            )
 
-    def motor_data_callback(self, msg):
-        self.motor_data = msg.data
-    def kpkd_data_callback(self, msg):
-        self.kpkd_data = msg.data
+        # Подписки на состояния моторов (агрегированные и по каждому мотору)
+        self.current_pos: List[float] = [0.0] * MOTOR_COUNT
+        self.current_vel: List[float] = [0.0] * MOTOR_COUNT
+        self.current_trq: List[float] = [0.0] * MOTOR_COUNT
+        self.motor_status: List[List[float]] = [[float(i + 1), 0.0, 0.0, 0.0] for i in range(MOTOR_COUNT)]
+        self.create_subscription(JointState, '/motors/states', self._states_cb, 10)
+        for i in range(MOTOR_COUNT):
+            self.create_subscription(
+                Float32MultiArray,
+                f'/motors/states/motor_{i+1}',
+                lambda msg, idx=i: self._motor_state_cb(idx, msg),
+                10,
+            )
 
-    def publish(self, values):
+        # Подписка на IMU
+        self.imu_ang = [0.0, 0.0, 0.0]
+        self.imu_acc = [0.0, 0.0, 0.0]
+        self.create_subscription(Imu, '/imu', self._imu_cb, 10)
+
+    def _states_cb(self, msg: JointState) -> None:
+        n = min(MOTOR_COUNT, len(msg.position), len(msg.velocity), len(msg.effort))
+        for i in range(n):
+            self.current_pos[i] = float(msg.position[i])
+            self.current_vel[i] = float(msg.velocity[i])
+            self.current_trq[i] = float(msg.effort[i])
+
+    def _motor_state_cb(self, idx: int, msg: Float32MultiArray) -> None:
+        data = list(msg.data)
+        if len(data) >= 4:
+            self.motor_status[idx] = [float(data[0]), float(data[1]), float(data[2]), float(data[3])]
+
+    def _imu_cb(self, msg: Imu) -> None:
+        self.imu_ang = [
+            float(msg.angular_velocity.x),
+            float(msg.angular_velocity.y),
+            float(msg.angular_velocity.z),
+        ]
+        self.imu_acc = [
+            float(msg.linear_acceleration.x),
+            float(msg.linear_acceleration.y),
+            float(msg.linear_acceleration.z),
+        ]
+
+    def publish_joint_commands(self, pos_list: List[float], vel_list: List[float], trq_list: List[float]):
+        msg = JointState()
+        msg.position = [float(v) for v in pos_list]
+        msg.velocity = [float(v) for v in vel_list]
+        msg.effort = [float(v) for v in trq_list]
+        self.commands_publisher.publish(msg)
+
+    def publish_motor_params(self, motor_index: int, values_10_floats: List[float]):
         msg = Float32MultiArray()
-        msg.data = values
-        self.publisher_.publish(msg)
-
-    def set_kpkd(self, kp, kd):
-        self.kp = kp
-        self.kd = kd
-
-    def publish_kpkd(self):
-        msg = Float32MultiArray()
-        msg.data = [self.kp, self.kd]
-        self.kpkd_publisher_.publish(msg)
+        msg.data = [float(v) for v in values_10_floats]
+        self.motor_publishers[motor_index].publish(msg)
 
 class SliderWindow(QWidget):
-    def __init__(self, ros_node):
+    def __init__(self, ros_node: MotorSliderNode):
         super().__init__()
         self.ros_node = ros_node
-        self.setWindowTitle('Motor Command Sliders')
-        self.layout = QVBoxLayout()
-        self.sliders = []
-        self.labels = []
-        self.data_labels = []
-        self.publishing_enabled = True
-        for i in range(3):
-            h_layout = QHBoxLayout()
-            label = QLabel(f'Параметр {i+1}: 0')
+        self.setWindowTitle('Tinker RQT')
+        self.resize(1200, 800)
+
+        # Контейнер со скроллом
+        outer_layout = QVBoxLayout()
+        scroll = QScrollArea(self)
+        scroll.setWidgetResizable(True)
+        content = QWidget()
+        self.grid = QGridLayout(content)
+        self.grid.setHorizontalSpacing(16)
+        self.grid.setVerticalSpacing(12)
+        scroll.setWidget(content)
+        outer_layout.addWidget(scroll)
+        self.setLayout(outer_layout)
+
+        # Хранилища UI-элементов по моторам
+        self.motor_cmd_sliders: List[List[QSlider]] = []
+        self.motor_cmd_data_labels: List[List[QLabel]] = []
+        self.motor_param_sliders: List[List[QSlider]] = []
+        self.status_labels: List[dict] = []
+        self.last_enable_state: List[bool] = [False] * MOTOR_COUNT
+
+        # Блок IMU в первой строке
+        imu_group = QGroupBox('IMU')
+        imu_layout = QGridLayout(imu_group)
+        self.imu_labels = {
+            'ang_x': QLabel('ang_x: 0.000'),
+            'ang_y': QLabel('ang_y: 0.000'),
+            'ang_z': QLabel('ang_z: 0.000'),
+            'acc_x': QLabel('acc_x: 0.000'),
+            'acc_y': QLabel('acc_y: 0.000'),
+            'acc_z': QLabel('acc_z: 0.000'),
+        }
+        imu_layout.addWidget(self.imu_labels['ang_x'], 0, 0)
+        imu_layout.addWidget(self.imu_labels['ang_y'], 0, 1)
+        imu_layout.addWidget(self.imu_labels['ang_z'], 0, 2)
+        imu_layout.addWidget(self.imu_labels['acc_x'], 1, 0)
+        imu_layout.addWidget(self.imu_labels['acc_y'], 1, 1)
+        imu_layout.addWidget(self.imu_labels['acc_z'], 1, 2)
+        self.grid.addWidget(imu_group, 0, 0, 1, 2)
+
+        # Создаём группы моторов и раскладываем по колонкам, начиная со 2-й строки
+        columns = 2
+        for motor_idx in range(MOTOR_COUNT):
+            group = self._build_motor_group(motor_idx)
+            row = (motor_idx // columns) + 1  # +1, т.к. 0-я строка занята IMU
+            col = motor_idx % columns
+            self.grid.addWidget(group, row, col)
+            self.last_enable_state[motor_idx] = self._get_enable_state(motor_idx)
+
+        # Таймер: периодическая публикация и обновление отображения
+        self.display_timer = QTimer(self)
+        self.display_timer.timeout.connect(self._on_timer)
+        self.display_timer.start(100)
+
+        # Начальная публикация
+        self._publish_all(force=True)
+
+    def _build_motor_group(self, motor_index: int) -> QGroupBox:
+        group = QGroupBox(f'Motor {motor_index + 1}')
+        group_layout = QVBoxLayout(group)
+
+        # Блок команд (pos/vel/trq)
+        cmd_box = QGroupBox('Commands')
+        cmd_grid = QGridLayout(cmd_box)
+        cmd_names = ['target_pos', 'target_vel', 'target_trq']
+        cmd_sliders: List[QSlider] = []
+        cmd_data_labels: List[QLabel] = []
+        for i, name in enumerate(cmd_names):
+            label = QLabel(f'{name}: 0')
             slider = QSlider(Qt.Horizontal)
             slider.setMinimum(0)
             slider.setMaximum(100)
             slider.setValue(0)
-            slider.valueChanged.connect(self.make_on_change(i, label))
-            data_label = QLabel('data: 0.0')
-            h_layout.addWidget(label)
-            h_layout.addWidget(slider)
-            h_layout.addWidget(data_label)
-            self.layout.addLayout(h_layout)
-            self.sliders.append(slider)
-            self.labels.append(label)
-            self.data_labels.append(data_label)
-        # Добавляем поля для kp и kd
-        kp_layout = QHBoxLayout()
-        kp_label = QLabel('kp:')
-        self.kp_spin = QDoubleSpinBox()
-        self.kp_spin.setDecimals(3)
-        self.kp_spin.setRange(0.0, 100.0)
-        self.kp_spin.setSingleStep(0.1)
-        self.kp_spin.valueChanged.connect(self.on_kpkd_change)
-        self.kp_data_label = QLabel('data: 0.0')
-        kp_layout.addWidget(kp_label)
-        kp_layout.addWidget(self.kp_spin)
-        kp_layout.addWidget(self.kp_data_label)
-        self.layout.addLayout(kp_layout)
+            slider.valueChanged.connect(lambda val, m=motor_index, lbl=label, n=name: self._on_cmd_change(m, lbl, n, val))
+            data_lbl = QLabel('state: 0.0')
+            data_lbl.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+            cmd_grid.addWidget(label, i, 0)
+            cmd_grid.addWidget(slider, i, 1)
+            cmd_grid.addWidget(data_lbl, i, 2)
+            cmd_sliders.append(slider)
+            cmd_data_labels.append(data_lbl)
+        self.motor_cmd_sliders.append(cmd_sliders)
+        self.motor_cmd_data_labels.append(cmd_data_labels)
+        group_layout.addWidget(cmd_box)
 
-        kd_layout = QHBoxLayout()
-        kd_label = QLabel('kd:')
-        self.kd_spin = QDoubleSpinBox()
-        self.kd_spin.setDecimals(3)
-        self.kd_spin.setRange(0.0, 100.0)
-        self.kd_spin.setSingleStep(0.1)
-        self.kd_spin.valueChanged.connect(self.on_kpkd_change)
-        self.kd_data_label = QLabel('data: 0.0')
-        kd_layout.addWidget(kd_label)
-        kd_layout.addWidget(self.kd_spin)
-        kd_layout.addWidget(self.kd_data_label)
-        self.layout.addLayout(kd_layout)
+        # Блок параметров (10 полей) + статусы
+        param_box = QGroupBox('Parameters')
+        param_grid = QGridLayout(param_box)
+        connect_lbl = QLabel('connect: 0')
+        motor_connected_lbl = QLabel('motor_connected: 0')
+        ready_lbl = QLabel('ready: 0')
+        param_grid.addWidget(connect_lbl, 0, 0)
+        param_grid.addWidget(motor_connected_lbl, 0, 1)
+        param_grid.addWidget(ready_lbl, 0, 2)
+        self.status_labels.append({'connect': connect_lbl, 'motor_connected': motor_connected_lbl, 'ready': ready_lbl})
 
-        # Кнопки Старт и Стоп
-        btn_layout = QHBoxLayout()
-        self.start_btn = QPushButton('Старт')
-        self.stop_btn = QPushButton('Стоп')
-        self.start_btn.clicked.connect(self.on_start)
-        self.stop_btn.clicked.connect(self.on_stop)
-        btn_layout.addWidget(self.start_btn)
-        btn_layout.addWidget(self.stop_btn)
-        self.layout.addLayout(btn_layout)
+        param_sliders: List[QSlider] = []
+        for idx, field in enumerate(MOTOR_PARAM_FIELDS):
+            row = (idx % 5) + 1
+            col = (idx // 5) * 2
+            label = QLabel(f'{field}: 0')
+            slider = QSlider(Qt.Horizontal)
+            if field == 'id':
+                fixed_id = float(motor_index + 1)
+                slider.setMinimum(int(fixed_id))
+                slider.setMaximum(int(fixed_id))
+                slider.setValue(int(fixed_id))
+                slider.setEnabled(False)
+                label.setText(f'{field}: {int(fixed_id)}')
+            elif field in {'enable', 'reset_zero', 'reset_error', 'acc_calibrate', 'gyro_calibrate', 'mag_calibrate'}:
+                slider.setMinimum(0)
+                slider.setMaximum(1)
+                slider.setValue(0)
+                slider.valueChanged.connect(lambda val, m=motor_index, lbl=label, f=field: self._on_param_change(m, lbl, f, val))
+            else:
+                slider.setMinimum(0)
+                slider.setMaximum(100)
+                slider.setValue(0)
+                slider.valueChanged.connect(lambda val, m=motor_index, lbl=label, f=field: self._on_param_change(m, lbl, f, val))
+            param_grid.addWidget(label, row, col)
+            param_grid.addWidget(slider, row, col + 1)
+            param_sliders.append(slider)
+        self.motor_param_sliders.append(param_sliders)
+        group_layout.addWidget(param_box)
 
-        self.setLayout(self.layout)
-        self.update_ros()
-        # Таймер для обновления отображения данных
-        self.display_timer = QTimer(self)
-        self.display_timer.timeout.connect(self.update_data_labels)
-        self.display_timer.start(200)
+        return group
 
-    def make_on_change(self, idx, label):
-        def on_change(value):
-            label.setText(f'Параметр {idx+1}: {value}')
-            self.update_ros()
-        return on_change
+    def _get_enable_state(self, motor_index: int) -> bool:
+        enable_slider = self.motor_param_sliders[motor_index][1]
+        return enable_slider.value() > 0.5
 
-    def update_ros(self):
-        if self.publishing_enabled:
-            values = [float(slider.value()) for slider in self.sliders]
-            self.ros_node.publish(values)
-            self.ros_node.set_kpkd(self.kp_spin.value(), self.kd_spin.value())
+    def _on_cmd_change(self, motor_index: int, label: QLabel, name: str, value: int):
+        label.setText(f'{name}: {value}')
+        self._publish_all()
 
-    def on_kpkd_change(self):
-        if self.publishing_enabled:
-            self.ros_node.set_kpkd(self.kp_spin.value(), self.kd_spin.value())
+    def _on_param_change(self, motor_index: int, label: QLabel, field: str, value: int):
+        label.setText(f'{field}: {value}')
+        if field == 'enable':
+            self._handle_enable_edge(motor_index)
+        self._publish_all()
 
-    def on_start(self):
-        self.publishing_enabled = True
-        self.update_ros()
+    def _handle_enable_edge(self, motor_index: int):
+        current = self._get_enable_state(motor_index)
+        if current == self.last_enable_state[motor_index]:
+            return
+        if not current:
+            self._publish_motor_zero_once(motor_index)
+            for slider in self.motor_cmd_sliders[motor_index]:
+                slider.setValue(0)
+            for idx, slider in enumerate(self.motor_param_sliders[motor_index]):
+                if MOTOR_PARAM_FIELDS[idx] in {'enable', 'id'}:
+                    continue
+                slider.setValue(0)
+        else:
+            self._publish_all(force=True)
+        self.last_enable_state[motor_index] = current
 
-    def on_stop(self):
-        # Перед отключением публикации отправляем нули
-        zero_values = [0.0 for _ in self.sliders]
-        self.ros_node.publish(zero_values)
-        self.ros_node.set_kpkd(0.0, 0.0)
-        msg = Float32MultiArray()
-        msg.data = [0.0, 0.0]
-        self.ros_node.kpkd_publisher_.publish(msg)
-        self.publishing_enabled = False
-        for slider in self.sliders:
-            slider.setValue(0)
-        self.update_ros()
+    def _publish_motor_zero_once(self, motor_index: int):
+        pos_list, vel_list, trq_list = self._collect_joint_arrays()
+        pos_list[motor_index] = 0.0
+        vel_list[motor_index] = 0.0
+        trq_list[motor_index] = 0.0
+        self.ros_node.publish_joint_commands(pos_list, vel_list, trq_list)
+        zero_params = [0.0] * len(MOTOR_PARAM_FIELDS)
+        zero_params[0] = float(motor_index + 1)
+        self.ros_node.publish_motor_params(motor_index, zero_params)
 
-    def update_data_labels(self):
-        # motor_1
-        for i, data_label in enumerate(self.data_labels):
-            val = 0.0
-            if i < len(self.ros_node.motor_data):
-                val = self.ros_node.motor_data[i]
-            data_label.setText(f'data: {val:.3f}')
-        # kpkd
-        kp_val = self.ros_node.kpkd_data[0] if len(self.ros_node.kpkd_data) > 0 else 0.0
-        kd_val = self.ros_node.kpkd_data[1] if len(self.ros_node.kpkd_data) > 1 else 0.0
-        self.kp_data_label.setText(f'data: {kp_val:.3f}')
-        self.kd_data_label.setText(f'data: {kd_val:.3f}')
+    def _collect_joint_arrays(self):
+        pos_list = [0.0] * MOTOR_COUNT
+        vel_list = [0.0] * MOTOR_COUNT
+        trq_list = [0.0] * MOTOR_COUNT
+        for m in range(MOTOR_COUNT):
+            if not self._get_enable_state(m):
+                continue
+            cmd_sliders = self.motor_cmd_sliders[m]
+            pos_list[m] = float(cmd_sliders[0].value())
+            vel_list[m] = float(cmd_sliders[1].value())
+            trq_list[m] = float(cmd_sliders[2].value())
+        return pos_list, vel_list, trq_list
+
+    def _collect_motor_params(self, motor_index: int) -> List[float]:
+        sliders = self.motor_param_sliders[motor_index]
+        return [float(s.value()) for s in sliders]
+
+    def _publish_all(self, force: bool = False):
+        pos_list, vel_list, trq_list = self._collect_joint_arrays()
+        self.ros_node.publish_joint_commands(pos_list, vel_list, trq_list)
+        for m in range(MOTOR_COUNT):
+            enabled = self._get_enable_state(m)
+            if enabled or force:
+                params = self._collect_motor_params(m)
+                self.ros_node.publish_motor_params(m, params if enabled else [0.0] * len(params))
+
+    def _update_state_labels(self):
+        # Обновляем data-лейблы около командных слайдеров из /motors/states
+        for m in range(MOTOR_COUNT):
+            if m < len(self.motor_cmd_data_labels):
+                labels = self.motor_cmd_data_labels[m]
+                if len(labels) >= 3:
+                    labels[0].setText(f'state: {self.ros_node.current_pos[m]:.2f}')
+                    labels[1].setText(f'state: {self.ros_node.current_vel[m]:.2f}')
+                    labels[2].setText(f'state: {self.ros_node.current_trq[m]:.2f}')
+        # Обновляем статусы connect/motor_connected/ready
+        for m in range(MOTOR_COUNT):
+            if m < len(self.status_labels):
+                st = self.ros_node.motor_status[m]
+                self.status_labels[m]['connect'].setText(f'connect: {int(st[1])}')
+                self.status_labels[m]['motor_connected'].setText(f'motor_connected: {int(st[2])}')
+                self.status_labels[m]['ready'].setText(f'ready: {int(st[3])}')
+        # Обновляем IMU
+        self.imu_labels['ang_x'].setText(f'ang_x: {self.ros_node.imu_ang[0]:.3f}')
+        self.imu_labels['ang_y'].setText(f'ang_y: {self.ros_node.imu_ang[1]:.3f}')
+        self.imu_labels['ang_z'].setText(f'ang_z: {self.ros_node.imu_ang[2]:.3f}')
+        self.imu_labels['acc_x'].setText(f'acc_x: {self.ros_node.imu_acc[0]:.3f}')
+        self.imu_labels['acc_y'].setText(f'acc_y: {self.ros_node.imu_acc[1]:.3f}')
+        self.imu_labels['acc_z'].setText(f'acc_z: {self.ros_node.imu_acc[2]:.3f}')
+
+    def _on_timer(self):
+        self._publish_all()
+        self._update_state_labels()
+
 
 def main(args=None):
     rclpy.init(args=args)
@@ -164,12 +329,11 @@ def main(args=None):
     window = SliderWindow(ros_node)
     window.show()
 
-    # Интеграция ROS2 event loop в PyQt
     def spin_ros():
         rclpy.spin_once(ros_node, timeout_sec=0)
     ros_timer = QTimer()
     ros_timer.timeout.connect(spin_ros)
-    ros_timer.start(10)  # каждые 10 мс
+    ros_timer.start(10)
 
     app.exec_()
     ros_node.destroy_node()

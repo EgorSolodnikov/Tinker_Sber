@@ -7,7 +7,7 @@ Stephen Brawner (brawner@gmail.com)
     xmlns:xacro="http://www.ros.org/wiki/xacro" name="Tinker">
     <mujoco>
         <compiler
-            meshdir="file://$(find Tinker)/meshes/"
+            meshdir="package://tinker/meshes/"
             balanceinertia="true"
             discardvisual="false" />
     </mujoco>
@@ -36,7 +36,7 @@ Stephen Brawner (brawner@gmail.com)
                 rpy="0 0 0" />
             <geometry>
                 <mesh
-                    filename="file://$(find Tinker)/meshes/base_link.STL" />
+                    filename="package://tinker/meshes/base_link.STL" />
             </geometry>
             <material
                 name="">
@@ -50,7 +50,7 @@ Stephen Brawner (brawner@gmail.com)
                 rpy="0 0 0" />
             <geometry>
                 <mesh
-                    filename="file://$(find Tinker)/meshes/base_link.STL" />
+                    filename="package://tinker/meshes/base_link.STL" />
             </geometry>
         </collision>
     </link>
@@ -83,7 +83,7 @@ Stephen Brawner (brawner@gmail.com)
                 rpy="0 0 0" />
             <geometry>
                 <mesh
-                    filename="file://$(find Tinker)/meshes/link_l_yaw.STL" />
+                    filename="package://tinker/meshes/link_l_yaw.STL" />
             </geometry>
             <material
                 name="">
@@ -97,7 +97,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find Tinker)/meshes/link_l_yaw.STL" />
+          filename="package://tinker/meshes/link_l_yaw.STL" />
       </geometry>
     </collision-->
     </link>
@@ -141,7 +141,7 @@ Stephen Brawner (brawner@gmail.com)
                 rpy="0 0 0" />
             <geometry>
                 <mesh
-                    filename="file://$(find Tinker)/meshes/link_l_roll.STL" />
+                    filename="package://tinker/meshes/link_l_roll.STL" />
             </geometry>
             <material
                 name="">
@@ -155,7 +155,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find Tinker)/meshes/link_l_roll.STL" />
+          filename="package://tinker/meshes/link_l_roll.STL" />
       </geometry>
     </collision-->
     </link>
@@ -199,7 +199,7 @@ Stephen Brawner (brawner@gmail.com)
                 rpy="0 0 0" />
             <geometry>
                 <mesh
-                    filename="file://$(find Tinker)/meshes/link_l_pitch.STL" />
+                    filename="package://tinker/meshes/link_l_pitch.STL" />
             </geometry>
             <material
                 name="">
@@ -213,7 +213,7 @@ Stephen Brawner (brawner@gmail.com)
                 rpy="0 0 0" />
             <geometry>
                 <mesh
-                    filename="file://$(find Tinker)/meshes/link_l_pitch.STL" />
+                    filename="package://tinker/meshes/link_l_pitch.STL" />
             </geometry>
         </collision>
     </link>
@@ -257,7 +257,7 @@ Stephen Brawner (brawner@gmail.com)
                 rpy="0 0 0" />
             <geometry>
                 <mesh
-                    filename="file://$(find Tinker)/meshes/link_l_knee.STL" />
+                    filename="package://tinker/meshes/link_l_knee.STL" />
             </geometry>
             <material
                 name="">
@@ -271,7 +271,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find Tinker)/meshes/link_l_knee.STL" />
+          filename="package://tinker/meshes/link_l_knee.STL" />
       </geometry>
     </collision-->
     </link>
@@ -315,7 +315,7 @@ Stephen Brawner (brawner@gmail.com)
                 rpy="0 0 0" />
             <geometry>
                 <mesh
-                    filename="file://$(find Tinker)/meshes/link_l_ankle.STL" />
+                    filename="package://tinker/meshes/link_l_ankle.STL" />
             </geometry>
             <material
                 name="">
@@ -329,7 +329,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find Tinker)/meshes/link_l_ankle.STL" />
+          filename="package://tinker/meshes/link_l_ankle.STL" />
       </geometry>
     </collision-->
         <collision>
@@ -421,7 +421,7 @@ Stephen Brawner (brawner@gmail.com)
                 rpy="0 0 0" />
             <geometry>
                 <mesh
-                    filename="file://$(find Tinker)/meshes/link_r_yaw.STL" />
+                    filename="package://tinker/meshes/link_r_yaw.STL" />
             </geometry>
             <material
                 name="">
@@ -435,7 +435,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find Tinker)/meshes/link_r_yaw.STL" />
+          filename="package://tinker/meshes/link_r_yaw.STL" />
       </geometry>
     </collision-->
     </link>
@@ -479,7 +479,7 @@ Stephen Brawner (brawner@gmail.com)
                 rpy="0 0 0" />
             <geometry>
                 <mesh
-                    filename="file://$(find Tinker)/meshes/link_r_roll.STL" />
+                    filename="package://tinker/meshes/link_r_roll.STL" />
             </geometry>
             <material
                 name="">
@@ -493,7 +493,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find Tinker)/meshes/link_r_roll.STL" />
+          filename="package://tinker/meshes/link_r_roll.STL" />
       </geometry>
     </collision-->
     </link>
@@ -537,7 +537,7 @@ Stephen Brawner (brawner@gmail.com)
                 rpy="0 0 0" />
             <geometry>
                 <mesh
-                    filename="file://$(find Tinker)/meshes/link_r_pitch.STL" />
+                    filename="package://tinker/meshes/link_r_pitch.STL" />
             </geometry>
             <material
                 name="">
@@ -551,7 +551,7 @@ Stephen Brawner (brawner@gmail.com)
                 rpy="0 0 0" />
             <geometry>
                 <mesh
-                    filename="file://$(find Tinker)/meshes/link_r_pitch.STL" />
+                    filename="package://tinker/meshes/link_r_pitch.STL" />
             </geometry>
         </collision>
     </link>
@@ -595,7 +595,7 @@ Stephen Brawner (brawner@gmail.com)
                 rpy="0 0 0" />
             <geometry>
                 <mesh
-                    filename="file://$(find Tinker)/meshes/link_r_knee.STL" />
+                    filename="package://tinker/meshes/link_r_knee.STL" />
             </geometry>
             <material
                 name="">
@@ -609,7 +609,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find Tinker)/meshes/link_r_knee.STL" />
+          filename="package://tinker/meshes/link_r_knee.STL" />
       </geometry>
     </collision-->
     </link>
@@ -653,7 +653,7 @@ Stephen Brawner (brawner@gmail.com)
                 rpy="0 0 0" />
             <geometry>
                 <mesh
-                    filename="file://$(find Tinker)/meshes/link_r_ankle.STL" />
+                    filename="package://tinker/meshes/link_r_ankle.STL" />
             </geometry>
             <material
                 name="">
@@ -667,7 +667,7 @@ Stephen Brawner (brawner@gmail.com)
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find Tinker)/meshes/link_r_ankle.STL" />
+          filename="package://tinker/meshes/link_r_ankle.STL" />
       </geometry>
     </collision-->
         <collision>

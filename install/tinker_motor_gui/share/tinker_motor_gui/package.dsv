@@ -1,6 +1,0 @@
-source;share/tinker_motor_gui/hook/pythonpath.ps1
-source;share/tinker_motor_gui/hook/pythonpath.dsv
-source;share/tinker_motor_gui/hook/pythonpath.sh
-source;share/tinker_motor_gui/hook/ament_prefix_path.ps1
-source;share/tinker_motor_gui/hook/ament_prefix_path.dsv
-source;share/tinker_motor_gui/hook/ament_prefix_path.sh

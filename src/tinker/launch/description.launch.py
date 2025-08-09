@@ -1,7 +1,7 @@
 import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.substitutions import LaunchConfiguration, Command
+from launch.substitutions import LaunchConfiguration, Command, FindExecutable
 from launch.actions import DeclareLaunchArgument
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
@@ -13,12 +13,15 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration("use_sim_time")
 
     # Пути к файлам
-    pkg_path = os.path.join(get_package_share_directory("Tinker"))
+    pkg_path = os.path.join(get_package_share_directory("tinker"))
     xacro_file = os.path.join(pkg_path, "urdf", "tinker_1.urdf.xacro")
     # rviz_config_file = os.path.join(pkg_path, "rviz", "slam.rviz")
 
     # Описание робота
-    robot_description = ParameterValue(Command(["xacro ", xacro_file]), value_type=str)
+    robot_description = ParameterValue(
+        Command([FindExecutable(name='xacro'), ' ', xacro_file]),
+        value_type=str,
+    )
     robot_description_param = {
         "robot_description": robot_description,
         "use_sim_time": use_sim_time,

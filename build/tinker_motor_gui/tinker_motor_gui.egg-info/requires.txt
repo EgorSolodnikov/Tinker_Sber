@@ -1,6 +1,0 @@
-setuptools
-rclpy
-std_msgs
-sensor_msgs
-PyQt5
-rosidl_runtime_py
