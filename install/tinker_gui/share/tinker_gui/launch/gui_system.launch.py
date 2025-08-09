@@ -1,0 +1,25 @@
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+
+def generate_launch_description():
+    return LaunchDescription([
+        Node(
+            package='tinker_gui',
+            executable='gui_slider_node.py',
+            name='gui_slider_node',
+            output='screen',
+        ),
+        Node(
+            package='tinker_gui',
+            executable='commands_to_states_bridge.py',
+            name='commands_to_states_bridge',
+            output='screen',
+        ),
+        Node(
+            package='tinker_gui',
+            executable='states_to_joint_states.py',
+            name='states_to_joint_states',
+            output='screen',
+        ),
+    ])

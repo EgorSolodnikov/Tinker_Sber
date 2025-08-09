@@ -15,7 +15,14 @@ install(
   PROGRAMS
     src/gui_slider_node.py
     src/test_data_publisher.py
+    src/commands_to_states_bridge.py
+    src/states_to_joint_states.py
   DESTINATION lib/${PROJECT_NAME}
+)
+
+install(
+  DIRECTORY launch/
+  DESTINATION share/${PROJECT_NAME}/launch
 )
 
 if(BUILD_TESTING)

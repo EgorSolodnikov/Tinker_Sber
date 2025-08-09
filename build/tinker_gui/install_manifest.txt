@@ -1,5 +1,8 @@
 /home/dmitrytorov/tinker_ros2/install/tinker_gui/lib/tinker_gui/gui_slider_node.py
 /home/dmitrytorov/tinker_ros2/install/tinker_gui/lib/tinker_gui/test_data_publisher.py
+/home/dmitrytorov/tinker_ros2/install/tinker_gui/lib/tinker_gui/commands_to_states_bridge.py
+/home/dmitrytorov/tinker_ros2/install/tinker_gui/lib/tinker_gui/states_to_joint_states.py
+/home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/launch/gui_system.launch.py
 /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/ament_index/resource_index/package_run_dependencies/tinker_gui
 /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/ament_index/resource_index/parent_prefix_path/tinker_gui
 /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/environment/ament_prefix_path.sh

@@ -46,7 +46,13 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/tinker_gui" TYPE PROGRAM FILES
     "/home/dmitrytorov/tinker_ros2/src/tinker_gui/src/gui_slider_node.py"
     "/home/dmitrytorov/tinker_ros2/src/tinker_gui/src/test_data_publisher.py"
+    "/home/dmitrytorov/tinker_ros2/src/tinker_gui/src/commands_to_states_bridge.py"
+    "/home/dmitrytorov/tinker_ros2/src/tinker_gui/src/states_to_joint_states.py"
     )
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/tinker_gui/launch" TYPE DIRECTORY FILES "/home/dmitrytorov/tinker_ros2/src/tinker_gui/launch/")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

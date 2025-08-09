@@ -1,0 +1,24 @@
+[0.015s] Invoking command in '/home/dmitrytorov/tinker_ros2/build/tinker_gui': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_teleop:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_example:/home/dmitrytorov/ros2_learners/install/robot_math:/home/dmitrytorov/ros2_learners/install/ai_assitance:/home/dmitrytorov/pass_course_part1/install/twist_converter:/home/dmitrytorov/pass_course_part1/install/my_two_wheel_robot:/home/dmitrytorov/pass_course_part1/install/my_path_publisher:/home/dmitrytorov/pass_course_part1/install/my_fake_lidar:/opt/ros/humble /usr/bin/cmake --build /home/dmitrytorov/tinker_ros2/build/tinker_gui -- -j12 -l12
+[0.069s] Invoked command in '/home/dmitrytorov/tinker_ros2/build/tinker_gui' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_teleop:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_example:/home/dmitrytorov/ros2_learners/install/robot_math:/home/dmitrytorov/ros2_learners/install/ai_assitance:/home/dmitrytorov/pass_course_part1/install/twist_converter:/home/dmitrytorov/pass_course_part1/install/my_two_wheel_robot:/home/dmitrytorov/pass_course_part1/install/my_path_publisher:/home/dmitrytorov/pass_course_part1/install/my_fake_lidar:/opt/ros/humble /usr/bin/cmake --build /home/dmitrytorov/tinker_ros2/build/tinker_gui -- -j12 -l12
+[0.070s] Invoking command in '/home/dmitrytorov/tinker_ros2/build/tinker_gui': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_teleop:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_example:/home/dmitrytorov/ros2_learners/install/robot_math:/home/dmitrytorov/ros2_learners/install/ai_assitance:/home/dmitrytorov/pass_course_part1/install/twist_converter:/home/dmitrytorov/pass_course_part1/install/my_two_wheel_robot:/home/dmitrytorov/pass_course_part1/install/my_path_publisher:/home/dmitrytorov/pass_course_part1/install/my_fake_lidar:/opt/ros/humble /usr/bin/cmake --install /home/dmitrytorov/tinker_ros2/build/tinker_gui
+[0.080s] -- Install configuration: ""
+[0.080s] -- Up-to-date: /home/dmitrytorov/tinker_ros2/install/tinker_gui/lib/tinker_gui/gui_slider_node.py
+[0.080s] -- Up-to-date: /home/dmitrytorov/tinker_ros2/install/tinker_gui/lib/tinker_gui/test_data_publisher.py
+[0.081s] -- Up-to-date: /home/dmitrytorov/tinker_ros2/install/tinker_gui/lib/tinker_gui/commands_to_states_bridge.py
+[0.081s] -- Up-to-date: /home/dmitrytorov/tinker_ros2/install/tinker_gui/lib/tinker_gui/states_to_joint_states.py
+[0.081s] -- Up-to-date: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/ament_index/resource_index/package_run_dependencies/tinker_gui
+[0.081s] -- Up-to-date: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/ament_index/resource_index/parent_prefix_path/tinker_gui
+[0.081s] -- Up-to-date: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/environment/ament_prefix_path.sh
+[0.081s] -- Up-to-date: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/environment/ament_prefix_path.dsv
+[0.081s] -- Up-to-date: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/environment/path.sh
+[0.082s] -- Up-to-date: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/environment/path.dsv
+[0.082s] -- Up-to-date: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/local_setup.bash
+[0.082s] -- Up-to-date: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/local_setup.sh
+[0.082s] -- Up-to-date: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/local_setup.zsh
+[0.082s] -- Up-to-date: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/local_setup.dsv
+[0.082s] -- Up-to-date: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/package.dsv
+[0.082s] -- Up-to-date: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/ament_index/resource_index/packages/tinker_gui
+[0.082s] -- Up-to-date: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/cmake/tinker_guiConfig.cmake
+[0.082s] -- Up-to-date: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/cmake/tinker_guiConfig-version.cmake
+[0.082s] -- Up-to-date: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/package.xml
+[0.096s] Invoked command in '/home/dmitrytorov/tinker_ros2/build/tinker_gui' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_teleop:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_example:/home/dmitrytorov/ros2_learners/install/robot_math:/home/dmitrytorov/ros2_learners/install/ai_assitance:/home/dmitrytorov/pass_course_part1/install/twist_converter:/home/dmitrytorov/pass_course_part1/install/my_two_wheel_robot:/home/dmitrytorov/pass_course_part1/install/my_path_publisher:/home/dmitrytorov/pass_course_part1/install/my_fake_lidar:/opt/ros/humble /usr/bin/cmake --install /home/dmitrytorov/tinker_ros2/build/tinker_gui
