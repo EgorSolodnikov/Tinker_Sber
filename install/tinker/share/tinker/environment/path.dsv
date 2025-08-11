@@ -1,1 +1,1 @@
-prepend-non-duplicate-if-exists;PATH;bin
+/home/dmitrytorov/tinker_ros2/build/tinker/ament_cmake_environment_hooks/path.dsv

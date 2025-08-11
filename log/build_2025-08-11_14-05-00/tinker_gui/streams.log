@@ -1,0 +1,59 @@
+[0.014s] Invoking command in '/home/dmitrytorov/tinker_ros2/build/tinker_gui': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/dmitrytorov/ros2_hd_mmRadar/install/twist_converter:/home/dmitrytorov/ros2_hd_mmRadar/install/rtabmap_python:/home/dmitrytorov/ros2_hd_mmRadar/install/qos_bridge:/home/dmitrytorov/ros2_hd_mmRadar/install/my_path_publisher:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_teleop:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_example:/home/dmitrytorov/ros2_learners/install/robot_math:/home/dmitrytorov/ros2_learners/install/ai_assitance:/home/dmitrytorov/pass_course_part1/install/twist_converter:/home/dmitrytorov/pass_course_part1/install/my_two_wheel_robot:/home/dmitrytorov/pass_course_part1/install/my_path_publisher:/home/dmitrytorov/pass_course_part1/install/my_fake_lidar:/opt/ros/humble /usr/bin/cmake /home/dmitrytorov/tinker_ros2/src/tinker_gui -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/dmitrytorov/tinker_ros2/install/tinker_gui
+[0.073s] -- The C compiler identification is GNU 11.4.0
+[0.130s] -- The CXX compiler identification is GNU 11.4.0
+[0.138s] -- Detecting C compiler ABI info
+[0.215s] -- Detecting C compiler ABI info - done
+[0.221s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.222s] -- Detecting C compile features
+[0.222s] -- Detecting C compile features - done
+[0.225s] -- Detecting CXX compiler ABI info
+[0.310s] -- Detecting CXX compiler ABI info - done
+[0.317s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.317s] -- Detecting CXX compile features
+[0.317s] -- Detecting CXX compile features - done
+[0.324s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.705s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.772s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.852s] -- Found rclpy: 3.3.17 (/opt/ros/humble/share/rclpy/cmake)
+[0.857s] -- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[0.926s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.938s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.953s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.973s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.000s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.073s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.185s] -- Added test 'copyright' to check source files copyright and LICENSE
+[1.186s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.187s] -- Added test 'lint_cmake' to check CMake code style
+[1.188s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.190s] -- Added test 'xmllint' to check XML markup files
+[1.192s] -- Configuring done
+[1.196s] -- Generating done
+[1.197s] -- Build files have been written to: /home/dmitrytorov/tinker_ros2/build/tinker_gui
+[1.206s] Invoked command in '/home/dmitrytorov/tinker_ros2/build/tinker_gui' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/dmitrytorov/ros2_hd_mmRadar/install/twist_converter:/home/dmitrytorov/ros2_hd_mmRadar/install/rtabmap_python:/home/dmitrytorov/ros2_hd_mmRadar/install/qos_bridge:/home/dmitrytorov/ros2_hd_mmRadar/install/my_path_publisher:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_teleop:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_example:/home/dmitrytorov/ros2_learners/install/robot_math:/home/dmitrytorov/ros2_learners/install/ai_assitance:/home/dmitrytorov/pass_course_part1/install/twist_converter:/home/dmitrytorov/pass_course_part1/install/my_two_wheel_robot:/home/dmitrytorov/pass_course_part1/install/my_path_publisher:/home/dmitrytorov/pass_course_part1/install/my_fake_lidar:/opt/ros/humble /usr/bin/cmake /home/dmitrytorov/tinker_ros2/src/tinker_gui -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/dmitrytorov/tinker_ros2/install/tinker_gui
+[1.206s] Invoking command in '/home/dmitrytorov/tinker_ros2/build/tinker_gui': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/dmitrytorov/ros2_hd_mmRadar/install/twist_converter:/home/dmitrytorov/ros2_hd_mmRadar/install/rtabmap_python:/home/dmitrytorov/ros2_hd_mmRadar/install/qos_bridge:/home/dmitrytorov/ros2_hd_mmRadar/install/my_path_publisher:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_teleop:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_example:/home/dmitrytorov/ros2_learners/install/robot_math:/home/dmitrytorov/ros2_learners/install/ai_assitance:/home/dmitrytorov/pass_course_part1/install/twist_converter:/home/dmitrytorov/pass_course_part1/install/my_two_wheel_robot:/home/dmitrytorov/pass_course_part1/install/my_path_publisher:/home/dmitrytorov/pass_course_part1/install/my_fake_lidar:/opt/ros/humble /usr/bin/cmake --build /home/dmitrytorov/tinker_ros2/build/tinker_gui -- -j12 -l12
+[1.253s] Invoked command in '/home/dmitrytorov/tinker_ros2/build/tinker_gui' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/dmitrytorov/ros2_hd_mmRadar/install/twist_converter:/home/dmitrytorov/ros2_hd_mmRadar/install/rtabmap_python:/home/dmitrytorov/ros2_hd_mmRadar/install/qos_bridge:/home/dmitrytorov/ros2_hd_mmRadar/install/my_path_publisher:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_teleop:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_example:/home/dmitrytorov/ros2_learners/install/robot_math:/home/dmitrytorov/ros2_learners/install/ai_assitance:/home/dmitrytorov/pass_course_part1/install/twist_converter:/home/dmitrytorov/pass_course_part1/install/my_two_wheel_robot:/home/dmitrytorov/pass_course_part1/install/my_path_publisher:/home/dmitrytorov/pass_course_part1/install/my_fake_lidar:/opt/ros/humble /usr/bin/cmake --build /home/dmitrytorov/tinker_ros2/build/tinker_gui -- -j12 -l12
+[1.254s] Invoking command in '/home/dmitrytorov/tinker_ros2/build/tinker_gui': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/dmitrytorov/ros2_hd_mmRadar/install/twist_converter:/home/dmitrytorov/ros2_hd_mmRadar/install/rtabmap_python:/home/dmitrytorov/ros2_hd_mmRadar/install/qos_bridge:/home/dmitrytorov/ros2_hd_mmRadar/install/my_path_publisher:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_teleop:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_example:/home/dmitrytorov/ros2_learners/install/robot_math:/home/dmitrytorov/ros2_learners/install/ai_assitance:/home/dmitrytorov/pass_course_part1/install/twist_converter:/home/dmitrytorov/pass_course_part1/install/my_two_wheel_robot:/home/dmitrytorov/pass_course_part1/install/my_path_publisher:/home/dmitrytorov/pass_course_part1/install/my_fake_lidar:/opt/ros/humble /usr/bin/cmake --install /home/dmitrytorov/tinker_ros2/build/tinker_gui
+[1.262s] -- Install configuration: ""
+[1.262s] -- Execute custom install script
+[1.263s] -- Symlinking: /home/dmitrytorov/tinker_ros2/install/tinker_gui/lib/tinker_gui/gui_slider_node.py
+[1.273s] -- Symlinking: /home/dmitrytorov/tinker_ros2/install/tinker_gui/lib/tinker_gui/test_data_publisher.py
+[1.283s] -- Symlinking: /home/dmitrytorov/tinker_ros2/install/tinker_gui/lib/tinker_gui/commands_to_states_bridge.py
+[1.293s] -- Symlinking: /home/dmitrytorov/tinker_ros2/install/tinker_gui/lib/tinker_gui/states_to_joint_states.py
+[1.304s] -- Symlinking: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/launch/gui_system.launch.py
+[1.315s] -- Symlinking: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/ament_index/resource_index/package_run_dependencies/tinker_gui
+[1.326s] -- Symlinking: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/ament_index/resource_index/parent_prefix_path/tinker_gui
+[1.337s] -- Symlinking: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/environment/ament_prefix_path.sh
+[1.348s] -- Symlinking: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/environment/ament_prefix_path.dsv
+[1.359s] -- Symlinking: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/environment/path.sh
+[1.370s] -- Symlinking: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/environment/path.dsv
+[1.382s] -- Symlinking: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/local_setup.bash
+[1.393s] -- Symlinking: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/local_setup.sh
+[1.404s] -- Symlinking: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/local_setup.zsh
+[1.414s] -- Symlinking: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/local_setup.dsv
+[1.425s] -- Symlinking: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/package.dsv
+[1.437s] -- Symlinking: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/ament_index/resource_index/packages/tinker_gui
+[1.449s] -- Symlinking: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/cmake/tinker_guiConfig.cmake
+[1.459s] -- Symlinking: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/cmake/tinker_guiConfig-version.cmake
+[1.469s] -- Symlinking: /home/dmitrytorov/tinker_ros2/install/tinker_gui/share/tinker_gui/package.xml
+[1.483s] Invoked command in '/home/dmitrytorov/tinker_ros2/build/tinker_gui' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/dmitrytorov/ros2_hd_mmRadar/install/twist_converter:/home/dmitrytorov/ros2_hd_mmRadar/install/rtabmap_python:/home/dmitrytorov/ros2_hd_mmRadar/install/qos_bridge:/home/dmitrytorov/ros2_hd_mmRadar/install/my_path_publisher:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_teleop:/home/dmitrytorov/turtlebot3_ws/install/turtlebot3_example:/home/dmitrytorov/ros2_learners/install/robot_math:/home/dmitrytorov/ros2_learners/install/ai_assitance:/home/dmitrytorov/pass_course_part1/install/twist_converter:/home/dmitrytorov/pass_course_part1/install/my_two_wheel_robot:/home/dmitrytorov/pass_course_part1/install/my_path_publisher:/home/dmitrytorov/pass_course_part1/install/my_fake_lidar:/opt/ros/humble /usr/bin/cmake --install /home/dmitrytorov/tinker_ros2/build/tinker_gui
