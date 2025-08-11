@@ -11,6 +11,9 @@ from PyQt5.QtWidgets import (
     QLabel,
     QGroupBox,
     QScrollArea,
+    QSpinBox,
+    QDoubleSpinBox,
+    QCheckBox,
 )
 from PyQt5.QtCore import Qt, QTimer
 import rclpy
@@ -135,9 +138,10 @@ class SliderWindow(QWidget):
         self.setLayout(outer_layout)
 
         # Хранилища UI-элементов по моторам
-        self.motor_cmd_sliders: List[List[QSlider]] = []
+        self.motor_cmd_spinboxes: List[List[QDoubleSpinBox]] = []
         self.motor_cmd_data_labels: List[List[QLabel]] = []
-        self.motor_param_sliders: List[List[QSlider]] = []
+        self.motor_param_spinboxes: List[List[QDoubleSpinBox]] = []
+        self.motor_param_checkboxes: List[List[QCheckBox]] = []
         self.status_labels: List[dict] = []
         self.last_enable_state: List[bool] = [False] * MOTOR_COUNT
 
@@ -212,23 +216,33 @@ class SliderWindow(QWidget):
         cmd_box = QGroupBox('Commands')
         cmd_grid = QGridLayout(cmd_box)
         cmd_names = ['target_pos', 'target_vel', 'target_trq']
-        cmd_sliders: List[QSlider] = []
+        cmd_spinboxes: List[QDoubleSpinBox] = []
         cmd_data_labels: List[QLabel] = []
         for i, name in enumerate(cmd_names):
             label = QLabel(f'{name}: 0')
-            slider = QSlider(Qt.Horizontal)
-            slider.setMinimum(0)
-            slider.setMaximum(100)
-            slider.setValue(0)
-            slider.valueChanged.connect(lambda val, m=motor_index, lbl=label, n=name: self._on_cmd_change(m, lbl, n, val))
+            spinbox = QDoubleSpinBox()
+            if name == 'target_pos':
+                # Для target_pos используем пределы из URDF
+                lower, upper = self.pos_limits[motor_index]
+                spinbox.setMinimum(lower)
+                spinbox.setMaximum(upper)
+                spinbox.setValue(0.0)
+                spinbox.setDecimals(3)
+            else:
+                # Для velocity и torque используем разумные пределы
+                spinbox.setMinimum(-100.0)
+                spinbox.setMaximum(100.0)
+                spinbox.setValue(0.0)
+                spinbox.setDecimals(3)
+            spinbox.valueChanged.connect(lambda val, m=motor_index, lbl=label, n=name: self._on_cmd_change(m, lbl, n, val))
             data_lbl = QLabel('state: 0.0')
             data_lbl.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
             cmd_grid.addWidget(label, i, 0)
-            cmd_grid.addWidget(slider, i, 1)
+            cmd_grid.addWidget(spinbox, i, 1)
             cmd_grid.addWidget(data_lbl, i, 2)
-            cmd_sliders.append(slider)
+            cmd_spinboxes.append(spinbox)
             cmd_data_labels.append(data_lbl)
-        self.motor_cmd_sliders.append(cmd_sliders)
+        self.motor_cmd_spinboxes.append(cmd_spinboxes)
         self.motor_cmd_data_labels.append(cmd_data_labels)
         group_layout.addWidget(cmd_box)
 
@@ -243,58 +257,84 @@ class SliderWindow(QWidget):
         param_grid.addWidget(ready_lbl, 0, 2)
         self.status_labels.append({'connect': connect_lbl, 'motor_connected': motor_connected_lbl, 'ready': ready_lbl})
 
-        param_sliders: List[QSlider] = []
+        param_spinboxes: List[QDoubleSpinBox] = []
+        param_checkboxes: List[QCheckBox] = []
         for idx, field in enumerate(MOTOR_PARAM_FIELDS):
             row = (idx % 5) + 1
-            col = (idx // 5) * 2
-            label = QLabel(f'{field}: 0')
-            slider = QSlider(Qt.Horizontal)
+            col = (idx // 5) * 3  # Увеличиваем колонки для размещения галочек
+            label = QLabel(f'{field}:')
+            
             if field == 'id':
+                # ID - неизменяемое поле
+                spinbox = QDoubleSpinBox()
                 fixed_id = float(motor_index + 1)
-                slider.setMinimum(int(fixed_id))
-                slider.setMaximum(int(fixed_id))
-                slider.setValue(int(fixed_id))
-                slider.setEnabled(False)
+                spinbox.setMinimum(int(fixed_id))
+                spinbox.setMaximum(int(fixed_id))
+                spinbox.setValue(int(fixed_id))
+                spinbox.setEnabled(False)
                 label.setText(f'{field}: {int(fixed_id)}')
+                param_grid.addWidget(label, row, col)
+                param_grid.addWidget(spinbox, row, col + 1)
+                param_spinboxes.append(spinbox)
+                param_checkboxes.append(QCheckBox())  # Пустая галочка для ID
             elif field in {'enable', 'reset_zero', 'reset_error', 'acc_calibrate', 'gyro_calibrate', 'mag_calibrate'}:
-                slider.setMinimum(0)
-                slider.setMaximum(1)
-                slider.setValue(0)
-                slider.valueChanged.connect(lambda val, m=motor_index, lbl=label, f=field: self._on_param_change(m, lbl, f, val))
+                # Булевые поля - используем галочки
+                checkbox = QCheckBox(field)
+                checkbox.setChecked(False)
+                if field == 'enable':
+                    checkbox.stateChanged.connect(lambda state, m=motor_index: self._on_enable_checkbox_change(m, state))
+                param_grid.addWidget(checkbox, row, col, 1, 2)  # Занимаем 2 колонки
+                param_spinboxes.append(QDoubleSpinBox())  # Пустой spinbox для булевых полей
+                param_checkboxes.append(checkbox)
             else:
-                slider.setMinimum(0)
-                slider.setMaximum(100)
-                slider.setValue(0)
-                slider.valueChanged.connect(lambda val, m=motor_index, lbl=label, f=field: self._on_param_change(m, lbl, f, val))
-            param_grid.addWidget(label, row, col)
-            param_grid.addWidget(slider, row, col + 1)
-            param_sliders.append(slider)
-        self.motor_param_sliders.append(param_sliders)
+                # Числовые поля - используем spinbox
+                spinbox = QDoubleSpinBox()
+                if field in {'kp', 'kd'}:
+                    spinbox.setMinimum(0.0)
+                    spinbox.setMaximum(1000.0)
+                    spinbox.setDecimals(3)
+                else:
+                    spinbox.setMinimum(0.0)
+                    spinbox.setMaximum(100.0)
+                    spinbox.setDecimals(3)
+                spinbox.setValue(0.0)
+                spinbox.valueChanged.connect(lambda val, m=motor_index, lbl=label, f=field: self._on_param_change(m, lbl, f, val))
+                param_grid.addWidget(label, row, col)
+                param_grid.addWidget(spinbox, row, col + 1)
+                param_spinboxes.append(spinbox)
+                param_checkboxes.append(QCheckBox())  # Пустая галочка для числовых полей
+        self.motor_param_spinboxes.append(param_spinboxes)
+        self.motor_param_checkboxes.append(param_checkboxes)
         group_layout.addWidget(param_box)
 
         return group
 
     def _get_enable_state(self, motor_index: int) -> bool:
-        enable_slider = self.motor_param_sliders[motor_index][1]
-        return enable_slider.value() > 0.5
+        # enable находится на индексе 1 в MOTOR_PARAM_FIELDS
+        return self.motor_param_checkboxes[motor_index][1].isChecked()
 
-    def _map_slider_to_pos(self, motor_index: int, slider_value: int) -> float:
+    def _map_slider_to_pos(self, motor_index: int, value: float) -> float:
+        # Теперь value уже является реальным значением, просто проверяем пределы
         lower, upper = self.pos_limits[motor_index]
-        return float(lower + (upper - lower) * (slider_value / 100.0))
+        return max(lower, min(upper, value))
 
-    def _on_cmd_change(self, motor_index: int, label: QLabel, name: str, value: int):
+    def _on_cmd_change(self, motor_index: int, label: QLabel, name: str, value: float):
         if name == 'target_pos':
             pos = self._map_slider_to_pos(motor_index, value)
             label.setText(f'{name}: {pos:.3f}')
         else:
-            label.setText(f'{name}: {value}')
+            label.setText(f'{name}: {value:.3f}')
         self._publish_all()
 
-    def _on_param_change(self, motor_index: int, label: QLabel, field: str, value: int):
-        label.setText(f'{field}: {value}')
+    def _on_param_change(self, motor_index: int, label: QLabel, field: str, value: float):
+        label.setText(f'{field}: {value:.3f}')
         if field == 'enable':
             self._handle_enable_edge(motor_index)
         self._publish_all()
+
+    def _on_enable_checkbox_change(self, motor_index: int, state: int):
+        # Обрабатываем изменение галочки enable
+        self._handle_enable_edge(motor_index)
 
     def _handle_enable_edge(self, motor_index: int):
         current = self._get_enable_state(motor_index)
@@ -302,12 +342,16 @@ class SliderWindow(QWidget):
             return
         if not current:
             self._publish_motor_zero_once(motor_index)
-            for slider in self.motor_cmd_sliders[motor_index]:
-                slider.setValue(0)
-            for idx, slider in enumerate(self.motor_param_sliders[motor_index]):
+            for spinbox in self.motor_cmd_spinboxes[motor_index]:
+                spinbox.setValue(0.0)
+            for idx, spinbox in enumerate(self.motor_param_spinboxes[motor_index]):
                 if MOTOR_PARAM_FIELDS[idx] in {'enable', 'id'}:
                     continue
-                slider.setValue(0)
+                spinbox.setValue(0.0)
+            for idx, checkbox in enumerate(self.motor_param_checkboxes[motor_index]):
+                if MOTOR_PARAM_FIELDS[idx] in {'enable', 'id'}:
+                    continue
+                checkbox.setChecked(False)
         else:
             self._publish_all(force=True)
         self.last_enable_state[motor_index] = current
@@ -326,18 +370,30 @@ class SliderWindow(QWidget):
         pos_list = [0.0] * MOTOR_COUNT
         vel_list = [0.0] * MOTOR_COUNT
         trq_list = [0.0] * MOTOR_COUNT
+        
         for m in range(MOTOR_COUNT):
             if not self._get_enable_state(m):
                 continue
-            cmd_sliders = self.motor_cmd_sliders[m]
-            pos_list[m] = self._map_slider_to_pos(m, cmd_sliders[0].value())
-            vel_list[m] = float(cmd_sliders[1].value())
-            trq_list[m] = float(cmd_sliders[2].value())
+            cmd_spinboxes = self.motor_cmd_spinboxes[m]
+            pos_list[m] = self._map_slider_to_pos(m, cmd_spinboxes[0].value())
+            vel_list[m] = float(cmd_spinboxes[1].value())
+            trq_list[m] = float(cmd_spinboxes[2].value())
         return pos_list, vel_list, trq_list
 
     def _collect_motor_params(self, motor_index: int) -> List[float]:
-        sliders = self.motor_param_sliders[motor_index]
-        return [float(s.value()) for s in sliders]
+        spinboxes = self.motor_param_spinboxes[motor_index]
+        checkboxes = self.motor_param_checkboxes[motor_index]
+        result = []
+        
+        for i, field in enumerate(MOTOR_PARAM_FIELDS):
+            if field in {'enable', 'reset_zero', 'reset_error', 'acc_calibrate', 'gyro_calibrate', 'mag_calibrate'}:
+                # Для булевых полей используем галочки
+                result.append(1.0 if checkboxes[i].isChecked() else 0.0)
+            else:
+                # Для числовых полей используем spinbox
+                result.append(float(spinboxes[i].value()))
+        
+        return result
 
     def _publish_all(self, force: bool = False):
         pos_list, vel_list, trq_list = self._collect_joint_arrays()

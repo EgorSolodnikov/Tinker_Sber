@@ -47,7 +47,7 @@ COLCON_CURRENT_PREFIX="/home/dmitrytorov/turtlebot3_ws/install"
 _colcon_prefix_chain_sh_source_script "$COLCON_CURRENT_PREFIX/local_setup.sh"
 
 # setting COLCON_CURRENT_PREFIX avoids relying on the build time prefix of the sourced script
-COLCON_CURRENT_PREFIX="/home/dmitrytorov/motors/install"
+COLCON_CURRENT_PREFIX="/home/dmitrytorov/ros2_hd_mmRadar/install"
 _colcon_prefix_chain_sh_source_script "$COLCON_CURRENT_PREFIX/local_setup.sh"
 
 
