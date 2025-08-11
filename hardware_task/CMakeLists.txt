@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 3.10)
 SET(PROJECT_NAME hardware_task_log)
 PROJECT(${PROJECT_NAME})
 
@@ -9,7 +9,7 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/../build)
 include_directories( 
      "./build"
      "./include"
-     "./serial/include"
+     "./library/serial/include"
      "/usr/local/include"
      
 )
@@ -20,10 +20,10 @@ ADD_EXECUTABLE(${PROJECT_NAME} ${DIR_SRCS})
 
 #target_link_libraries(${PROJECT_NAME} wiringPi)
 
-add_subdirectory(serial output EXCLUDE_FROM_ALL)
+add_subdirectory(library/serial output EXCLUDE_FROM_ALL)
 target_link_libraries(${PROJECT_NAME} serial)
 
-add_subdirectory(yaml-cpp lib/ EXCLUDE_FROM_ALL)
+add_subdirectory(library/yaml-cpp lib/ EXCLUDE_FROM_ALL)
 target_link_libraries(${PROJECT_NAME} yaml-cpp)
 
 
