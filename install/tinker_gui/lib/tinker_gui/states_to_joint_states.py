@@ -1,1 +1,0 @@
-/home/dmitrytorov/tinker_ros2/src/tinker_gui/src/states_to_joint_states.py

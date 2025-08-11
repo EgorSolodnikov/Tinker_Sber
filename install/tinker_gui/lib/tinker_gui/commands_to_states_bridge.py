@@ -1,1 +1,0 @@
-/home/dmitrytorov/tinker_ros2/src/tinker_gui/src/commands_to_states_bridge.py

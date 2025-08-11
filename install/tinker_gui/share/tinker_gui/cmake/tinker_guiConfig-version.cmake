@@ -1,1 +1,0 @@
-/home/dmitrytorov/tinker_ros2/build/tinker_gui/ament_cmake_core/tinker_guiConfig-version.cmake

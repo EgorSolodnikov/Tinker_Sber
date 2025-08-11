@@ -1,1 +1,0 @@
-/home/dmitrytorov/tinker_ros2/src/tinker/launch/description.launch.py

@@ -1,1 +1,0 @@
-/home/dmitrytorov/tinker_ros2/build/tinker/ament_cmake_core/tinkerConfig.cmake

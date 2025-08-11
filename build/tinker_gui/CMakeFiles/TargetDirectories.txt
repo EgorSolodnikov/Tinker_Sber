@@ -1,9 +1,0 @@
-/home/dmitrytorov/tinker_ros2/build/tinker_gui/CMakeFiles/uninstall.dir
-/home/dmitrytorov/tinker_ros2/build/tinker_gui/CMakeFiles/tinker_gui_uninstall.dir
-/home/dmitrytorov/tinker_ros2/build/tinker_gui/CMakeFiles/test.dir
-/home/dmitrytorov/tinker_ros2/build/tinker_gui/CMakeFiles/edit_cache.dir
-/home/dmitrytorov/tinker_ros2/build/tinker_gui/CMakeFiles/rebuild_cache.dir
-/home/dmitrytorov/tinker_ros2/build/tinker_gui/CMakeFiles/list_install_components.dir
-/home/dmitrytorov/tinker_ros2/build/tinker_gui/CMakeFiles/install.dir
-/home/dmitrytorov/tinker_ros2/build/tinker_gui/CMakeFiles/install/local.dir
-/home/dmitrytorov/tinker_ros2/build/tinker_gui/CMakeFiles/install/strip.dir
