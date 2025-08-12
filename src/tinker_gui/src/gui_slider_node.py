@@ -19,7 +19,9 @@ from PyQt5.QtCore import Qt, QTimer
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Float32MultiArray
-from sensor_msgs.msg import JointState, Imu
+from sensor_msgs.msg import JointState
+from geometry_msgs.msg import Vector3
+from std_msgs.msg import UInt8MultiArray, Float32
 from ament_index_python.packages import get_package_share_directory
 import os
 import xml.etree.ElementTree as ET
@@ -41,8 +43,7 @@ JOINT_NAMES_10 = [
 # Порядок полей для /motors/commands/motor_N
 MOTOR_PARAM_FIELDS = [
     'id', 'enable', 'reset_zero', 'reset_error',
-    'acc_calibrate', 'gyro_calibrate', 'mag_calibrate',
-    'beep_state', 'kp', 'kd'
+    'kp', 'kd'
 ]
 
 class MotorSliderNode(Node):
@@ -72,10 +73,13 @@ class MotorSliderNode(Node):
                 10,
             )
 
-        # Подписка на IMU
-        self.imu_ang = [0.0, 0.0, 0.0]
-        self.imu_acc = [0.0, 0.0, 0.0]
-        self.create_subscription(Imu, '/imu', self._imu_cb, 10)
+        # Подписка на IMU data (pitch, roll, yaw)
+        self.imu_pry = [0.0, 0.0, 0.0]
+        self.create_subscription(Vector3, '/imu/data', self._imu_cb, 10)
+
+        # Паблишеры IMU и Control Board команд
+        self.imu_cmd_pub = self.create_publisher(UInt8MultiArray, '/imu/commands', 10)
+        self.cb_cmd_pub = self.create_publisher(Float32, '/control_board/commands', 10)
 
     def _states_cb(self, msg: JointState) -> None:
         n = min(MOTOR_COUNT, len(msg.position), len(msg.velocity), len(msg.effort))
@@ -89,17 +93,8 @@ class MotorSliderNode(Node):
         if len(data) >= 4:
             self.motor_status[idx] = [float(data[0]), float(data[1]), float(data[2]), float(data[3])]
 
-    def _imu_cb(self, msg: Imu) -> None:
-        self.imu_ang = [
-            float(msg.angular_velocity.x),
-            float(msg.angular_velocity.y),
-            float(msg.angular_velocity.z),
-        ]
-        self.imu_acc = [
-            float(msg.linear_acceleration.x),
-            float(msg.linear_acceleration.y),
-            float(msg.linear_acceleration.z),
-        ]
+    def _imu_cb(self, msg: Vector3) -> None:
+        self.imu_pry = [float(msg.x), float(msg.y), float(msg.z)]
 
     def publish_joint_commands(self, pos_list: List[float], vel_list: List[float], trq_list: List[float]):
         msg = JointState()
@@ -144,25 +139,35 @@ class SliderWindow(QWidget):
         self.motor_param_checkboxes: List[List[QCheckBox]] = []
         self.status_labels: List[dict] = []
         self.last_enable_state: List[bool] = [False] * MOTOR_COUNT
+        # Отдельные элементы UI для IMU команд и beep_state
+        self.chk_acc_cal = QCheckBox('acc_calibrate')
+        self.chk_mag_cal = QCheckBox('mag_calibrate')
+        self.chk_gyro_cal = QCheckBox('gyro_calibrate')
+        self.beep_state_spin = QDoubleSpinBox(); self.beep_state_spin.setRange(0.0, 1000.0); self.beep_state_spin.setDecimals(3)
 
         # Блок IMU в первой строке
         imu_group = QGroupBox('IMU')
         imu_layout = QGridLayout(imu_group)
         self.imu_labels = {
-            'ang_x': QLabel('ang_x: 0.000'),
-            'ang_y': QLabel('ang_y: 0.000'),
-            'ang_z': QLabel('ang_z: 0.000'),
-            'acc_x': QLabel('acc_x: 0.000'),
-            'acc_y': QLabel('acc_y: 0.000'),
-            'acc_z': QLabel('acc_z: 0.000'),
+            'pitch': QLabel('pitch: 0.000'),
+            'roll': QLabel('roll: 0.000'),
+            'yaw': QLabel('yaw: 0.000'),
         }
-        imu_layout.addWidget(self.imu_labels['ang_x'], 0, 0)
-        imu_layout.addWidget(self.imu_labels['ang_y'], 0, 1)
-        imu_layout.addWidget(self.imu_labels['ang_z'], 0, 2)
-        imu_layout.addWidget(self.imu_labels['acc_x'], 1, 0)
-        imu_layout.addWidget(self.imu_labels['acc_y'], 1, 1)
-        imu_layout.addWidget(self.imu_labels['acc_z'], 1, 2)
-        self.grid.addWidget(imu_group, 0, 0, 1, 2)
+        imu_layout.addWidget(self.imu_labels['pitch'], 0, 0)
+        imu_layout.addWidget(self.imu_labels['roll'], 0, 1)
+        imu_layout.addWidget(self.imu_labels['yaw'], 0, 2)
+        # Команды IMU (калибровки)
+        imu_layout.addWidget(self.chk_acc_cal, 1, 0)
+        imu_layout.addWidget(self.chk_mag_cal, 1, 1)
+        imu_layout.addWidget(self.chk_gyro_cal, 1, 2)
+        self.grid.addWidget(imu_group, 0, 0)
+
+        # Блок Control Board (справа от IMU)
+        cb_group = QGroupBox('Control Board')
+        cb_layout = QGridLayout(cb_group)
+        cb_layout.addWidget(QLabel('beep_state'), 0, 0)
+        cb_layout.addWidget(self.beep_state_spin, 0, 1)
+        self.grid.addWidget(cb_group, 0, 1)
 
         # Создаём группы моторов и раскладываем по колонкам, начиная со 2-й строки
         columns = 2
@@ -260,8 +265,8 @@ class SliderWindow(QWidget):
         param_spinboxes: List[QDoubleSpinBox] = []
         param_checkboxes: List[QCheckBox] = []
         for idx, field in enumerate(MOTOR_PARAM_FIELDS):
-            row = (idx % 5) + 1
-            col = (idx // 5) * 3  # Увеличиваем колонки для размещения галочек
+            row = idx + 1
+            col = 0
             label = QLabel(f'{field}:')
             
             if field == 'id':
@@ -277,7 +282,7 @@ class SliderWindow(QWidget):
                 param_grid.addWidget(spinbox, row, col + 1)
                 param_spinboxes.append(spinbox)
                 param_checkboxes.append(QCheckBox())  # Пустая галочка для ID
-            elif field in {'enable', 'reset_zero', 'reset_error', 'acc_calibrate', 'gyro_calibrate', 'mag_calibrate'}:
+            elif field in {'enable', 'reset_zero', 'reset_error'}:
                 # Булевые поля - используем галочки
                 checkbox = QCheckBox(field)
                 checkbox.setChecked(False)
@@ -386,7 +391,7 @@ class SliderWindow(QWidget):
         result = []
         
         for i, field in enumerate(MOTOR_PARAM_FIELDS):
-            if field in {'enable', 'reset_zero', 'reset_error', 'acc_calibrate', 'gyro_calibrate', 'mag_calibrate'}:
+            if field in {'enable', 'reset_zero', 'reset_error'}:
                 # Для булевых полей используем галочки
                 result.append(1.0 if checkboxes[i].isChecked() else 0.0)
             else:
@@ -418,10 +423,30 @@ class SliderWindow(QWidget):
                 self.status_labels[m]['connect'].setText(f'connect: {int(st[1])}')
                 self.status_labels[m]['motor_connected'].setText(f'motor_connected: {int(st[2])}')
                 self.status_labels[m]['ready'].setText(f'ready: {int(st[3])}')
+        # Обновить IMU PRY
+        self.imu_labels['pitch'].setText(f'pitch: {self.ros_node.imu_pry[0]:.3f}')
+        self.imu_labels['roll'].setText(f'roll: {self.ros_node.imu_pry[1]:.3f}')
+        self.imu_labels['yaw'].setText(f'yaw: {self.ros_node.imu_pry[2]:.3f}')
 
     def _on_timer(self):
         self._publish_all()
         self._update_state_labels()
+
+        # Публикация IMU/Control Board команд по таймеру
+        self._publish_aux_commands()
+
+    def _publish_aux_commands(self):
+        # /imu/commands: три числа 0/1: [acc, mag, gyro]
+        imu_msg = UInt8MultiArray()
+        acc = 1 if self.chk_acc_cal.isChecked() else 0
+        mag = 1 if self.chk_mag_cal.isChecked() else 0
+        gyro = 1 if self.chk_gyro_cal.isChecked() else 0
+        imu_msg.data = [acc, mag, gyro]
+        self.ros_node.imu_cmd_pub.publish(imu_msg)
+        # /control_board/commands: одиночный float
+        cb_msg = Float32()
+        cb_msg.data = float(self.beep_state_spin.value())
+        self.ros_node.cb_cmd_pub.publish(cb_msg)
 
 
 def main(args=None):

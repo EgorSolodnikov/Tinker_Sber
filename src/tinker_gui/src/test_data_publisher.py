@@ -7,9 +7,10 @@ import rclpy
 from rclpy.node import Node
 
 from std_msgs.msg import Float32MultiArray
-from sensor_msgs.msg import JointState, Imu
+from sensor_msgs.msg import JointState
+from geometry_msgs.msg import Vector3
 
-MOTOR_COUNT = 5
+MOTOR_COUNT = 10
 
 class FakeStatesPublisher(Node):
     def __init__(self) -> None:
@@ -24,8 +25,8 @@ class FakeStatesPublisher(Node):
             for i in range(MOTOR_COUNT)
         ]
 
-        # IMU publisher
-        self.imu_pub = self.create_publisher(Imu, '/imu', 10)
+        # IMU publisher -> /imu/data (Vector3: x=pitch, y=roll, z=yaw)
+        self.imu_pub = self.create_publisher(Vector3, '/imu/data', 10)
 
         # Timers
         self.create_timer(0.10, self.publish_aggregate_states)   # 10 Hz
@@ -60,20 +61,12 @@ class FakeStatesPublisher(Node):
             self.motor_state_pubs[i].publish(msg)
 
     def publish_imu(self) -> None:
-        # Simple synthetic IMU data
-        t = self.t
-        imu = Imu()
-        # Orientation (no valid orientation -> keep zeros, covariance -1 to indicate unknown)
-        imu.orientation_covariance[0] = -1.0
-        # Angular velocity (rad/s)
-        imu.angular_velocity.x = 0.1 * math.sin(0.7 * t)
-        imu.angular_velocity.y = 0.1 * math.cos(0.5 * t)
-        imu.angular_velocity.z = 0.1 * math.sin(0.9 * t)
-        # Linear acceleration (m/s^2)
-        imu.linear_acceleration.x = 0.5 * math.sin(0.4 * t)
-        imu.linear_acceleration.y = 0.5 * math.cos(0.6 * t)
-        imu.linear_acceleration.z = 9.81 + 0.2 * math.sin(0.8 * t)
-        self.imu_pub.publish(imu)
+        # Random IMU PRY values
+        msg = Vector3()
+        msg.x = float(random.uniform(-3.14, 3.14))  # pitch
+        msg.y = float(random.uniform(-3.14, 3.14))  # roll
+        msg.z = float(random.uniform(-3.14, 3.14))  # yaw
+        self.imu_pub.publish(msg)
 
 
 def main(args=None):
