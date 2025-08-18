@@ -52,3 +52,12 @@ ros2 launch tinker_gui gui_system.launch.py
 
 ![Tinker GUI в работе](/img/tinker_gui.png)
 
+## `tinker_mujoco` :
+
+`tinker_absolute.urdf` - модель робота с абсолютными ссылками на меши
+
+С помощью конвертера `urdf2mjcf` можно сразу создать xml файл для запуска в симуляторе mujoco. Инструкция: https://docs.kscale.dev/docs/urdf2mjcf 
+
+
+После этого при запуске модели в симуляторе может возникнуть проблема с тем, что 
+
