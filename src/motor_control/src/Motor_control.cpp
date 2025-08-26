@@ -105,7 +105,7 @@ int usb_rx_cnt = 0;
 uint8_t tx[SPI_BUF_SIZE] = {};
 uint8_t rx[ARRAY_SIZE(tx)] = {};
 
-// Вспомогательные функции сериализации 
+// Вспомогательные функции сериализации (без изменений)
 static void setDataInt_spi(int i)
 {
     spi_tx_buf[spi_tx_cnt++] = ((i << 24) >> 24);
@@ -364,7 +364,7 @@ private:
     rclcpp::Publisher<hardware_msg::msg::MotorsCommands>::SharedPtr motors_cmd_pub_;
     std::vector<std::string> joint_names_;
 
-    // Защищённые данные
+    // Защищённые данные — теперь ВСЕ внутри класса
     _SPI_TX spi_tx_;
     _SPI_RX spi_rx_;
     _MEMS mems_;
@@ -600,6 +600,7 @@ private:
 int main(int argc, char **argv)
 {
     rclcpp::init(argc, argv);
+    // Рекомендуется использовать MultiThreadedExecutor, если планируете расширение
     rclcpp::spin(std::make_shared<Motor_control>());
     rclcpp::shutdown();
     return 0;
