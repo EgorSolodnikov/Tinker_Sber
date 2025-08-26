@@ -503,8 +503,6 @@ public:
     // Timer: publish default messages at 5 Hz
     using namespace std::chrono_literals;
     timer_ = this->create_wall_timer(1ms, std::bind(&Motor_control::on_timer, this));
-
-    
   }
 
 private:
@@ -547,7 +545,27 @@ private:
     spi_tx.reset_q= msg->reset_zero;
     spi_tx.reset_err= msg->reset_error;
    }
+
+   
   void on_timer() {
+
+    static int counter = 0;
+    static auto last_time = this->now();
+    
+    transfer(1, 45);
+    
+    counter++;
+    if (counter % 1000 == 0) { // Каждую секунду
+        auto now = this->now();
+        auto dt = (now - last_time).seconds();
+        RCLCPP_INFO(this->get_logger(), "SPI frequency: %.1f Hz", 1000.0 / dt);
+        last_time = now;
+        
+        // Логируем команды
+        RCLCPP_INFO(this->get_logger(), "Motor command: pos=%.3f, vel=%.3f, trq=%.3f", 
+                   spi_tx.q_set[MOTOR_ID], spi_tx.dq_set[MOTOR_ID], spi_tx.tau_ff[MOTOR_ID]);
+    }
+
     transfer(1, 45);
     hardware_msg::msg::Imu imu_msg;
       imu_msg.roll = spi_rx.att[0];
@@ -602,5 +620,3 @@ int main(int argc, char ** argv) {
   rclcpp::shutdown();
   return 0;
 }
-
-

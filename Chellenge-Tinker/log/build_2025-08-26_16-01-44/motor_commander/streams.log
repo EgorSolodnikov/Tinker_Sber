@@ -1,0 +1,34 @@
+[3.131s] Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/motor_commander': CMAKE_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control PYTHONPATH=/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/motor_commander build --build-base /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/build install --record /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/install.log --single-version-externally-managed install_data
+[4.098s] running egg_info
+[4.100s] creating ../build/motor_commander/motor_commander.egg-info
+[4.101s] writing ../build/motor_commander/motor_commander.egg-info/PKG-INFO
+[4.102s] writing dependency_links to ../build/motor_commander/motor_commander.egg-info/dependency_links.txt
+[4.103s] writing entry points to ../build/motor_commander/motor_commander.egg-info/entry_points.txt
+[4.103s] writing requirements to ../build/motor_commander/motor_commander.egg-info/requires.txt
+[4.104s] writing top-level names to ../build/motor_commander/motor_commander.egg-info/top_level.txt
+[4.105s] writing manifest file '../build/motor_commander/motor_commander.egg-info/SOURCES.txt'
+[4.111s] reading manifest file '../build/motor_commander/motor_commander.egg-info/SOURCES.txt'
+[4.115s] writing manifest file '../build/motor_commander/motor_commander.egg-info/SOURCES.txt'
+[4.116s] running build
+[4.116s] running build_py
+[4.117s] creating /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/build
+[4.118s] creating /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/build/lib
+[4.119s] creating /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/build/lib/motor_commander
+[4.119s] copying motor_commander/__init__.py -> /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/build/lib/motor_commander
+[4.120s] copying motor_commander/motor_commander.py -> /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/build/lib/motor_commander
+[4.120s] running install
+[4.121s] running install_lib
+[4.124s] creating /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/lib/python3.10/site-packages/motor_commander
+[4.125s] copying /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/build/lib/motor_commander/__init__.py -> /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/lib/python3.10/site-packages/motor_commander
+[4.125s] copying /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/build/lib/motor_commander/motor_commander.py -> /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/lib/python3.10/site-packages/motor_commander
+[4.128s] byte-compiling /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/lib/python3.10/site-packages/motor_commander/__init__.py to __init__.cpython-310.pyc
+[4.130s] byte-compiling /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/lib/python3.10/site-packages/motor_commander/motor_commander.py to motor_commander.cpython-310.pyc
+[4.132s] running install_data
+[4.133s] copying resource/motor_commander -> /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/ament_index/resource_index/packages
+[4.134s] copying package.xml -> /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander
+[4.135s] running install_egg_info
+[4.142s] Copying ../build/motor_commander/motor_commander.egg-info to /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/lib/python3.10/site-packages/motor_commander-0.0.0-py3.10.egg-info
+[4.147s] running install_scripts
+[4.225s] Installing motor_commander script to /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/lib/motor_commander
+[4.227s] writing list of installed files to '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/install.log'
+[4.340s] Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/motor_commander' returned '0': CMAKE_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control PYTHONPATH=/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/motor_commander build --build-base /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/build install --record /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/install.log --single-version-externally-managed install_data

@@ -1,0 +1,36 @@
+{
+  "package_name": "hardware_msg",
+  "output_dir": "/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/rosidl_generator_c/hardware_msg",
+  "template_dir": "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource",
+  "idl_tuples": [
+    "/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/rosidl_adapter/hardware_msg:msg/BoardParameters.idl",
+    "/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/rosidl_adapter/hardware_msg:msg/ImuParameters.idl",
+    "/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/rosidl_adapter/hardware_msg:msg/MotorParameters.idl",
+    "/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/rosidl_adapter/hardware_msg:msg/MotorsStates.idl",
+    "/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/rosidl_adapter/hardware_msg:msg/Imu.idl",
+    "/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/rosidl_adapter/hardware_msg:msg/MotorData.idl",
+    "/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/rosidl_adapter/hardware_msg:msg/MotorsCommands.idl"
+  ],
+  "target_dependencies": [
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../../../lib/rosidl_generator_c/rosidl_generator_c",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../../../local/lib/python3.10/dist-packages/rosidl_generator_c/__init__.py",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/action__type_support.h.em",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/idl.h.em",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/idl__functions.c.em",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/idl__functions.h.em",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/idl__struct.h.em",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/idl__type_support.h.em",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/msg__functions.c.em",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/msg__functions.h.em",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/msg__struct.h.em",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/msg__type_support.h.em",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/srv__type_support.h.em",
+    "/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/rosidl_adapter/hardware_msg/msg/BoardParameters.idl",
+    "/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/rosidl_adapter/hardware_msg/msg/ImuParameters.idl",
+    "/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/rosidl_adapter/hardware_msg/msg/MotorParameters.idl",
+    "/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/rosidl_adapter/hardware_msg/msg/MotorsStates.idl",
+    "/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/rosidl_adapter/hardware_msg/msg/Imu.idl",
+    "/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/rosidl_adapter/hardware_msg/msg/MotorData.idl",
+    "/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/rosidl_adapter/hardware_msg/msg/MotorsCommands.idl"
+  ]
+}

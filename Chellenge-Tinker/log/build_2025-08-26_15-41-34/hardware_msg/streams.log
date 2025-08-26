@@ -1,0 +1,33 @@
+[0.065s] Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg': /usr/bin/cmake /home/pi/Tinker_Sber/Chellenge-Tinker/hardware_msg -DCMAKE_INSTALL_PREFIX=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg
+[1.176s] -- The C compiler identification is GNU 11.4.0
+[1.966s] -- The CXX compiler identification is GNU 11.4.0
+[2.012s] -- Detecting C compiler ABI info
+[2.416s] -- Detecting C compiler ABI info - done
+[2.445s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.447s] -- Detecting C compile features
+[2.451s] -- Detecting C compile features - done
+[2.466s] -- Detecting CXX compiler ABI info
+[2.850s] -- Detecting CXX compiler ABI info - done
+[2.879s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[2.881s] -- Detecting CXX compile features
+[2.883s] -- Detecting CXX compile features - done
+[2.949s] [31mCMake Error at CMakeLists.txt:4 (find_package):
+[2.949s]   By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project
+[2.949s]   has asked CMake to find a package configuration file provided by
+[2.950s]   "ament_cmake", but CMake did not find one.
+[2.950s] 
+[2.951s]   Could not find a package configuration file provided by "ament_cmake" with
+[2.952s]   any of the following names:
+[2.952s] 
+[2.953s]     ament_cmakeConfig.cmake
+[2.954s]     ament_cmake-config.cmake
+[2.955s] 
+[2.956s]   Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set
+[2.957s]   "ament_cmake_DIR" to a directory containing one of the above files.  If
+[2.957s]   "ament_cmake" provides a separate development package or SDK, be sure it
+[2.957s]   has been installed.
+[2.958s] 
+[2.958s] [0m
+[2.958s] -- Configuring incomplete, errors occurred!
+[2.959s] See also "/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/CMakeFiles/CMakeOutput.log".
+[2.963s] Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg' returned '1': /usr/bin/cmake /home/pi/Tinker_Sber/Chellenge-Tinker/hardware_msg -DCMAKE_INSTALL_PREFIX=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg

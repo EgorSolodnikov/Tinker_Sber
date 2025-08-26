@@ -1,0 +1,420 @@
+[0.056s] Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg': CMAKE_PREFIX_PATH=/opt/ros/humble:/opt/ros/rolling /usr/bin/cmake /home/pi/Tinker_Sber/Chellenge-Tinker/hardware_msg -DCMAKE_INSTALL_PREFIX=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg
+[0.140s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.013s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.628s] -- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+[2.034s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[2.076s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[2.142s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[2.237s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.360s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.700s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[2.726s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[3.235s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[3.361s] -- Found FastRTPS: /opt/ros/humble/include  
+[3.559s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[3.627s] -- Looking for pthread.h
+[3.997s] -- Looking for pthread.h - found
+[3.998s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[4.354s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[4.358s] -- Found Threads: TRUE  
+[4.683s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[5.964s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[7.398s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[7.928s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[8.032s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[8.047s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[8.171s] -- Found PythonLibs: /usr/lib/aarch64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[8.172s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[8.172s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[8.173s] -- Using PYTHON_LIBRARIES: /usr/lib/aarch64-linux-gnu/libpython3.10.so
+[8.267s] -- Found PythonExtra: .so  
+[8.478s] -- Configuring done
+[8.702s] -- Generating done
+[8.748s] -- Build files have been written to: /home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg
+[8.784s] Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:/opt/ros/rolling /usr/bin/cmake /home/pi/Tinker_Sber/Chellenge-Tinker/hardware_msg -DCMAKE_INSTALL_PREFIX=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg
+[8.792s] Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg': CMAKE_PREFIX_PATH=/opt/ros/humble:/opt/ros/rolling /usr/bin/cmake --build /home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg -- -j4 -l4
+[8.899s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[9.507s] -- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+[9.638s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[9.650s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[9.674s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[9.713s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[9.762s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[9.889s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[9.895s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[10.360s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[10.547s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[11.757s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[13.099s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[13.624s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[13.726s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[13.831s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[13.832s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[13.832s] -- Using PYTHON_LIBRARIES: /usr/lib/aarch64-linux-gnu/libpython3.10.so
+[13.906s] -- Configuring done
+[14.131s] -- Generating done
+[14.184s] -- Build files have been written to: /home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg
+[14.299s] [  1%] [34m[1mGenerating C code for ROS interfaces[0m
+[14.345s] [  2%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[14.382s] [  2%] Built target ament_cmake_python_copy_hardware_msg
+[15.669s] running egg_info
+[15.672s] creating hardware_msg.egg-info
+[15.674s] writing hardware_msg.egg-info/PKG-INFO
+[15.678s] writing dependency_links to hardware_msg.egg-info/dependency_links.txt
+[15.678s] writing top-level names to hardware_msg.egg-info/top_level.txt
+[15.683s] writing manifest file 'hardware_msg.egg-info/SOURCES.txt'
+[15.688s] reading manifest file 'hardware_msg.egg-info/SOURCES.txt'
+[15.690s] writing manifest file 'hardware_msg.egg-info/SOURCES.txt'
+[15.844s] [  2%] Built target ament_cmake_python_build_hardware_msg_egg
+[17.186s] [  2%] Built target hardware_msg__cpp
+[17.234s] [  3%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[17.263s] [  5%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[17.347s] [  6%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[17.735s] [  7%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/board_parameters__functions.c.o[0m
+[18.103s] [  8%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/imu_parameters__functions.c.o[0m
+[18.361s] [ 10%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/motor_parameters__functions.c.o[0m
+[18.623s] [ 11%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/motors_states__functions.c.o[0m
+[18.899s] [ 12%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/imu__functions.c.o[0m
+[19.182s] [ 13%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/motor_data__functions.c.o[0m
+[19.217s] [ 15%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hardware_msg/msg/board_parameters__type_support.cpp.o[0m
+[19.486s] [ 16%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/motors_commands__functions.c.o[0m
+[19.779s] [ 17%] [32m[1mLinking C shared library libhardware_msg__rosidl_generator_c.so[0m
+[19.909s] [ 18%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hardware_msg/msg/detail/board_parameters__type_support.cpp.o[0m
+[20.041s] [ 18%] Built target hardware_msg__rosidl_generator_c
+[20.081s] [ 20%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hardware_msg/msg/detail/imu_parameters__type_support.cpp.o[0m
+[20.248s] [ 21%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/board_parameters__type_support.cpp.o[0m
+[21.140s] [ 22%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hardware_msg/msg/imu_parameters__type_support.cpp.o[0m
+[22.366s] [ 24%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hardware_msg/msg/detail/motor_parameters__type_support.cpp.o[0m
+[22.689s] [ 25%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hardware_msg/msg/detail/motors_states__type_support.cpp.o[0m
+[22.883s] [ 26%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hardware_msg/msg/motor_parameters__type_support.cpp.o[0m
+[23.010s] [ 27%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/imu_parameters__type_support.cpp.o[0m
+[24.536s] [ 29%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hardware_msg/msg/motors_states__type_support.cpp.o[0m
+[24.814s] [ 30%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hardware_msg/msg/detail/imu__type_support.cpp.o[0m
+[25.098s] [ 31%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hardware_msg/msg/detail/motor_data__type_support.cpp.o[0m
+[25.623s] [ 32%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/motor_parameters__type_support.cpp.o[0m
+[26.185s] [ 34%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hardware_msg/msg/imu__type_support.cpp.o[0m
+[27.293s] [ 35%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hardware_msg/msg/motor_data__type_support.cpp.o[0m
+[27.670s] [ 36%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hardware_msg/msg/detail/motors_commands__type_support.cpp.o[0m
+[27.897s] [ 37%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hardware_msg/msg/motors_commands__type_support.cpp.o[0m
+[28.430s] [ 39%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/motors_states__type_support.cpp.o[0m
+[29.023s] [ 40%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/imu__type_support.cpp.o[0m
+[29.623s] [ 41%] [32m[1mLinking CXX shared library libhardware_msg__rosidl_typesupport_cpp.so[0m
+[29.912s] [ 41%] Built target hardware_msg__rosidl_typesupport_cpp
+[29.959s] [ 43%] [32m[1mLinking CXX shared library libhardware_msg__rosidl_typesupport_introspection_cpp.so[0m
+[29.965s] [ 44%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/motor_data__type_support.cpp.o[0m
+[30.244s] [ 44%] Built target hardware_msg__rosidl_typesupport_introspection_cpp
+[30.302s] [ 45%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[31.165s] [ 46%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/motors_commands__type_support.cpp.o[0m
+[31.692s] [ 48%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[32.505s] [ 49%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[33.689s] [ 50%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hardware_msg/msg/detail/board_parameters__type_support_c.cpp.o[0m
+[33.767s] [ 51%] [32m[1mLinking CXX shared library libhardware_msg__rosidl_typesupport_fastrtps_cpp.so[0m
+[34.190s] [ 51%] Built target hardware_msg__rosidl_typesupport_fastrtps_cpp
+[34.280s] [ 53%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hardware_msg/msg/detail/imu_parameters__type_support_c.cpp.o[0m
+[34.650s] [ 54%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/hardware_msg/msg/board_parameters__type_support.cpp.o[0m
+[34.714s] [ 55%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hardware_msg/msg/detail/board_parameters__type_support.c.o[0m
+[34.889s] [ 56%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/hardware_msg/msg/imu_parameters__type_support.cpp.o[0m
+[34.928s] [ 58%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hardware_msg/msg/detail/imu_parameters__type_support.c.o[0m
+[35.085s] [ 59%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/hardware_msg/msg/motor_parameters__type_support.cpp.o[0m
+[35.134s] [ 60%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hardware_msg/msg/detail/motor_parameters__type_support.c.o[0m
+[35.275s] [ 62%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/hardware_msg/msg/motors_states__type_support.cpp.o[0m
+[35.348s] [ 63%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hardware_msg/msg/detail/motors_states__type_support.c.o[0m
+[35.462s] [ 64%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/hardware_msg/msg/imu__type_support.cpp.o[0m
+[35.555s] [ 65%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hardware_msg/msg/detail/imu__type_support.c.o[0m
+[35.661s] [ 67%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/hardware_msg/msg/motor_data__type_support.cpp.o[0m
+[35.771s] [ 68%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hardware_msg/msg/detail/motor_data__type_support.c.o[0m
+[35.897s] [ 69%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/hardware_msg/msg/motors_commands__type_support.cpp.o[0m
+[36.059s] [ 70%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hardware_msg/msg/detail/motor_parameters__type_support_c.cpp.o[0m
+[36.063s] [ 72%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hardware_msg/msg/detail/motors_commands__type_support.c.o[0m
+[36.097s] [ 73%] [32m[1mLinking CXX shared library libhardware_msg__rosidl_typesupport_c.so[0m
+[36.268s] [ 74%] [32m[1mLinking C shared library libhardware_msg__rosidl_typesupport_introspection_c.so[0m
+[36.402s] [ 74%] Built target hardware_msg__rosidl_typesupport_c
+[36.442s] [ 75%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hardware_msg/msg/detail/motors_states__type_support_c.cpp.o[0m
+[36.463s] [ 77%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hardware_msg/msg/detail/imu__type_support_c.cpp.o[0m
+[36.517s] [ 77%] Built target hardware_msg__rosidl_typesupport_introspection_c
+[36.561s] [ 78%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hardware_msg/msg/detail/motor_data__type_support_c.cpp.o[0m
+[38.208s] [ 79%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hardware_msg/msg/detail/motors_commands__type_support_c.cpp.o[0m
+[39.676s] [ 81%] [32m[1mLinking CXX shared library libhardware_msg__rosidl_typesupport_fastrtps_c.so[0m
+[40.020s] [ 81%] Built target hardware_msg__rosidl_typesupport_fastrtps_c
+[40.105s] [ 81%] Built target hardware_msg
+[40.191s] [ 82%] [34m[1mGenerating Python code for ROS interfaces[0m
+[43.443s] [ 82%] Built target hardware_msg__py
+[43.535s] [ 84%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_py.dir/rosidl_generator_py/hardware_msg/msg/_board_parameters_s.c.o[0m
+[43.537s] [ 84%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_py.dir/rosidl_generator_py/hardware_msg/msg/_imu_parameters_s.c.o[0m
+[43.540s] [ 86%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_py.dir/rosidl_generator_py/hardware_msg/msg/_motor_parameters_s.c.o[0m
+[43.543s] [ 87%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_py.dir/rosidl_generator_py/hardware_msg/msg/_motors_states_s.c.o[0m
+[44.205s] [ 88%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_py.dir/rosidl_generator_py/hardware_msg/msg/_imu_s.c.o[0m
+[44.214s] [ 89%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_py.dir/rosidl_generator_py/hardware_msg/msg/_motor_data_s.c.o[0m
+[44.217s] [ 91%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_py.dir/rosidl_generator_py/hardware_msg/msg/_motors_commands_s.c.o[0m
+[44.709s] [ 92%] [32m[1mLinking C shared library rosidl_generator_py/hardware_msg/libhardware_msg__rosidl_generator_py.so[0m
+[44.905s] [ 92%] Built target hardware_msg__rosidl_generator_py
+[44.995s] [ 94%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/hardware_msg/_hardware_msg_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[44.997s] [ 94%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/hardware_msg/_hardware_msg_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[44.999s] [ 96%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/hardware_msg/_hardware_msg_s.ep.rosidl_typesupport_c.c.o[0m
+[45.558s] [ 97%] [32m[1mLinking C shared library rosidl_generator_py/hardware_msg/hardware_msg_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so[0m
+[45.573s] [ 98%] [32m[1mLinking C shared library rosidl_generator_py/hardware_msg/hardware_msg_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so[0m
+[45.620s] [100%] [32m[1mLinking C shared library rosidl_generator_py/hardware_msg/hardware_msg_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so[0m
+[45.733s] [100%] Built target hardware_msg__rosidl_typesupport_c__pyext
+[45.753s] [100%] Built target hardware_msg__rosidl_typesupport_introspection_c__pyext
+[45.811s] [100%] Built target hardware_msg__rosidl_typesupport_fastrtps_c__pyext
+[45.859s] Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:/opt/ros/rolling /usr/bin/cmake --build /home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg -- -j4 -l4
+[45.869s] Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg': CMAKE_PREFIX_PATH=/opt/ros/humble:/opt/ros/rolling /usr/bin/cmake --install /home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg
+[45.897s] -- Install configuration: ""
+[45.898s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/ament_index/resource_index/rosidl_interfaces/hardware_msg
+[45.900s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg
+[45.901s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg
+[45.901s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motor_parameters.h
+[45.902s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motor_data.h
+[45.904s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/imu.h
+[45.905s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/imu_parameters.h
+[45.907s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/board_parameters.h
+[45.908s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/rosidl_generator_c__visibility_control.h
+[45.909s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motors_states.h
+[45.911s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail
+[45.912s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__functions.h
+[45.913s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__functions.c
+[45.915s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__type_support.h
+[45.916s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__functions.h
+[45.917s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__type_support.h
+[45.919s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__type_support.h
+[45.920s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__struct.h
+[45.921s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__functions.h
+[45.922s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__functions.c
+[45.924s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__functions.c
+[45.925s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__functions.h
+[45.926s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__type_support.h
+[45.928s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__struct.h
+[45.929s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__struct.h
+[45.930s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__struct.h
+[45.931s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__type_support.h
+[45.933s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__type_support.h
+[45.934s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__struct.h
+[45.935s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__functions.c
+[45.937s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__struct.h
+[45.938s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__functions.c
+[45.939s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__functions.h
+[45.941s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__functions.h
+[45.942s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__functions.c
+[45.943s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__type_support.h
+[45.944s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__functions.h
+[45.946s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__struct.h
+[45.947s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__functions.c
+[45.948s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motors_commands.h
+[45.950s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/environment/library_path.sh
+[45.951s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/environment/library_path.dsv
+[45.953s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_generator_c.so
+[45.956s] -- Set runtime path of "/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_generator_c.so" to ""
+[45.957s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg
+[45.957s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg
+[45.958s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[45.959s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail
+[45.959s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__rosidl_typesupport_fastrtps_c.h
+[45.961s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__rosidl_typesupport_fastrtps_c.h
+[45.962s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__rosidl_typesupport_fastrtps_c.h
+[45.964s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__rosidl_typesupport_fastrtps_c.h
+[45.965s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__rosidl_typesupport_fastrtps_c.h
+[45.966s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__rosidl_typesupport_fastrtps_c.h
+[45.968s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__rosidl_typesupport_fastrtps_c.h
+[45.969s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_fastrtps_c.so
+[45.973s] -- Set runtime path of "/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_fastrtps_c.so" to ""
+[45.974s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg
+[45.974s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg
+[45.974s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motors_commands.hpp
+[45.975s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/imu_parameters.hpp
+[45.976s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motor_data.hpp
+[45.977s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/imu.hpp
+[45.978s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/board_parameters.hpp
+[45.980s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motor_parameters.hpp
+[45.981s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail
+[45.981s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__type_support.hpp
+[45.983s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__struct.hpp
+[45.984s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__type_support.hpp
+[45.985s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__type_support.hpp
+[45.987s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__type_support.hpp
+[45.988s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__traits.hpp
+[45.989s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__traits.hpp
+[45.992s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__builder.hpp
+[45.993s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__builder.hpp
+[45.994s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__traits.hpp
+[45.995s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__type_support.hpp
+[45.996s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__type_support.hpp
+[45.997s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__builder.hpp
+[45.999s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__builder.hpp
+[46.000s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__struct.hpp
+[46.001s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__builder.hpp
+[46.002s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__traits.hpp
+[46.004s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__traits.hpp
+[46.005s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__builder.hpp
+[46.006s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__struct.hpp
+[46.007s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__type_support.hpp
+[46.009s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__struct.hpp
+[46.010s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__struct.hpp
+[46.012s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__struct.hpp
+[46.013s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__struct.hpp
+[46.014s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__traits.hpp
+[46.015s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__builder.hpp
+[46.017s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__traits.hpp
+[46.018s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/rosidl_generator_cpp__visibility_control.hpp
+[46.019s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motors_states.hpp
+[46.021s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg
+[46.022s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg
+[46.024s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[46.024s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail
+[46.025s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/dds_fastrtps
+[46.025s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__rosidl_typesupport_fastrtps_cpp.hpp
+[46.026s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__rosidl_typesupport_fastrtps_cpp.hpp
+[46.028s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__rosidl_typesupport_fastrtps_cpp.hpp
+[46.029s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__rosidl_typesupport_fastrtps_cpp.hpp
+[46.030s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__rosidl_typesupport_fastrtps_cpp.hpp
+[46.032s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__rosidl_typesupport_fastrtps_cpp.hpp
+[46.034s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__rosidl_typesupport_fastrtps_cpp.hpp
+[46.035s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_fastrtps_cpp.so
+[46.039s] -- Set runtime path of "/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_fastrtps_cpp.so" to ""
+[46.039s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg
+[46.040s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg
+[46.040s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail
+[46.041s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__type_support.c
+[46.041s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__type_support.c
+[46.043s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__rosidl_typesupport_introspection_c.h
+[46.044s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__type_support.c
+[46.045s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__rosidl_typesupport_introspection_c.h
+[46.047s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__rosidl_typesupport_introspection_c.h
+[46.048s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__type_support.c
+[46.050s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__rosidl_typesupport_introspection_c.h
+[46.051s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__type_support.c
+[46.052s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__type_support.c
+[46.054s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__rosidl_typesupport_introspection_c.h
+[46.055s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__type_support.c
+[46.057s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__rosidl_typesupport_introspection_c.h
+[46.058s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__rosidl_typesupport_introspection_c.h
+[46.059s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[46.061s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_introspection_c.so
+[46.064s] -- Set runtime path of "/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_introspection_c.so" to ""
+[46.065s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_c.so
+[46.068s] -- Set runtime path of "/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_c.so" to ""
+[46.068s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg
+[46.069s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg
+[46.069s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail
+[46.070s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__rosidl_typesupport_introspection_cpp.hpp
+[46.070s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__rosidl_typesupport_introspection_cpp.hpp
+[46.072s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__rosidl_typesupport_introspection_cpp.hpp
+[46.073s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__type_support.cpp
+[46.075s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__rosidl_typesupport_introspection_cpp.hpp
+[46.077s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__type_support.cpp
+[46.078s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__rosidl_typesupport_introspection_cpp.hpp
+[46.079s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__type_support.cpp
+[46.081s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__type_support.cpp
+[46.082s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__type_support.cpp
+[46.083s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__type_support.cpp
+[46.085s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__rosidl_typesupport_introspection_cpp.hpp
+[46.086s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__rosidl_typesupport_introspection_cpp.hpp
+[46.088s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__type_support.cpp
+[46.089s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_introspection_cpp.so
+[46.093s] -- Set runtime path of "/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_introspection_cpp.so" to ""
+[46.093s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_cpp.so
+[46.096s] -- Set runtime path of "/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_cpp.so" to ""
+[46.096s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/environment/pythonpath.sh
+[46.097s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/environment/pythonpath.dsv
+[46.099s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg-0.0.0-py3.10.egg-info
+[46.100s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg-0.0.0-py3.10.egg-info/PKG-INFO
+[46.101s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg-0.0.0-py3.10.egg-info/top_level.txt
+[46.102s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg-0.0.0-py3.10.egg-info/SOURCES.txt
+[46.104s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg-0.0.0-py3.10.egg-info/dependency_links.txt
+[46.105s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg
+[46.106s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/libhardware_msg__rosidl_generator_py.so
+[46.108s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/__init__.py
+[46.109s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+[46.110s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+[46.112s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+[46.114s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg
+[46.115s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_motors_states_s.c
+[46.116s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/__init__.py
+[46.117s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_imu_parameters_s.c
+[46.118s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_board_parameters_s.c
+[46.120s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_board_parameters.py
+[46.121s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_motor_data.py
+[46.122s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_motor_parameters_s.c
+[46.123s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_motors_states.py
+[46.125s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_imu.py
+[46.126s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_motors_commands_s.c
+[46.127s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_motor_data_s.c
+[46.129s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_motors_commands.py
+[46.130s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_motor_parameters.py
+[46.131s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_imu_s.c
+[46.132s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_imu_parameters.py
+[46.134s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/_hardware_msg_s.ep.rosidl_typesupport_fastrtps_c.c
+[46.136s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/_hardware_msg_s.ep.rosidl_typesupport_introspection_c.c
+[46.137s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/_hardware_msg_s.ep.rosidl_typesupport_c.c
+[46.316s] Listing '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg'...
+[46.317s] Compiling '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/__init__.py'...
+[46.319s] Listing '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg'...
+[46.321s] Compiling '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/__init__.py'...
+[46.322s] Compiling '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_board_parameters.py'...
+[46.323s] Compiling '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_imu.py'...
+[46.325s] Compiling '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_imu_parameters.py'...
+[46.327s] Compiling '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_motor_data.py'...
+[46.328s] Compiling '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_motor_parameters.py'...
+[46.330s] Compiling '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_motors_commands.py'...
+[46.331s] Compiling '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_motors_states.py'...
+[46.346s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+[46.349s] -- Set runtime path of "/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so" to ""
+[46.350s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+[46.354s] -- Set runtime path of "/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so" to ""
+[46.357s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+[46.360s] -- Set runtime path of "/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so" to ""
+[46.361s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_generator_py.so
+[46.365s] -- Set runtime path of "/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_generator_py.so" to ""
+[46.365s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/BoardParameters.idl
+[46.367s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/ImuParameters.idl
+[46.368s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/MotorParameters.idl
+[46.369s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/MotorsStates.idl
+[46.371s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/Imu.idl
+[46.372s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/MotorData.idl
+[46.373s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/MotorsCommands.idl
+[46.375s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/BoardParameters.msg
+[46.376s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/ImuParameters.msg
+[46.377s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/MotorParameters.msg
+[46.378s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/MotorsStates.msg
+[46.380s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/Imu.msg
+[46.381s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/MotorData.msg
+[46.383s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/MotorsCommands.msg
+[46.385s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/ament_index/resource_index/package_run_dependencies/hardware_msg
+[46.386s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/ament_index/resource_index/parent_prefix_path/hardware_msg
+[46.388s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/environment/ament_prefix_path.sh
+[46.389s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/environment/ament_prefix_path.dsv
+[46.390s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/environment/path.sh
+[46.392s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/environment/path.dsv
+[46.393s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/local_setup.bash
+[46.394s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/local_setup.sh
+[46.396s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/local_setup.zsh
+[46.397s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/local_setup.dsv
+[46.398s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/package.dsv
+[46.400s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/ament_index/resource_index/packages/hardware_msg
+[46.402s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_generator_cExport.cmake
+[46.403s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_generator_cExport-noconfig.cmake
+[46.405s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_typesupport_fastrtps_cExport.cmake
+[46.407s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[46.408s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_generator_cppExport.cmake
+[46.410s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_typesupport_fastrtps_cppExport.cmake
+[46.412s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[46.413s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_introspection_cExport.cmake
+[46.415s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[46.417s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_cExport.cmake
+[46.418s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_cExport-noconfig.cmake
+[46.420s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_introspection_cppExport.cmake
+[46.422s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[46.423s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_cppExport.cmake
+[46.425s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_cppExport-noconfig.cmake
+[46.427s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_generator_pyExport.cmake
+[46.428s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_generator_pyExport-noconfig.cmake
+[46.430s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/rosidl_cmake-extras.cmake
+[46.432s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/ament_cmake_export_include_directories-extras.cmake
+[46.433s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/ament_cmake_export_libraries-extras.cmake
+[46.435s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/ament_cmake_export_targets-extras.cmake
+[46.436s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[46.438s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/ament_cmake_export_dependencies-extras.cmake
+[46.440s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[46.441s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/hardware_msgConfig.cmake
+[46.442s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/hardware_msgConfig-version.cmake
+[46.443s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/package.xml
+[46.451s] Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:/opt/ros/rolling /usr/bin/cmake --install /home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg

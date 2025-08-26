@@ -1,0 +1,22 @@
+running egg_info
+writing ../build/motor_commander/motor_commander.egg-info/PKG-INFO
+writing dependency_links to ../build/motor_commander/motor_commander.egg-info/dependency_links.txt
+writing entry points to ../build/motor_commander/motor_commander.egg-info/entry_points.txt
+writing requirements to ../build/motor_commander/motor_commander.egg-info/requires.txt
+writing top-level names to ../build/motor_commander/motor_commander.egg-info/top_level.txt
+reading manifest file '../build/motor_commander/motor_commander.egg-info/SOURCES.txt'
+writing manifest file '../build/motor_commander/motor_commander.egg-info/SOURCES.txt'
+running build
+running build_py
+copying motor_commander/motor_commander.py -> /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/build/lib/motor_commander
+running install
+running install_lib
+copying /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/build/lib/motor_commander/motor_commander.py -> /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/lib/python3.10/site-packages/motor_commander
+byte-compiling /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/lib/python3.10/site-packages/motor_commander/motor_commander.py to motor_commander.cpython-310.pyc
+running install_data
+running install_egg_info
+removing '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/lib/python3.10/site-packages/motor_commander-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../build/motor_commander/motor_commander.egg-info to /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/lib/python3.10/site-packages/motor_commander-0.0.0-py3.10.egg-info
+running install_scripts
+Installing motor_commander script to /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/lib/motor_commander
+writing list of installed files to '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/install.log'

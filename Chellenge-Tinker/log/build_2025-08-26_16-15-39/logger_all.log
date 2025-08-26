@@ -1,0 +1,269 @@
+[0.523s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.524s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0xffff9f87c1f0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffff9f84bd00>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffff9f84bd00>>, mixin_verb=('build',))
+[1.275s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[1.275s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[1.276s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[1.276s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[1.276s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[1.276s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[1.277s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/pi/Tinker_Sber/Chellenge-Tinker'
+[1.277s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[1.278s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[1.278s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[1.279s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[1.279s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[1.279s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[1.279s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[1.280s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[1.280s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[1.328s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[1.328s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[1.328s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[1.329s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[1.329s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[1.329s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[1.330s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[1.330s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[1.331s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_msg) by extensions ['ignore', 'ignore_ament_install']
+[1.331s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_msg) by extension 'ignore'
+[1.331s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_msg) by extension 'ignore_ament_install'
+[1.332s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_msg) by extensions ['colcon_pkg']
+[1.332s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_msg) by extension 'colcon_pkg'
+[1.332s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_msg) by extensions ['colcon_meta']
+[1.332s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_msg) by extension 'colcon_meta'
+[1.332s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_msg) by extensions ['ros']
+[1.332s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_msg) by extension 'ros'
+[1.341s] DEBUG:colcon.colcon_core.package_identification:Package 'hardware_msg' with type 'ros.ament_cmake' and name 'hardware_msg'
+[1.342s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[1.342s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[1.343s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[1.343s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[1.343s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[1.344s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[1.344s] Level 1:colcon.colcon_core.package_identification:_identify(motor_control) by extensions ['ignore', 'ignore_ament_install']
+[1.345s] Level 1:colcon.colcon_core.package_identification:_identify(motor_control) by extension 'ignore'
+[1.345s] Level 1:colcon.colcon_core.package_identification:_identify(motor_control) by extension 'ignore_ament_install'
+[1.345s] Level 1:colcon.colcon_core.package_identification:_identify(motor_control) by extensions ['colcon_pkg']
+[1.345s] Level 1:colcon.colcon_core.package_identification:_identify(motor_control) by extension 'colcon_pkg'
+[1.346s] Level 1:colcon.colcon_core.package_identification:_identify(motor_control) by extensions ['colcon_meta']
+[1.346s] Level 1:colcon.colcon_core.package_identification:_identify(motor_control) by extension 'colcon_meta'
+[1.346s] Level 1:colcon.colcon_core.package_identification:_identify(motor_control) by extensions ['ros']
+[1.346s] Level 1:colcon.colcon_core.package_identification:_identify(motor_control) by extension 'ros'
+[1.349s] DEBUG:colcon.colcon_core.package_identification:Package 'motor_control' with type 'ros.ament_cmake' and name 'motor_control'
+[1.350s] Level 1:colcon.colcon_core.package_identification:_identify(tinker_description) by extensions ['ignore', 'ignore_ament_install']
+[1.351s] Level 1:colcon.colcon_core.package_identification:_identify(tinker_description) by extension 'ignore'
+[1.351s] Level 1:colcon.colcon_core.package_identification:_identify(tinker_description) by extension 'ignore_ament_install'
+[1.351s] Level 1:colcon.colcon_core.package_identification:_identify(tinker_description) by extensions ['colcon_pkg']
+[1.351s] Level 1:colcon.colcon_core.package_identification:_identify(tinker_description) by extension 'colcon_pkg'
+[1.352s] Level 1:colcon.colcon_core.package_identification:_identify(tinker_description) by extensions ['colcon_meta']
+[1.352s] Level 1:colcon.colcon_core.package_identification:_identify(tinker_description) by extension 'colcon_meta'
+[1.352s] Level 1:colcon.colcon_core.package_identification:_identify(tinker_description) by extensions ['ros']
+[1.353s] Level 1:colcon.colcon_core.package_identification:_identify(tinker_description) by extension 'ros'
+[1.355s] DEBUG:colcon.colcon_core.package_identification:Package 'tinker_description' with type 'ros.ament_cmake' and name 'tinker_description'
+[1.355s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[1.356s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[1.356s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[1.356s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[1.356s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.432s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[1.432s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[1.437s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/opt/ros/rolling' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[1.446s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 182 installed packages in /opt/ros/humble
+[1.451s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[1.603s] Level 5:colcon.colcon_core.verb:set package 'hardware_msg' build argument 'cmake_args' from command line to 'None'
+[1.603s] Level 5:colcon.colcon_core.verb:set package 'hardware_msg' build argument 'cmake_target' from command line to 'None'
+[1.603s] Level 5:colcon.colcon_core.verb:set package 'hardware_msg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.603s] Level 5:colcon.colcon_core.verb:set package 'hardware_msg' build argument 'cmake_clean_cache' from command line to 'False'
+[1.604s] Level 5:colcon.colcon_core.verb:set package 'hardware_msg' build argument 'cmake_clean_first' from command line to 'False'
+[1.604s] Level 5:colcon.colcon_core.verb:set package 'hardware_msg' build argument 'cmake_force_configure' from command line to 'False'
+[1.604s] Level 5:colcon.colcon_core.verb:set package 'hardware_msg' build argument 'ament_cmake_args' from command line to 'None'
+[1.604s] Level 5:colcon.colcon_core.verb:set package 'hardware_msg' build argument 'catkin_cmake_args' from command line to 'None'
+[1.604s] Level 5:colcon.colcon_core.verb:set package 'hardware_msg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.604s] DEBUG:colcon.colcon_core.verb:Building package 'hardware_msg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg', 'merge_install': False, 'path': '/home/pi/Tinker_Sber/Chellenge-Tinker/hardware_msg', 'symlink_install': False, 'test_result_base': None}
+[1.606s] Level 5:colcon.colcon_core.verb:set package 'tinker_description' build argument 'cmake_args' from command line to 'None'
+[1.606s] Level 5:colcon.colcon_core.verb:set package 'tinker_description' build argument 'cmake_target' from command line to 'None'
+[1.606s] Level 5:colcon.colcon_core.verb:set package 'tinker_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.606s] Level 5:colcon.colcon_core.verb:set package 'tinker_description' build argument 'cmake_clean_cache' from command line to 'False'
+[1.606s] Level 5:colcon.colcon_core.verb:set package 'tinker_description' build argument 'cmake_clean_first' from command line to 'False'
+[1.606s] Level 5:colcon.colcon_core.verb:set package 'tinker_description' build argument 'cmake_force_configure' from command line to 'False'
+[1.607s] Level 5:colcon.colcon_core.verb:set package 'tinker_description' build argument 'ament_cmake_args' from command line to 'None'
+[1.607s] Level 5:colcon.colcon_core.verb:set package 'tinker_description' build argument 'catkin_cmake_args' from command line to 'None'
+[1.607s] Level 5:colcon.colcon_core.verb:set package 'tinker_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.607s] DEBUG:colcon.colcon_core.verb:Building package 'tinker_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pi/Tinker_Sber/Chellenge-Tinker/build/tinker_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description', 'merge_install': False, 'path': '/home/pi/Tinker_Sber/Chellenge-Tinker/tinker_description', 'symlink_install': False, 'test_result_base': None}
+[1.608s] Level 5:colcon.colcon_core.verb:set package 'motor_control' build argument 'cmake_args' from command line to 'None'
+[1.609s] Level 5:colcon.colcon_core.verb:set package 'motor_control' build argument 'cmake_target' from command line to 'None'
+[1.609s] Level 5:colcon.colcon_core.verb:set package 'motor_control' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.609s] Level 5:colcon.colcon_core.verb:set package 'motor_control' build argument 'cmake_clean_cache' from command line to 'False'
+[1.609s] Level 5:colcon.colcon_core.verb:set package 'motor_control' build argument 'cmake_clean_first' from command line to 'False'
+[1.609s] Level 5:colcon.colcon_core.verb:set package 'motor_control' build argument 'cmake_force_configure' from command line to 'False'
+[1.609s] Level 5:colcon.colcon_core.verb:set package 'motor_control' build argument 'ament_cmake_args' from command line to 'None'
+[1.609s] Level 5:colcon.colcon_core.verb:set package 'motor_control' build argument 'catkin_cmake_args' from command line to 'None'
+[1.609s] Level 5:colcon.colcon_core.verb:set package 'motor_control' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.610s] DEBUG:colcon.colcon_core.verb:Building package 'motor_control' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control', 'merge_install': False, 'path': '/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control', 'symlink_install': False, 'test_result_base': None}
+[1.610s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[1.613s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[1.615s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/pi/Tinker_Sber/Chellenge-Tinker/hardware_msg' with build type 'ament_cmake'
+[1.616s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/pi/Tinker_Sber/Chellenge-Tinker/hardware_msg'
+[1.626s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.626s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.627s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.640s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/pi/Tinker_Sber/Chellenge-Tinker/tinker_description' with build type 'ament_cmake'
+[1.640s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/pi/Tinker_Sber/Chellenge-Tinker/tinker_description'
+[1.641s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.642s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.674s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg': CMAKE_PREFIX_PATH=/opt/ros/humble:/opt/ros/rolling /usr/bin/cmake /home/pi/Tinker_Sber/Chellenge-Tinker/hardware_msg -DCMAKE_INSTALL_PREFIX=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg
+[1.697s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/tinker_description': CMAKE_PREFIX_PATH=/opt/ros/humble:/opt/ros/rolling /usr/bin/cmake /home/pi/Tinker_Sber/Chellenge-Tinker/tinker_description -DCMAKE_INSTALL_PREFIX=/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description
+[3.790s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/tinker_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:/opt/ros/rolling /usr/bin/cmake /home/pi/Tinker_Sber/Chellenge-Tinker/tinker_description -DCMAKE_INSTALL_PREFIX=/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description
+[3.793s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/tinker_description': CMAKE_PREFIX_PATH=/opt/ros/humble:/opt/ros/rolling /usr/bin/cmake --build /home/pi/Tinker_Sber/Chellenge-Tinker/build/tinker_description -- -j4 -l4
+[3.934s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/tinker_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:/opt/ros/rolling /usr/bin/cmake --build /home/pi/Tinker_Sber/Chellenge-Tinker/build/tinker_description -- -j4 -l4
+[3.975s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/tinker_description': CMAKE_PREFIX_PATH=/opt/ros/humble:/opt/ros/rolling /usr/bin/cmake --install /home/pi/Tinker_Sber/Chellenge-Tinker/build/tinker_description
+[4.085s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(tinker_description)
+[4.093s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/tinker_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:/opt/ros/rolling /usr/bin/cmake --install /home/pi/Tinker_Sber/Chellenge-Tinker/build/tinker_description
+[4.097s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description' for CMake module files
+[4.100s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description' for CMake config files
+[4.102s] Level 1:colcon.colcon_core.shell:create_environment_hook('tinker_description', 'cmake_prefix_path')
+[4.103s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/hook/cmake_prefix_path.ps1'
+[4.107s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/hook/cmake_prefix_path.dsv'
+[4.109s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/hook/cmake_prefix_path.sh'
+[4.113s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/bin'
+[4.114s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/lib/pkgconfig/tinker_description.pc'
+[4.115s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/lib/python3.10/site-packages'
+[4.117s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/bin'
+[4.118s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/package.ps1'
+[4.122s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/package.dsv'
+[4.124s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/package.sh'
+[4.128s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/package.bash'
+[4.131s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/package.zsh'
+[4.134s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/colcon-core/packages/tinker_description)
+[4.137s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(tinker_description)
+[4.138s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description' for CMake module files
+[4.142s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description' for CMake config files
+[4.144s] Level 1:colcon.colcon_core.shell:create_environment_hook('tinker_description', 'cmake_prefix_path')
+[4.145s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/hook/cmake_prefix_path.ps1'
+[4.149s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/hook/cmake_prefix_path.dsv'
+[4.151s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/hook/cmake_prefix_path.sh'
+[4.155s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/bin'
+[4.155s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/lib/pkgconfig/tinker_description.pc'
+[4.157s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/lib/python3.10/site-packages'
+[4.158s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/bin'
+[4.160s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/package.ps1'
+[4.162s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/package.dsv'
+[4.165s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/package.sh'
+[4.168s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/package.bash'
+[4.170s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/package.zsh'
+[4.172s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/colcon-core/packages/tinker_description)
+[10.401s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:/opt/ros/rolling /usr/bin/cmake /home/pi/Tinker_Sber/Chellenge-Tinker/hardware_msg -DCMAKE_INSTALL_PREFIX=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg
+[10.409s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg': CMAKE_PREFIX_PATH=/opt/ros/humble:/opt/ros/rolling /usr/bin/cmake --build /home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg -- -j4 -l4
+[47.476s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:/opt/ros/rolling /usr/bin/cmake --build /home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg -- -j4 -l4
+[47.486s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg': CMAKE_PREFIX_PATH=/opt/ros/humble:/opt/ros/rolling /usr/bin/cmake --install /home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg
+[48.067s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hardware_msg)
+[48.069s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg' for CMake module files
+[48.069s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:/opt/ros/rolling /usr/bin/cmake --install /home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg
+[48.074s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg' for CMake config files
+[48.078s] Level 1:colcon.colcon_core.shell:create_environment_hook('hardware_msg', 'cmake_prefix_path')
+[48.079s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook/cmake_prefix_path.ps1'
+[48.081s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook/cmake_prefix_path.dsv'
+[48.082s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook/cmake_prefix_path.sh'
+[48.085s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib'
+[48.086s] Level 1:colcon.colcon_core.shell:create_environment_hook('hardware_msg', 'ld_library_path_lib')
+[48.087s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook/ld_library_path_lib.ps1'
+[48.089s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook/ld_library_path_lib.dsv'
+[48.091s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook/ld_library_path_lib.sh'
+[48.093s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/bin'
+[48.093s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/pkgconfig/hardware_msg.pc'
+[48.094s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/python3.10/site-packages'
+[48.095s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/bin'
+[48.097s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/package.ps1'
+[48.099s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/package.dsv'
+[48.101s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/package.sh'
+[48.104s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/package.bash'
+[48.106s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/package.zsh'
+[48.108s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/colcon-core/packages/hardware_msg)
+[48.111s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hardware_msg)
+[48.112s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg' for CMake module files
+[48.116s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg' for CMake config files
+[48.120s] Level 1:colcon.colcon_core.shell:create_environment_hook('hardware_msg', 'cmake_prefix_path')
+[48.121s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook/cmake_prefix_path.ps1'
+[48.123s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook/cmake_prefix_path.dsv'
+[48.125s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook/cmake_prefix_path.sh'
+[48.128s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib'
+[48.128s] Level 1:colcon.colcon_core.shell:create_environment_hook('hardware_msg', 'ld_library_path_lib')
+[48.129s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook/ld_library_path_lib.ps1'
+[48.131s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook/ld_library_path_lib.dsv'
+[48.133s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook/ld_library_path_lib.sh'
+[48.135s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/bin'
+[48.135s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/pkgconfig/hardware_msg.pc'
+[48.137s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/python3.10/site-packages'
+[48.138s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/bin'
+[48.140s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/package.ps1'
+[48.142s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/package.dsv'
+[48.145s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/package.sh'
+[48.148s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/package.bash'
+[48.150s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/package.zsh'
+[48.154s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/colcon-core/packages/hardware_msg)
+[48.156s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control' with build type 'ament_cmake'
+[48.156s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control'
+[48.157s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[48.158s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[48.205s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control': AMENT_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/opt/ros/humble:/opt/ros/rolling LD_LIBRARY_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/pi/Tinker_Sber/Chellenge-Tinker/motor_control -DCMAKE_INSTALL_PREFIX=/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control
+[53.918s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control' returned '0': AMENT_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/opt/ros/humble:/opt/ros/rolling LD_LIBRARY_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/pi/Tinker_Sber/Chellenge-Tinker/motor_control -DCMAKE_INSTALL_PREFIX=/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control
+[53.927s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control': AMENT_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/opt/ros/humble:/opt/ros/rolling LD_LIBRARY_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control -- -j4 -l4
+[130.697s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control' returned '0': AMENT_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/opt/ros/humble:/opt/ros/rolling LD_LIBRARY_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control -- -j4 -l4
+[130.726s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control': AMENT_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/opt/ros/humble:/opt/ros/rolling LD_LIBRARY_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control
+[130.867s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(motor_control)
+[130.868s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control' for CMake module files
+[130.870s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control' returned '0': AMENT_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/opt/ros/humble:/opt/ros/rolling LD_LIBRARY_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control
+[130.872s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control' for CMake config files
+[130.873s] Level 1:colcon.colcon_core.shell:create_environment_hook('motor_control', 'cmake_prefix_path')
+[130.874s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/hook/cmake_prefix_path.ps1'
+[130.877s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/hook/cmake_prefix_path.dsv'
+[130.879s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/hook/cmake_prefix_path.sh'
+[130.884s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/lib'
+[130.885s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/bin'
+[130.885s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/lib/pkgconfig/motor_control.pc'
+[130.886s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/lib/python3.10/site-packages'
+[130.888s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/bin'
+[130.890s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/package.ps1'
+[130.892s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/package.dsv'
+[130.894s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/package.sh'
+[130.896s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/package.bash'
+[130.898s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/package.zsh'
+[130.900s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/colcon-core/packages/motor_control)
+[130.903s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(motor_control)
+[130.903s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control' for CMake module files
+[130.906s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control' for CMake config files
+[130.908s] Level 1:colcon.colcon_core.shell:create_environment_hook('motor_control', 'cmake_prefix_path')
+[130.909s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/hook/cmake_prefix_path.ps1'
+[130.911s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/hook/cmake_prefix_path.dsv'
+[130.913s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/hook/cmake_prefix_path.sh'
+[130.915s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/lib'
+[130.916s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/bin'
+[130.916s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/lib/pkgconfig/motor_control.pc'
+[130.917s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/lib/python3.10/site-packages'
+[130.919s] Level 1:colcon.colcon_core.environment:checking '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/bin'
+[130.920s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/package.ps1'
+[130.922s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/package.dsv'
+[130.925s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/package.sh'
+[130.928s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/package.bash'
+[130.930s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/package.zsh'
+[130.933s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/colcon-core/packages/motor_control)
+[130.935s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[130.938s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[130.938s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[130.939s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[130.985s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[130.986s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[130.986s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[130.986s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[130.990s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.Notifications was not provided by any .service files
+[130.990s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[130.992s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/local_setup.ps1'
+[130.997s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/pi/Tinker_Sber/Chellenge-Tinker/install/_local_setup_util_ps1.py'
+[131.005s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/setup.ps1'
+[131.011s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/local_setup.sh'
+[131.015s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/pi/Tinker_Sber/Chellenge-Tinker/install/_local_setup_util_sh.py'
+[131.018s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/setup.sh'
+[131.023s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/local_setup.bash'
+[131.026s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/setup.bash'
+[131.031s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/local_setup.zsh'
+[131.035s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/setup.zsh'

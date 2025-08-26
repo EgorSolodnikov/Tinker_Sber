@@ -1,0 +1,1675 @@
+[0.000000] (-) TimerEvent: {}
+[0.001650] (hardware_msg) JobQueued: {'identifier': 'hardware_msg', 'dependencies': OrderedDict()}
+[0.002213] (tinker_description) JobQueued: {'identifier': 'tinker_description', 'dependencies': OrderedDict()}
+[0.002774] (motor_commander) JobQueued: {'identifier': 'motor_commander', 'dependencies': OrderedDict([('hardware_msg', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg')])}
+[0.002986] (motor_control) JobQueued: {'identifier': 'motor_control', 'dependencies': OrderedDict([('hardware_msg', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg')])}
+[0.003152] (hardware_msg) JobStarted: {'identifier': 'hardware_msg'}
+[0.029486] (tinker_description) JobStarted: {'identifier': 'tinker_description'}
+[0.053107] (hardware_msg) JobProgress: {'identifier': 'hardware_msg', 'progress': 'cmake'}
+[0.057086] (hardware_msg) JobProgress: {'identifier': 'hardware_msg', 'progress': 'build'}
+[0.059952] (hardware_msg) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg', '--', '-j4', '-l4'], 'cwd': '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'pi'), ('SSH_CLIENT', '192.168.1.42 56494 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/pi'), ('OLDPWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/motor_commander'), ('TERM_PROGRAM_VERSION', '1.105.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-473dcbd0-9a00-48b8-94af-91537402ef61.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'pi'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/pi/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-491542eb19.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.1.42 56494 192.168.1.186 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/opt/ros/humble')]), 'shell': False}
+[0.078021] (tinker_description) JobProgress: {'identifier': 'tinker_description', 'progress': 'cmake'}
+[0.081058] (tinker_description) JobProgress: {'identifier': 'tinker_description', 'progress': 'build'}
+[0.082245] (tinker_description) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/tinker_description', '--', '-j4', '-l4'], 'cwd': '/home/pi/Tinker_Sber/Chellenge-Tinker/build/tinker_description', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'pi'), ('SSH_CLIENT', '192.168.1.42 56494 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/pi'), ('OLDPWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/motor_commander'), ('TERM_PROGRAM_VERSION', '1.105.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-473dcbd0-9a00-48b8-94af-91537402ef61.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'pi'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/pi/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-491542eb19.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/tinker_description'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.1.42 56494 192.168.1.186 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/opt/ros/humble')]), 'shell': False}
+[0.099047] (-) TimerEvent: {}
+[0.125367] (tinker_description) StderrLine: {'line': b"gmake: Warning: File 'Makefile' has modification time 1389 s in the future\n"}
+[0.186073] (hardware_msg) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.199265] (-) TimerEvent: {}
+[0.202079] (tinker_description) StderrLine: {'line': b"gmake[1]: Warning: File 'CMakeFiles/Makefile2' has modification time 1389 s in the future\n"}
+[0.203103] (tinker_description) StderrLine: {'line': b'gmake[1]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[0.231857] (tinker_description) StderrLine: {'line': b'gmake: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[0.238424] (tinker_description) CommandEnded: {'returncode': 0}
+[0.241303] (tinker_description) JobProgress: {'identifier': 'tinker_description', 'progress': 'install'}
+[0.282511] (tinker_description) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/tinker_description'], 'cwd': '/home/pi/Tinker_Sber/Chellenge-Tinker/build/tinker_description', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'pi'), ('SSH_CLIENT', '192.168.1.42 56494 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/pi'), ('OLDPWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/motor_commander'), ('TERM_PROGRAM_VERSION', '1.105.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-473dcbd0-9a00-48b8-94af-91537402ef61.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'pi'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/pi/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-491542eb19.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/tinker_description'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.1.42 56494 192.168.1.186 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/opt/ros/humble')]), 'shell': False}
+[0.299490] (-) TimerEvent: {}
+[0.316309] (tinker_description) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.317369] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/launch\n'}
+[0.317973] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/launch/display.launch\n'}
+[0.318406] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/launch/display.launch.py\n'}
+[0.319178] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/urdf\n'}
+[0.319723] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/urdf/tinker_urdf1.urdf\n'}
+[0.320481] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/urdf/tinker_urdf.csv\n'}
+[0.321774] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/urdf/tinker_urdf.urdf\n'}
+[0.322586] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/meshes\n'}
+[0.323163] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/meshes/link_l_yaw.STL\n'}
+[0.324100] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/meshes/link_r_pitch.STL\n'}
+[0.325078] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/meshes/link_r_roll.STL\n'}
+[0.325952] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/meshes/link_r_ankle.STL\n'}
+[0.326804] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/meshes/link_l_knee.STL\n'}
+[0.327794] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/meshes/link_l_ankle.STL\n'}
+[0.328425] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/meshes/link_l_pitch.STL\n'}
+[0.329029] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/meshes/link_l_roll.STL\n'}
+[0.329524] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/meshes/base_link.STL\n'}
+[0.329889] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/meshes/link_r_knee.STL\n'}
+[0.330305] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/meshes/link_r_yaw.STL\n'}
+[0.330852] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/ament_index/resource_index/package_run_dependencies/tinker_description\n'}
+[0.331743] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/ament_index/resource_index/parent_prefix_path/tinker_description\n'}
+[0.332500] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/environment/ament_prefix_path.sh\n'}
+[0.333343] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/environment/ament_prefix_path.dsv\n'}
+[0.333857] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/environment/path.sh\n'}
+[0.334358] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/environment/path.dsv\n'}
+[0.334965] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/local_setup.bash\n'}
+[0.335646] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/local_setup.sh\n'}
+[0.336603] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/local_setup.zsh\n'}
+[0.337481] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/local_setup.dsv\n'}
+[0.349297] (tinker_description) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/package.dsv\n'}
+[0.350521] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/ament_index/resource_index/packages/tinker_description\n'}
+[0.351885] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/cmake/tinker_descriptionConfig.cmake\n'}
+[0.353228] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/cmake/tinker_descriptionConfig-version.cmake\n'}
+[0.354379] (tinker_description) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description/share/tinker_description/package.xml\n'}
+[0.355262] (tinker_description) CommandEnded: {'returncode': 0}
+[0.399670] (-) TimerEvent: {}
+[0.446580] (tinker_description) JobEnded: {'identifier': 'tinker_description', 'rc': 0}
+[0.499824] (-) TimerEvent: {}
+[0.600464] (-) TimerEvent: {}
+[0.701496] (-) TimerEvent: {}
+[0.782159] (hardware_msg) StdoutLine: {'line': b'-- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.801659] (-) TimerEvent: {}
+[0.902359] (-) TimerEvent: {}
+[0.913580] (hardware_msg) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.924263] (hardware_msg) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.949275] (hardware_msg) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.987604] (hardware_msg) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.002509] (-) TimerEvent: {}
+[1.037287] (hardware_msg) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.102693] (-) TimerEvent: {}
+[1.162079] (hardware_msg) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[1.168442] (hardware_msg) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[1.202871] (-) TimerEvent: {}
+[1.303580] (-) TimerEvent: {}
+[1.404282] (-) TimerEvent: {}
+[1.505083] (-) TimerEvent: {}
+[1.605755] (-) TimerEvent: {}
+[1.648261] (hardware_msg) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[1.705941] (-) TimerEvent: {}
+[1.806768] (-) TimerEvent: {}
+[1.833291] (hardware_msg) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[1.906901] (-) TimerEvent: {}
+[2.007574] (-) TimerEvent: {}
+[2.108393] (-) TimerEvent: {}
+[2.209157] (-) TimerEvent: {}
+[2.309820] (-) TimerEvent: {}
+[2.410491] (-) TimerEvent: {}
+[2.511246] (-) TimerEvent: {}
+[2.611967] (-) TimerEvent: {}
+[2.712753] (-) TimerEvent: {}
+[2.813519] (-) TimerEvent: {}
+[2.914660] (-) TimerEvent: {}
+[3.015495] (-) TimerEvent: {}
+[3.062706] (hardware_msg) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[3.115839] (-) TimerEvent: {}
+[3.216694] (-) TimerEvent: {}
+[3.317398] (-) TimerEvent: {}
+[3.418182] (-) TimerEvent: {}
+[3.519044] (-) TimerEvent: {}
+[3.619866] (-) TimerEvent: {}
+[3.720626] (-) TimerEvent: {}
+[3.821446] (-) TimerEvent: {}
+[3.922310] (-) TimerEvent: {}
+[4.023144] (-) TimerEvent: {}
+[4.124394] (-) TimerEvent: {}
+[4.225533] (-) TimerEvent: {}
+[4.326312] (-) TimerEvent: {}
+[4.408067] (hardware_msg) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[4.426464] (-) TimerEvent: {}
+[4.527212] (-) TimerEvent: {}
+[4.627934] (-) TimerEvent: {}
+[4.728587] (-) TimerEvent: {}
+[4.829371] (-) TimerEvent: {}
+[4.930313] (-) TimerEvent: {}
+[4.935026] (hardware_msg) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[5.030519] (-) TimerEvent: {}
+[5.037010] (hardware_msg) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[5.130710] (-) TimerEvent: {}
+[5.136991] (hardware_msg) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[5.137841] (hardware_msg) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[5.138928] (hardware_msg) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/aarch64-linux-gnu/libpython3.10.so\n'}
+[5.213452] (hardware_msg) StdoutLine: {'line': b'-- Configuring done\n'}
+[5.230863] (-) TimerEvent: {}
+[5.331526] (-) TimerEvent: {}
+[5.430329] (hardware_msg) StdoutLine: {'line': b'-- Generating done\n'}
+[5.431653] (-) TimerEvent: {}
+[5.484320] (hardware_msg) StdoutLine: {'line': b'-- Build files have been written to: /home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg\n'}
+[5.531990] (-) TimerEvent: {}
+[5.562693] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__cpp.dir/compiler_depend.make' has modification time 1390 s in the future\n"}
+[5.567047] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__rosidl_generator_c.dir/flags.make' has modification time 1390 s in the future\n"}
+[5.567845] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/ament_cmake_python_copy_hardware_msg.dir/compiler_depend.make' has modification time 1390 s in the future\n"}
+[5.603849] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[5.609503] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[5.613235] (hardware_msg) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hardware_msg__rosidl_generator_c\x1b[0m\n'}
+[5.613854] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__cpp.dir/compiler_depend.make' has modification time 1390 s in the future\n"}
+[5.616866] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[5.617422] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/ament_cmake_python_copy_hardware_msg.dir/compiler_depend.make' has modification time 1390 s in the future\n"}
+[5.628538] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[5.632200] (-) TimerEvent: {}
+[5.641072] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__rosidl_generator_c.dir/flags.make' has modification time 1390 s in the future\n"}
+[5.645693] (hardware_msg) StdoutLine: {'line': b'[  1%] Built target hardware_msg__cpp\n'}
+[5.656320] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/flags.make' has modification time 1390 s in the future\n"}
+[5.676205] (hardware_msg) StdoutLine: {'line': b'[  2%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/board_parameters__functions.c.o\x1b[0m\n'}
+[5.679470] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[5.693177] (hardware_msg) StdoutLine: {'line': b'[  3%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/imu_parameters__functions.c.o\x1b[0m\n'}
+[5.717837] (hardware_msg) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hardware_msg__rosidl_typesupport_cpp\x1b[0m\n'}
+[5.727788] (hardware_msg) StdoutLine: {'line': b'[  3%] Built target ament_cmake_python_copy_hardware_msg\n'}
+[5.732452] (-) TimerEvent: {}
+[5.760786] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[5.773740] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/flags.make' has modification time 1390 s in the future\n"}
+[5.795912] (hardware_msg) StdoutLine: {'line': b'[  5%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/motor_parameters__functions.c.o\x1b[0m\n'}
+[5.817882] (hardware_msg) StdoutLine: {'line': b'[  6%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hardware_msg/msg/board_parameters__type_support.cpp.o\x1b[0m\n'}
+[5.832760] (-) TimerEvent: {}
+[5.934051] (-) TimerEvent: {}
+[5.938742] (hardware_msg) StdoutLine: {'line': b'[  7%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/motors_states__functions.c.o\x1b[0m\n'}
+[5.982395] (hardware_msg) StdoutLine: {'line': b'[  8%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/imu__functions.c.o\x1b[0m\n'}
+[6.034277] (-) TimerEvent: {}
+[6.036062] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/flags.make' has modification time 1389 s in the future\n"}
+[6.078814] (hardware_msg) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hardware_msg__rosidl_typesupport_fastrtps_cpp\x1b[0m\n'}
+[6.122380] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[6.134544] (-) TimerEvent: {}
+[6.140157] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/flags.make' has modification time 1389 s in the future\n"}
+[6.198835] (hardware_msg) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/board_parameters__type_support.cpp.o\x1b[0m\n'}
+[6.221806] (hardware_msg) StdoutLine: {'line': b'[ 11%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/imu_parameters__type_support.cpp.o\x1b[0m\n'}
+[6.234822] (-) TimerEvent: {}
+[6.266391] (hardware_msg) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/motor_data__functions.c.o\x1b[0m\n'}
+[6.335081] (-) TimerEvent: {}
+[6.435921] (-) TimerEvent: {}
+[6.536923] (-) TimerEvent: {}
+[6.638178] (-) TimerEvent: {}
+[6.653513] (hardware_msg) StdoutLine: {'line': b'[ 13%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/motors_commands__functions.c.o\x1b[0m\n'}
+[6.738426] (-) TimerEvent: {}
+[6.840572] (-) TimerEvent: {}
+[6.898081] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[6.941092] (-) TimerEvent: {}
+[6.967473] (hardware_msg) StdoutLine: {'line': b'[ 16%] Built target hardware_msg__rosidl_generator_c\n'}
+[6.988331] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/flags.make' has modification time 1388 s in the future\n"}
+[7.041540] (-) TimerEvent: {}
+[7.086485] (hardware_msg) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hardware_msg__rosidl_typesupport_introspection_cpp\x1b[0m\n'}
+[7.141756] (-) TimerEvent: {}
+[7.210108] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[7.228672] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/flags.make' has modification time 1388 s in the future\n"}
+[7.242026] (-) TimerEvent: {}
+[7.306045] (hardware_msg) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hardware_msg/msg/detail/board_parameters__type_support.cpp.o\x1b[0m\n'}
+[7.342250] (-) TimerEvent: {}
+[7.392311] (hardware_msg) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hardware_msg/msg/imu_parameters__type_support.cpp.o\x1b[0m\n'}
+[7.442508] (-) TimerEvent: {}
+[7.543453] (-) TimerEvent: {}
+[7.644662] (-) TimerEvent: {}
+[7.760940] (-) TimerEvent: {}
+[7.862002] (-) TimerEvent: {}
+[7.962974] (-) TimerEvent: {}
+[8.065139] (-) TimerEvent: {}
+[8.167771] (-) TimerEvent: {}
+[8.270541] (-) TimerEvent: {}
+[8.373733] (-) TimerEvent: {}
+[8.476155] (-) TimerEvent: {}
+[8.578269] (-) TimerEvent: {}
+[8.680592] (-) TimerEvent: {}
+[8.783057] (-) TimerEvent: {}
+[8.801712] (hardware_msg) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/motor_parameters__type_support.cpp.o\x1b[0m\n'}
+[8.826215] (hardware_msg) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hardware_msg/msg/motor_parameters__type_support.cpp.o\x1b[0m\n'}
+[8.883367] (-) TimerEvent: {}
+[8.984585] (-) TimerEvent: {}
+[9.084992] (hardware_msg) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/motors_states__type_support.cpp.o\x1b[0m\n'}
+[9.085912] (-) TimerEvent: {}
+[9.186793] (-) TimerEvent: {}
+[9.287764] (-) TimerEvent: {}
+[9.388848] (-) TimerEvent: {}
+[9.489742] (-) TimerEvent: {}
+[9.590752] (-) TimerEvent: {}
+[9.692660] (-) TimerEvent: {}
+[9.720419] (hardware_msg) StdoutLine: {'line': b'[ 24%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hardware_msg/msg/detail/imu_parameters__type_support.cpp.o\x1b[0m\n'}
+[9.792905] (-) TimerEvent: {}
+[9.894636] (-) TimerEvent: {}
+[9.996423] (-) TimerEvent: {}
+[10.098269] (-) TimerEvent: {}
+[10.200175] (-) TimerEvent: {}
+[10.302155] (-) TimerEvent: {}
+[10.404057] (-) TimerEvent: {}
+[10.433975] (hardware_msg) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hardware_msg/msg/motors_states__type_support.cpp.o\x1b[0m\n'}
+[10.504289] (-) TimerEvent: {}
+[10.606216] (-) TimerEvent: {}
+[10.707902] (-) TimerEvent: {}
+[10.809972] (-) TimerEvent: {}
+[10.910975] (-) TimerEvent: {}
+[11.012001] (-) TimerEvent: {}
+[11.113138] (-) TimerEvent: {}
+[11.214292] (-) TimerEvent: {}
+[11.315369] (-) TimerEvent: {}
+[11.339950] (hardware_msg) StdoutLine: {'line': b'[ 26%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hardware_msg/msg/imu__type_support.cpp.o\x1b[0m\n'}
+[11.415603] (-) TimerEvent: {}
+[11.517475] (-) TimerEvent: {}
+[11.532361] (hardware_msg) StdoutLine: {'line': b'[ 27%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/imu__type_support.cpp.o\x1b[0m\n'}
+[11.617712] (-) TimerEvent: {}
+[11.719221] (-) TimerEvent: {}
+[11.820945] (-) TimerEvent: {}
+[11.922672] (-) TimerEvent: {}
+[12.026915] (-) TimerEvent: {}
+[12.124276] (hardware_msg) StdoutLine: {'line': b'[ 29%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hardware_msg/msg/detail/motor_parameters__type_support.cpp.o\x1b[0m\n'}
+[12.127152] (-) TimerEvent: {}
+[12.191901] (hardware_msg) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hardware_msg/msg/motor_data__type_support.cpp.o\x1b[0m\n'}
+[12.227410] (-) TimerEvent: {}
+[12.329508] (-) TimerEvent: {}
+[12.431839] (-) TimerEvent: {}
+[12.534206] (-) TimerEvent: {}
+[12.636647] (-) TimerEvent: {}
+[12.752842] (-) TimerEvent: {}
+[12.855677] (-) TimerEvent: {}
+[12.958000] (-) TimerEvent: {}
+[13.046749] (hardware_msg) StdoutLine: {'line': b'[ 31%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hardware_msg/msg/motors_commands__type_support.cpp.o\x1b[0m\n'}
+[13.058297] (-) TimerEvent: {}
+[13.160787] (-) TimerEvent: {}
+[13.263280] (-) TimerEvent: {}
+[13.365391] (-) TimerEvent: {}
+[13.467404] (-) TimerEvent: {}
+[13.569436] (-) TimerEvent: {}
+[13.671104] (-) TimerEvent: {}
+[13.772879] (-) TimerEvent: {}
+[13.874675] (-) TimerEvent: {}
+[13.977705] (-) TimerEvent: {}
+[13.989589] (hardware_msg) StdoutLine: {'line': b'[ 32%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/motor_data__type_support.cpp.o\x1b[0m\n'}
+[14.026726] (hardware_msg) StdoutLine: {'line': b'[ 34%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/motors_commands__type_support.cpp.o\x1b[0m\n'}
+[14.077970] (-) TimerEvent: {}
+[14.179006] (-) TimerEvent: {}
+[14.279985] (-) TimerEvent: {}
+[14.381167] (-) TimerEvent: {}
+[14.440958] (hardware_msg) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hardware_msg/msg/detail/motors_states__type_support.cpp.o\x1b[0m\n'}
+[14.481380] (-) TimerEvent: {}
+[14.582513] (-) TimerEvent: {}
+[14.683600] (-) TimerEvent: {}
+[14.709327] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[14.754268] (hardware_msg) StdoutLine: {'line': b'[ 37%] Built target hardware_msg__rosidl_typesupport_cpp\n'}
+[14.767175] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/ament_cmake_python_build_hardware_msg_egg.dir/compiler_depend.make' has modification time 1381 s in the future\n"}
+[14.783823] (-) TimerEvent: {}
+[14.814820] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[14.837942] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/ament_cmake_python_build_hardware_msg_egg.dir/compiler_depend.make' has modification time 1381 s in the future\n"}
+[14.884125] (-) TimerEvent: {}
+[14.985200] (-) TimerEvent: {}
+[15.086179] (-) TimerEvent: {}
+[15.187817] (-) TimerEvent: {}
+[15.289673] (-) TimerEvent: {}
+[15.391585] (-) TimerEvent: {}
+[15.493225] (-) TimerEvent: {}
+[15.596303] (-) TimerEvent: {}
+[15.698590] (-) TimerEvent: {}
+[15.801570] (-) TimerEvent: {}
+[15.905073] (-) TimerEvent: {}
+[16.008070] (-) TimerEvent: {}
+[16.110552] (-) TimerEvent: {}
+[16.212814] (-) TimerEvent: {}
+[16.315217] (-) TimerEvent: {}
+[16.418385] (-) TimerEvent: {}
+[16.475067] (hardware_msg) StdoutLine: {'line': b'[ 39%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hardware_msg/msg/detail/imu__type_support.cpp.o\x1b[0m\n'}
+[16.488593] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[16.518597] (-) TimerEvent: {}
+[16.545134] (hardware_msg) StdoutLine: {'line': b'[ 41%] Built target hardware_msg__rosidl_typesupport_fastrtps_cpp\n'}
+[16.591451] (hardware_msg) StdoutLine: {'line': b'[ 43%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hardware_msg/msg/detail/motor_data__type_support.cpp.o\x1b[0m\n'}
+[16.618805] (-) TimerEvent: {}
+[16.720153] (-) TimerEvent: {}
+[16.821920] (-) TimerEvent: {}
+[16.864499] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/flags.make' has modification time 1379 s in the future\n"}
+[16.868929] (hardware_msg) StdoutLine: {'line': b'running egg_info\n'}
+[16.873223] (hardware_msg) StdoutLine: {'line': b'writing hardware_msg.egg-info/PKG-INFO\n'}
+[16.876273] (hardware_msg) StdoutLine: {'line': b'writing dependency_links to hardware_msg.egg-info/dependency_links.txt\n'}
+[16.879473] (hardware_msg) StdoutLine: {'line': b'writing top-level names to hardware_msg.egg-info/top_level.txt\n'}
+[16.893725] (hardware_msg) StdoutLine: {'line': b"reading manifest file 'hardware_msg.egg-info/SOURCES.txt'\n"}
+[16.898196] (hardware_msg) StdoutLine: {'line': b"writing manifest file 'hardware_msg.egg-info/SOURCES.txt'\n"}
+[16.918604] (hardware_msg) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hardware_msg__rosidl_typesupport_fastrtps_c\x1b[0m\n'}
+[16.923384] (-) TimerEvent: {}
+[16.967228] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[16.990262] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/flags.make' has modification time 1378 s in the future\n"}
+[17.023637] (-) TimerEvent: {}
+[17.029074] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[17.073646] (hardware_msg) StdoutLine: {'line': b'[ 43%] Built target ament_cmake_python_build_hardware_msg_egg\n'}
+[17.086886] (hardware_msg) StdoutLine: {'line': b'[ 44%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hardware_msg/msg/detail/board_parameters__type_support_c.cpp.o\x1b[0m\n'}
+[17.093932] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/flags.make' has modification time 1378 s in the future\n"}
+[17.123889] (-) TimerEvent: {}
+[17.148417] (hardware_msg) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hardware_msg__rosidl_typesupport_introspection_c\x1b[0m\n'}
+[17.185900] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[17.207254] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/flags.make' has modification time 1378 s in the future\n"}
+[17.224134] (-) TimerEvent: {}
+[17.249425] (hardware_msg) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hardware_msg/msg/detail/board_parameters__type_support.c.o\x1b[0m\n'}
+[17.324374] (-) TimerEvent: {}
+[17.426375] (-) TimerEvent: {}
+[17.456853] (hardware_msg) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hardware_msg/msg/detail/imu_parameters__type_support.c.o\x1b[0m\n'}
+[17.526598] (-) TimerEvent: {}
+[17.628440] (-) TimerEvent: {}
+[17.697735] (hardware_msg) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hardware_msg/msg/detail/motor_parameters__type_support.c.o\x1b[0m\n'}
+[17.728776] (-) TimerEvent: {}
+[17.831107] (-) TimerEvent: {}
+[17.933663] (-) TimerEvent: {}
+[17.946242] (hardware_msg) StdoutLine: {'line': b'[ 49%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hardware_msg/msg/detail/motors_states__type_support.c.o\x1b[0m\n'}
+[18.033960] (-) TimerEvent: {}
+[18.136688] (-) TimerEvent: {}
+[18.198104] (hardware_msg) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hardware_msg/msg/detail/imu__type_support.c.o\x1b[0m\n'}
+[18.237216] (-) TimerEvent: {}
+[18.339576] (-) TimerEvent: {}
+[18.441690] (-) TimerEvent: {}
+[18.515151] (hardware_msg) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hardware_msg/msg/detail/motor_data__type_support.c.o\x1b[0m\n'}
+[18.541986] (-) TimerEvent: {}
+[18.643480] (-) TimerEvent: {}
+[18.743043] (hardware_msg) StdoutLine: {'line': b'[ 53%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hardware_msg/msg/detail/motors_commands__type_support.c.o\x1b[0m\n'}
+[18.744071] (-) TimerEvent: {}
+[18.846088] (-) TimerEvent: {}
+[18.910318] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/flags.make' has modification time 1376 s in the future\n"}
+[18.915549] (hardware_msg) StdoutLine: {'line': b'[ 54%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hardware_msg/msg/detail/motors_commands__type_support.cpp.o\x1b[0m\n'}
+[18.923815] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[18.946370] (-) TimerEvent: {}
+[18.956007] (hardware_msg) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hardware_msg__rosidl_typesupport_c\x1b[0m\n'}
+[18.966208] (hardware_msg) StdoutLine: {'line': b'[ 56%] Built target hardware_msg__rosidl_typesupport_introspection_c\n'}
+[18.979441] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[18.988804] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/flags.make' has modification time 1376 s in the future\n"}
+[19.013741] (hardware_msg) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hardware_msg/msg/detail/imu_parameters__type_support_c.cpp.o\x1b[0m\n'}
+[19.027083] (hardware_msg) StdoutLine: {'line': b'[ 59%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/hardware_msg/msg/board_parameters__type_support.cpp.o\x1b[0m\n'}
+[19.046612] (-) TimerEvent: {}
+[19.147636] (-) TimerEvent: {}
+[19.206530] (hardware_msg) StdoutLine: {'line': b'[ 60%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/hardware_msg/msg/imu_parameters__type_support.cpp.o\x1b[0m\n'}
+[19.247958] (-) TimerEvent: {}
+[19.253109] (hardware_msg) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hardware_msg/msg/detail/motor_parameters__type_support_c.cpp.o\x1b[0m\n'}
+[19.348173] (-) TimerEvent: {}
+[19.398083] (hardware_msg) StdoutLine: {'line': b'[ 63%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/hardware_msg/msg/motor_parameters__type_support.cpp.o\x1b[0m\n'}
+[19.448409] (-) TimerEvent: {}
+[19.550473] (-) TimerEvent: {}
+[19.562593] (hardware_msg) StdoutLine: {'line': b'[ 64%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/hardware_msg/msg/motors_states__type_support.cpp.o\x1b[0m\n'}
+[19.650723] (-) TimerEvent: {}
+[19.738041] (hardware_msg) StdoutLine: {'line': b'[ 65%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/hardware_msg/msg/imu__type_support.cpp.o\x1b[0m\n'}
+[19.750947] (-) TimerEvent: {}
+[19.853065] (-) TimerEvent: {}
+[19.931321] (hardware_msg) StdoutLine: {'line': b'[ 67%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/hardware_msg/msg/motor_data__type_support.cpp.o\x1b[0m\n'}
+[19.953292] (-) TimerEvent: {}
+[20.055814] (-) TimerEvent: {}
+[20.111710] (hardware_msg) StdoutLine: {'line': b'[ 68%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/hardware_msg/msg/motors_commands__type_support.cpp.o\x1b[0m\n'}
+[20.156141] (-) TimerEvent: {}
+[20.255970] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[20.256811] (-) TimerEvent: {}
+[20.306112] (hardware_msg) StdoutLine: {'line': b'[ 70%] Built target hardware_msg__rosidl_typesupport_c\n'}
+[20.357050] (-) TimerEvent: {}
+[20.358361] (hardware_msg) StdoutLine: {'line': b'[ 72%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hardware_msg/msg/detail/motors_states__type_support_c.cpp.o\x1b[0m\n'}
+[20.457271] (-) TimerEvent: {}
+[20.558768] (-) TimerEvent: {}
+[20.660522] (-) TimerEvent: {}
+[20.761623] (-) TimerEvent: {}
+[20.862637] (-) TimerEvent: {}
+[20.963569] (-) TimerEvent: {}
+[21.064647] (-) TimerEvent: {}
+[21.118804] (hardware_msg) StdoutLine: {'line': b'[ 73%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hardware_msg/msg/detail/imu__type_support_c.cpp.o\x1b[0m\n'}
+[21.126004] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[21.164906] (-) TimerEvent: {}
+[21.171895] (hardware_msg) StdoutLine: {'line': b'[ 75%] Built target hardware_msg__rosidl_typesupport_introspection_cpp\n'}
+[21.214544] (hardware_msg) StdoutLine: {'line': b'[ 77%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hardware_msg/msg/detail/motor_data__type_support_c.cpp.o\x1b[0m\n'}
+[21.265155] (-) TimerEvent: {}
+[21.367013] (-) TimerEvent: {}
+[21.444355] (hardware_msg) StdoutLine: {'line': b'[ 78%] \x1b[32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hardware_msg/msg/detail/motors_commands__type_support_c.cpp.o\x1b[0m\n'}
+[21.467282] (-) TimerEvent: {}
+[21.568853] (-) TimerEvent: {}
+[21.670426] (-) TimerEvent: {}
+[21.772183] (-) TimerEvent: {}
+[21.873975] (-) TimerEvent: {}
+[21.976053] (-) TimerEvent: {}
+[22.077970] (-) TimerEvent: {}
+[22.179036] (-) TimerEvent: {}
+[22.280010] (-) TimerEvent: {}
+[22.380941] (-) TimerEvent: {}
+[22.483101] (-) TimerEvent: {}
+[22.585840] (-) TimerEvent: {}
+[22.687969] (-) TimerEvent: {}
+[22.788927] (-) TimerEvent: {}
+[22.891877] (-) TimerEvent: {}
+[22.994694] (-) TimerEvent: {}
+[23.097627] (-) TimerEvent: {}
+[23.199491] (-) TimerEvent: {}
+[23.300294] (-) TimerEvent: {}
+[23.343766] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[23.380058] (hardware_msg) StdoutLine: {'line': b'[ 81%] Built target hardware_msg__rosidl_typesupport_fastrtps_c\n'}
+[23.389447] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg.dir/compiler_depend.make' has modification time 1372 s in the future\n"}
+[23.400552] (-) TimerEvent: {}
+[23.430187] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[23.438150] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg.dir/compiler_depend.make' has modification time 1372 s in the future\n"}
+[23.439097] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[23.469739] (hardware_msg) StdoutLine: {'line': b'[ 81%] Built target hardware_msg\n'}
+[23.479406] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'hardware_msg__py/CMakeFiles/hardware_msg__py.dir/compiler_depend.make' has modification time 1372 s in the future\n"}
+[23.500801] (-) TimerEvent: {}
+[23.518986] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[23.525996] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'hardware_msg__py/CMakeFiles/hardware_msg__py.dir/compiler_depend.make' has modification time 1372 s in the future\n"}
+[23.526693] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[23.561201] (hardware_msg) StdoutLine: {'line': b'[ 82%] Built target hardware_msg__py\n'}
+[23.571089] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__rosidl_generator_py.dir/flags.make' has modification time 1372 s in the future\n"}
+[23.600952] (-) TimerEvent: {}
+[23.609072] (hardware_msg) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hardware_msg__rosidl_generator_py\x1b[0m\n'}
+[23.650797] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[23.664665] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__rosidl_generator_py.dir/flags.make' has modification time 1372 s in the future\n"}
+[23.701229] (-) TimerEvent: {}
+[23.709253] (hardware_msg) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_py.dir/rosidl_generator_py/hardware_msg/msg/_board_parameters_s.c.o\x1b[0m\n'}
+[23.713187] (hardware_msg) StdoutLine: {'line': b'[ 86%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_py.dir/rosidl_generator_py/hardware_msg/msg/_motor_parameters_s.c.o\x1b[0m\n'}
+[23.714277] (hardware_msg) StdoutLine: {'line': b'[ 86%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_py.dir/rosidl_generator_py/hardware_msg/msg/_imu_parameters_s.c.o\x1b[0m\n'}
+[23.722368] (hardware_msg) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_py.dir/rosidl_generator_py/hardware_msg/msg/_motors_states_s.c.o\x1b[0m\n'}
+[23.801413] (-) TimerEvent: {}
+[23.902782] (-) TimerEvent: {}
+[24.004216] (-) TimerEvent: {}
+[24.106079] (-) TimerEvent: {}
+[24.208942] (-) TimerEvent: {}
+[24.237784] (hardware_msg) StdoutLine: {'line': b'[ 88%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_py.dir/rosidl_generator_py/hardware_msg/msg/_imu_s.c.o\x1b[0m\n'}
+[24.242939] (hardware_msg) StdoutLine: {'line': b'[ 89%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_py.dir/rosidl_generator_py/hardware_msg/msg/_motor_data_s.c.o\x1b[0m\n'}
+[24.245629] (hardware_msg) StdoutLine: {'line': b'[ 91%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_py.dir/rosidl_generator_py/hardware_msg/msg/_motors_commands_s.c.o\x1b[0m\n'}
+[24.309128] (-) TimerEvent: {}
+[24.410249] (-) TimerEvent: {}
+[24.511608] (-) TimerEvent: {}
+[24.612976] (-) TimerEvent: {}
+[24.696622] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[24.713122] (-) TimerEvent: {}
+[24.731978] (hardware_msg) StdoutLine: {'line': b'[ 92%] Built target hardware_msg__rosidl_generator_py\n'}
+[24.742149] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c__pyext.dir/flags.make' has modification time 1371 s in the future\n"}
+[24.744277] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c__pyext.dir/flags.make' has modification time 1371 s in the future\n"}
+[24.748042] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__rosidl_typesupport_c__pyext.dir/flags.make' has modification time 1371 s in the future\n"}
+[24.779975] (hardware_msg) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hardware_msg__rosidl_typesupport_fastrtps_c__pyext\x1b[0m\n'}
+[24.787789] (hardware_msg) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hardware_msg__rosidl_typesupport_c__pyext\x1b[0m\n'}
+[24.794669] (hardware_msg) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hardware_msg__rosidl_typesupport_introspection_c__pyext\x1b[0m\n'}
+[24.801472] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[24.806638] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[24.812172] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c__pyext.dir/flags.make' has modification time 1371 s in the future\n"}
+[24.813217] (-) TimerEvent: {}
+[24.818900] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[24.825599] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__rosidl_typesupport_c__pyext.dir/flags.make' has modification time 1371 s in the future\n"}
+[24.829240] (hardware_msg) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c__pyext.dir/flags.make' has modification time 1371 s in the future\n"}
+[24.853022] (hardware_msg) StdoutLine: {'line': b'[ 93%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/hardware_msg/_hardware_msg_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[24.867286] (hardware_msg) StdoutLine: {'line': b'[ 94%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/hardware_msg/_hardware_msg_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[24.874819] (hardware_msg) StdoutLine: {'line': b'[ 96%] \x1b[32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/hardware_msg/_hardware_msg_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[24.913465] (-) TimerEvent: {}
+[25.015942] (-) TimerEvent: {}
+[25.117431] (-) TimerEvent: {}
+[25.218753] (-) TimerEvent: {}
+[25.320369] (-) TimerEvent: {}
+[25.403992] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[25.409395] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[25.420608] (-) TimerEvent: {}
+[25.429371] (hardware_msg) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[25.443348] (hardware_msg) StdoutLine: {'line': b'[ 97%] Built target hardware_msg__rosidl_typesupport_introspection_c__pyext\n'}
+[25.447387] (hardware_msg) StdoutLine: {'line': b'[ 98%] Built target hardware_msg__rosidl_typesupport_c__pyext\n'}
+[25.468234] (hardware_msg) StdoutLine: {'line': b'[100%] Built target hardware_msg__rosidl_typesupport_fastrtps_c__pyext\n'}
+[25.517490] (hardware_msg) CommandEnded: {'returncode': 0}
+[25.519749] (hardware_msg) JobProgress: {'identifier': 'hardware_msg', 'progress': 'install'}
+[25.520751] (hardware_msg) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg'], 'cwd': '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'pi'), ('SSH_CLIENT', '192.168.1.42 56494 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/pi'), ('OLDPWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/motor_commander'), ('TERM_PROGRAM_VERSION', '1.105.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-473dcbd0-9a00-48b8-94af-91537402ef61.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'pi'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/pi/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-491542eb19.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.1.42 56494 192.168.1.186 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/opt/ros/humble')]), 'shell': False}
+[25.529353] (-) TimerEvent: {}
+[25.556207] (hardware_msg) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[25.556974] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/ament_index/resource_index/rosidl_interfaces/hardware_msg\n'}
+[25.557484] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg\n'}
+[25.557963] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg\n'}
+[25.558364] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motor_parameters.h\n'}
+[25.558781] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motor_data.h\n'}
+[25.559252] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/imu.h\n'}
+[25.559649] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/imu_parameters.h\n'}
+[25.560111] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/board_parameters.h\n'}
+[25.560506] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/rosidl_generator_c__visibility_control.h\n'}
+[25.560929] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motors_states.h\n'}
+[25.561447] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail\n'}
+[25.561848] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__functions.h\n'}
+[25.562305] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__functions.c\n'}
+[25.562693] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__type_support.h\n'}
+[25.563087] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__functions.h\n'}
+[25.563518] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__type_support.h\n'}
+[25.563950] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__type_support.h\n'}
+[25.564347] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__struct.h\n'}
+[25.564814] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__functions.h\n'}
+[25.565235] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__functions.c\n'}
+[25.565624] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__functions.c\n'}
+[25.566193] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__functions.h\n'}
+[25.566656] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__type_support.h\n'}
+[25.567034] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__struct.h\n'}
+[25.567422] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__struct.h\n'}
+[25.567864] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__struct.h\n'}
+[25.568234] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__type_support.h\n'}
+[25.568606] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__type_support.h\n'}
+[25.569088] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__struct.h\n'}
+[25.569543] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__functions.c\n'}
+[25.569984] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__struct.h\n'}
+[25.570428] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__functions.c\n'}
+[25.570820] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__functions.h\n'}
+[25.571180] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__functions.h\n'}
+[25.571527] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__functions.c\n'}
+[25.571993] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__type_support.h\n'}
+[25.572362] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__functions.h\n'}
+[25.572668] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__struct.h\n'}
+[25.573077] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__functions.c\n'}
+[25.573583] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motors_commands.h\n'}
+[25.573888] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/environment/library_path.sh\n'}
+[25.574205] (hardware_msg) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/environment/library_path.dsv\n'}
+[25.574643] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_generator_c.so\n'}
+[25.575071] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg\n'}
+[25.575476] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg\n'}
+[25.575928] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[25.576319] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail\n'}
+[25.576746] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__rosidl_typesupport_fastrtps_c.h\n'}
+[25.577176] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__rosidl_typesupport_fastrtps_c.h\n'}
+[25.577574] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__rosidl_typesupport_fastrtps_c.h\n'}
+[25.577952] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__rosidl_typesupport_fastrtps_c.h\n'}
+[25.578341] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__rosidl_typesupport_fastrtps_c.h\n'}
+[25.578772] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__rosidl_typesupport_fastrtps_c.h\n'}
+[25.579093] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__rosidl_typesupport_fastrtps_c.h\n'}
+[25.579830] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_fastrtps_c.so\n'}
+[25.581776] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg\n'}
+[25.582377] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg\n'}
+[25.582829] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motors_commands.hpp\n'}
+[25.583237] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/imu_parameters.hpp\n'}
+[25.583686] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motor_data.hpp\n'}
+[25.584092] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/imu.hpp\n'}
+[25.584401] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/board_parameters.hpp\n'}
+[25.584859] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motor_parameters.hpp\n'}
+[25.585341] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail\n'}
+[25.585745] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__type_support.hpp\n'}
+[25.586130] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__struct.hpp\n'}
+[25.586500] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__type_support.hpp\n'}
+[25.586931] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__type_support.hpp\n'}
+[25.587309] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__type_support.hpp\n'}
+[25.587693] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__traits.hpp\n'}
+[25.588129] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__traits.hpp\n'}
+[25.588512] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__builder.hpp\n'}
+[25.588933] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__builder.hpp\n'}
+[25.589407] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__traits.hpp\n'}
+[25.589784] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__type_support.hpp\n'}
+[25.590233] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__type_support.hpp\n'}
+[25.590615] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__builder.hpp\n'}
+[25.590975] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__builder.hpp\n'}
+[25.591432] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__struct.hpp\n'}
+[25.591844] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__builder.hpp\n'}
+[25.592231] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__traits.hpp\n'}
+[25.592669] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__traits.hpp\n'}
+[25.593126] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__builder.hpp\n'}
+[25.593565] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__struct.hpp\n'}
+[25.594155] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__type_support.hpp\n'}
+[25.594572] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__struct.hpp\n'}
+[25.594902] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__struct.hpp\n'}
+[25.595358] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__struct.hpp\n'}
+[25.595674] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__struct.hpp\n'}
+[25.596073] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__traits.hpp\n'}
+[25.596497] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__builder.hpp\n'}
+[25.596937] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__traits.hpp\n'}
+[25.597438] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[25.597835] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motors_states.hpp\n'}
+[25.598214] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg\n'}
+[25.598593] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg\n'}
+[25.598939] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[25.599243] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail\n'}
+[25.599593] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/dds_fastrtps\n'}
+[25.600021] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[25.600383] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[25.600681] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[25.601150] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[25.601604] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[25.602028] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[25.602441] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[25.602818] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_fastrtps_cpp.so\n'}
+[25.603216] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg\n'}
+[25.603587] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg\n'}
+[25.603973] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail\n'}
+[25.604401] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__type_support.c\n'}
+[25.604818] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__type_support.c\n'}
+[25.605236] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__rosidl_typesupport_introspection_c.h\n'}
+[25.605681] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__type_support.c\n'}
+[25.606138] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__rosidl_typesupport_introspection_c.h\n'}
+[25.606532] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__rosidl_typesupport_introspection_c.h\n'}
+[25.606926] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__type_support.c\n'}
+[25.607322] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__rosidl_typesupport_introspection_c.h\n'}
+[25.607801] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__type_support.c\n'}
+[25.608154] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__type_support.c\n'}
+[25.608460] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__rosidl_typesupport_introspection_c.h\n'}
+[25.608824] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__type_support.c\n'}
+[25.609321] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__rosidl_typesupport_introspection_c.h\n'}
+[25.609631] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__rosidl_typesupport_introspection_c.h\n'}
+[25.609955] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[25.610283] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_introspection_c.so\n'}
+[25.610956] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_c.so\n'}
+[25.612150] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg\n'}
+[25.612628] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg\n'}
+[25.613143] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail\n'}
+[25.613674] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__rosidl_typesupport_introspection_cpp.hpp\n'}
+[25.614093] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__rosidl_typesupport_introspection_cpp.hpp\n'}
+[25.615102] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__rosidl_typesupport_introspection_cpp.hpp\n'}
+[25.615689] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__type_support.cpp\n'}
+[25.616216] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__rosidl_typesupport_introspection_cpp.hpp\n'}
+[25.616850] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__type_support.cpp\n'}
+[25.617461] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__rosidl_typesupport_introspection_cpp.hpp\n'}
+[25.618108] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__type_support.cpp\n'}
+[25.618607] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__type_support.cpp\n'}
+[25.619100] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__type_support.cpp\n'}
+[25.619448] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__type_support.cpp\n'}
+[25.619786] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__rosidl_typesupport_introspection_cpp.hpp\n'}
+[25.620130] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__rosidl_typesupport_introspection_cpp.hpp\n'}
+[25.620617] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__type_support.cpp\n'}
+[25.621003] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_introspection_cpp.so\n'}
+[25.622474] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_cpp.so\n'}
+[25.623796] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/environment/pythonpath.sh\n'}
+[25.624328] (hardware_msg) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/environment/pythonpath.dsv\n'}
+[25.625801] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg-0.0.0-py3.10.egg-info\n'}
+[25.626367] (hardware_msg) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[25.627785] (hardware_msg) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[25.629187] (hardware_msg) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[25.629621] (-) TimerEvent: {}
+[25.630681] (hardware_msg) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[25.632232] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg\n'}
+[25.632814] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/libhardware_msg__rosidl_generator_py.so\n'}
+[25.633320] (hardware_msg) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/__init__.py\n'}
+[25.634463] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so\n'}
+[25.634926] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so\n'}
+[25.635405] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so\n'}
+[25.636348] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg\n'}
+[25.637318] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_motors_states_s.c\n'}
+[25.637800] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/__init__.py\n'}
+[25.638513] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_imu_parameters_s.c\n'}
+[25.638895] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_board_parameters_s.c\n'}
+[25.639362] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_board_parameters.py\n'}
+[25.639763] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_motor_data.py\n'}
+[25.640282] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_motor_parameters_s.c\n'}
+[25.640744] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_motors_states.py\n'}
+[25.641108] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_imu.py\n'}
+[25.641587] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_motors_commands_s.c\n'}
+[25.641965] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_motor_data_s.c\n'}
+[25.642314] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_motors_commands.py\n'}
+[25.642683] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_motor_parameters.py\n'}
+[25.643051] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_imu_s.c\n'}
+[25.643365] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg/_imu_parameters.py\n'}
+[25.643645] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/_hardware_msg_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[25.643923] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/_hardware_msg_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[25.644213] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/_hardware_msg_s.ep.rosidl_typesupport_c.c\n'}
+[25.729821] (-) TimerEvent: {}
+[25.801925] (hardware_msg) StdoutLine: {'line': b"Listing '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg'...\n"}
+[25.803270] (hardware_msg) StdoutLine: {'line': b"Compiling '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/__init__.py'...\n"}
+[25.804401] (hardware_msg) StdoutLine: {'line': b"Listing '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/msg'...\n"}
+[25.827865] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so\n'}
+[25.829959] (-) TimerEvent: {}
+[25.830696] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so\n'}
+[25.833574] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so\n'}
+[25.836250] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib/libhardware_msg__rosidl_generator_py.so\n'}
+[25.838158] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/BoardParameters.idl\n'}
+[25.838894] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/ImuParameters.idl\n'}
+[25.839436] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/MotorParameters.idl\n'}
+[25.840038] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/MotorsStates.idl\n'}
+[25.840548] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/Imu.idl\n'}
+[25.841092] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/MotorData.idl\n'}
+[25.841585] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/MotorsCommands.idl\n'}
+[25.842056] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/BoardParameters.msg\n'}
+[25.842596] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/ImuParameters.msg\n'}
+[25.843076] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/MotorParameters.msg\n'}
+[25.843516] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/MotorsStates.msg\n'}
+[25.844029] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/Imu.msg\n'}
+[25.844501] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/MotorData.msg\n'}
+[25.844986] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg/MotorsCommands.msg\n'}
+[25.845472] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/ament_index/resource_index/package_run_dependencies/hardware_msg\n'}
+[25.845969] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/ament_index/resource_index/parent_prefix_path/hardware_msg\n'}
+[25.846321] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/environment/ament_prefix_path.sh\n'}
+[25.846641] (hardware_msg) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/environment/ament_prefix_path.dsv\n'}
+[25.847234] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/environment/path.sh\n'}
+[25.847725] (hardware_msg) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/environment/path.dsv\n'}
+[25.849209] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/local_setup.bash\n'}
+[25.849803] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/local_setup.sh\n'}
+[25.850288] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/local_setup.zsh\n'}
+[25.850732] (hardware_msg) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/local_setup.dsv\n'}
+[25.851885] (hardware_msg) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/package.dsv\n'}
+[25.853362] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/ament_index/resource_index/packages/hardware_msg\n'}
+[25.854227] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_generator_cExport.cmake\n'}
+[25.854772] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_generator_cExport-noconfig.cmake\n'}
+[25.855715] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[25.856274] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[25.857150] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_generator_cppExport.cmake\n'}
+[25.860227] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[25.861347] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[25.862285] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_introspection_cExport.cmake\n'}
+[25.863045] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[25.863690] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_cExport.cmake\n'}
+[25.864538] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[25.865648] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[25.866285] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[25.866735] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_cppExport.cmake\n'}
+[25.867538] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[25.868311] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_generator_pyExport.cmake\n'}
+[25.869016] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_generator_pyExport-noconfig.cmake\n'}
+[25.869727] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/rosidl_cmake-extras.cmake\n'}
+[25.870477] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[25.871084] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[25.871750] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[25.872372] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[25.872874] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[25.873327] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[25.873721] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/hardware_msgConfig.cmake\n'}
+[25.874158] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake/hardware_msgConfig-version.cmake\n'}
+[25.874573] (hardware_msg) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/package.xml\n'}
+[25.879200] (hardware_msg) CommandEnded: {'returncode': 0}
+[25.930204] (-) TimerEvent: {}
+[25.979458] (hardware_msg) JobEnded: {'identifier': 'hardware_msg', 'rc': 0}
+[25.985105] (motor_commander) JobStarted: {'identifier': 'motor_commander'}
+[26.002666] (motor_control) JobStarted: {'identifier': 'motor_control'}
+[26.030663] (-) TimerEvent: {}
+[26.033848] (motor_commander) JobProgress: {'identifier': 'motor_commander', 'progress': 'cmake'}
+[26.036071] (motor_commander) Command: {'cmd': ['/usr/bin/cmake', '/home/pi/Tinker_Sber/Chellenge-Tinker/motor_commander', '-DCMAKE_INSTALL_PREFIX=/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander'], 'cwd': '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'pi'), ('SSH_CLIENT', '192.168.1.42 56494 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/pi'), ('OLDPWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/motor_commander'), ('TERM_PROGRAM_VERSION', '1.105.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-473dcbd0-9a00-48b8-94af-91537402ef61.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'pi'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/pi/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-491542eb19.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.1.42 56494 192.168.1.186 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/opt/ros/humble')]), 'shell': False}
+[26.049094] (motor_control) JobProgress: {'identifier': 'motor_control', 'progress': 'cmake'}
+[26.052111] (motor_control) JobProgress: {'identifier': 'motor_control', 'progress': 'build'}
+[26.053363] (motor_control) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control', '--', '-j4', '-l4'], 'cwd': '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'pi'), ('SSH_CLIENT', '192.168.1.42 56494 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/pi'), ('OLDPWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/motor_commander'), ('TERM_PROGRAM_VERSION', '1.105.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-473dcbd0-9a00-48b8-94af-91537402ef61.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'pi'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/pi/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-491542eb19.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.1.42 56494 192.168.1.186 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/opt/ros/humble')]), 'shell': False}
+[26.130862] (-) TimerEvent: {}
+[26.162500] (motor_control) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[26.231034] (-) TimerEvent: {}
+[26.331983] (-) TimerEvent: {}
+[26.346422] (motor_commander) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[26.432238] (-) TimerEvent: {}
+[26.533089] (-) TimerEvent: {}
+[26.634529] (-) TimerEvent: {}
+[26.637910] (motor_commander) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[26.674626] (motor_commander) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[26.734850] (-) TimerEvent: {}
+[26.807723] (motor_control) StdoutLine: {'line': b'-- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[26.835048] (-) TimerEvent: {}
+[26.939728] (-) TimerEvent: {}
+[26.963690] (motor_control) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[26.977964] (motor_control) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[27.011497] (motor_control) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[27.038877] (motor_commander) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[27.039845] (-) TimerEvent: {}
+[27.057349] (motor_control) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[27.068820] (motor_commander) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[27.071583] (motor_commander) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[27.074541] (motor_commander) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[27.087436] (motor_commander) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[27.109763] (motor_control) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[27.140054] (-) TimerEvent: {}
+[27.240947] (-) TimerEvent: {}
+[27.257929] (motor_control) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[27.264814] (motor_control) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[27.341136] (-) TimerEvent: {}
+[27.442013] (-) TimerEvent: {}
+[27.444665] (motor_commander) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[27.470604] (motor_commander) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[27.471592] (motor_commander) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[27.473300] (motor_commander) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[27.499904] (motor_commander) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[27.542212] (-) TimerEvent: {}
+[27.643010] (-) TimerEvent: {}
+[27.744840] (-) TimerEvent: {}
+[27.799010] (motor_control) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[27.845007] (-) TimerEvent: {}
+[27.945753] (-) TimerEvent: {}
+[28.026684] (motor_control) StdoutLine: {'line': b'-- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[28.045924] (-) TimerEvent: {}
+[28.146812] (-) TimerEvent: {}
+[28.169827] (motor_control) StdoutLine: {'line': b'-- Found hardware_msg: 0.0.0 (/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake)\n'}
+[28.247018] (-) TimerEvent: {}
+[28.271924] (motor_commander) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[28.347290] (-) TimerEvent: {}
+[28.448534] (-) TimerEvent: {}
+[28.538623] (motor_control) StdoutLine: {'line': b'-- Configuring done\n'}
+[28.548966] (-) TimerEvent: {}
+[28.622060] (motor_control) StdoutLine: {'line': b'-- Generating done\n'}
+[28.644848] (motor_control) StdoutLine: {'line': b'-- Build files have been written to: /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control\n'}
+[28.649246] (-) TimerEvent: {}
+[28.712461] (motor_control) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/Motor_control.dir/flags.make' has modification time 1410 s in the future\n"}
+[28.746137] (motor_control) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target Motor_control\x1b[0m\n'}
+[28.755231] (-) TimerEvent: {}
+[28.792366] (motor_control) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[28.807964] (motor_control) StderrLine: {'line': b"gmake[2]: Warning: File 'CMakeFiles/Motor_control.dir/flags.make' has modification time 1410 s in the future\n"}
+[28.855519] (-) TimerEvent: {}
+[28.861333] (motor_control) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding C object CMakeFiles/Motor_control.dir/src/comm.c.o\x1b[0m\n'}
+[28.868541] (motor_control) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/Motor_control.dir/src/Motor_control.cpp.o\x1b[0m\n'}
+[28.871384] (motor_control) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/Motor_control.dir/src/spi.cpp.o\x1b[0m\n'}
+[28.872489] (motor_commander) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[28.887909] (motor_control) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/Motor_control.dir/src/serial.cpp.o\x1b[0m\n'}
+[28.955824] (-) TimerEvent: {}
+[29.058003] (-) TimerEvent: {}
+[29.146442] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kint open_port(int)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[29.147528] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:19:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[29.148037] (motor_control) StderrLine: {'line': b'   19 |     char *pDev[]={\x1b[01;35m\x1b[K"/dev/ttyACM0"\x1b[m\x1b[K,"/dev/ttyS1","/dev/ttyS2","/dev/ttyS3",\n'}
+[29.148612] (motor_control) StderrLine: {'line': b'      |                   \x1b[01;35m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[29.152383] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:34:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[29.153124] (motor_control) StderrLine: {'line': b'   19 |     char *pDev[]={"/dev/ttyACM0",\x1b[01;35m\x1b[K"/dev/ttyS1"\x1b[m\x1b[K,"/dev/ttyS2","/dev/ttyS3",\n'}
+[29.153644] (motor_control) StderrLine: {'line': b'      |                                  \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[29.154069] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:47:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[29.154555] (motor_control) StderrLine: {'line': b'   19 |     char *pDev[]={"/dev/ttyACM0","/dev/ttyS1",\x1b[01;35m\x1b[K"/dev/ttyS2"\x1b[m\x1b[K,"/dev/ttyS3",\n'}
+[29.155011] (motor_control) StderrLine: {'line': b'      |                                               \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[29.155470] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:60:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[29.155885] (motor_control) StderrLine: {'line': b'   19 |     char *pDev[]={"/dev/ttyACM0","/dev/ttyS1","/dev/ttyS2",\x1b[01;35m\x1b[K"/dev/ttyS3"\x1b[m\x1b[K,\n'}
+[29.156319] (motor_control) StderrLine: {'line': b'      |                                                            \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[29.156683] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[29.157323] (motor_control) StderrLine: {'line': b'   20 |                     \x1b[01;35m\x1b[K"/dev/ttyS4"\x1b[m\x1b[K,"/dev/ttyS5","/dev/ttyS6","/dev/ttyS7",\n'}
+[29.157724] (motor_control) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[29.158017] (-) TimerEvent: {}
+[29.166984] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:34:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[29.167541] (motor_control) StderrLine: {'line': b'   20 |                     "/dev/ttyS4",\x1b[01;35m\x1b[K"/dev/ttyS5"\x1b[m\x1b[K,"/dev/ttyS6","/dev/ttyS7",\n'}
+[29.167934] (motor_control) StderrLine: {'line': b'      |                                  \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[29.168345] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:47:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[29.168909] (motor_control) StderrLine: {'line': b'   20 |                     "/dev/ttyS4","/dev/ttyS5",\x1b[01;35m\x1b[K"/dev/ttyS6"\x1b[m\x1b[K,"/dev/ttyS7",\n'}
+[29.169360] (motor_control) StderrLine: {'line': b'      |                                               \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[29.169778] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:60:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[29.170294] (motor_control) StderrLine: {'line': b'   20 |                     "/dev/ttyS4","/dev/ttyS5","/dev/ttyS6",\x1b[01;35m\x1b[K"/dev/ttyS7"\x1b[m\x1b[K,\n'}
+[29.170757] (motor_control) StderrLine: {'line': b'      |                                                            \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[29.185919] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[29.187229] (motor_control) StderrLine: {'line': b'   21 |                     \x1b[01;35m\x1b[K"/dev/ttyS8"\x1b[m\x1b[K,"/dev/ttyS9","/dev/ttyS10","/dev/ttyS11"};\n'}
+[29.187841] (motor_control) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[29.188250] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:34:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[29.188643] (motor_control) StderrLine: {'line': b'   21 |                     "/dev/ttyS8",\x1b[01;35m\x1b[K"/dev/ttyS9"\x1b[m\x1b[K,"/dev/ttyS10","/dev/ttyS11"};\n'}
+[29.189136] (motor_control) StderrLine: {'line': b'      |                                  \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[29.189535] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:47:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[29.189962] (motor_control) StderrLine: {'line': b'   21 |                     "/dev/ttyS8","/dev/ttyS9",\x1b[01;35m\x1b[K"/dev/ttyS10"\x1b[m\x1b[K,"/dev/ttyS11"};\n'}
+[29.190413] (motor_control) StderrLine: {'line': b'      |                                               \x1b[01;35m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[29.190874] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:61:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[29.191305] (motor_control) StderrLine: {'line': b'   21 |                     "/dev/ttyS8","/dev/ttyS9","/dev/ttyS10",\x1b[01;35m\x1b[K"/dev/ttyS11"\x1b[m\x1b[K};\n'}
+[29.191730] (motor_control) StderrLine: {'line': b'      |                                                             \x1b[01;35m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[29.253225] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/spi.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kint SPIDataRW(int, uint8_t*, uint8_t*, int)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[29.253915] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/spi.cpp:38:5:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Ki\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[29.256168] (motor_control) StderrLine: {'line': b'   38 | int \x1b[01;35m\x1b[Ki\x1b[m\x1b[K = 0;\n'}
+[29.256964] (motor_control) StderrLine: {'line': b'      |     \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[29.260113] (-) TimerEvent: {}
+[29.322641] (motor_control) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding CXX object CMakeFiles/Motor_control.dir/src/sys_timer.cpp.o\x1b[0m\n'}
+[29.360381] (-) TimerEvent: {}
+[29.462180] (-) TimerEvent: {}
+[29.509816] (motor_commander) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[29.516655] (motor_commander) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[29.520339] (motor_commander) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[29.530179] (motor_commander) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[29.539085] (motor_commander) StdoutLine: {'line': b'-- Configuring done\n'}
+[29.561331] (motor_commander) StdoutLine: {'line': b'-- Generating done\n'}
+[29.562329] (-) TimerEvent: {}
+[29.570744] (motor_commander) StdoutLine: {'line': b'-- Build files have been written to: /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander\n'}
+[29.589728] (motor_commander) CommandEnded: {'returncode': 0}
+[29.590960] (motor_commander) JobProgress: {'identifier': 'motor_commander', 'progress': 'build'}
+[29.591071] (motor_commander) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander', '--', '-j4', '-l4'], 'cwd': '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'pi'), ('SSH_CLIENT', '192.168.1.42 56494 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/pi'), ('OLDPWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/motor_commander'), ('TERM_PROGRAM_VERSION', '1.105.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-473dcbd0-9a00-48b8-94af-91537402ef61.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'pi'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/pi/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-491542eb19.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.1.42 56494 192.168.1.186 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/opt/ros/humble')]), 'shell': False}
+[29.662714] (-) TimerEvent: {}
+[29.746870] (motor_commander) CommandEnded: {'returncode': 0}
+[29.748235] (motor_commander) JobProgress: {'identifier': 'motor_commander', 'progress': 'install'}
+[29.748385] (motor_commander) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander'], 'cwd': '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'pi'), ('SSH_CLIENT', '192.168.1.42 56494 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/pi'), ('OLDPWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/motor_commander'), ('TERM_PROGRAM_VERSION', '1.105.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-473dcbd0-9a00-48b8-94af-91537402ef61.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'pi'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/pi/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-491542eb19.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.1.42 56494 192.168.1.186 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/opt/ros/humble')]), 'shell': False}
+[29.762918] (-) TimerEvent: {}
+[29.773665] (motor_commander) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[29.775230] (motor_commander) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/ament_index/resource_index/package_run_dependencies/motor_commander\n'}
+[29.777477] (motor_commander) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/ament_index/resource_index/parent_prefix_path/motor_commander\n'}
+[29.779576] (motor_commander) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/environment/ament_prefix_path.sh\n'}
+[29.781570] (motor_commander) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/environment/ament_prefix_path.dsv\n'}
+[29.783123] (motor_commander) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/environment/path.sh\n'}
+[29.784691] (motor_commander) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/environment/path.dsv\n'}
+[29.786232] (motor_commander) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/local_setup.bash\n'}
+[29.787893] (motor_commander) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/local_setup.sh\n'}
+[29.789701] (motor_commander) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/local_setup.zsh\n'}
+[29.791308] (motor_commander) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/local_setup.dsv\n'}
+[29.792814] (motor_commander) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/package.dsv\n'}
+[29.794737] (motor_commander) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/ament_index/resource_index/packages/motor_commander\n'}
+[29.796694] (motor_commander) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/cmake/motor_commanderConfig.cmake\n'}
+[29.798169] (motor_commander) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/cmake/motor_commanderConfig-version.cmake\n'}
+[29.799821] (motor_commander) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/package.xml\n'}
+[29.816992] (motor_commander) CommandEnded: {'returncode': 0}
+[29.863456] (-) TimerEvent: {}
+[29.886342] (motor_commander) JobEnded: {'identifier': 'motor_commander', 'rc': 0}
+[29.963677] (-) TimerEvent: {}
+[30.064538] (-) TimerEvent: {}
+[30.109489] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/sys_timer.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint32_t GetSysTime_us()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[30.110162] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/sys_timer.cpp:19:27:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++17 does not allow \xe2\x80\x98\x1b[01m\x1b[Kregister\x1b[m\x1b[K\xe2\x80\x99 storage class specifier [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wregister\x07-Wregister\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[30.110671] (motor_control) StderrLine: {'line': b'   19 |         register uint32_t \x1b[01;35m\x1b[Kms\x1b[m\x1b[K;\n'}
+[30.111090] (motor_control) StderrLine: {'line': b'      |                           \x1b[01;35m\x1b[K^~\x1b[m\x1b[K\n'}
+[30.164801] (-) TimerEvent: {}
+[30.265634] (-) TimerEvent: {}
+[30.366354] (-) TimerEvent: {}
+[30.467175] (-) TimerEvent: {}
+[30.568356] (-) TimerEvent: {}
+[30.669071] (-) TimerEvent: {}
+[30.769767] (-) TimerEvent: {}
+[30.870486] (-) TimerEvent: {}
+[30.971292] (-) TimerEvent: {}
+[31.072137] (-) TimerEvent: {}
+[31.172946] (-) TimerEvent: {}
+[31.273794] (-) TimerEvent: {}
+[31.374563] (-) TimerEvent: {}
+[31.475382] (-) TimerEvent: {}
+[31.576298] (-) TimerEvent: {}
+[31.677117] (-) TimerEvent: {}
+[31.777895] (-) TimerEvent: {}
+[31.878755] (-) TimerEvent: {}
+[31.979559] (-) TimerEvent: {}
+[32.080511] (-) TimerEvent: {}
+[32.181396] (-) TimerEvent: {}
+[32.282331] (-) TimerEvent: {}
+[32.383229] (-) TimerEvent: {}
+[32.484142] (-) TimerEvent: {}
+[32.584969] (-) TimerEvent: {}
+[32.685858] (-) TimerEvent: {}
+[32.786637] (-) TimerEvent: {}
+[32.887434] (-) TimerEvent: {}
+[32.988261] (-) TimerEvent: {}
+[33.089117] (-) TimerEvent: {}
+[33.189969] (-) TimerEvent: {}
+[33.290850] (-) TimerEvent: {}
+[33.391751] (-) TimerEvent: {}
+[33.492563] (-) TimerEvent: {}
+[33.593397] (-) TimerEvent: {}
+[33.694194] (-) TimerEvent: {}
+[33.794980] (-) TimerEvent: {}
+[33.895848] (-) TimerEvent: {}
+[33.996875] (-) TimerEvent: {}
+[34.097691] (-) TimerEvent: {}
+[34.198493] (-) TimerEvent: {}
+[34.299305] (-) TimerEvent: {}
+[34.400080] (-) TimerEvent: {}
+[34.500891] (-) TimerEvent: {}
+[34.601663] (-) TimerEvent: {}
+[34.702442] (-) TimerEvent: {}
+[34.803317] (-) TimerEvent: {}
+[34.904100] (-) TimerEvent: {}
+[35.004946] (-) TimerEvent: {}
+[35.105729] (-) TimerEvent: {}
+[35.206575] (-) TimerEvent: {}
+[35.307538] (-) TimerEvent: {}
+[35.408405] (-) TimerEvent: {}
+[35.509246] (-) TimerEvent: {}
+[35.610033] (-) TimerEvent: {}
+[35.710821] (-) TimerEvent: {}
+[35.811646] (-) TimerEvent: {}
+[35.912441] (-) TimerEvent: {}
+[36.013271] (-) TimerEvent: {}
+[36.114055] (-) TimerEvent: {}
+[36.214987] (-) TimerEvent: {}
+[36.315810] (-) TimerEvent: {}
+[36.416646] (-) TimerEvent: {}
+[36.517474] (-) TimerEvent: {}
+[36.618277] (-) TimerEvent: {}
+[36.719071] (-) TimerEvent: {}
+[36.819896] (-) TimerEvent: {}
+[36.920816] (-) TimerEvent: {}
+[37.021604] (-) TimerEvent: {}
+[37.122441] (-) TimerEvent: {}
+[37.223234] (-) TimerEvent: {}
+[37.324039] (-) TimerEvent: {}
+[37.424890] (-) TimerEvent: {}
+[37.525675] (-) TimerEvent: {}
+[37.626485] (-) TimerEvent: {}
+[37.727308] (-) TimerEvent: {}
+[37.828145] (-) TimerEvent: {}
+[37.928996] (-) TimerEvent: {}
+[38.029830] (-) TimerEvent: {}
+[38.130709] (-) TimerEvent: {}
+[38.231550] (-) TimerEvent: {}
+[38.332399] (-) TimerEvent: {}
+[38.433242] (-) TimerEvent: {}
+[38.534035] (-) TimerEvent: {}
+[38.634831] (-) TimerEvent: {}
+[38.735659] (-) TimerEvent: {}
+[38.836473] (-) TimerEvent: {}
+[38.937315] (-) TimerEvent: {}
+[39.038133] (-) TimerEvent: {}
+[39.103373] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kint slave_rx(uint8_t*, int)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[39.104013] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:176:13:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kid\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[39.104453] (motor_control) StderrLine: {'line': b'  176 |     uint8_t \x1b[01;35m\x1b[Kid\x1b[m\x1b[K;\n'}
+[39.104917] (motor_control) StderrLine: {'line': b'      |             \x1b[01;35m\x1b[K^~\x1b[m\x1b[K\n'}
+[39.105841] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid can_board_send(char)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[39.106563] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:273:18:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kt_temp\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[39.107087] (motor_control) StderrLine: {'line': b'  273 |     static float \x1b[01;35m\x1b[Kt_temp\x1b[m\x1b[K = 0;\n'}
+[39.107439] (motor_control) StderrLine: {'line': b'      |                  \x1b[01;35m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[39.107793] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:274:10:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kid\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[39.108226] (motor_control) StderrLine: {'line': b'  274 |     char \x1b[01;35m\x1b[Kid\x1b[m\x1b[K = 0;\n'}
+[39.109105] (motor_control) StderrLine: {'line': b'      |          \x1b[01;35m\x1b[K^~\x1b[m\x1b[K\n'}
+[39.109548] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:275:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[K_cnt\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[39.109986] (motor_control) StderrLine: {'line': b'  275 |     char sum_t = 0, \x1b[01;35m\x1b[K_cnt\x1b[m\x1b[K = 0;\n'}
+[39.110398] (motor_control) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[39.110770] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:276:17:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kbldc_id_sel\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[39.111162] (motor_control) StderrLine: {'line': b'  276 |     static char \x1b[01;35m\x1b[Kbldc_id_sel\x1b[m\x1b[K=0;\n'}
+[39.111593] (motor_control) StderrLine: {'line': b'      |                 \x1b[01;35m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[39.111985] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid transfer(int, int)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[39.112599] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:330:27:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Krx_cnt\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[39.113396] (motor_control) StderrLine: {'line': b'  330 |     static uint8_t state, \x1b[01;35m\x1b[Krx_cnt\x1b[m\x1b[K;\n'}
+[39.114015] (motor_control) StderrLine: {'line': b'      |                           \x1b[01;35m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[39.114652] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:328:19:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kfd\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[39.115169] (motor_control) StderrLine: {'line': b'  328 | void transfer(\x1b[01;35m\x1b[Kint fd\x1b[m\x1b[K, int sel)//\xe5\x8f\x91\xe9\x80\x81\n'}
+[39.115573] (motor_control) StderrLine: {'line': b'      |               \x1b[01;35m\x1b[K~~~~^~\x1b[m\x1b[K\n'}
+[39.138313] (-) TimerEvent: {}
+[39.239082] (-) TimerEvent: {}
+[39.339935] (-) TimerEvent: {}
+[39.440779] (-) TimerEvent: {}
+[39.541568] (-) TimerEvent: {}
+[39.642363] (-) TimerEvent: {}
+[39.743192] (-) TimerEvent: {}
+[39.844028] (-) TimerEvent: {}
+[39.914909] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[KMotor_control::Motor_control()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[39.915609] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:458:10:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kbuf_mem\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[39.916057] (motor_control) StderrLine: {'line': b'  458 |     char \x1b[01;35m\x1b[Kbuf_mem\x1b[m\x1b[K[MEM_SIZE]={1,2};\n'}
+[39.916451] (motor_control) StderrLine: {'line': b'      |          \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[39.944216] (-) TimerEvent: {}
+[40.045028] (-) TimerEvent: {}
+[40.145859] (-) TimerEvent: {}
+[40.246629] (-) TimerEvent: {}
+[40.347463] (-) TimerEvent: {}
+[40.448348] (-) TimerEvent: {}
+[40.549148] (-) TimerEvent: {}
+[40.649934] (-) TimerEvent: {}
+[40.750738] (-) TimerEvent: {}
+[40.851522] (-) TimerEvent: {}
+[40.952308] (-) TimerEvent: {}
+[41.053105] (-) TimerEvent: {}
+[41.153903] (-) TimerEvent: {}
+[41.254695] (-) TimerEvent: {}
+[41.355503] (-) TimerEvent: {}
+[41.456324] (-) TimerEvent: {}
+[41.557176] (-) TimerEvent: {}
+[41.658049] (-) TimerEvent: {}
+[41.758870] (-) TimerEvent: {}
+[41.859727] (-) TimerEvent: {}
+[41.960516] (-) TimerEvent: {}
+[42.061413] (-) TimerEvent: {}
+[42.162198] (-) TimerEvent: {}
+[42.262989] (-) TimerEvent: {}
+[42.363765] (-) TimerEvent: {}
+[42.464511] (-) TimerEvent: {}
+[42.565315] (-) TimerEvent: {}
+[42.666154] (-) TimerEvent: {}
+[42.767063] (-) TimerEvent: {}
+[42.867843] (-) TimerEvent: {}
+[42.968603] (-) TimerEvent: {}
+[43.069409] (-) TimerEvent: {}
+[43.170170] (-) TimerEvent: {}
+[43.270922] (-) TimerEvent: {}
+[43.371697] (-) TimerEvent: {}
+[43.472478] (-) TimerEvent: {}
+[43.573284] (-) TimerEvent: {}
+[43.674042] (-) TimerEvent: {}
+[43.774817] (-) TimerEvent: {}
+[43.875603] (-) TimerEvent: {}
+[43.976401] (-) TimerEvent: {}
+[44.077211] (-) TimerEvent: {}
+[44.178006] (-) TimerEvent: {}
+[44.278815] (-) TimerEvent: {}
+[44.379620] (-) TimerEvent: {}
+[44.480412] (-) TimerEvent: {}
+[44.581249] (-) TimerEvent: {}
+[44.682111] (-) TimerEvent: {}
+[44.782930] (-) TimerEvent: {}
+[44.883796] (-) TimerEvent: {}
+[44.984676] (-) TimerEvent: {}
+[45.085517] (-) TimerEvent: {}
+[45.186320] (-) TimerEvent: {}
+[45.287122] (-) TimerEvent: {}
+[45.387917] (-) TimerEvent: {}
+[45.488684] (-) TimerEvent: {}
+[45.589508] (-) TimerEvent: {}
+[45.690281] (-) TimerEvent: {}
+[45.791096] (-) TimerEvent: {}
+[45.891893] (-) TimerEvent: {}
+[45.992760] (-) TimerEvent: {}
+[46.093642] (-) TimerEvent: {}
+[46.194436] (-) TimerEvent: {}
+[46.295228] (-) TimerEvent: {}
+[46.396097] (-) TimerEvent: {}
+[46.496933] (-) TimerEvent: {}
+[46.597709] (-) TimerEvent: {}
+[46.698491] (-) TimerEvent: {}
+[46.799279] (-) TimerEvent: {}
+[46.900076] (-) TimerEvent: {}
+[47.001025] (-) TimerEvent: {}
+[47.102222] (-) TimerEvent: {}
+[47.203024] (-) TimerEvent: {}
+[47.303812] (-) TimerEvent: {}
+[47.404613] (-) TimerEvent: {}
+[47.505722] (-) TimerEvent: {}
+[47.606520] (-) TimerEvent: {}
+[47.707332] (-) TimerEvent: {}
+[47.808125] (-) TimerEvent: {}
+[47.908909] (-) TimerEvent: {}
+[48.009680] (-) TimerEvent: {}
+[48.110473] (-) TimerEvent: {}
+[48.211256] (-) TimerEvent: {}
+[48.312038] (-) TimerEvent: {}
+[48.412897] (-) TimerEvent: {}
+[48.513685] (-) TimerEvent: {}
+[48.614475] (-) TimerEvent: {}
+[48.715273] (-) TimerEvent: {}
+[48.816083] (-) TimerEvent: {}
+[48.916894] (-) TimerEvent: {}
+[49.017679] (-) TimerEvent: {}
+[49.118481] (-) TimerEvent: {}
+[49.219277] (-) TimerEvent: {}
+[49.320123] (-) TimerEvent: {}
+[49.421006] (-) TimerEvent: {}
+[49.521794] (-) TimerEvent: {}
+[49.622558] (-) TimerEvent: {}
+[49.723376] (-) TimerEvent: {}
+[49.824161] (-) TimerEvent: {}
+[49.924928] (-) TimerEvent: {}
+[50.025690] (-) TimerEvent: {}
+[50.126508] (-) TimerEvent: {}
+[50.227330] (-) TimerEvent: {}
+[50.328107] (-) TimerEvent: {}
+[50.428896] (-) TimerEvent: {}
+[50.529637] (-) TimerEvent: {}
+[50.630413] (-) TimerEvent: {}
+[50.731187] (-) TimerEvent: {}
+[50.831979] (-) TimerEvent: {}
+[50.932797] (-) TimerEvent: {}
+[51.033572] (-) TimerEvent: {}
+[51.134339] (-) TimerEvent: {}
+[51.235110] (-) TimerEvent: {}
+[51.335927] (-) TimerEvent: {}
+[51.436753] (-) TimerEvent: {}
+[51.537521] (-) TimerEvent: {}
+[51.638327] (-) TimerEvent: {}
+[51.739107] (-) TimerEvent: {}
+[51.839910] (-) TimerEvent: {}
+[51.940755] (-) TimerEvent: {}
+[52.041719] (-) TimerEvent: {}
+[52.143077] (-) TimerEvent: {}
+[52.243854] (-) TimerEvent: {}
+[52.344699] (-) TimerEvent: {}
+[52.445506] (-) TimerEvent: {}
+[52.546294] (-) TimerEvent: {}
+[52.647223] (-) TimerEvent: {}
+[52.748058] (-) TimerEvent: {}
+[52.848866] (-) TimerEvent: {}
+[52.949623] (-) TimerEvent: {}
+[53.050402] (-) TimerEvent: {}
+[53.151204] (-) TimerEvent: {}
+[53.252061] (-) TimerEvent: {}
+[53.352926] (-) TimerEvent: {}
+[53.453686] (-) TimerEvent: {}
+[53.554467] (-) TimerEvent: {}
+[53.655296] (-) TimerEvent: {}
+[53.756070] (-) TimerEvent: {}
+[53.856880] (-) TimerEvent: {}
+[53.957634] (-) TimerEvent: {}
+[54.058418] (-) TimerEvent: {}
+[54.159213] (-) TimerEvent: {}
+[54.260171] (-) TimerEvent: {}
+[54.361412] (-) TimerEvent: {}
+[54.462199] (-) TimerEvent: {}
+[54.563042] (-) TimerEvent: {}
+[54.663850] (-) TimerEvent: {}
+[54.764635] (-) TimerEvent: {}
+[54.865484] (-) TimerEvent: {}
+[54.966305] (-) TimerEvent: {}
+[55.067121] (-) TimerEvent: {}
+[55.167913] (-) TimerEvent: {}
+[55.268770] (-) TimerEvent: {}
+[55.369610] (-) TimerEvent: {}
+[55.470426] (-) TimerEvent: {}
+[55.571281] (-) TimerEvent: {}
+[55.672106] (-) TimerEvent: {}
+[55.773001] (-) TimerEvent: {}
+[55.874022] (-) TimerEvent: {}
+[55.974868] (-) TimerEvent: {}
+[56.075789] (-) TimerEvent: {}
+[56.176857] (-) TimerEvent: {}
+[56.277952] (-) TimerEvent: {}
+[56.378755] (-) TimerEvent: {}
+[56.479620] (-) TimerEvent: {}
+[56.580453] (-) TimerEvent: {}
+[56.681266] (-) TimerEvent: {}
+[56.782014] (-) TimerEvent: {}
+[56.882800] (-) TimerEvent: {}
+[56.983602] (-) TimerEvent: {}
+[57.084615] (-) TimerEvent: {}
+[57.185445] (-) TimerEvent: {}
+[57.286269] (-) TimerEvent: {}
+[57.387071] (-) TimerEvent: {}
+[57.487856] (-) TimerEvent: {}
+[57.588804] (-) TimerEvent: {}
+[57.689624] (-) TimerEvent: {}
+[57.790505] (-) TimerEvent: {}
+[57.891354] (-) TimerEvent: {}
+[57.992145] (-) TimerEvent: {}
+[58.092935] (-) TimerEvent: {}
+[58.194192] (-) TimerEvent: {}
+[58.294987] (-) TimerEvent: {}
+[58.395812] (-) TimerEvent: {}
+[58.496695] (-) TimerEvent: {}
+[58.597951] (-) TimerEvent: {}
+[58.698680] (-) TimerEvent: {}
+[58.799396] (-) TimerEvent: {}
+[58.900302] (-) TimerEvent: {}
+[59.001065] (-) TimerEvent: {}
+[59.101771] (-) TimerEvent: {}
+[59.202499] (-) TimerEvent: {}
+[59.303200] (-) TimerEvent: {}
+[59.403929] (-) TimerEvent: {}
+[59.504625] (-) TimerEvent: {}
+[59.605378] (-) TimerEvent: {}
+[59.706094] (-) TimerEvent: {}
+[59.806847] (-) TimerEvent: {}
+[59.907716] (-) TimerEvent: {}
+[60.008530] (-) TimerEvent: {}
+[60.109345] (-) TimerEvent: {}
+[60.210110] (-) TimerEvent: {}
+[60.310959] (-) TimerEvent: {}
+[60.411735] (-) TimerEvent: {}
+[60.512526] (-) TimerEvent: {}
+[60.613351] (-) TimerEvent: {}
+[60.714167] (-) TimerEvent: {}
+[60.814966] (-) TimerEvent: {}
+[60.915800] (-) TimerEvent: {}
+[61.016610] (-) TimerEvent: {}
+[61.117423] (-) TimerEvent: {}
+[61.218266] (-) TimerEvent: {}
+[61.319072] (-) TimerEvent: {}
+[61.407161] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:\x1b[m\x1b[K At global scope:\n'}
+[61.408292] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:330:27:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krx_cnt\x1b[m\x1b[K\xe2\x80\x99 defined but not used [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[61.409858] (motor_control) StderrLine: {'line': b'  330 |     static uint8_t state, \x1b[01;35m\x1b[Krx_cnt\x1b[m\x1b[K;\n'}
+[61.410847] (motor_control) StderrLine: {'line': b'      |                           \x1b[01;35m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[61.412114] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:276:17:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kbldc_id_sel\x1b[m\x1b[K\xe2\x80\x99 defined but not used [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[61.413360] (motor_control) StderrLine: {'line': b'  276 |     static char \x1b[01;35m\x1b[Kbldc_id_sel\x1b[m\x1b[K=0;\n'}
+[61.414728] (motor_control) StderrLine: {'line': b'      |                 \x1b[01;35m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[61.416165] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:273:18:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kt_temp\x1b[m\x1b[K\xe2\x80\x99 defined but not used [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[61.417782] (motor_control) StderrLine: {'line': b'  273 |     static float \x1b[01;35m\x1b[Kt_temp\x1b[m\x1b[K = 0;\n'}
+[61.419087] (motor_control) StderrLine: {'line': b'      |                  \x1b[01;35m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[61.420314] (-) TimerEvent: {}
+[61.421385] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:157:12:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kint intFromData_spi(unsigned char*, int*)\x1b[m\x1b[K\xe2\x80\x99 defined but not used [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-function\x07-Wunused-function\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[61.422721] (motor_control) StderrLine: {'line': b'  157 | static int \x1b[01;35m\x1b[KintFromData_spi\x1b[m\x1b[K(unsigned char *data, int *anal_cnt)\n'}
+[61.423870] (motor_control) StderrLine: {'line': b'      |            \x1b[01;35m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[61.425053] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:105:13:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kvoid setDataInt_spi(int)\x1b[m\x1b[K\xe2\x80\x99 defined but not used [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-function\x07-Wunused-function\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[61.426175] (motor_control) StderrLine: {'line': b'  105 | static void \x1b[01;35m\x1b[KsetDataInt_spi\x1b[m\x1b[K(int i)\n'}
+[61.427295] (motor_control) StderrLine: {'line': b'      |             \x1b[01;35m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[61.520614] (-) TimerEvent: {}
+[61.621778] (-) TimerEvent: {}
+[61.722755] (-) TimerEvent: {}
+[61.823678] (-) TimerEvent: {}
+[61.924469] (-) TimerEvent: {}
+[62.025355] (-) TimerEvent: {}
+[62.126268] (-) TimerEvent: {}
+[62.227128] (-) TimerEvent: {}
+[62.327930] (-) TimerEvent: {}
+[62.428790] (-) TimerEvent: {}
+[62.529562] (-) TimerEvent: {}
+[62.630318] (-) TimerEvent: {}
+[62.731115] (-) TimerEvent: {}
+[62.831909] (-) TimerEvent: {}
+[62.932689] (-) TimerEvent: {}
+[63.033497] (-) TimerEvent: {}
+[63.134553] (-) TimerEvent: {}
+[63.235609] (-) TimerEvent: {}
+[63.336526] (-) TimerEvent: {}
+[63.437905] (-) TimerEvent: {}
+[63.539271] (-) TimerEvent: {}
+[63.640249] (-) TimerEvent: {}
+[63.741268] (-) TimerEvent: {}
+[63.842110] (-) TimerEvent: {}
+[63.943035] (-) TimerEvent: {}
+[64.043836] (-) TimerEvent: {}
+[64.144574] (-) TimerEvent: {}
+[64.245345] (-) TimerEvent: {}
+[64.346188] (-) TimerEvent: {}
+[64.447006] (-) TimerEvent: {}
+[64.547778] (-) TimerEvent: {}
+[64.648615] (-) TimerEvent: {}
+[64.749424] (-) TimerEvent: {}
+[64.850209] (-) TimerEvent: {}
+[64.951007] (-) TimerEvent: {}
+[65.051845] (-) TimerEvent: {}
+[65.152633] (-) TimerEvent: {}
+[65.253491] (-) TimerEvent: {}
+[65.354266] (-) TimerEvent: {}
+[65.455151] (-) TimerEvent: {}
+[65.555986] (-) TimerEvent: {}
+[65.656784] (-) TimerEvent: {}
+[65.757556] (-) TimerEvent: {}
+[65.858404] (-) TimerEvent: {}
+[65.959318] (-) TimerEvent: {}
+[66.060116] (-) TimerEvent: {}
+[66.160994] (-) TimerEvent: {}
+[66.261760] (-) TimerEvent: {}
+[66.362536] (-) TimerEvent: {}
+[66.463354] (-) TimerEvent: {}
+[66.564140] (-) TimerEvent: {}
+[66.664950] (-) TimerEvent: {}
+[66.765677] (-) TimerEvent: {}
+[66.866423] (-) TimerEvent: {}
+[66.967235] (-) TimerEvent: {}
+[67.068116] (-) TimerEvent: {}
+[67.168904] (-) TimerEvent: {}
+[67.269658] (-) TimerEvent: {}
+[67.370451] (-) TimerEvent: {}
+[67.471228] (-) TimerEvent: {}
+[67.571985] (-) TimerEvent: {}
+[67.672838] (-) TimerEvent: {}
+[67.773612] (-) TimerEvent: {}
+[67.874391] (-) TimerEvent: {}
+[67.975175] (-) TimerEvent: {}
+[68.075964] (-) TimerEvent: {}
+[68.176883] (-) TimerEvent: {}
+[68.277661] (-) TimerEvent: {}
+[68.378453] (-) TimerEvent: {}
+[68.479250] (-) TimerEvent: {}
+[68.580037] (-) TimerEvent: {}
+[68.680851] (-) TimerEvent: {}
+[68.781628] (-) TimerEvent: {}
+[68.882392] (-) TimerEvent: {}
+[68.983207] (-) TimerEvent: {}
+[69.084001] (-) TimerEvent: {}
+[69.184826] (-) TimerEvent: {}
+[69.285615] (-) TimerEvent: {}
+[69.386455] (-) TimerEvent: {}
+[69.487233] (-) TimerEvent: {}
+[69.588064] (-) TimerEvent: {}
+[69.688854] (-) TimerEvent: {}
+[69.789605] (-) TimerEvent: {}
+[69.890385] (-) TimerEvent: {}
+[69.991175] (-) TimerEvent: {}
+[70.091989] (-) TimerEvent: {}
+[70.192831] (-) TimerEvent: {}
+[70.293577] (-) TimerEvent: {}
+[70.394343] (-) TimerEvent: {}
+[70.495079] (-) TimerEvent: {}
+[70.595868] (-) TimerEvent: {}
+[70.696609] (-) TimerEvent: {}
+[70.797424] (-) TimerEvent: {}
+[70.898198] (-) TimerEvent: {}
+[70.998978] (-) TimerEvent: {}
+[71.099761] (-) TimerEvent: {}
+[71.200543] (-) TimerEvent: {}
+[71.301329] (-) TimerEvent: {}
+[71.402112] (-) TimerEvent: {}
+[71.502873] (-) TimerEvent: {}
+[71.603666] (-) TimerEvent: {}
+[71.704622] (-) TimerEvent: {}
+[71.805580] (-) TimerEvent: {}
+[71.906451] (-) TimerEvent: {}
+[72.007243] (-) TimerEvent: {}
+[72.108107] (-) TimerEvent: {}
+[72.208905] (-) TimerEvent: {}
+[72.309676] (-) TimerEvent: {}
+[72.410491] (-) TimerEvent: {}
+[72.511263] (-) TimerEvent: {}
+[72.612044] (-) TimerEvent: {}
+[72.712891] (-) TimerEvent: {}
+[72.813660] (-) TimerEvent: {}
+[72.914447] (-) TimerEvent: {}
+[73.015297] (-) TimerEvent: {}
+[73.116109] (-) TimerEvent: {}
+[73.216890] (-) TimerEvent: {}
+[73.317660] (-) TimerEvent: {}
+[73.418439] (-) TimerEvent: {}
+[73.519338] (-) TimerEvent: {}
+[73.620148] (-) TimerEvent: {}
+[73.720968] (-) TimerEvent: {}
+[73.821727] (-) TimerEvent: {}
+[73.922506] (-) TimerEvent: {}
+[74.023304] (-) TimerEvent: {}
+[74.124063] (-) TimerEvent: {}
+[74.224827] (-) TimerEvent: {}
+[74.325636] (-) TimerEvent: {}
+[74.426371] (-) TimerEvent: {}
+[74.527174] (-) TimerEvent: {}
+[74.627962] (-) TimerEvent: {}
+[74.728797] (-) TimerEvent: {}
+[74.829589] (-) TimerEvent: {}
+[74.930366] (-) TimerEvent: {}
+[75.031230] (-) TimerEvent: {}
+[75.132017] (-) TimerEvent: {}
+[75.232837] (-) TimerEvent: {}
+[75.333589] (-) TimerEvent: {}
+[75.434374] (-) TimerEvent: {}
+[75.535178] (-) TimerEvent: {}
+[75.635945] (-) TimerEvent: {}
+[75.736746] (-) TimerEvent: {}
+[75.837506] (-) TimerEvent: {}
+[75.938272] (-) TimerEvent: {}
+[76.039070] (-) TimerEvent: {}
+[76.139868] (-) TimerEvent: {}
+[76.240631] (-) TimerEvent: {}
+[76.341408] (-) TimerEvent: {}
+[76.442164] (-) TimerEvent: {}
+[76.542967] (-) TimerEvent: {}
+[76.643729] (-) TimerEvent: {}
+[76.744547] (-) TimerEvent: {}
+[76.845365] (-) TimerEvent: {}
+[76.946134] (-) TimerEvent: {}
+[77.046981] (-) TimerEvent: {}
+[77.147779] (-) TimerEvent: {}
+[77.248570] (-) TimerEvent: {}
+[77.349408] (-) TimerEvent: {}
+[77.450184] (-) TimerEvent: {}
+[77.551040] (-) TimerEvent: {}
+[77.651822] (-) TimerEvent: {}
+[77.752605] (-) TimerEvent: {}
+[77.885873] (-) TimerEvent: {}
+[77.986636] (-) TimerEvent: {}
+[78.087446] (-) TimerEvent: {}
+[78.188429] (-) TimerEvent: {}
+[78.289307] (-) TimerEvent: {}
+[78.390079] (-) TimerEvent: {}
+[78.490856] (-) TimerEvent: {}
+[78.591660] (-) TimerEvent: {}
+[78.692423] (-) TimerEvent: {}
+[78.793212] (-) TimerEvent: {}
+[78.893962] (-) TimerEvent: {}
+[78.994740] (-) TimerEvent: {}
+[79.095591] (-) TimerEvent: {}
+[79.196386] (-) TimerEvent: {}
+[79.297151] (-) TimerEvent: {}
+[79.397915] (-) TimerEvent: {}
+[79.498704] (-) TimerEvent: {}
+[79.599488] (-) TimerEvent: {}
+[79.700283] (-) TimerEvent: {}
+[79.801042] (-) TimerEvent: {}
+[79.901820] (-) TimerEvent: {}
+[80.002598] (-) TimerEvent: {}
+[80.103397] (-) TimerEvent: {}
+[80.204205] (-) TimerEvent: {}
+[80.304994] (-) TimerEvent: {}
+[80.405764] (-) TimerEvent: {}
+[80.506537] (-) TimerEvent: {}
+[80.607382] (-) TimerEvent: {}
+[80.708135] (-) TimerEvent: {}
+[80.809038] (-) TimerEvent: {}
+[80.909830] (-) TimerEvent: {}
+[81.010613] (-) TimerEvent: {}
+[81.111475] (-) TimerEvent: {}
+[81.212284] (-) TimerEvent: {}
+[81.313130] (-) TimerEvent: {}
+[81.413934] (-) TimerEvent: {}
+[81.514662] (-) TimerEvent: {}
+[81.615445] (-) TimerEvent: {}
+[81.716262] (-) TimerEvent: {}
+[81.817131] (-) TimerEvent: {}
+[81.917968] (-) TimerEvent: {}
+[82.019131] (-) TimerEvent: {}
+[82.119963] (-) TimerEvent: {}
+[82.220780] (-) TimerEvent: {}
+[82.321553] (-) TimerEvent: {}
+[82.422321] (-) TimerEvent: {}
+[82.523137] (-) TimerEvent: {}
+[82.623917] (-) TimerEvent: {}
+[82.724683] (-) TimerEvent: {}
+[82.825485] (-) TimerEvent: {}
+[82.926276] (-) TimerEvent: {}
+[83.027040] (-) TimerEvent: {}
+[83.127798] (-) TimerEvent: {}
+[83.228598] (-) TimerEvent: {}
+[83.329389] (-) TimerEvent: {}
+[83.430158] (-) TimerEvent: {}
+[83.530930] (-) TimerEvent: {}
+[83.631740] (-) TimerEvent: {}
+[83.732531] (-) TimerEvent: {}
+[83.833366] (-) TimerEvent: {}
+[83.934254] (-) TimerEvent: {}
+[84.035011] (-) TimerEvent: {}
+[84.135841] (-) TimerEvent: {}
+[84.236602] (-) TimerEvent: {}
+[84.337417] (-) TimerEvent: {}
+[84.438205] (-) TimerEvent: {}
+[84.539028] (-) TimerEvent: {}
+[84.639769] (-) TimerEvent: {}
+[84.740538] (-) TimerEvent: {}
+[84.841335] (-) TimerEvent: {}
+[84.942104] (-) TimerEvent: {}
+[85.042889] (-) TimerEvent: {}
+[85.143749] (-) TimerEvent: {}
+[85.244523] (-) TimerEvent: {}
+[85.345273] (-) TimerEvent: {}
+[85.446054] (-) TimerEvent: {}
+[85.546794] (-) TimerEvent: {}
+[85.647576] (-) TimerEvent: {}
+[85.748354] (-) TimerEvent: {}
+[85.849159] (-) TimerEvent: {}
+[85.949881] (-) TimerEvent: {}
+[86.050762] (-) TimerEvent: {}
+[86.151537] (-) TimerEvent: {}
+[86.252368] (-) TimerEvent: {}
+[86.353175] (-) TimerEvent: {}
+[86.453906] (-) TimerEvent: {}
+[86.554699] (-) TimerEvent: {}
+[86.655458] (-) TimerEvent: {}
+[86.756247] (-) TimerEvent: {}
+[86.857027] (-) TimerEvent: {}
+[86.957824] (-) TimerEvent: {}
+[87.058688] (-) TimerEvent: {}
+[87.159466] (-) TimerEvent: {}
+[87.260283] (-) TimerEvent: {}
+[87.361085] (-) TimerEvent: {}
+[87.461880] (-) TimerEvent: {}
+[87.562654] (-) TimerEvent: {}
+[87.663424] (-) TimerEvent: {}
+[87.764182] (-) TimerEvent: {}
+[87.864979] (-) TimerEvent: {}
+[87.965761] (-) TimerEvent: {}
+[88.066543] (-) TimerEvent: {}
+[88.167430] (-) TimerEvent: {}
+[88.268226] (-) TimerEvent: {}
+[88.369057] (-) TimerEvent: {}
+[88.469839] (-) TimerEvent: {}
+[88.570638] (-) TimerEvent: {}
+[88.671488] (-) TimerEvent: {}
+[88.772294] (-) TimerEvent: {}
+[88.873115] (-) TimerEvent: {}
+[88.973887] (-) TimerEvent: {}
+[89.074684] (-) TimerEvent: {}
+[89.175507] (-) TimerEvent: {}
+[89.276273] (-) TimerEvent: {}
+[89.377045] (-) TimerEvent: {}
+[89.477859] (-) TimerEvent: {}
+[89.578618] (-) TimerEvent: {}
+[89.679392] (-) TimerEvent: {}
+[89.780263] (-) TimerEvent: {}
+[89.881178] (-) TimerEvent: {}
+[89.982093] (-) TimerEvent: {}
+[90.082772] (-) TimerEvent: {}
+[90.183526] (-) TimerEvent: {}
+[90.284281] (-) TimerEvent: {}
+[90.385073] (-) TimerEvent: {}
+[90.485790] (-) TimerEvent: {}
+[90.586529] (-) TimerEvent: {}
+[90.687291] (-) TimerEvent: {}
+[90.788046] (-) TimerEvent: {}
+[90.888863] (-) TimerEvent: {}
+[90.989657] (-) TimerEvent: {}
+[91.090419] (-) TimerEvent: {}
+[91.191207] (-) TimerEvent: {}
+[91.291974] (-) TimerEvent: {}
+[91.392865] (-) TimerEvent: {}
+[91.493625] (-) TimerEvent: {}
+[91.594406] (-) TimerEvent: {}
+[91.695180] (-) TimerEvent: {}
+[91.795968] (-) TimerEvent: {}
+[91.896821] (-) TimerEvent: {}
+[91.997584] (-) TimerEvent: {}
+[92.098410] (-) TimerEvent: {}
+[92.199180] (-) TimerEvent: {}
+[92.300077] (-) TimerEvent: {}
+[92.400865] (-) TimerEvent: {}
+[92.501626] (-) TimerEvent: {}
+[92.602374] (-) TimerEvent: {}
+[92.703148] (-) TimerEvent: {}
+[92.803955] (-) TimerEvent: {}
+[92.904735] (-) TimerEvent: {}
+[93.005576] (-) TimerEvent: {}
+[93.106313] (-) TimerEvent: {}
+[93.207089] (-) TimerEvent: {}
+[93.307892] (-) TimerEvent: {}
+[93.408696] (-) TimerEvent: {}
+[93.509588] (-) TimerEvent: {}
+[93.610313] (-) TimerEvent: {}
+[93.711063] (-) TimerEvent: {}
+[93.811854] (-) TimerEvent: {}
+[93.912627] (-) TimerEvent: {}
+[94.013421] (-) TimerEvent: {}
+[94.114154] (-) TimerEvent: {}
+[94.214893] (-) TimerEvent: {}
+[94.315714] (-) TimerEvent: {}
+[94.416460] (-) TimerEvent: {}
+[94.517285] (-) TimerEvent: {}
+[94.618134] (-) TimerEvent: {}
+[94.719122] (-) TimerEvent: {}
+[94.820276] (-) TimerEvent: {}
+[94.922066] (-) TimerEvent: {}
+[95.023240] (-) TimerEvent: {}
+[95.124402] (-) TimerEvent: {}
+[95.225456] (-) TimerEvent: {}
+[95.326228] (-) TimerEvent: {}
+[95.427003] (-) TimerEvent: {}
+[95.527965] (-) TimerEvent: {}
+[95.628933] (-) TimerEvent: {}
+[95.730026] (-) TimerEvent: {}
+[95.831172] (-) TimerEvent: {}
+[95.932176] (-) TimerEvent: {}
+[96.033629] (-) TimerEvent: {}
+[96.134436] (-) TimerEvent: {}
+[96.235221] (-) TimerEvent: {}
+[96.336388] (-) TimerEvent: {}
+[96.437553] (-) TimerEvent: {}
+[96.538375] (-) TimerEvent: {}
+[96.601789] (motor_control) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable Motor_control\x1b[0m\n'}
+[96.638572] (-) TimerEvent: {}
+[96.739439] (-) TimerEvent: {}
+[96.840434] (-) TimerEvent: {}
+[96.941531] (-) TimerEvent: {}
+[97.043207] (-) TimerEvent: {}
+[97.144212] (-) TimerEvent: {}
+[97.245296] (-) TimerEvent: {}
+[97.346686] (-) TimerEvent: {}
+[97.447786] (-) TimerEvent: {}
+[97.548814] (-) TimerEvent: {}
+[97.649834] (-) TimerEvent: {}
+[97.750746] (-) TimerEvent: {}
+[97.851685] (-) TimerEvent: {}
+[97.952704] (-) TimerEvent: {}
+[98.053977] (-) TimerEvent: {}
+[98.155220] (-) TimerEvent: {}
+[98.256447] (-) TimerEvent: {}
+[98.357440] (-) TimerEvent: {}
+[98.458737] (-) TimerEvent: {}
+[98.559595] (-) TimerEvent: {}
+[98.660545] (-) TimerEvent: {}
+[98.761407] (-) TimerEvent: {}
+[98.862083] (-) TimerEvent: {}
+[98.962767] (-) TimerEvent: {}
+[99.063518] (-) TimerEvent: {}
+[99.164236] (-) TimerEvent: {}
+[99.264955] (-) TimerEvent: {}
+[99.365745] (-) TimerEvent: {}
+[99.466724] (-) TimerEvent: {}
+[99.567561] (-) TimerEvent: {}
+[99.668872] (-) TimerEvent: {}
+[99.769600] (-) TimerEvent: {}
+[99.870286] (-) TimerEvent: {}
+[99.971035] (-) TimerEvent: {}
+[100.072066] (-) TimerEvent: {}
+[100.172956] (-) TimerEvent: {}
+[100.273730] (-) TimerEvent: {}
+[100.374378] (-) TimerEvent: {}
+[100.475040] (-) TimerEvent: {}
+[100.575751] (-) TimerEvent: {}
+[100.676644] (-) TimerEvent: {}
+[100.724210] (motor_control) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[100.761792] (motor_control) StdoutLine: {'line': b'[100%] Built target Motor_control\n'}
+[100.776862] (-) TimerEvent: {}
+[100.800586] (motor_control) CommandEnded: {'returncode': 0}
+[100.802907] (motor_control) JobProgress: {'identifier': 'motor_control', 'progress': 'install'}
+[100.804125] (motor_control) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control'], 'cwd': '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'pi'), ('SSH_CLIENT', '192.168.1.42 56494 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/pi'), ('OLDPWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/motor_commander'), ('TERM_PROGRAM_VERSION', '1.105.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-473dcbd0-9a00-48b8-94af-91537402ef61.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'pi'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/pi/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-491542eb19.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.1.42 56494 192.168.1.186 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/opt/ros/humble')]), 'shell': False}
+[100.840125] (motor_control) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[100.841544] (motor_control) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/lib/motor_control/Motor_control\n'}
+[100.877042] (-) TimerEvent: {}
+[100.924574] (motor_control) StdoutLine: {'line': b'-- Set runtime path of "/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/lib/motor_control/Motor_control" to ""\n'}
+[100.925279] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/launch\n'}
+[100.925733] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/launch/display.launch.py\n'}
+[100.926194] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/urdf\n'}
+[100.926631] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/urdf/robot.urdf\n'}
+[100.927057] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/ament_index/resource_index/package_run_dependencies/motor_control\n'}
+[100.927527] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/ament_index/resource_index/parent_prefix_path/motor_control\n'}
+[100.927965] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/environment/ament_prefix_path.sh\n'}
+[100.928307] (motor_control) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/environment/ament_prefix_path.dsv\n'}
+[100.929182] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/environment/path.sh\n'}
+[100.929665] (motor_control) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/environment/path.dsv\n'}
+[100.931017] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/local_setup.bash\n'}
+[100.931508] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/local_setup.sh\n'}
+[100.931941] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/local_setup.zsh\n'}
+[100.932341] (motor_control) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/local_setup.dsv\n'}
+[100.933507] (motor_control) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/package.dsv\n'}
+[100.934913] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/ament_index/resource_index/packages/motor_control\n'}
+[100.935419] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/cmake/motor_controlConfig.cmake\n'}
+[100.935923] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/cmake/motor_controlConfig-version.cmake\n'}
+[100.936352] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/package.xml\n'}
+[100.941306] (motor_control) CommandEnded: {'returncode': 0}
+[100.977162] (-) TimerEvent: {}
+[101.008274] (motor_control) JobEnded: {'identifier': 'motor_control', 'rc': 0}
+[101.012522] (-) EventReactorShutdown: {}

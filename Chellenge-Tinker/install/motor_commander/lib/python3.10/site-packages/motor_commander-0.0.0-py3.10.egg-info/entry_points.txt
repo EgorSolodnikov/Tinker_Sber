@@ -1,0 +1,3 @@
+[console_scripts]
+motor_commander = motor_commander.motor_commander:main
+

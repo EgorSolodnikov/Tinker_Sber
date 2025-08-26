@@ -1,0 +1,44 @@
+[0.058s] Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander': CMAKE_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/opt/ros/humble /usr/bin/cmake /home/pi/Tinker_Sber/Chellenge-Tinker/motor_commander -DCMAKE_INSTALL_PREFIX=/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander
+[0.363s] -- The C compiler identification is GNU 11.4.0
+[0.653s] -- The CXX compiler identification is GNU 11.4.0
+[0.690s] -- Detecting C compiler ABI info
+[1.054s] -- Detecting C compiler ABI info - done
+[1.084s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.087s] -- Detecting C compile features
+[1.090s] -- Detecting C compile features - done
+[1.103s] -- Detecting CXX compiler ABI info
+[1.460s] -- Detecting CXX compiler ABI info - done
+[1.486s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.487s] -- Detecting CXX compile features
+[1.488s] -- Detecting CXX compile features - done
+[1.515s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[2.287s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[2.888s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[3.525s] -- Added test 'flake8' to check Python code syntax and style conventions
+[3.532s] -- Added test 'lint_cmake' to check CMake code style
+[3.536s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[3.545s] -- Added test 'xmllint' to check XML markup files
+[3.554s] -- Configuring done
+[3.576s] -- Generating done
+[3.586s] -- Build files have been written to: /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander
+[3.605s] Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander' returned '0': CMAKE_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/opt/ros/humble /usr/bin/cmake /home/pi/Tinker_Sber/Chellenge-Tinker/motor_commander -DCMAKE_INSTALL_PREFIX=/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander
+[3.606s] Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander': CMAKE_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/opt/ros/humble /usr/bin/cmake --build /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander -- -j4 -l4
+[3.762s] Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander' returned '0': CMAKE_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/opt/ros/humble /usr/bin/cmake --build /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander -- -j4 -l4
+[3.764s] Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander': CMAKE_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/opt/ros/humble /usr/bin/cmake --install /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander
+[3.789s] -- Install configuration: ""
+[3.790s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/ament_index/resource_index/package_run_dependencies/motor_commander
+[3.793s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/ament_index/resource_index/parent_prefix_path/motor_commander
+[3.795s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/environment/ament_prefix_path.sh
+[3.797s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/environment/ament_prefix_path.dsv
+[3.798s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/environment/path.sh
+[3.800s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/environment/path.dsv
+[3.801s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/local_setup.bash
+[3.803s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/local_setup.sh
+[3.805s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/local_setup.zsh
+[3.806s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/local_setup.dsv
+[3.808s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/package.dsv
+[3.810s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/ament_index/resource_index/packages/motor_commander
+[3.812s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/cmake/motor_commanderConfig.cmake
+[3.813s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/cmake/motor_commanderConfig-version.cmake
+[3.815s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/share/motor_commander/package.xml
+[3.833s] Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander' returned '0': CMAKE_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/opt/ros/humble /usr/bin/cmake --install /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander

@@ -1,0 +1,108 @@
+[0.000000] (-) TimerEvent: {}
+[0.002245] (hardware_msg) JobQueued: {'identifier': 'hardware_msg', 'dependencies': OrderedDict()}
+[0.002417] (tinker_description) JobQueued: {'identifier': 'tinker_description', 'dependencies': OrderedDict()}
+[0.003181] (motor_control) JobQueued: {'identifier': 'motor_control', 'dependencies': OrderedDict([('hardware_msg', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg')])}
+[0.003803] (hardware_msg) JobStarted: {'identifier': 'hardware_msg'}
+[0.041743] (tinker_description) JobStarted: {'identifier': 'tinker_description'}
+[0.061355] (hardware_msg) JobProgress: {'identifier': 'hardware_msg', 'progress': 'cmake'}
+[0.064446] (hardware_msg) Command: {'cmd': ['/usr/bin/cmake', '/home/pi/Tinker_Sber/Chellenge-Tinker/hardware_msg', '-DCMAKE_INSTALL_PREFIX=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg'], 'cwd': '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'pi'), ('SSH_CLIENT', 'fe80::7d0e:9a92:3535:8b55%wlan0 63593 22'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('BROWSER', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/pi'), ('OLDPWD', '/home/pi/Tinker_Sber'), ('TERM_PROGRAM_VERSION', '1.105.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-a1b5410a-e5f8-49d9-8788-104c268f3595.sock'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('LOGNAME', 'pi'), ('_', '/usr/bin/colcon'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('PATH', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('TERM_PROGRAM', 'vscode'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', 'fe80::7d0e:9a92:3535:8b55%wlan0 63593 fe80::da3a:ddff:fe4e:534%wlan0 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('COLCON', '1')]), 'shell': False}
+[0.088572] (tinker_description) JobProgress: {'identifier': 'tinker_description', 'progress': 'cmake'}
+[0.092260] (tinker_description) Command: {'cmd': ['/usr/bin/cmake', '/home/pi/Tinker_Sber/Chellenge-Tinker/tinker_description', '-DCMAKE_INSTALL_PREFIX=/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description'], 'cwd': '/home/pi/Tinker_Sber/Chellenge-Tinker/build/tinker_description', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'pi'), ('SSH_CLIENT', 'fe80::7d0e:9a92:3535:8b55%wlan0 63593 22'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('BROWSER', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/pi'), ('OLDPWD', '/home/pi/Tinker_Sber'), ('TERM_PROGRAM_VERSION', '1.105.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-a1b5410a-e5f8-49d9-8788-104c268f3595.sock'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('LOGNAME', 'pi'), ('_', '/usr/bin/colcon'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('PATH', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('TERM_PROGRAM', 'vscode'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/tinker_description'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', 'fe80::7d0e:9a92:3535:8b55%wlan0 63593 fe80::da3a:ddff:fe4e:534%wlan0 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('COLCON', '1')]), 'shell': False}
+[0.098602] (-) TimerEvent: {}
+[0.202080] (-) TimerEvent: {}
+[0.302865] (-) TimerEvent: {}
+[0.403698] (-) TimerEvent: {}
+[0.504693] (-) TimerEvent: {}
+[0.605810] (-) TimerEvent: {}
+[0.706846] (-) TimerEvent: {}
+[0.807640] (-) TimerEvent: {}
+[0.908408] (-) TimerEvent: {}
+[1.009416] (-) TimerEvent: {}
+[1.110435] (-) TimerEvent: {}
+[1.178489] (tinker_description) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[1.179517] (hardware_msg) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[1.210614] (-) TimerEvent: {}
+[1.311566] (-) TimerEvent: {}
+[1.412601] (-) TimerEvent: {}
+[1.513429] (-) TimerEvent: {}
+[1.615183] (-) TimerEvent: {}
+[1.716348] (-) TimerEvent: {}
+[1.817350] (-) TimerEvent: {}
+[1.918186] (-) TimerEvent: {}
+[1.969379] (hardware_msg) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[1.972418] (tinker_description) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[2.015696] (hardware_msg) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[2.016493] (tinker_description) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[2.018361] (-) TimerEvent: {}
+[2.119319] (-) TimerEvent: {}
+[2.220698] (-) TimerEvent: {}
+[2.321456] (-) TimerEvent: {}
+[2.419871] (hardware_msg) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[2.421662] (-) TimerEvent: {}
+[2.425486] (tinker_description) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[2.448560] (hardware_msg) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[2.450594] (hardware_msg) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[2.451294] (tinker_description) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[2.452315] (tinker_description) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[2.453818] (tinker_description) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[2.454398] (hardware_msg) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[2.469420] (hardware_msg) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[2.470148] (tinker_description) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[2.521909] (-) TimerEvent: {}
+[2.622831] (-) TimerEvent: {}
+[2.724581] (-) TimerEvent: {}
+[2.825837] (-) TimerEvent: {}
+[2.853718] (hardware_msg) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[2.882880] (hardware_msg) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[2.884320] (hardware_msg) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[2.886158] (hardware_msg) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[2.910192] (tinker_description) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[2.926037] (-) TimerEvent: {}
+[2.937027] (tinker_description) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[2.938012] (tinker_description) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[2.939927] (tinker_description) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[2.951408] (hardware_msg) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:4 (find_package):\n'}
+[2.952807] (hardware_msg) StderrLine: {'line': b'  By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project\n'}
+[2.953181] (hardware_msg) StderrLine: {'line': b'  has asked CMake to find a package configuration file provided by\n'}
+[2.953507] (hardware_msg) StderrLine: {'line': b'  "ament_cmake", but CMake did not find one.\n'}
+[2.954104] (hardware_msg) StderrLine: {'line': b'\n'}
+[2.954513] (hardware_msg) StderrLine: {'line': b'  Could not find a package configuration file provided by "ament_cmake" with\n'}
+[2.955588] (hardware_msg) StderrLine: {'line': b'  any of the following names:\n'}
+[2.956117] (hardware_msg) StderrLine: {'line': b'\n'}
+[2.956654] (hardware_msg) StderrLine: {'line': b'    ament_cmakeConfig.cmake\n'}
+[2.957241] (hardware_msg) StderrLine: {'line': b'    ament_cmake-config.cmake\n'}
+[2.958207] (hardware_msg) StderrLine: {'line': b'\n'}
+[2.959037] (hardware_msg) StderrLine: {'line': b'  Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set\n'}
+[2.960075] (hardware_msg) StderrLine: {'line': b'  "ament_cmake_DIR" to a directory containing one of the above files.  If\n'}
+[2.960952] (hardware_msg) StderrLine: {'line': b'  "ament_cmake" provides a separate development package or SDK, be sure it\n'}
+[2.961312] (hardware_msg) StderrLine: {'line': b'  has been installed.\n'}
+[2.961605] (hardware_msg) StderrLine: {'line': b'\n'}
+[2.961890] (hardware_msg) StderrLine: {'line': b'\x1b[0m\n'}
+[2.962279] (hardware_msg) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[2.962622] (hardware_msg) StdoutLine: {'line': b'See also "/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/CMakeFiles/CMakeOutput.log".\n'}
+[2.966374] (hardware_msg) CommandEnded: {'returncode': 1}
+[2.992835] (tinker_description) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:9 (find_package):\n'}
+[2.993765] (tinker_description) StderrLine: {'line': b'  By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project\n'}
+[2.994154] (tinker_description) StderrLine: {'line': b'  has asked CMake to find a package configuration file provided by\n'}
+[2.994481] (tinker_description) StderrLine: {'line': b'  "ament_cmake", but CMake did not find one.\n'}
+[2.994810] (tinker_description) StderrLine: {'line': b'\n'}
+[2.995243] (tinker_description) StderrLine: {'line': b'  Could not find a package configuration file provided by "ament_cmake" with\n'}
+[2.995665] (tinker_description) StderrLine: {'line': b'  any of the following names:\n'}
+[2.996221] (tinker_description) StderrLine: {'line': b'\n'}
+[2.997020] (tinker_description) StderrLine: {'line': b'    ament_cmakeConfig.cmake\n'}
+[2.997554] (tinker_description) StderrLine: {'line': b'    ament_cmake-config.cmake\n'}
+[2.998109] (tinker_description) StderrLine: {'line': b'\n'}
+[2.999298] (tinker_description) StderrLine: {'line': b'  Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set\n'}
+[3.000235] (tinker_description) StderrLine: {'line': b'  "ament_cmake_DIR" to a directory containing one of the above files.  If\n'}
+[3.001399] (tinker_description) StderrLine: {'line': b'  "ament_cmake" provides a separate development package or SDK, be sure it\n'}
+[3.002718] (tinker_description) StderrLine: {'line': b'  has been installed.\n'}
+[3.003261] (tinker_description) StderrLine: {'line': b'\n'}
+[3.003660] (tinker_description) StderrLine: {'line': b'\x1b[0m\n'}
+[3.004003] (tinker_description) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[3.004860] (tinker_description) StdoutLine: {'line': b'See also "/home/pi/Tinker_Sber/Chellenge-Tinker/build/tinker_description/CMakeFiles/CMakeOutput.log".\n'}
+[3.009407] (tinker_description) CommandEnded: {'returncode': 1}
+[3.026206] (-) TimerEvent: {}
+[3.084414] (hardware_msg) JobEnded: {'identifier': 'hardware_msg', 'rc': 1}
+[3.088002] (tinker_description) JobEnded: {'identifier': 'tinker_description', 'rc': 'SIGINT'}
+[3.099465] (motor_control) JobSkipped: {'identifier': 'motor_control'}
+[3.099705] (-) EventReactorShutdown: {}

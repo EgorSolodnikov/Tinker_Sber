@@ -1,0 +1,7 @@
+/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/rosidl_adapter/hardware_msg:msg/BoardParameters.idl
+/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/rosidl_adapter/hardware_msg:msg/ImuParameters.idl
+/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/rosidl_adapter/hardware_msg:msg/MotorParameters.idl
+/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/rosidl_adapter/hardware_msg:msg/MotorsStates.idl
+/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/rosidl_adapter/hardware_msg:msg/Imu.idl
+/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/rosidl_adapter/hardware_msg:msg/MotorData.idl
+/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/rosidl_adapter/hardware_msg:msg/MotorsCommands.idl

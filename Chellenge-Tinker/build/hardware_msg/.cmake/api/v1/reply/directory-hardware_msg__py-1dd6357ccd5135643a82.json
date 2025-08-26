@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "hardware_msg__py",
+		"source" : "/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/hardware_msg__py"
+	}
+}
