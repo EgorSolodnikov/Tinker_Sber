@@ -2,3 +2,5 @@ log/
 build/
 install/
 .vscode/
+.cursor/
+old_packages/

@@ -12,8 +12,14 @@ find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(tinker_msgs REQUIRED)
 
-AUX_SOURCE_DIRECTORY(src DIR_SRCS)
-add_executable(Motor_control src/Motor_control_2.cpp src/comm.c src/serial.cpp src/spi.cpp src/sys_timer.cpp)
+# Явно указываем исходные файлы для правильной инкрементальной сборки
+add_executable(Motor_control 
+  src/Motor_control_2.cpp 
+  src/comm.c 
+  src/serial.cpp 
+  src/spi.cpp 
+  src/sys_timer.cpp
+)
 ament_target_dependencies(Motor_control rclcpp std_msgs sensor_msgs tinker_msgs)
 include_directories(./include)
 # Reduce compile/link memory usage and output size on constrained devices
@@ -25,5 +31,8 @@ install(TARGETS Motor_control
   DESTINATION lib/${PROJECT_NAME}
 )
 
+install(DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME}
+)
 
 ament_package()

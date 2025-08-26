@@ -33,10 +33,17 @@ if ! command -v colcon &> /dev/null; then
 fi
 
 # Выполняем сборку (исключая stress_test)
+# Colcon автоматически делает инкрементальную сборку - пересобирает только измененные пакеты
+# Если пересобираются все пакеты, проверьте:
+# 1. Не изменились ли package.xml или CMakeLists.txt в зависимостях
+# 2. Не изменились ли зависимости пакетов
+# 3. Используйте --event-handlers console_direct+ для детального вывода
 echo -e "${YELLOW}Сборка всех пакетов (исключая stress_test)...${NC}"
 echo ""
 
-if colcon build --packages-ignore stress_test; then
+# Используем --symlink-install для оптимизации (создает симлинки вместо копирования, быстрее для Python скриптов)
+# Используем --base-paths src для сборки только пакетов из папки src (игнорируя old_packages)
+if colcon build --packages-ignore stress_test --symlink-install --base-paths src; then
     echo ""
     echo -e "${GREEN}========================================${NC}"
     echo -e "${GREEN}Сборка успешно завершена!${NC}"

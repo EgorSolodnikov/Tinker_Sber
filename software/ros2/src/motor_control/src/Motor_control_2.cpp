@@ -21,6 +21,8 @@
 #include <functional>
 #include <chrono>
 #include <mutex>
+#include <algorithm>
+#include <cmath>
 
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/float32.hpp"
@@ -43,8 +45,6 @@
 #include <linux/spi/spidev.h>
 #include <string.h>
 #include <iostream>
-#include <fstream>
-#include <sstream>
 #include <sys/time.h>
 #include <math.h>
 #include <time.h>
@@ -93,6 +93,24 @@ float mems_usb_loss_cnt = 0;
 int mems_usb_connect = 0;
 
 using namespace std;
+
+// Константы преобразования единиц
+constexpr double RAD_TO_DEG = 180.0 / M_PI;
+constexpr double DEG_TO_RAD = M_PI / 180.0;
+
+// Структура для хранения лимитов параметров моторов
+struct MotorLimits {
+    double min_position;
+    double max_position;
+    double min_velocity;
+    double max_velocity;
+    double min_torque;
+    double max_torque;
+    double min_kp;
+    double max_kp;
+    double min_kd;
+    double max_kd;
+};
 
 // Глобальные буферы SPI (остаются, т.к. используются в низкоуровневом SPI)
 uint8_t spi_tx_buf[SPI_BUF_SIZE] = {0};
@@ -262,7 +280,7 @@ void can_board_send(char sel, const _SPI_TX &tx_data, const _MEMS &mems_data)
     switch (sel)
     {
     case 45:
-        spi_tx_buf[spi_tx_cnt++] = tx_data.en_motor * 100 + (tx_data.reset_q * 2)* 10 + tx_data.reset_err;
+        spi_tx_buf[spi_tx_cnt++] = tx_data.en_motor * 100 + tx_data.reset_q * 10 + tx_data.reset_err;
         spi_tx_buf[spi_tx_cnt++] = mems_data.Acc_CALIBRATE * 100 + mems_data.Gyro_CALIBRATE * 10 + mems_data.Mag_CALIBRATE;
         spi_tx_buf[spi_tx_cnt++] = tx_data.beep_state;
 
@@ -307,6 +325,35 @@ public:
 
 
         RCLCPP_INFO(this->get_logger(), "Hardware::Thread_SPI started");
+
+        // Объявление и чтение параметров лимитов
+        this->declare_parameter<double>("limits.position.min", -3.14159);
+        this->declare_parameter<double>("limits.position.max", 3.14159);
+        this->declare_parameter<double>("limits.velocity.min", -20.0);
+        this->declare_parameter<double>("limits.velocity.max", 20.0);
+        this->declare_parameter<double>("limits.torque.min", -12.0);
+        this->declare_parameter<double>("limits.torque.max", 12.0);
+        this->declare_parameter<double>("limits.kp.min", 0.0);
+        this->declare_parameter<double>("limits.kp.max", 1000.0);
+        this->declare_parameter<double>("limits.kd.min", 0.0);
+        this->declare_parameter<double>("limits.kd.max", 100.0);
+
+        // Чтение параметров из launch файла
+        limits_.min_position = this->get_parameter("limits.position.min").as_double();
+        limits_.max_position = this->get_parameter("limits.position.max").as_double();
+        limits_.min_velocity = this->get_parameter("limits.velocity.min").as_double();
+        limits_.max_velocity = this->get_parameter("limits.velocity.max").as_double();
+        limits_.min_torque = this->get_parameter("limits.torque.min").as_double();
+        limits_.max_torque = this->get_parameter("limits.torque.max").as_double();
+        limits_.min_kp = this->get_parameter("limits.kp.min").as_double();
+        limits_.max_kp = this->get_parameter("limits.kp.max").as_double();
+        limits_.min_kd = this->get_parameter("limits.kd.min").as_double();
+        limits_.max_kd = this->get_parameter("limits.kd.max").as_double();
+
+        RCLCPP_INFO(this->get_logger(), "Motor limits loaded: position=[%.3f, %.3f] rad, velocity=[%.3f, %.3f] rad/s, torque=[%.3f, %.3f] Nm, kp=[%.3f, %.3f], kd=[%.3f, %.3f]",
+                    limits_.min_position, limits_.max_position, limits_.min_velocity, limits_.max_velocity,
+                    limits_.min_torque, limits_.max_torque, limits_.min_kp, limits_.max_kp,
+                    limits_.min_kd, limits_.max_kd);
 
         Cycle_Time_Init();
         fd = SPISetup(0, speed);
@@ -369,6 +416,18 @@ private:
     float kp_cmd_[10];
     float kd_cmd_[10];
 
+    // Лимиты параметров моторов
+    MotorLimits limits_;
+
+    // Структура для возврата ограниченных значений
+    struct LimitedMotorParams {
+        float position;
+        float velocity;
+        float torque;
+        float kp;
+        float kd;
+    };
+
     std::mutex motor_cmd_mutex_;
     std::mutex board_params_mutex_;
     std::mutex imu_params_mutex_;
@@ -378,8 +437,66 @@ private:
     std::atomic<uint8_t> reset_q_atomic{0};
     std::atomic<uint8_t> reset_err_atomic{0};
 
+    // Время установки reset_q для автоматического сброса через 1 секунду
+    std::chrono::steady_clock::time_point reset_q_set_time;
+    std::atomic<bool> reset_q_timer_active{false};
+
     int fd = 0;
     rclcpp::TimerBase::SharedPtr timer_;
+
+    // Функция применения ограничений к параметрам мотора
+    LimitedMotorParams apply_limits(int motor_id, float position, float velocity, float torque, float kp, float kd)
+    {
+        LimitedMotorParams result;
+        float original_value;
+
+        // Ограничение position
+        original_value = position;
+        result.position = std::clamp(position, static_cast<float>(limits_.min_position), static_cast<float>(limits_.max_position));
+        if (original_value != result.position)
+        {
+            RCLCPP_WARN(this->get_logger(), "Motor %d: position clamped from %.3f to %.3f rad", 
+                        motor_id, original_value, result.position);
+        }
+
+        // Ограничение velocity
+        original_value = velocity;
+        result.velocity = std::clamp(velocity, static_cast<float>(limits_.min_velocity), static_cast<float>(limits_.max_velocity));
+        if (original_value != result.velocity)
+        {
+            RCLCPP_WARN(this->get_logger(), "Motor %d: velocity clamped from %.3f to %.3f rad/s", 
+                        motor_id, original_value, result.velocity);
+        }
+
+        // Ограничение torque
+        original_value = torque;
+        result.torque = std::clamp(torque, static_cast<float>(limits_.min_torque), static_cast<float>(limits_.max_torque));
+        if (original_value != result.torque)
+        {
+            RCLCPP_WARN(this->get_logger(), "Motor %d: torque clamped from %.3f to %.3f Nm", 
+                        motor_id, original_value, result.torque);
+        }
+
+        // Ограничение kp
+        original_value = kp;
+        result.kp = std::clamp(kp, static_cast<float>(limits_.min_kp), static_cast<float>(limits_.max_kp));
+        if (original_value != result.kp)
+        {
+            RCLCPP_WARN(this->get_logger(), "Motor %d: kp clamped from %.3f to %.3f", 
+                        motor_id, original_value, result.kp);
+        }
+
+        // Ограничение kd
+        original_value = kd;
+        result.kd = std::clamp(kd, static_cast<float>(limits_.min_kd), static_cast<float>(limits_.max_kd));
+        if (original_value != result.kd)
+        {
+            RCLCPP_WARN(this->get_logger(), "Motor %d: kd clamped from %.3f to %.3f", 
+                        motor_id, original_value, result.kd);
+        }
+
+        return result;
+    }
 
     void on_motors_commands(const tinker_msgs::msg::LowCmd::SharedPtr msg)
     {
@@ -392,15 +509,24 @@ private:
         std::lock_guard<std::mutex> lock(motor_cmd_mutex_);
         for (int i = 0; i < 10; ++i)
         {
-            spi_tx_.q_set[i] = msg->motor_cmd[i].position;
-            spi_tx_.dq_set[i] = msg->motor_cmd[i].velocity;
-            spi_tx_.tau_ff[i] = msg->motor_cmd[i].torque;
-            kp_cmd_[i] = msg->motor_cmd[i].kp;
-            kd_cmd_[i] = msg->motor_cmd[i].kd;
+            // Применяем ограничения (входные значения в радианах)
+            LimitedMotorParams limited = apply_limits(i, 
+                msg->motor_cmd[i].position,
+                msg->motor_cmd[i].velocity,
+                msg->motor_cmd[i].torque,
+                msg->motor_cmd[i].kp,
+                msg->motor_cmd[i].kd);
+
+            // Преобразуем position и velocity из радиан в градусы для SPI
+            spi_tx_.q_set[i] = static_cast<float>(limited.position * RAD_TO_DEG);
+            spi_tx_.dq_set[i] = static_cast<float>(limited.velocity * RAD_TO_DEG);
+            spi_tx_.tau_ff[i] = limited.torque;
+            kp_cmd_[i] = limited.kp;
+            kd_cmd_[i] = limited.kd;
         }
 
-        spi_tx_.kp = msg->motor_cmd[0].kp;
-        spi_tx_.kd = msg->motor_cmd[0].kd;
+        spi_tx_.kp = kp_cmd_[0];
+        spi_tx_.kd = kd_cmd_[0];
         RCLCPP_DEBUG(this->get_logger(), "Updated LowCmd -> SPI motor commands (kp/kd from motor 0)");
     }
 
@@ -419,7 +545,11 @@ private:
         else if (msg->cmd == tinker_msgs::msg::ControlCmd::DISABLE)
             en_motor_atomic.store(0);
         else if (msg->cmd == tinker_msgs::msg::ControlCmd::SET_ZERO_POSITION)
-            reset_q_atomic.store(1);
+        {
+            reset_q_atomic.store(2);
+            reset_q_set_time = std::chrono::steady_clock::now();
+            reset_q_timer_active.store(true);
+        }
         else if (msg->cmd == tinker_msgs::msg::ControlCmd::CLEAR_ERROR)
             reset_err_atomic.store(1);
         else if (msg->cmd == tinker_msgs::msg::ControlCmd::IMU_CALIBRATE)
@@ -443,14 +573,25 @@ private:
         }
 
         std::lock_guard<std::mutex> lock(motor_cmd_mutex_);
-        spi_tx_.q_set[id] = msg->position;
-        spi_tx_.dq_set[id] = msg->velocity;
-        spi_tx_.tau_ff[id] = msg->torque;
-        kp_cmd_[id] = msg->kp;
-        kd_cmd_[id] = msg->kd;
+        
+        // Применяем ограничения (входные значения в радианах)
+        LimitedMotorParams limited = apply_limits(id,
+            msg->position,
+            msg->velocity,
+            msg->torque,
+            msg->kp,
+            msg->kd);
+
+        // Преобразуем position и velocity из радиан в градусы для SPI
+        spi_tx_.q_set[id] = static_cast<float>(limited.position * RAD_TO_DEG);
+        spi_tx_.dq_set[id] = static_cast<float>(limited.velocity * RAD_TO_DEG);
+        spi_tx_.tau_ff[id] = limited.torque;
+        kp_cmd_[id] = limited.kp;
+        kd_cmd_[id] = limited.kd;
+        
         // Обновляем глобальные kp/kd, которые отправляются по SPI (протокол поддерживает одну пару)
-        spi_tx_.kp = msg->kp;
-        spi_tx_.kd = msg->kd;
+        spi_tx_.kp = limited.kp;
+        spi_tx_.kd = limited.kd;
         RCLCPP_DEBUG(this->get_logger(), "OneMotorCmd applied to motor %d", id);
     }
 
@@ -579,18 +720,24 @@ private:
             mems_.Mag_CALIBRATE = 0;
         }
 
+        // Автоматический сброс reset_q через 1 секунду (проверяем ДО копирования в local_tx)
+        if (reset_q_timer_active.load())
+        {
+            auto now = std::chrono::steady_clock::now();
+            auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(now - reset_q_set_time).count();
+            if (elapsed >= 1000)  // 1 секунда = 1000 мс
+            {
+                reset_q_atomic.store(0);
+                reset_q_timer_active.store(false);
+            }
+        }
+
         // Синхронизируем простые флаги из atomics в local_tx (атомарно, без блокировки)
         local_tx.en_motor = static_cast<int>(en_motor_atomic.load());
         local_tx.reset_q = static_cast<int>(reset_q_atomic.load());
         local_tx.reset_err = static_cast<int>(reset_err_atomic.load());
 
-        // Если хотим сбросить флаг после отправки — можно делать atomic clear вместо mutex:
-        // reset_q_atomic.store(0);  // сброс после копирования в local_tx, если нужно единоразовое действие
-
         transfer_with_tx(45, local_tx, local_mems);
-
-        // Сброс одноразового флага установки нуля (после того как пакет с флагом был отправлен)
-        reset_q_atomic.store(0);
 
         counter++;
         if (counter % 1000 == 0)
@@ -624,12 +771,12 @@ private:
         low_state_msg.imu_state.accelerometer[2] = spi_rx_.acc_b[2];
         low_state_msg.imu_state.temperature = 0;
 
-        // Заполняем состояния 10 моторов
+        // Заполняем состояния 10 моторов (преобразуем из градусов в радианы)
         for (int i = 0; i < 10; ++i)
         {
             low_state_msg.motor_state[i].timestamp_state = this->now();
-            low_state_msg.motor_state[i].position = spi_rx_.q[i];
-            low_state_msg.motor_state[i].velocity = spi_rx_.dq[i];
+            low_state_msg.motor_state[i].position = static_cast<float>(spi_rx_.q[i] * DEG_TO_RAD);
+            low_state_msg.motor_state[i].velocity = static_cast<float>(spi_rx_.dq[i] * DEG_TO_RAD);
             low_state_msg.motor_state[i].torque = spi_rx_.tau[i];
             low_state_msg.motor_state[i].temperature_mosfet = 0;
             low_state_msg.motor_state[i].temperature_rotor = 0;
@@ -656,14 +803,14 @@ private:
             imu_pub_->publish(imu_msg);
         }
 
-        // JointState
+        // JointState (преобразуем из градусов в радианы)
         sensor_msgs::msg::JointState js;
         js.header.stamp = this->get_clock()->now();
         js.name = joint_names_;
         js.position.resize(10);
         for (int i = 0; i < 10; ++i)
         {
-            js.position[i] = spi_rx_.q[i];
+            js.position[i] = static_cast<double>(spi_rx_.q[i] * DEG_TO_RAD);
         }
         joint_state_pub_->publish(js);
     }
