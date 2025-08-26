@@ -34,11 +34,11 @@ class StressTestNode(Node):
         self.current_angle_index = 0
         
         # Запускаем таймер и первую команду
-        self.timer = self.create_timer(10, self.timer_callback)
+        self.timer = self.create_timer(0.1, self.timer_callback)
         self.get_logger().info('Stress test node started')
 
     def listener_callback(self, msg):
-        self.current_position = msg.position[0]
+        self.current_position = msg.current_pos[0]
 
         if self.command_send == True and not self.target_reached:
             # Если команда отправлена и цель еще не достигнута
@@ -94,7 +94,7 @@ class StressTestNode(Node):
         # Отправляем следующую команду
         msg = MotorsCommands()
         self.current_target_angle = self.target_angles[self.current_angle_index]
-        msg.target_pos = [self.current_target_angle]  # предполагаем массив
+        msg.target_pos[0] = self.current_target_angle  # предполагаем массив
         
         self.command_send_time = time.time()
         self.command_send = True
