@@ -262,7 +262,7 @@ void can_board_send(char sel, const _SPI_TX &tx_data, const _MEMS &mems_data)
     switch (sel)
     {
     case 45:
-        spi_tx_buf[spi_tx_cnt++] = tx_data.en_motor * 100 + tx_data.reset_q * 10 + tx_data.reset_err;
+        spi_tx_buf[spi_tx_cnt++] = tx_data.en_motor * 100 + (tx_data.reset_q * 2)* 10 + tx_data.reset_err;
         spi_tx_buf[spi_tx_cnt++] = mems_data.Acc_CALIBRATE * 100 + mems_data.Gyro_CALIBRATE * 10 + mems_data.Mag_CALIBRATE;
         spi_tx_buf[spi_tx_cnt++] = tx_data.beep_state;
 
@@ -412,11 +412,6 @@ private:
 
     void on_motor_parameters(const hardware_msg::msg::MotorParameters::SharedPtr msg)
     {
-        if (msg->reset_zero)
-        {
-            send_zero_commands();
-        }
-
         std::lock_guard<std::mutex> lock(motor_params_mutex_);
         spi_tx_.kp = msg->kp;
         spi_tx_.kd = msg->kd;
