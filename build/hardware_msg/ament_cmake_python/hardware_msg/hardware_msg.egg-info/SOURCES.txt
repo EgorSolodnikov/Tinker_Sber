@@ -1,6 +1,0 @@
-setup.py
-hardware_msg/__init__.py
-hardware_msg.egg-info/PKG-INFO
-hardware_msg.egg-info/SOURCES.txt
-hardware_msg.egg-info/dependency_links.txt
-hardware_msg.egg-info/top_level.txt
