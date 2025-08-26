@@ -25,9 +25,5 @@ install(TARGETS Motor_control
   DESTINATION lib/${PROJECT_NAME}
 )
 
-install(DIRECTORY launch urdf
-  DESTINATION share/${PROJECT_NAME}
-)
-
 
 ament_package()

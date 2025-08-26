@@ -10,6 +10,10 @@
  * - Прием данных с IMU и энкодеров двигателей
  * - Публикацию состояний двигателей и IMU данных
  * - Визуализацию в RViz через JointState
+ *  Порядок mutex:
+ *      - motor_cmd_mutex_;
+        - board_params_mutex_;
+        - imu_params_mutex_;
  */
 
 #include <memory>
@@ -21,17 +25,14 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/float32.hpp"
 #include "std_msgs/msg/bool.hpp"
-// tinker_msgs messages
-#include "tinker_msgs/msg/control_cmd.hpp"
-#include "tinker_msgs/msg/imu_state.hpp"
 #include "tinker_msgs/msg/low_cmd.hpp"
 #include "tinker_msgs/msg/low_state.hpp"
+#include "tinker_msgs/msg/imu_state.hpp"
 #include "tinker_msgs/msg/motor_cmd.hpp"
 #include "tinker_msgs/msg/motor_state.hpp"
+#include "tinker_msgs/msg/control_cmd.hpp"
 #include "tinker_msgs/msg/one_motor_cmd.hpp"
-#include "tinker_msgs/srv/motor_list.hpp"
 #include "sensor_msgs/msg/joint_state.hpp"
-
 #include <stdint.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -107,7 +108,6 @@ int usb_rx_cnt = 0;
 uint8_t tx[SPI_BUF_SIZE] = {};
 uint8_t rx[ARRAY_SIZE(tx)] = {};
 
-// Вспомогательные функции сериализации (без изменений)
 static void setDataInt_spi(int i)
 {
     spi_tx_buf[spi_tx_cnt++] = ((i << 24) >> 24);
@@ -173,7 +173,6 @@ float To_180_degrees(float x)
     return (x > 180 ? (x - 360) : (x < -180 ? (x + 360) : x));
 }
 
-// Обновлённая функция: принимает выходной буфер
 int slave_rx(uint8_t *data_buf, int num, _SPI_RX &rx_out)
 {
     static int cnt_err_sum = 0;
@@ -249,7 +248,6 @@ int slave_rx(uint8_t *data_buf, int num, _SPI_RX &rx_out)
     return 1;
 }
 
-// Обновлённая функция: принимает tx_data и mems_data
 void can_board_send(char sel, const _SPI_TX &tx_data, const _MEMS &mems_data)
 {
     int i;
@@ -306,6 +304,8 @@ public:
         : rclcpp::Node("dual_io_node"),
           mems_{} // инициализация нулями
     {
+
+
         RCLCPP_INFO(this->get_logger(), "Hardware::Thread_SPI started");
 
         Cycle_Time_Init();
@@ -317,33 +317,25 @@ public:
             return;
         }
 
-        // Инициализация издателей для tinker_msgs
-        imu_state_pub_ = this->create_publisher<tinker_msgs::msg::IMUState>("imu/state", 10);
-        low_state_pub_ = this->create_publisher<tinker_msgs::msg::LowState>("low/state", 10);
+        // Инициализация издателей (используем абсолютные имена, чтобы совпадало с GUI)
+        imu_pub_ = this->create_publisher<tinker_msgs::msg::IMUState>("/imu_state", 10);
+        low_state_pub_ = this->create_publisher<tinker_msgs::msg::LowState>("/low_level_state", 10);
         joint_state_pub_ = this->create_publisher<sensor_msgs::msg::JointState>("/robot_joints", 10);
-
-        // Подписки для tinker_msgs
-        low_cmd_sub_ = this->create_subscription<tinker_msgs::msg::LowCmd>(
-            "low/cmd", 10,
-            std::bind(&Motor_control::on_low_cmd, this, std::placeholders::_1));
-
-        control_cmd_sub_ = this->create_subscription<tinker_msgs::msg::ControlCmd>(
-            "control/cmd", 10,
-            std::bind(&Motor_control::on_control_cmd, this, std::placeholders::_1));
-
-        one_motor_cmd_sub_ = this->create_subscription<tinker_msgs::msg::OneMotorCmd>(
-            "motor/cmd", 10,
-            std::bind(&Motor_control::on_one_motor_cmd, this, std::placeholders::_1));
-
-        // Сервис для получения списка моторов
-        motor_list_service_ = this->create_service<tinker_msgs::srv::MotorList>(
-            "motor/list",
-            std::bind(&Motor_control::handle_motor_list, this,
-                     std::placeholders::_1, std::placeholders::_2));
 
         joint_names_ = {
             "joint_l_yaw", "joint_l_roll", "joint_l_pitch", "joint_l_knee", "joint_l_ankle",
             "joint_r_yaw", "joint_r_roll", "joint_r_pitch", "joint_r_knee", "joint_r_ankle"};
+
+        // Подписки
+        low_cmd_sub_ = this->create_subscription<tinker_msgs::msg::LowCmd>(
+            "/low_level_command", 10,
+            std::bind(&Motor_control::on_motors_commands, this, std::placeholders::_1));
+        control_cmd_sub_ = this->create_subscription<tinker_msgs::msg::ControlCmd>(
+            "/control_command", 10,
+            std::bind(&Motor_control::on_board_parameters, this, std::placeholders::_1));
+        one_motor_sub_ = this->create_subscription<tinker_msgs::msg::OneMotorCmd>(
+            "/single_motor_command", 10,
+            std::bind(&Motor_control::on_one_motor_command, this, std::placeholders::_1));
 
         using namespace std::chrono_literals;
         timer_ = this->create_wall_timer(1ms, std::bind(&Motor_control::on_timer, this));
@@ -352,30 +344,20 @@ public:
         std::fill_n(spi_tx_.q_set, 10, 0.0f);
         std::fill_n(spi_tx_.dq_set, 10, 0.0f);
         std::fill_n(spi_tx_.tau_ff, 10, 0.0f);
-
-        // Инициализация параметров моторов по умолчанию
-        spi_tx_.kp = 0.0f;
-        spi_tx_.kd = 0.0f;
-        spi_tx_.en_motor = false;
-        spi_tx_.reset_q = false;
-        spi_tx_.reset_err = false;
-        spi_tx_.beep_state = 0.0f;
+        std::fill_n(kp_cmd_, 10, 0.0f);
+        std::fill_n(kd_cmd_, 10, 0.0f);
     }
 
 private:
-    // Подписчики для tinker_msgs
+    // Подписчики
     rclcpp::Subscription<tinker_msgs::msg::LowCmd>::SharedPtr low_cmd_sub_;
     rclcpp::Subscription<tinker_msgs::msg::ControlCmd>::SharedPtr control_cmd_sub_;
-    rclcpp::Subscription<tinker_msgs::msg::OneMotorCmd>::SharedPtr one_motor_cmd_sub_;
+    rclcpp::Subscription<tinker_msgs::msg::OneMotorCmd>::SharedPtr one_motor_sub_;
 
-    // Издатели для tinker_msgs
-    rclcpp::Publisher<tinker_msgs::msg::IMUState>::SharedPtr imu_state_pub_;
+    // Издатели
+    rclcpp::Publisher<tinker_msgs::msg::IMUState>::SharedPtr imu_pub_;
     rclcpp::Publisher<tinker_msgs::msg::LowState>::SharedPtr low_state_pub_;
     rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr joint_state_pub_;
-
-    // Сервис
-    rclcpp::Service<tinker_msgs::srv::MotorList>::SharedPtr motor_list_service_;
-
     std::vector<std::string> joint_names_;
 
     // Защищённые данные — теперь ВСЕ внутри класса
@@ -383,117 +365,93 @@ private:
     _SPI_RX spi_rx_;
     _MEMS mems_;
 
+    // Добавляем хранение per-motor kp/kd
+    float kp_cmd_[10];
+    float kd_cmd_[10];
+
     std::mutex motor_cmd_mutex_;
-    std::mutex control_cmd_mutex_;
+    std::mutex board_params_mutex_;
     std::mutex imu_params_mutex_;
+
+    // Заменяем отдельные флаги на атомики (вместо spi_tx_.en_motor / reset_q / reset_err)
+    std::atomic<uint8_t> en_motor_atomic{0};
+    std::atomic<uint8_t> reset_q_atomic{0};
+    std::atomic<uint8_t> reset_err_atomic{0};
 
     int fd = 0;
     rclcpp::TimerBase::SharedPtr timer_;
 
-    void on_low_cmd(const tinker_msgs::msg::LowCmd::SharedPtr msg)
+    void on_motors_commands(const tinker_msgs::msg::LowCmd::SharedPtr msg)
     {
-        std::lock_guard<std::mutex> lock(motor_cmd_mutex_);
-
         if (msg->motor_cmd.size() != 10)
         {
-            RCLCPP_WARN(this->get_logger(), "LowCmd must contain exactly 10 motor commands!");
+            RCLCPP_WARN(this->get_logger(), "LowCmd.motor_cmd must contain exactly 10 elements!");
             return;
         }
 
+        std::lock_guard<std::mutex> lock(motor_cmd_mutex_);
         for (int i = 0; i < 10; ++i)
         {
             spi_tx_.q_set[i] = msg->motor_cmd[i].position;
             spi_tx_.dq_set[i] = msg->motor_cmd[i].velocity;
             spi_tx_.tau_ff[i] = msg->motor_cmd[i].torque;
-            spi_tx_.kp = msg->motor_cmd[i].kp;
-            spi_tx_.kd = msg->motor_cmd[i].kd;
+            kp_cmd_[i] = msg->motor_cmd[i].kp;
+            kd_cmd_[i] = msg->motor_cmd[i].kd;
         }
 
-        RCLCPP_DEBUG(this->get_logger(), "Updated motor commands from LowCmd for 10 motors");
+        spi_tx_.kp = msg->motor_cmd[0].kp;
+        spi_tx_.kd = msg->motor_cmd[0].kd;
+        RCLCPP_DEBUG(this->get_logger(), "Updated LowCmd -> SPI motor commands (kp/kd from motor 0)");
     }
 
-    void on_control_cmd(const tinker_msgs::msg::ControlCmd::SharedPtr msg)
+    void on_board_parameters(const tinker_msgs::msg::ControlCmd::SharedPtr msg)
     {
-        std::lock_guard<std::mutex> lock(control_cmd_mutex_);
-
-        // Обработка команд управления (ENABLE, DISABLE, SET_ZERRO_POSITION, CLEAR_ERROR)
-        switch (msg->cmd)
+        std::lock_guard<std::mutex> lock(board_params_mutex_);
+        // ControlCmd: cmd codes:
+        // ENABLE = 252
+        // DISABLE = 253
+        // SET_ZERRO_POSITION = 254
+        // CLEAR_ERROR = 251
+        // IMU_CALIBRATE = 250
+        // Если необходимо применить команду к конкретному мотору — можно проверять msg->motor_id
+        if (msg->cmd == tinker_msgs::msg::ControlCmd::ENABLE)
+            en_motor_atomic.store(1);
+        else if (msg->cmd == tinker_msgs::msg::ControlCmd::DISABLE)
+            en_motor_atomic.store(0);
+        else if (msg->cmd == tinker_msgs::msg::ControlCmd::SET_ZERO_POSITION)
+            reset_q_atomic.store(1);
+        else if (msg->cmd == tinker_msgs::msg::ControlCmd::CLEAR_ERROR)
+            reset_err_atomic.store(1);
+        else if (msg->cmd == tinker_msgs::msg::ControlCmd::IMU_CALIBRATE)
         {
-            case 252: // ENABLE
-                spi_tx_.en_motor = true;
-                RCLCPP_INFO(this->get_logger(), "Motor %d: ENABLE command", msg->motor_id);
-                break;
-            case 253: // DISABLE
-                spi_tx_.en_motor = false;
-                RCLCPP_INFO(this->get_logger(), "Motor %d: DISABLE command", msg->motor_id);
-                break;
-            case 254: // SET_ZERRO_POSITION
-                spi_tx_.reset_q = true;
-                RCLCPP_INFO(this->get_logger(), "Motor %d: SET_ZERRO_POSITION command", msg->motor_id);
-                break;
-            case 251: // CLEAR_ERROR
-                spi_tx_.reset_err = true;
-                RCLCPP_INFO(this->get_logger(), "Motor %d: CLEAR_ERROR command", msg->motor_id);
-                break;
-            default:
-                RCLCPP_WARN(this->get_logger(), "Unknown control command: %d for motor %d",
-                           msg->cmd, msg->motor_id);
-                break;
+            std::lock_guard<std::mutex> imu_lock(imu_params_mutex_);
+            mems_.Acc_CALIBRATE = 1;
+            mems_.Gyro_CALIBRATE = 1;
+            mems_.Mag_CALIBRATE = 1;
+            RCLCPP_INFO(this->get_logger(), "IMU calibration requested: acc/gyro/mag set");
         }
     }
 
-    void on_one_motor_cmd(const tinker_msgs::msg::OneMotorCmd::SharedPtr msg)
+    // Обработчик одиночной команды от GUI — обновляет только указанный мотор
+    void on_one_motor_command(const tinker_msgs::msg::OneMotorCmd::SharedPtr msg)
     {
+        int id = static_cast<int>(msg->motor_id);
+        if (id < 0 || id >= 10)
+        {
+            RCLCPP_WARN(this->get_logger(), "OneMotorCmd: motor_id %d out of range", id);
+            return;
+        }
+
         std::lock_guard<std::mutex> lock(motor_cmd_mutex_);
-
-        if (msg->motor_id >= 0 && msg->motor_id < 10)
-        {
-            spi_tx_.q_set[msg->motor_id] = msg->position;
-            spi_tx_.dq_set[msg->motor_id] = msg->velocity;
-            spi_tx_.tau_ff[msg->motor_id] = msg->torque;
-            spi_tx_.kp = msg->kp;
-            spi_tx_.kd = msg->kd;
-
-            RCLCPP_DEBUG(this->get_logger(), "Updated motor %d: pos=%.3f, vel=%.3f, trq=%.3f",
-                        msg->motor_id, msg->position, msg->velocity, msg->torque);
-        }
-        else
-        {
-            RCLCPP_WARN(this->get_logger(), "Invalid motor ID: %d (must be 0-9)", msg->motor_id);
-        }
-    }
-
-    void handle_motor_list(const std::shared_ptr<tinker_msgs::srv::MotorList::Request> request,
-                          std::shared_ptr<tinker_msgs::srv::MotorList::Response> response)
-    {
-        // Заполняем ответ данными о моторах
-        // В реальной реализации здесь нужно получить актуальные данные из конфигурации
-        response->active_joint_names = joint_names_;
-
-        // Инициализируем массивы с данными по умолчанию
-        response->motor_id = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        response->motor_group = {0, 0, 0, 0, 0, 1, 1, 1, 1, 1}; // пример: 0 - левая нога, 1 - правая нога
-
-        // Устанавливаем лимиты (примерные значения)
-        response->position_max = std::vector<float>(10, 3.14f);  // ±180 градусов
-        response->position_min = std::vector<float>(10, -3.14f);
-        response->velocity_max = std::vector<float>(10, 10.0f);  // рад/с
-        response->torque_max = std::vector<float>(10, 10.0f);    // Н·м
-        response->torque_alarm = std::vector<float>(10, 8.0f);   // Н·м
-
-        // Температурные лимиты
-        response->temperature_mosfet_max = std::vector<int16_t>(10, 100);  // °C
-        response->temperature_rotor_max = std::vector<int16_t>(10, 120);   // °C
-        response->temperature_mosfet_alarm = std::vector<int16_t>(10, 80); // °C
-        response->temperature_rotor_alarm = std::vector<int16_t>(10, 100); // °C
-
-        // Электрические лимиты
-        response->voltage_max = std::vector<int16_t>(10, 50);    // В
-        response->voltage_min = std::vector<int16_t>(10, 40);    // В
-        response->current_max = std::vector<int16_t>(10, 20);    // А
-        response->current_alarm = std::vector<int16_t>(10, 15);  // А
-
-        RCLCPP_INFO(this->get_logger(), "Motor list service called");
+        spi_tx_.q_set[id] = msg->position;
+        spi_tx_.dq_set[id] = msg->velocity;
+        spi_tx_.tau_ff[id] = msg->torque;
+        kp_cmd_[id] = msg->kp;
+        kd_cmd_[id] = msg->kd;
+        // Обновляем глобальные kp/kd, которые отправляются по SPI (протокол поддерживает одну пару)
+        spi_tx_.kp = msg->kp;
+        spi_tx_.kd = msg->kd;
+        RCLCPP_DEBUG(this->get_logger(), "OneMotorCmd applied to motor %d", id);
     }
 
     void transfer_with_tx(int sel, const _SPI_TX &tx_data, const _MEMS &mems_data)
@@ -611,13 +569,28 @@ private:
         _MEMS local_mems;
         {
             std::lock_guard<std::mutex> lock1(motor_cmd_mutex_);
-            std::lock_guard<std::mutex> lock2(control_cmd_mutex_);
+            std::lock_guard<std::mutex> lock2(board_params_mutex_);
             std::lock_guard<std::mutex> lock3(imu_params_mutex_);
             local_tx = spi_tx_;
             local_mems = mems_;
+            // Сбрасываем флаги калибровки в основной структуре так, чтобы они отправились только один раз
+            mems_.Acc_CALIBRATE = 0;
+            mems_.Gyro_CALIBRATE = 0;
+            mems_.Mag_CALIBRATE = 0;
         }
 
+        // Синхронизируем простые флаги из atomics в local_tx (атомарно, без блокировки)
+        local_tx.en_motor = static_cast<int>(en_motor_atomic.load());
+        local_tx.reset_q = static_cast<int>(reset_q_atomic.load());
+        local_tx.reset_err = static_cast<int>(reset_err_atomic.load());
+
+        // Если хотим сбросить флаг после отправки — можно делать atomic clear вместо mutex:
+        // reset_q_atomic.store(0);  // сброс после копирования в local_tx, если нужно единоразовое действие
+
         transfer_with_tx(45, local_tx, local_mems);
+
+        // Сброс одноразового флага установки нуля (после того как пакет с флагом был отправлен)
+        reset_q_atomic.store(0);
 
         counter++;
         if (counter % 1000 == 0)
@@ -631,90 +604,75 @@ private:
                         local_tx.q_set[0], local_tx.dq_set[0], local_tx.tau_ff[0]);
         }
 
-        // Публикация IMUState
-        auto imu_state_msg = std::make_unique<tinker_msgs::msg::IMUState>();
-        imu_state_msg->timestamp_state = this->get_clock()->now();
+        // Формируем LowState, включаем внутрь IMU и состояния моторов (GUI ожидает LowState на /low_level_state)
+        tinker_msgs::msg::LowState low_state_msg;
+        low_state_msg.timestamp_state = this->now();
+        low_state_msg.tick = static_cast<uint32_t>(counter);
 
-        // Заполняем данные IMU (пример - в реальности нужно преобразовать данные из spi_rx_)
-        imu_state_msg->rpy[0] = spi_rx_.att[0]; // roll
-        imu_state_msg->rpy[1] = spi_rx_.att[1]; // pitch
-        imu_state_msg->rpy[2] = spi_rx_.att[2]; // yaw
+        // Заполняем imu_state внутри LowState
+        low_state_msg.imu_state.timestamp_state = this->now();
+        low_state_msg.imu_state.rpy[0] = spi_rx_.att[0];
+        low_state_msg.imu_state.rpy[1] = spi_rx_.att[1];
+        low_state_msg.imu_state.rpy[2] = spi_rx_.att[2];
+        // quaternion может быть неизвестен здесь — оставляем нулями
+        low_state_msg.imu_state.quaternion = {0.0f, 0.0f, 0.0f, 0.0f};
+        low_state_msg.imu_state.gyroscope[0] = spi_rx_.att_rate[0];
+        low_state_msg.imu_state.gyroscope[1] = spi_rx_.att_rate[1];
+        low_state_msg.imu_state.gyroscope[2] = spi_rx_.att_rate[2];
+        low_state_msg.imu_state.accelerometer[0] = spi_rx_.acc_b[0];
+        low_state_msg.imu_state.accelerometer[1] = spi_rx_.acc_b[1];
+        low_state_msg.imu_state.accelerometer[2] = spi_rx_.acc_b[2];
+        low_state_msg.imu_state.temperature = 0;
 
-        imu_state_msg->gyroscope[0] = spi_rx_.att_rate[0];
-        imu_state_msg->gyroscope[1] = spi_rx_.att_rate[1];
-        imu_state_msg->gyroscope[2] = spi_rx_.att_rate[2];
-
-        imu_state_msg->accelerometer[0] = spi_rx_.acc_b[0];
-        imu_state_msg->accelerometer[1] = spi_rx_.acc_b[1];
-        imu_state_msg->accelerometer[2] = spi_rx_.acc_b[2];
-
-        // Кватернион (нужно вычислить из RPY или получить от IMU)
-        // Пока заполняем единичным кватернионом
-        imu_state_msg->quaternion[0] = 1.0;
-        imu_state_msg->quaternion[1] = 0.0;
-        imu_state_msg->quaternion[2] = 0.0;
-        imu_state_msg->quaternion[3] = 0.0;
-
-        imu_state_msg->temperature = 25; // примерная температура
-
-        imu_state_pub_->publish(std::move(imu_state_msg));
-
-        // Публикация LowState
-        auto low_state_msg = std::make_unique<tinker_msgs::msg::LowState>();
-        low_state_msg->timestamp_state = this->get_clock()->now();
-        low_state_msg->tick = counter;
-
-        // Заполняем IMU состояние
-        low_state_msg->imu_state = *imu_state_msg;
-
-        // Заполняем состояния моторов
-        low_state_msg->motor_state;
+        // Заполняем состояния 10 моторов
         for (int i = 0; i < 10; ++i)
         {
-            auto& motor_state = low_state_msg->motor_state[i];
-            motor_state.timestamp_state = this->get_clock()->now();
-            motor_state.position = spi_rx_.q[i];
-            motor_state.velocity = spi_rx_.dq[i];
-            motor_state.torque = spi_rx_.tau[i];
+            low_state_msg.motor_state[i].timestamp_state = this->now();
+            low_state_msg.motor_state[i].position = spi_rx_.q[i];
+            low_state_msg.motor_state[i].velocity = spi_rx_.dq[i];
+            low_state_msg.motor_state[i].torque = spi_rx_.tau[i];
+            low_state_msg.motor_state[i].temperature_mosfet = 0;
+            low_state_msg.motor_state[i].temperature_rotor = 0;
+            low_state_msg.motor_state[i].error = static_cast<uint8_t>(spi_rx_.connect_motor[i]);
+        }
+        // Публикуем LowState для GUI
+        low_state_pub_->publish(low_state_msg);
 
-            // Определяем состояние мотора на основе флагов подключения и готовности
-            if (spi_rx_.connect_motor[i] && spi_rx_.ready[i])
-            {
-                motor_state.error = tinker_msgs::msg::MotorState::ENABLE;
-            }
-            else if (!spi_rx_.connect_motor[i])
-            {
-                motor_state.error = tinker_msgs::msg::MotorState::LOSS_CONNECTION;
-            }
-            else
-            {
-                motor_state.error = tinker_msgs::msg::MotorState::DISABLING;
-            }
-
-            // Температуры (примерные значения)
-            motor_state.temperature_mosfet = 40;
-            motor_state.temperature_rotor = 45;
+        // Опционально: публикуем отдельный IMU topic (оставлено для совместимости)
+        if (imu_pub_) {
+            tinker_msgs::msg::IMUState imu_msg;
+            imu_msg.timestamp_state = this->now();
+            imu_msg.rpy[0] = spi_rx_.att[0];
+            imu_msg.rpy[1] = spi_rx_.att[1];
+            imu_msg.rpy[2] = spi_rx_.att[2];
+            imu_msg.quaternion = {0.0f, 0.0f, 0.0f, 0.0f};
+            imu_msg.gyroscope[0] = spi_rx_.att_rate[0];
+            imu_msg.gyroscope[1] = spi_rx_.att_rate[1];
+            imu_msg.gyroscope[2] = spi_rx_.att_rate[2];
+            imu_msg.accelerometer[0] = spi_rx_.acc_b[0];
+            imu_msg.accelerometer[1] = spi_rx_.acc_b[1];
+            imu_msg.accelerometer[2] = spi_rx_.acc_b[2];
+            imu_msg.temperature = 0;
+            imu_pub_->publish(imu_msg);
         }
 
-        low_state_pub_->publish(std::move(low_state_msg));
-
-        // JointState для RViz
-        auto js = std::make_unique<sensor_msgs::msg::JointState>();
-        js->header.stamp = this->get_clock()->now();
-        js->name = joint_names_;
-        js->position.resize(10);
+        // JointState
+        sensor_msgs::msg::JointState js;
+        js.header.stamp = this->get_clock()->now();
+        js.name = joint_names_;
+        js.position.resize(10);
         for (int i = 0; i < 10; ++i)
         {
-            js->position[i] = spi_rx_.q[i];
+            js.position[i] = spi_rx_.q[i];
         }
-        joint_state_pub_->publish(std::move(js));
+        joint_state_pub_->publish(js);
     }
 };
+
 
 int main(int argc, char **argv)
 {
     rclcpp::init(argc, argv);
-    // Рекомендуется использовать MultiThreadedExecutor, если планируете расширение
     rclcpp::spin(std::make_shared<Motor_control>());
     rclcpp::shutdown();
     return 0;

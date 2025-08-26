@@ -1,16 +1,3 @@
-/**
- * @file Motor_control.cpp
- * @brief ROS2 узел для управления моторами через SPI интерфейс
- *
- * @details
- * Реализует взаимодействие между ROS2 и аппаратным обеспечением через SPI.
- * Обеспечивает:
- * - Прием команд управления моторами из ROS2 топиков
- * - Передачу данных на контроллер двигателей через SPI
- * - Прием данных с IMU и энкодеров двигателей
- * - Публикацию состояний двигателей и IMU данных
- * - Визуализацию в RViz через JointState
- */
 
 #include <memory>
 #include <atomic>
@@ -300,17 +287,14 @@ void can_board_send(char sel, const _SPI_TX &tx_data, const _MEMS &mems_data)
 class Motor_control : public rclcpp::Node
 {
 public:
-    Motor_control()
-        : rclcpp::Node("dual_io_node"),
-          mems_{} // инициализация нулями
+    Motor_control(): rclcpp::Node("dual_io_node"), mems_{} // инициализация нулями
     {
         RCLCPP_INFO(this->get_logger(), "Hardware::Thread_SPI started");
 
         Cycle_Time_Init();
         fd = SPISetup(0, speed);
 
-        if (fd == -1)
-        {
+        if (fd == -1){
             RCLCPP_ERROR(this->get_logger(), "init spi failed!");
             return;
         }
@@ -600,7 +584,6 @@ private:
 int main(int argc, char **argv)
 {
     rclcpp::init(argc, argv);
-    // Рекомендуется использовать MultiThreadedExecutor, если планируете расширение
     rclcpp::spin(std::make_shared<Motor_control>());
     rclcpp::shutdown();
     return 0;
