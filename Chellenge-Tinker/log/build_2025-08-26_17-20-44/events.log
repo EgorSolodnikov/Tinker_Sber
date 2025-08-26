@@ -1,0 +1,887 @@
+[0.000000] (-) TimerEvent: {}
+[0.001567] (-) JobUnselected: {'identifier': 'hardware_msg'}
+[0.002174] (-) JobUnselected: {'identifier': 'motor_commander'}
+[0.002839] (-) JobUnselected: {'identifier': 'tinker_description'}
+[0.003019] (motor_control) JobQueued: {'identifier': 'motor_control', 'dependencies': OrderedDict([('hardware_msg', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg')])}
+[0.003198] (motor_control) JobStarted: {'identifier': 'motor_control'}
+[0.051978] (motor_control) JobProgress: {'identifier': 'motor_control', 'progress': 'cmake'}
+[0.055018] (motor_control) JobProgress: {'identifier': 'motor_control', 'progress': 'build'}
+[0.058105] (motor_control) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control', '--', '-j4', '-l4'], 'cwd': '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'pi'), ('SSH_CLIENT', '192.168.1.42 56494 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/pi'), ('TERM_PROGRAM_VERSION', '1.105.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-17d95341-6ff0-4eb0-bd53-f058f22d6d4e.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'pi'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/pi/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-491542eb19.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.1.42 56494 192.168.1.186 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/lib/python3.10/site-packages:/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/opt/ros/humble')]), 'shell': False}
+[0.099017] (-) TimerEvent: {}
+[0.172251] (motor_control) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.199226] (-) TimerEvent: {}
+[0.300140] (-) TimerEvent: {}
+[0.401027] (-) TimerEvent: {}
+[0.502283] (-) TimerEvent: {}
+[0.603108] (-) TimerEvent: {}
+[0.703867] (-) TimerEvent: {}
+[0.740918] (motor_control) StdoutLine: {'line': b'-- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.804035] (-) TimerEvent: {}
+[0.872413] (motor_control) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.883872] (motor_control) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.904210] (-) TimerEvent: {}
+[0.907991] (motor_control) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.946373] (motor_control) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.995002] (motor_control) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.004351] (-) TimerEvent: {}
+[1.105010] (-) TimerEvent: {}
+[1.122423] (motor_control) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[1.128505] (motor_control) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[1.205184] (-) TimerEvent: {}
+[1.305857] (-) TimerEvent: {}
+[1.406542] (-) TimerEvent: {}
+[1.507373] (-) TimerEvent: {}
+[1.608151] (-) TimerEvent: {}
+[1.613689] (motor_control) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[1.708331] (-) TimerEvent: {}
+[1.799718] (motor_control) StdoutLine: {'line': b'-- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[1.808485] (-) TimerEvent: {}
+[1.909082] (motor_control) StdoutLine: {'line': b'-- Found hardware_msg: 0.0.0 (/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake)\n'}
+[1.909670] (-) TimerEvent: {}
+[2.010231] (-) TimerEvent: {}
+[2.111029] (-) TimerEvent: {}
+[2.219814] (-) TimerEvent: {}
+[2.239874] (motor_control) StdoutLine: {'line': b'-- Configuring done\n'}
+[2.306708] (motor_control) StdoutLine: {'line': b'-- Generating done\n'}
+[2.319991] (-) TimerEvent: {}
+[2.329350] (motor_control) StdoutLine: {'line': b'-- Build files have been written to: /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control\n'}
+[2.420188] (-) TimerEvent: {}
+[2.434774] (motor_control) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target Motor_control\x1b[0m\n'}
+[2.498539] (motor_control) StderrLine: {'line': b"gmake[2]: Warning: File '/usr/include/stdc-predef.h' has modification time 1893919 s in the future\n"}
+[2.520376] (-) TimerEvent: {}
+[2.553822] (motor_control) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding CXX object CMakeFiles/Motor_control.dir/src/Motor_control.cpp.o\x1b[0m\n'}
+[2.556860] (motor_control) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding C object CMakeFiles/Motor_control.dir/src/comm.c.o\x1b[0m\n'}
+[2.558242] (motor_control) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/Motor_control.dir/src/serial.cpp.o\x1b[0m\n'}
+[2.565992] (motor_control) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/Motor_control.dir/src/spi.cpp.o\x1b[0m\n'}
+[2.620604] (-) TimerEvent: {}
+[2.721389] (-) TimerEvent: {}
+[2.817759] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kint open_port(int)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.820265] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:19:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.821850] (-) TimerEvent: {}
+[2.824100] (motor_control) StderrLine: {'line': b'   19 |     char *pDev[]={\x1b[01;35m\x1b[K"/dev/ttyACM0"\x1b[m\x1b[K,"/dev/ttyS1","/dev/ttyS2","/dev/ttyS3",\n'}
+[2.825964] (motor_control) StderrLine: {'line': b'      |                   \x1b[01;35m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.828891] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:34:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.831812] (motor_control) StderrLine: {'line': b'   19 |     char *pDev[]={"/dev/ttyACM0",\x1b[01;35m\x1b[K"/dev/ttyS1"\x1b[m\x1b[K,"/dev/ttyS2","/dev/ttyS3",\n'}
+[2.833734] (motor_control) StderrLine: {'line': b'      |                                  \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.835967] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:47:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.837942] (motor_control) StderrLine: {'line': b'   19 |     char *pDev[]={"/dev/ttyACM0","/dev/ttyS1",\x1b[01;35m\x1b[K"/dev/ttyS2"\x1b[m\x1b[K,"/dev/ttyS3",\n'}
+[2.840184] (motor_control) StderrLine: {'line': b'      |                                               \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.842448] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:60:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.844639] (motor_control) StderrLine: {'line': b'   19 |     char *pDev[]={"/dev/ttyACM0","/dev/ttyS1","/dev/ttyS2",\x1b[01;35m\x1b[K"/dev/ttyS3"\x1b[m\x1b[K,\n'}
+[2.846724] (motor_control) StderrLine: {'line': b'      |                                                            \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.847965] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.849463] (motor_control) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding CXX object CMakeFiles/Motor_control.dir/src/sys_timer.cpp.o\x1b[0m\n'}
+[2.850388] (motor_control) StderrLine: {'line': b'   20 |                     \x1b[01;35m\x1b[K"/dev/ttyS4"\x1b[m\x1b[K,"/dev/ttyS5","/dev/ttyS6","/dev/ttyS7",\n'}
+[2.851066] (motor_control) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.851773] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:34:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.852334] (motor_control) StderrLine: {'line': b'   20 |                     "/dev/ttyS4",\x1b[01;35m\x1b[K"/dev/ttyS5"\x1b[m\x1b[K,"/dev/ttyS6","/dev/ttyS7",\n'}
+[2.860183] (motor_control) StderrLine: {'line': b'      |                                  \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.860778] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:47:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.863459] (motor_control) StderrLine: {'line': b'   20 |                     "/dev/ttyS4","/dev/ttyS5",\x1b[01;35m\x1b[K"/dev/ttyS6"\x1b[m\x1b[K,"/dev/ttyS7",\n'}
+[2.864090] (motor_control) StderrLine: {'line': b'      |                                               \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.864781] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:60:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.865432] (motor_control) StderrLine: {'line': b'   20 |                     "/dev/ttyS4","/dev/ttyS5","/dev/ttyS6",\x1b[01;35m\x1b[K"/dev/ttyS7"\x1b[m\x1b[K,\n'}
+[2.865912] (motor_control) StderrLine: {'line': b'      |                                                            \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.879870] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.880467] (motor_control) StderrLine: {'line': b'   21 |                     \x1b[01;35m\x1b[K"/dev/ttyS8"\x1b[m\x1b[K,"/dev/ttyS9","/dev/ttyS10","/dev/ttyS11"};\n'}
+[2.880924] (motor_control) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.881328] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:34:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.881827] (motor_control) StderrLine: {'line': b'   21 |                     "/dev/ttyS8",\x1b[01;35m\x1b[K"/dev/ttyS9"\x1b[m\x1b[K,"/dev/ttyS10","/dev/ttyS11"};\n'}
+[2.882368] (motor_control) StderrLine: {'line': b'      |                                  \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.882970] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:47:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.883598] (motor_control) StderrLine: {'line': b'   21 |                     "/dev/ttyS8","/dev/ttyS9",\x1b[01;35m\x1b[K"/dev/ttyS10"\x1b[m\x1b[K,"/dev/ttyS11"};\n'}
+[2.884298] (motor_control) StderrLine: {'line': b'      |                                               \x1b[01;35m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.885010] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:61:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.885664] (motor_control) StderrLine: {'line': b'   21 |                     "/dev/ttyS8","/dev/ttyS9","/dev/ttyS10",\x1b[01;35m\x1b[K"/dev/ttyS11"\x1b[m\x1b[K};\n'}
+[2.886115] (motor_control) StderrLine: {'line': b'      |                                                             \x1b[01;35m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.886624] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/spi.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kint SPIDataRW(int, uint8_t*, uint8_t*, int)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.887227] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/spi.cpp:38:5:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Ki\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.887834] (motor_control) StderrLine: {'line': b'   38 | int \x1b[01;35m\x1b[Ki\x1b[m\x1b[K = 0;\n'}
+[2.888467] (motor_control) StderrLine: {'line': b'      |     \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[2.922108] (-) TimerEvent: {}
+[3.024133] (-) TimerEvent: {}
+[3.124835] (-) TimerEvent: {}
+[3.225564] (-) TimerEvent: {}
+[3.326311] (-) TimerEvent: {}
+[3.427049] (-) TimerEvent: {}
+[3.527913] (-) TimerEvent: {}
+[3.628732] (-) TimerEvent: {}
+[3.645795] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/sys_timer.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint32_t GetSysTime_us()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.646498] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/sys_timer.cpp:19:27:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++17 does not allow \xe2\x80\x98\x1b[01m\x1b[Kregister\x1b[m\x1b[K\xe2\x80\x99 storage class specifier [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wregister\x07-Wregister\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.647146] (motor_control) StderrLine: {'line': b'   19 |         register uint32_t \x1b[01;35m\x1b[Kms\x1b[m\x1b[K;\n'}
+[3.647614] (motor_control) StderrLine: {'line': b'      |                           \x1b[01;35m\x1b[K^~\x1b[m\x1b[K\n'}
+[3.728917] (-) TimerEvent: {}
+[3.829780] (-) TimerEvent: {}
+[3.930497] (-) TimerEvent: {}
+[4.031248] (-) TimerEvent: {}
+[4.132021] (-) TimerEvent: {}
+[4.232720] (-) TimerEvent: {}
+[4.333421] (-) TimerEvent: {}
+[4.434160] (-) TimerEvent: {}
+[4.535578] (-) TimerEvent: {}
+[4.636366] (-) TimerEvent: {}
+[4.737156] (-) TimerEvent: {}
+[4.838004] (-) TimerEvent: {}
+[4.938809] (-) TimerEvent: {}
+[5.039565] (-) TimerEvent: {}
+[5.140330] (-) TimerEvent: {}
+[5.241107] (-) TimerEvent: {}
+[5.341872] (-) TimerEvent: {}
+[5.442687] (-) TimerEvent: {}
+[5.543899] (-) TimerEvent: {}
+[5.644689] (-) TimerEvent: {}
+[5.745485] (-) TimerEvent: {}
+[5.846352] (-) TimerEvent: {}
+[5.947201] (-) TimerEvent: {}
+[6.047994] (-) TimerEvent: {}
+[6.148749] (-) TimerEvent: {}
+[6.249614] (-) TimerEvent: {}
+[6.350446] (-) TimerEvent: {}
+[6.451350] (-) TimerEvent: {}
+[6.552203] (-) TimerEvent: {}
+[6.653034] (-) TimerEvent: {}
+[6.753847] (-) TimerEvent: {}
+[6.854816] (-) TimerEvent: {}
+[6.955570] (-) TimerEvent: {}
+[7.056359] (-) TimerEvent: {}
+[7.157132] (-) TimerEvent: {}
+[7.258215] (-) TimerEvent: {}
+[7.359047] (-) TimerEvent: {}
+[7.459845] (-) TimerEvent: {}
+[7.560645] (-) TimerEvent: {}
+[7.661446] (-) TimerEvent: {}
+[7.762230] (-) TimerEvent: {}
+[7.863075] (-) TimerEvent: {}
+[7.963843] (-) TimerEvent: {}
+[8.064658] (-) TimerEvent: {}
+[8.165485] (-) TimerEvent: {}
+[8.266326] (-) TimerEvent: {}
+[8.367215] (-) TimerEvent: {}
+[8.468103] (-) TimerEvent: {}
+[8.568921] (-) TimerEvent: {}
+[8.669702] (-) TimerEvent: {}
+[8.770488] (-) TimerEvent: {}
+[8.871334] (-) TimerEvent: {}
+[8.972138] (-) TimerEvent: {}
+[9.072921] (-) TimerEvent: {}
+[9.173689] (-) TimerEvent: {}
+[9.274465] (-) TimerEvent: {}
+[9.375286] (-) TimerEvent: {}
+[9.476101] (-) TimerEvent: {}
+[9.576940] (-) TimerEvent: {}
+[9.677724] (-) TimerEvent: {}
+[9.778518] (-) TimerEvent: {}
+[9.879442] (-) TimerEvent: {}
+[9.980214] (-) TimerEvent: {}
+[10.081009] (-) TimerEvent: {}
+[10.181799] (-) TimerEvent: {}
+[10.282592] (-) TimerEvent: {}
+[10.383487] (-) TimerEvent: {}
+[10.484270] (-) TimerEvent: {}
+[10.585030] (-) TimerEvent: {}
+[10.685802] (-) TimerEvent: {}
+[10.786571] (-) TimerEvent: {}
+[10.887399] (-) TimerEvent: {}
+[10.988196] (-) TimerEvent: {}
+[11.088998] (-) TimerEvent: {}
+[11.189808] (-) TimerEvent: {}
+[11.290596] (-) TimerEvent: {}
+[11.391404] (-) TimerEvent: {}
+[11.492226] (-) TimerEvent: {}
+[11.593158] (-) TimerEvent: {}
+[11.694030] (-) TimerEvent: {}
+[11.794827] (-) TimerEvent: {}
+[11.895623] (-) TimerEvent: {}
+[11.996453] (-) TimerEvent: {}
+[12.097235] (-) TimerEvent: {}
+[12.198168] (-) TimerEvent: {}
+[12.299013] (-) TimerEvent: {}
+[12.399869] (-) TimerEvent: {}
+[12.500665] (-) TimerEvent: {}
+[12.601513] (-) TimerEvent: {}
+[12.702292] (-) TimerEvent: {}
+[12.741809] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kint slave_rx(uint8_t*, int)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[12.742447] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:176:13:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kid\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[12.742963] (motor_control) StderrLine: {'line': b'  176 |     uint8_t \x1b[01;35m\x1b[Kid\x1b[m\x1b[K;\n'}
+[12.743346] (motor_control) StderrLine: {'line': b'      |             \x1b[01;35m\x1b[K^~\x1b[m\x1b[K\n'}
+[12.744121] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid can_board_send(char)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[12.744842] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:273:18:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kt_temp\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[12.745299] (motor_control) StderrLine: {'line': b'  273 |     static float \x1b[01;35m\x1b[Kt_temp\x1b[m\x1b[K = 0;\n'}
+[12.745641] (motor_control) StderrLine: {'line': b'      |                  \x1b[01;35m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[12.746023] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:274:10:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kid\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[12.746414] (motor_control) StderrLine: {'line': b'  274 |     char \x1b[01;35m\x1b[Kid\x1b[m\x1b[K = 0;\n'}
+[12.747268] (motor_control) StderrLine: {'line': b'      |          \x1b[01;35m\x1b[K^~\x1b[m\x1b[K\n'}
+[12.747701] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:275:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[K_cnt\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[12.748113] (motor_control) StderrLine: {'line': b'  275 |     char sum_t = 0, \x1b[01;35m\x1b[K_cnt\x1b[m\x1b[K = 0;\n'}
+[12.748500] (motor_control) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[12.748869] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:276:17:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kbldc_id_sel\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[12.749274] (motor_control) StderrLine: {'line': b'  276 |     static char \x1b[01;35m\x1b[Kbldc_id_sel\x1b[m\x1b[K=0;\n'}
+[12.749640] (motor_control) StderrLine: {'line': b'      |                 \x1b[01;35m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[12.749998] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid transfer(int, int)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[12.750408] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:330:27:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Krx_cnt\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[12.750913] (motor_control) StderrLine: {'line': b'  330 |     static uint8_t state, \x1b[01;35m\x1b[Krx_cnt\x1b[m\x1b[K;\n'}
+[12.751331] (motor_control) StderrLine: {'line': b'      |                           \x1b[01;35m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[12.751724] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:328:19:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kfd\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[12.752128] (motor_control) StderrLine: {'line': b'  328 | void transfer(\x1b[01;35m\x1b[Kint fd\x1b[m\x1b[K, int sel)//\xe5\x8f\x91\xe9\x80\x81\n'}
+[12.752590] (motor_control) StderrLine: {'line': b'      |               \x1b[01;35m\x1b[K~~~~^~\x1b[m\x1b[K\n'}
+[12.802497] (-) TimerEvent: {}
+[12.903318] (-) TimerEvent: {}
+[13.004108] (-) TimerEvent: {}
+[13.104918] (-) TimerEvent: {}
+[13.205690] (-) TimerEvent: {}
+[13.306473] (-) TimerEvent: {}
+[13.407286] (-) TimerEvent: {}
+[13.508054] (-) TimerEvent: {}
+[13.556511] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[KMotor_control::Motor_control()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[13.557164] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:458:10:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kbuf_mem\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[13.557716] (motor_control) StderrLine: {'line': b'  458 |     char \x1b[01;35m\x1b[Kbuf_mem\x1b[m\x1b[K[MEM_SIZE]={1,2};\n'}
+[13.558130] (motor_control) StderrLine: {'line': b'      |          \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[13.608246] (-) TimerEvent: {}
+[13.709004] (-) TimerEvent: {}
+[13.809838] (-) TimerEvent: {}
+[13.910597] (-) TimerEvent: {}
+[14.011460] (-) TimerEvent: {}
+[14.112234] (-) TimerEvent: {}
+[14.212998] (-) TimerEvent: {}
+[14.313763] (-) TimerEvent: {}
+[14.414549] (-) TimerEvent: {}
+[14.515545] (-) TimerEvent: {}
+[14.616363] (-) TimerEvent: {}
+[14.717209] (-) TimerEvent: {}
+[14.817987] (-) TimerEvent: {}
+[14.918813] (-) TimerEvent: {}
+[15.019584] (-) TimerEvent: {}
+[15.120350] (-) TimerEvent: {}
+[15.221357] (-) TimerEvent: {}
+[15.322191] (-) TimerEvent: {}
+[15.422977] (-) TimerEvent: {}
+[15.523780] (-) TimerEvent: {}
+[15.625036] (-) TimerEvent: {}
+[15.725811] (-) TimerEvent: {}
+[15.826584] (-) TimerEvent: {}
+[15.927377] (-) TimerEvent: {}
+[16.028132] (-) TimerEvent: {}
+[16.128981] (-) TimerEvent: {}
+[16.229816] (-) TimerEvent: {}
+[16.330691] (-) TimerEvent: {}
+[16.431510] (-) TimerEvent: {}
+[16.532279] (-) TimerEvent: {}
+[16.633122] (-) TimerEvent: {}
+[16.733911] (-) TimerEvent: {}
+[16.834713] (-) TimerEvent: {}
+[16.935485] (-) TimerEvent: {}
+[17.036279] (-) TimerEvent: {}
+[17.137049] (-) TimerEvent: {}
+[17.237813] (-) TimerEvent: {}
+[17.338586] (-) TimerEvent: {}
+[17.439390] (-) TimerEvent: {}
+[17.544638] (-) TimerEvent: {}
+[17.645418] (-) TimerEvent: {}
+[17.746192] (-) TimerEvent: {}
+[17.847058] (-) TimerEvent: {}
+[17.947836] (-) TimerEvent: {}
+[18.048585] (-) TimerEvent: {}
+[18.149398] (-) TimerEvent: {}
+[18.250203] (-) TimerEvent: {}
+[18.351057] (-) TimerEvent: {}
+[18.451876] (-) TimerEvent: {}
+[18.552760] (-) TimerEvent: {}
+[18.653699] (-) TimerEvent: {}
+[18.754577] (-) TimerEvent: {}
+[18.855397] (-) TimerEvent: {}
+[18.956186] (-) TimerEvent: {}
+[19.057021] (-) TimerEvent: {}
+[19.157805] (-) TimerEvent: {}
+[19.258582] (-) TimerEvent: {}
+[19.359401] (-) TimerEvent: {}
+[19.460208] (-) TimerEvent: {}
+[19.561733] (-) TimerEvent: {}
+[19.662516] (-) TimerEvent: {}
+[19.763320] (-) TimerEvent: {}
+[19.864091] (-) TimerEvent: {}
+[19.964862] (-) TimerEvent: {}
+[20.065676] (-) TimerEvent: {}
+[20.166447] (-) TimerEvent: {}
+[20.267255] (-) TimerEvent: {}
+[20.368038] (-) TimerEvent: {}
+[20.468808] (-) TimerEvent: {}
+[20.569687] (-) TimerEvent: {}
+[20.670469] (-) TimerEvent: {}
+[20.771282] (-) TimerEvent: {}
+[20.872048] (-) TimerEvent: {}
+[20.972858] (-) TimerEvent: {}
+[21.073651] (-) TimerEvent: {}
+[21.174432] (-) TimerEvent: {}
+[21.275228] (-) TimerEvent: {}
+[21.375975] (-) TimerEvent: {}
+[21.476752] (-) TimerEvent: {}
+[21.577521] (-) TimerEvent: {}
+[21.678279] (-) TimerEvent: {}
+[21.779072] (-) TimerEvent: {}
+[21.879838] (-) TimerEvent: {}
+[21.980596] (-) TimerEvent: {}
+[22.081361] (-) TimerEvent: {}
+[22.182158] (-) TimerEvent: {}
+[22.282959] (-) TimerEvent: {}
+[22.383718] (-) TimerEvent: {}
+[22.484535] (-) TimerEvent: {}
+[22.585410] (-) TimerEvent: {}
+[22.686200] (-) TimerEvent: {}
+[22.786998] (-) TimerEvent: {}
+[22.887756] (-) TimerEvent: {}
+[22.988510] (-) TimerEvent: {}
+[23.089227] (-) TimerEvent: {}
+[23.190014] (-) TimerEvent: {}
+[23.290817] (-) TimerEvent: {}
+[23.391587] (-) TimerEvent: {}
+[23.492351] (-) TimerEvent: {}
+[23.593125] (-) TimerEvent: {}
+[23.693919] (-) TimerEvent: {}
+[23.794735] (-) TimerEvent: {}
+[23.895496] (-) TimerEvent: {}
+[23.996253] (-) TimerEvent: {}
+[24.097003] (-) TimerEvent: {}
+[24.197833] (-) TimerEvent: {}
+[24.298722] (-) TimerEvent: {}
+[24.399469] (-) TimerEvent: {}
+[24.500261] (-) TimerEvent: {}
+[24.601067] (-) TimerEvent: {}
+[24.701844] (-) TimerEvent: {}
+[24.802612] (-) TimerEvent: {}
+[24.903421] (-) TimerEvent: {}
+[25.004196] (-) TimerEvent: {}
+[25.104979] (-) TimerEvent: {}
+[25.205754] (-) TimerEvent: {}
+[25.306561] (-) TimerEvent: {}
+[25.407374] (-) TimerEvent: {}
+[25.508183] (-) TimerEvent: {}
+[25.609017] (-) TimerEvent: {}
+[25.709813] (-) TimerEvent: {}
+[25.810601] (-) TimerEvent: {}
+[25.911409] (-) TimerEvent: {}
+[26.012171] (-) TimerEvent: {}
+[26.112935] (-) TimerEvent: {}
+[26.213700] (-) TimerEvent: {}
+[26.314492] (-) TimerEvent: {}
+[26.415262] (-) TimerEvent: {}
+[26.516010] (-) TimerEvent: {}
+[26.616761] (-) TimerEvent: {}
+[26.717543] (-) TimerEvent: {}
+[26.818325] (-) TimerEvent: {}
+[26.919137] (-) TimerEvent: {}
+[27.019908] (-) TimerEvent: {}
+[27.120716] (-) TimerEvent: {}
+[27.221560] (-) TimerEvent: {}
+[27.322349] (-) TimerEvent: {}
+[27.423147] (-) TimerEvent: {}
+[27.523954] (-) TimerEvent: {}
+[27.624742] (-) TimerEvent: {}
+[27.725582] (-) TimerEvent: {}
+[27.826434] (-) TimerEvent: {}
+[27.927280] (-) TimerEvent: {}
+[28.028139] (-) TimerEvent: {}
+[28.128940] (-) TimerEvent: {}
+[28.229726] (-) TimerEvent: {}
+[28.330555] (-) TimerEvent: {}
+[28.431445] (-) TimerEvent: {}
+[28.532231] (-) TimerEvent: {}
+[28.633040] (-) TimerEvent: {}
+[28.733832] (-) TimerEvent: {}
+[28.834680] (-) TimerEvent: {}
+[28.935506] (-) TimerEvent: {}
+[29.036400] (-) TimerEvent: {}
+[29.137282] (-) TimerEvent: {}
+[29.238161] (-) TimerEvent: {}
+[29.339084] (-) TimerEvent: {}
+[29.440017] (-) TimerEvent: {}
+[29.541219] (-) TimerEvent: {}
+[29.642157] (-) TimerEvent: {}
+[29.743448] (-) TimerEvent: {}
+[29.844237] (-) TimerEvent: {}
+[29.945033] (-) TimerEvent: {}
+[30.045824] (-) TimerEvent: {}
+[30.146595] (-) TimerEvent: {}
+[30.247432] (-) TimerEvent: {}
+[30.348239] (-) TimerEvent: {}
+[30.449020] (-) TimerEvent: {}
+[30.549827] (-) TimerEvent: {}
+[30.650730] (-) TimerEvent: {}
+[30.751558] (-) TimerEvent: {}
+[30.852435] (-) TimerEvent: {}
+[30.953326] (-) TimerEvent: {}
+[31.054199] (-) TimerEvent: {}
+[31.155193] (-) TimerEvent: {}
+[31.256068] (-) TimerEvent: {}
+[31.356920] (-) TimerEvent: {}
+[31.457753] (-) TimerEvent: {}
+[31.558544] (-) TimerEvent: {}
+[31.659369] (-) TimerEvent: {}
+[31.760127] (-) TimerEvent: {}
+[31.860978] (-) TimerEvent: {}
+[31.961792] (-) TimerEvent: {}
+[32.062604] (-) TimerEvent: {}
+[32.163567] (-) TimerEvent: {}
+[32.264266] (-) TimerEvent: {}
+[32.364996] (-) TimerEvent: {}
+[32.465783] (-) TimerEvent: {}
+[32.566556] (-) TimerEvent: {}
+[32.667278] (-) TimerEvent: {}
+[32.768025] (-) TimerEvent: {}
+[32.868823] (-) TimerEvent: {}
+[32.969554] (-) TimerEvent: {}
+[33.070237] (-) TimerEvent: {}
+[33.170954] (-) TimerEvent: {}
+[33.271665] (-) TimerEvent: {}
+[33.372411] (-) TimerEvent: {}
+[33.473249] (-) TimerEvent: {}
+[33.574068] (-) TimerEvent: {}
+[33.674886] (-) TimerEvent: {}
+[33.775676] (-) TimerEvent: {}
+[33.876485] (-) TimerEvent: {}
+[33.977344] (-) TimerEvent: {}
+[34.078131] (-) TimerEvent: {}
+[34.179023] (-) TimerEvent: {}
+[34.279849] (-) TimerEvent: {}
+[34.380659] (-) TimerEvent: {}
+[34.481659] (-) TimerEvent: {}
+[34.582623] (-) TimerEvent: {}
+[34.683439] (-) TimerEvent: {}
+[34.784286] (-) TimerEvent: {}
+[34.885123] (-) TimerEvent: {}
+[34.985914] (-) TimerEvent: {}
+[34.987635] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:\x1b[m\x1b[K At global scope:\n'}
+[34.988829] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:330:27:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krx_cnt\x1b[m\x1b[K\xe2\x80\x99 defined but not used [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[34.990263] (motor_control) StderrLine: {'line': b'  330 |     static uint8_t state, \x1b[01;35m\x1b[Krx_cnt\x1b[m\x1b[K;\n'}
+[34.991333] (motor_control) StderrLine: {'line': b'      |                           \x1b[01;35m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[34.992652] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:276:17:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kbldc_id_sel\x1b[m\x1b[K\xe2\x80\x99 defined but not used [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[34.994174] (motor_control) StderrLine: {'line': b'  276 |     static char \x1b[01;35m\x1b[Kbldc_id_sel\x1b[m\x1b[K=0;\n'}
+[34.995527] (motor_control) StderrLine: {'line': b'      |                 \x1b[01;35m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[34.997030] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:273:18:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kt_temp\x1b[m\x1b[K\xe2\x80\x99 defined but not used [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[34.998336] (motor_control) StderrLine: {'line': b'  273 |     static float \x1b[01;35m\x1b[Kt_temp\x1b[m\x1b[K = 0;\n'}
+[34.999521] (motor_control) StderrLine: {'line': b'      |                  \x1b[01;35m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[35.000941] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:157:12:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kint intFromData_spi(unsigned char*, int*)\x1b[m\x1b[K\xe2\x80\x99 defined but not used [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-function\x07-Wunused-function\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[35.002671] (motor_control) StderrLine: {'line': b'  157 | static int \x1b[01;35m\x1b[KintFromData_spi\x1b[m\x1b[K(unsigned char *data, int *anal_cnt)\n'}
+[35.004093] (motor_control) StderrLine: {'line': b'      |            \x1b[01;35m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[35.005252] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:105:13:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kvoid setDataInt_spi(int)\x1b[m\x1b[K\xe2\x80\x99 defined but not used [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-function\x07-Wunused-function\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[35.006372] (motor_control) StderrLine: {'line': b'  105 | static void \x1b[01;35m\x1b[KsetDataInt_spi\x1b[m\x1b[K(int i)\n'}
+[35.007446] (motor_control) StderrLine: {'line': b'      |             \x1b[01;35m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[35.086147] (-) TimerEvent: {}
+[35.187073] (-) TimerEvent: {}
+[35.288523] (-) TimerEvent: {}
+[35.389554] (-) TimerEvent: {}
+[35.490329] (-) TimerEvent: {}
+[35.591635] (-) TimerEvent: {}
+[35.692450] (-) TimerEvent: {}
+[35.793257] (-) TimerEvent: {}
+[35.894101] (-) TimerEvent: {}
+[35.994914] (-) TimerEvent: {}
+[36.095754] (-) TimerEvent: {}
+[36.196650] (-) TimerEvent: {}
+[36.297452] (-) TimerEvent: {}
+[36.398220] (-) TimerEvent: {}
+[36.498994] (-) TimerEvent: {}
+[36.599781] (-) TimerEvent: {}
+[36.700746] (-) TimerEvent: {}
+[36.801919] (-) TimerEvent: {}
+[36.903508] (-) TimerEvent: {}
+[37.004438] (-) TimerEvent: {}
+[37.105401] (-) TimerEvent: {}
+[37.206395] (-) TimerEvent: {}
+[37.307495] (-) TimerEvent: {}
+[37.408225] (-) TimerEvent: {}
+[37.509026] (-) TimerEvent: {}
+[37.609835] (-) TimerEvent: {}
+[37.710665] (-) TimerEvent: {}
+[37.811464] (-) TimerEvent: {}
+[37.912246] (-) TimerEvent: {}
+[38.013085] (-) TimerEvent: {}
+[38.113884] (-) TimerEvent: {}
+[38.214707] (-) TimerEvent: {}
+[38.315508] (-) TimerEvent: {}
+[38.416321] (-) TimerEvent: {}
+[38.517085] (-) TimerEvent: {}
+[38.617844] (-) TimerEvent: {}
+[38.718620] (-) TimerEvent: {}
+[38.819403] (-) TimerEvent: {}
+[38.920174] (-) TimerEvent: {}
+[39.021013] (-) TimerEvent: {}
+[39.121856] (-) TimerEvent: {}
+[39.222709] (-) TimerEvent: {}
+[39.323492] (-) TimerEvent: {}
+[39.424286] (-) TimerEvent: {}
+[39.525160] (-) TimerEvent: {}
+[39.625973] (-) TimerEvent: {}
+[39.726788] (-) TimerEvent: {}
+[39.827588] (-) TimerEvent: {}
+[39.928464] (-) TimerEvent: {}
+[40.029251] (-) TimerEvent: {}
+[40.130053] (-) TimerEvent: {}
+[40.230829] (-) TimerEvent: {}
+[40.331629] (-) TimerEvent: {}
+[40.432416] (-) TimerEvent: {}
+[40.533186] (-) TimerEvent: {}
+[40.634131] (-) TimerEvent: {}
+[40.734991] (-) TimerEvent: {}
+[40.835744] (-) TimerEvent: {}
+[40.936592] (-) TimerEvent: {}
+[41.037348] (-) TimerEvent: {}
+[41.138090] (-) TimerEvent: {}
+[41.238903] (-) TimerEvent: {}
+[41.339631] (-) TimerEvent: {}
+[41.440378] (-) TimerEvent: {}
+[41.541150] (-) TimerEvent: {}
+[41.641932] (-) TimerEvent: {}
+[41.742738] (-) TimerEvent: {}
+[41.843537] (-) TimerEvent: {}
+[41.944280] (-) TimerEvent: {}
+[42.045088] (-) TimerEvent: {}
+[42.145860] (-) TimerEvent: {}
+[42.246726] (-) TimerEvent: {}
+[42.347475] (-) TimerEvent: {}
+[42.448245] (-) TimerEvent: {}
+[42.549050] (-) TimerEvent: {}
+[42.649813] (-) TimerEvent: {}
+[42.750576] (-) TimerEvent: {}
+[42.851369] (-) TimerEvent: {}
+[42.952133] (-) TimerEvent: {}
+[43.053053] (-) TimerEvent: {}
+[43.153877] (-) TimerEvent: {}
+[43.254736] (-) TimerEvent: {}
+[43.355521] (-) TimerEvent: {}
+[43.456305] (-) TimerEvent: {}
+[43.557070] (-) TimerEvent: {}
+[43.657853] (-) TimerEvent: {}
+[43.758692] (-) TimerEvent: {}
+[43.859411] (-) TimerEvent: {}
+[43.960179] (-) TimerEvent: {}
+[44.060918] (-) TimerEvent: {}
+[44.161685] (-) TimerEvent: {}
+[44.262433] (-) TimerEvent: {}
+[44.363221] (-) TimerEvent: {}
+[44.464053] (-) TimerEvent: {}
+[44.564977] (-) TimerEvent: {}
+[44.665779] (-) TimerEvent: {}
+[44.766557] (-) TimerEvent: {}
+[44.867376] (-) TimerEvent: {}
+[44.968134] (-) TimerEvent: {}
+[45.068910] (-) TimerEvent: {}
+[45.169681] (-) TimerEvent: {}
+[45.270441] (-) TimerEvent: {}
+[45.371248] (-) TimerEvent: {}
+[45.472006] (-) TimerEvent: {}
+[45.572740] (-) TimerEvent: {}
+[45.673543] (-) TimerEvent: {}
+[45.774312] (-) TimerEvent: {}
+[45.875095] (-) TimerEvent: {}
+[45.975871] (-) TimerEvent: {}
+[46.076628] (-) TimerEvent: {}
+[46.177419] (-) TimerEvent: {}
+[46.278201] (-) TimerEvent: {}
+[46.379000] (-) TimerEvent: {}
+[46.479736] (-) TimerEvent: {}
+[46.580535] (-) TimerEvent: {}
+[46.681347] (-) TimerEvent: {}
+[46.782159] (-) TimerEvent: {}
+[46.882930] (-) TimerEvent: {}
+[46.983685] (-) TimerEvent: {}
+[47.084447] (-) TimerEvent: {}
+[47.185289] (-) TimerEvent: {}
+[47.286112] (-) TimerEvent: {}
+[47.386924] (-) TimerEvent: {}
+[47.487681] (-) TimerEvent: {}
+[47.588451] (-) TimerEvent: {}
+[47.689204] (-) TimerEvent: {}
+[47.789968] (-) TimerEvent: {}
+[47.890781] (-) TimerEvent: {}
+[47.991560] (-) TimerEvent: {}
+[48.092311] (-) TimerEvent: {}
+[48.193069] (-) TimerEvent: {}
+[48.293844] (-) TimerEvent: {}
+[48.394622] (-) TimerEvent: {}
+[48.495411] (-) TimerEvent: {}
+[48.596193] (-) TimerEvent: {}
+[48.697007] (-) TimerEvent: {}
+[48.797793] (-) TimerEvent: {}
+[48.898618] (-) TimerEvent: {}
+[48.999411] (-) TimerEvent: {}
+[49.100172] (-) TimerEvent: {}
+[49.201032] (-) TimerEvent: {}
+[49.301997] (-) TimerEvent: {}
+[49.402789] (-) TimerEvent: {}
+[49.503625] (-) TimerEvent: {}
+[49.604414] (-) TimerEvent: {}
+[49.705176] (-) TimerEvent: {}
+[49.805956] (-) TimerEvent: {}
+[49.906770] (-) TimerEvent: {}
+[50.007560] (-) TimerEvent: {}
+[50.108356] (-) TimerEvent: {}
+[50.209129] (-) TimerEvent: {}
+[50.309953] (-) TimerEvent: {}
+[50.410767] (-) TimerEvent: {}
+[50.511567] (-) TimerEvent: {}
+[50.612520] (-) TimerEvent: {}
+[50.713323] (-) TimerEvent: {}
+[50.814102] (-) TimerEvent: {}
+[50.914912] (-) TimerEvent: {}
+[51.015687] (-) TimerEvent: {}
+[51.116465] (-) TimerEvent: {}
+[51.217273] (-) TimerEvent: {}
+[51.318044] (-) TimerEvent: {}
+[51.418814] (-) TimerEvent: {}
+[51.519587] (-) TimerEvent: {}
+[51.620353] (-) TimerEvent: {}
+[51.721092] (-) TimerEvent: {}
+[51.821863] (-) TimerEvent: {}
+[51.922694] (-) TimerEvent: {}
+[52.023489] (-) TimerEvent: {}
+[52.124247] (-) TimerEvent: {}
+[52.225091] (-) TimerEvent: {}
+[52.325895] (-) TimerEvent: {}
+[52.426734] (-) TimerEvent: {}
+[52.527532] (-) TimerEvent: {}
+[52.628276] (-) TimerEvent: {}
+[52.729056] (-) TimerEvent: {}
+[52.829800] (-) TimerEvent: {}
+[52.930576] (-) TimerEvent: {}
+[53.031359] (-) TimerEvent: {}
+[53.132093] (-) TimerEvent: {}
+[53.232842] (-) TimerEvent: {}
+[53.333631] (-) TimerEvent: {}
+[53.434369] (-) TimerEvent: {}
+[53.535176] (-) TimerEvent: {}
+[53.635912] (-) TimerEvent: {}
+[53.736673] (-) TimerEvent: {}
+[53.837452] (-) TimerEvent: {}
+[53.938233] (-) TimerEvent: {}
+[54.039040] (-) TimerEvent: {}
+[54.139805] (-) TimerEvent: {}
+[54.240578] (-) TimerEvent: {}
+[54.341395] (-) TimerEvent: {}
+[54.442205] (-) TimerEvent: {}
+[54.543860] (-) TimerEvent: {}
+[54.644621] (-) TimerEvent: {}
+[54.745420] (-) TimerEvent: {}
+[54.846281] (-) TimerEvent: {}
+[54.947096] (-) TimerEvent: {}
+[55.047913] (-) TimerEvent: {}
+[55.148655] (-) TimerEvent: {}
+[55.249401] (-) TimerEvent: {}
+[55.350177] (-) TimerEvent: {}
+[55.451003] (-) TimerEvent: {}
+[55.551777] (-) TimerEvent: {}
+[55.652577] (-) TimerEvent: {}
+[55.753372] (-) TimerEvent: {}
+[55.854330] (-) TimerEvent: {}
+[55.955114] (-) TimerEvent: {}
+[56.055901] (-) TimerEvent: {}
+[56.156682] (-) TimerEvent: {}
+[56.257468] (-) TimerEvent: {}
+[56.358237] (-) TimerEvent: {}
+[56.459038] (-) TimerEvent: {}
+[56.559803] (-) TimerEvent: {}
+[56.660581] (-) TimerEvent: {}
+[56.761380] (-) TimerEvent: {}
+[56.862138] (-) TimerEvent: {}
+[56.962911] (-) TimerEvent: {}
+[57.063729] (-) TimerEvent: {}
+[57.164515] (-) TimerEvent: {}
+[57.265318] (-) TimerEvent: {}
+[57.366075] (-) TimerEvent: {}
+[57.466913] (-) TimerEvent: {}
+[57.567732] (-) TimerEvent: {}
+[57.668570] (-) TimerEvent: {}
+[57.769390] (-) TimerEvent: {}
+[58.110694] (-) TimerEvent: {}
+[58.211451] (-) TimerEvent: {}
+[58.312236] (-) TimerEvent: {}
+[58.413043] (-) TimerEvent: {}
+[58.513806] (-) TimerEvent: {}
+[58.614616] (-) TimerEvent: {}
+[58.715385] (-) TimerEvent: {}
+[58.816160] (-) TimerEvent: {}
+[58.916916] (-) TimerEvent: {}
+[59.017737] (-) TimerEvent: {}
+[59.118498] (-) TimerEvent: {}
+[59.219348] (-) TimerEvent: {}
+[59.320113] (-) TimerEvent: {}
+[59.420869] (-) TimerEvent: {}
+[59.521676] (-) TimerEvent: {}
+[59.622526] (-) TimerEvent: {}
+[59.723343] (-) TimerEvent: {}
+[59.824133] (-) TimerEvent: {}
+[59.924911] (-) TimerEvent: {}
+[60.025642] (-) TimerEvent: {}
+[60.126472] (-) TimerEvent: {}
+[60.227234] (-) TimerEvent: {}
+[60.327989] (-) TimerEvent: {}
+[60.428758] (-) TimerEvent: {}
+[60.529515] (-) TimerEvent: {}
+[60.630354] (-) TimerEvent: {}
+[60.731126] (-) TimerEvent: {}
+[60.831880] (-) TimerEvent: {}
+[60.932652] (-) TimerEvent: {}
+[61.033417] (-) TimerEvent: {}
+[61.134189] (-) TimerEvent: {}
+[61.234981] (-) TimerEvent: {}
+[61.335717] (-) TimerEvent: {}
+[61.436458] (-) TimerEvent: {}
+[61.537232] (-) TimerEvent: {}
+[61.638037] (-) TimerEvent: {}
+[61.738844] (-) TimerEvent: {}
+[61.839610] (-) TimerEvent: {}
+[61.940350] (-) TimerEvent: {}
+[62.041109] (-) TimerEvent: {}
+[62.141924] (-) TimerEvent: {}
+[62.242741] (-) TimerEvent: {}
+[62.343513] (-) TimerEvent: {}
+[62.444300] (-) TimerEvent: {}
+[62.545084] (-) TimerEvent: {}
+[62.645883] (-) TimerEvent: {}
+[62.746681] (-) TimerEvent: {}
+[62.847435] (-) TimerEvent: {}
+[62.948201] (-) TimerEvent: {}
+[63.048966] (-) TimerEvent: {}
+[63.149760] (-) TimerEvent: {}
+[63.250794] (-) TimerEvent: {}
+[63.351562] (-) TimerEvent: {}
+[63.452302] (-) TimerEvent: {}
+[63.553078] (-) TimerEvent: {}
+[63.653843] (-) TimerEvent: {}
+[63.754583] (-) TimerEvent: {}
+[63.855364] (-) TimerEvent: {}
+[63.956120] (-) TimerEvent: {}
+[64.056920] (-) TimerEvent: {}
+[64.157744] (-) TimerEvent: {}
+[64.258543] (-) TimerEvent: {}
+[64.359325] (-) TimerEvent: {}
+[64.460101] (-) TimerEvent: {}
+[64.560978] (-) TimerEvent: {}
+[64.661868] (-) TimerEvent: {}
+[64.762623] (-) TimerEvent: {}
+[64.863471] (-) TimerEvent: {}
+[64.964293] (-) TimerEvent: {}
+[65.065030] (-) TimerEvent: {}
+[65.165815] (-) TimerEvent: {}
+[65.266571] (-) TimerEvent: {}
+[65.367380] (-) TimerEvent: {}
+[65.468134] (-) TimerEvent: {}
+[65.568912] (-) TimerEvent: {}
+[65.669686] (-) TimerEvent: {}
+[65.770419] (-) TimerEvent: {}
+[65.871184] (-) TimerEvent: {}
+[65.971912] (-) TimerEvent: {}
+[66.072669] (-) TimerEvent: {}
+[66.173449] (-) TimerEvent: {}
+[66.274183] (-) TimerEvent: {}
+[66.374981] (-) TimerEvent: {}
+[66.475723] (-) TimerEvent: {}
+[66.576475] (-) TimerEvent: {}
+[66.677212] (-) TimerEvent: {}
+[66.777954] (-) TimerEvent: {}
+[66.878689] (-) TimerEvent: {}
+[66.979407] (-) TimerEvent: {}
+[67.080180] (-) TimerEvent: {}
+[67.180929] (-) TimerEvent: {}
+[67.281674] (-) TimerEvent: {}
+[67.382432] (-) TimerEvent: {}
+[67.483247] (-) TimerEvent: {}
+[67.583984] (-) TimerEvent: {}
+[67.684769] (-) TimerEvent: {}
+[67.785514] (-) TimerEvent: {}
+[67.886383] (-) TimerEvent: {}
+[67.987239] (-) TimerEvent: {}
+[68.088318] (-) TimerEvent: {}
+[68.190087] (-) TimerEvent: {}
+[68.291848] (-) TimerEvent: {}
+[68.392937] (-) TimerEvent: {}
+[68.494301] (-) TimerEvent: {}
+[68.595117] (-) TimerEvent: {}
+[68.695875] (-) TimerEvent: {}
+[68.796638] (-) TimerEvent: {}
+[68.897595] (-) TimerEvent: {}
+[68.998616] (-) TimerEvent: {}
+[69.099584] (-) TimerEvent: {}
+[69.200579] (-) TimerEvent: {}
+[69.301492] (-) TimerEvent: {}
+[69.402568] (-) TimerEvent: {}
+[69.503482] (-) TimerEvent: {}
+[69.604213] (-) TimerEvent: {}
+[69.705185] (-) TimerEvent: {}
+[69.806004] (-) TimerEvent: {}
+[69.906811] (-) TimerEvent: {}
+[69.959505] (motor_control) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable Motor_control\x1b[0m\n'}
+[70.006998] (-) TimerEvent: {}
+[70.107893] (-) TimerEvent: {}
+[70.208928] (-) TimerEvent: {}
+[70.309986] (-) TimerEvent: {}
+[70.412078] (-) TimerEvent: {}
+[70.512975] (-) TimerEvent: {}
+[70.614703] (-) TimerEvent: {}
+[70.715875] (-) TimerEvent: {}
+[70.816804] (-) TimerEvent: {}
+[70.917999] (-) TimerEvent: {}
+[71.018934] (-) TimerEvent: {}
+[71.119886] (-) TimerEvent: {}
+[71.220926] (-) TimerEvent: {}
+[71.321962] (-) TimerEvent: {}
+[71.423337] (-) TimerEvent: {}
+[71.524562] (-) TimerEvent: {}
+[71.625519] (-) TimerEvent: {}
+[71.726459] (-) TimerEvent: {}
+[71.827361] (-) TimerEvent: {}
+[71.928414] (-) TimerEvent: {}
+[72.029329] (-) TimerEvent: {}
+[72.130222] (-) TimerEvent: {}
+[72.230973] (-) TimerEvent: {}
+[72.331840] (-) TimerEvent: {}
+[72.433059] (-) TimerEvent: {}
+[72.533967] (-) TimerEvent: {}
+[72.635242] (-) TimerEvent: {}
+[72.736561] (-) TimerEvent: {}
+[72.837229] (-) TimerEvent: {}
+[72.938036] (-) TimerEvent: {}
+[73.038734] (-) TimerEvent: {}
+[73.139422] (-) TimerEvent: {}
+[73.240097] (-) TimerEvent: {}
+[73.340811] (-) TimerEvent: {}
+[73.441583] (-) TimerEvent: {}
+[73.542513] (-) TimerEvent: {}
+[73.643403] (-) TimerEvent: {}
+[73.744111] (-) TimerEvent: {}
+[73.844762] (-) TimerEvent: {}
+[73.945441] (-) TimerEvent: {}
+[74.046245] (-) TimerEvent: {}
+[74.140405] (motor_control) StderrLine: {'line': b'gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.\n'}
+[74.146399] (-) TimerEvent: {}
+[74.177893] (motor_control) StdoutLine: {'line': b'[100%] Built target Motor_control\n'}
+[74.217384] (motor_control) CommandEnded: {'returncode': 0}
+[74.219434] (motor_control) JobProgress: {'identifier': 'motor_control', 'progress': 'install'}
+[74.246666] (-) TimerEvent: {}
+[74.255623] (motor_control) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control'], 'cwd': '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'pi'), ('SSH_CLIENT', '192.168.1.42 56494 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/pi'), ('TERM_PROGRAM_VERSION', '1.105.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-17d95341-6ff0-4eb0-bd53-f058f22d6d4e.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'pi'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/pi/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-491542eb19.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.1.42 56494 192.168.1.186 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/lib/python3.10/site-packages:/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/opt/ros/humble')]), 'shell': False}
+[74.289075] (motor_control) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[74.290442] (motor_control) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/lib/motor_control/Motor_control\n'}
+[74.346821] (-) TimerEvent: {}
+[74.373148] (motor_control) StdoutLine: {'line': b'-- Set runtime path of "/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/lib/motor_control/Motor_control" to ""\n'}
+[74.373827] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/launch\n'}
+[74.374355] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/launch/display.launch.py\n'}
+[74.374777] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/urdf\n'}
+[74.375256] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/urdf/robot.urdf\n'}
+[74.375828] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/ament_index/resource_index/package_run_dependencies/motor_control\n'}
+[74.376258] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/ament_index/resource_index/parent_prefix_path/motor_control\n'}
+[74.376616] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/environment/ament_prefix_path.sh\n'}
+[74.376974] (motor_control) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/environment/ament_prefix_path.dsv\n'}
+[74.377830] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/environment/path.sh\n'}
+[74.379079] (motor_control) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/environment/path.dsv\n'}
+[74.380281] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/local_setup.bash\n'}
+[74.381377] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/local_setup.sh\n'}
+[74.382284] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/local_setup.zsh\n'}
+[74.383355] (motor_control) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/local_setup.dsv\n'}
+[74.384059] (motor_control) StdoutLine: {'line': b'-- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/package.dsv\n'}
+[74.385120] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/ament_index/resource_index/packages/motor_control\n'}
+[74.386097] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/cmake/motor_controlConfig.cmake\n'}
+[74.386850] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/cmake/motor_controlConfig-version.cmake\n'}
+[74.387550] (motor_control) StdoutLine: {'line': b'-- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/package.xml\n'}
+[74.392441] (motor_control) CommandEnded: {'returncode': 0}
+[74.448073] (-) TimerEvent: {}
+[74.484828] (motor_control) JobEnded: {'identifier': 'motor_control', 'rc': 0}
+[74.488531] (-) EventReactorShutdown: {}

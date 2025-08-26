@@ -1,0 +1,110 @@
+[0.441s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'motor_control/']
+[0.442s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['motor_control/'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0xffff83bf0400>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffff83bbbf10>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffff83bbbf10>>, mixin_verb=('build',))
+[1.123s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[1.124s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[1.124s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[1.124s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[1.124s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[1.124s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[1.125s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/pi/Tinker_Sber/Chellenge-Tinker'
+[1.125s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[1.126s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[1.126s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[1.127s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[1.127s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[1.127s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[1.127s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[1.127s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[1.127s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[1.177s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[1.177s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[1.177s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[1.178s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[1.178s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[1.178s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[1.179s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[1.179s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[1.180s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_msg) by extensions ['ignore', 'ignore_ament_install']
+[1.180s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_msg) by extension 'ignore'
+[1.180s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_msg) by extension 'ignore_ament_install'
+[1.180s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_msg) by extensions ['colcon_pkg']
+[1.181s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_msg) by extension 'colcon_pkg'
+[1.181s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_msg) by extensions ['colcon_meta']
+[1.181s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_msg) by extension 'colcon_meta'
+[1.181s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_msg) by extensions ['ros']
+[1.181s] Level 1:colcon.colcon_core.package_identification:_identify(hardware_msg) by extension 'ros'
+[1.190s] DEBUG:colcon.colcon_core.package_identification:Package 'hardware_msg' with type 'ros.ament_cmake' and name 'hardware_msg'
+[1.192s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[1.192s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[1.192s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[1.193s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[1.193s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[1.194s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[1.194s] Level 1:colcon.colcon_core.package_identification:_identify(motor_commander) by extensions ['ignore', 'ignore_ament_install']
+[1.194s] Level 1:colcon.colcon_core.package_identification:_identify(motor_commander) by extension 'ignore'
+[1.195s] Level 1:colcon.colcon_core.package_identification:_identify(motor_commander) by extension 'ignore_ament_install'
+[1.195s] Level 1:colcon.colcon_core.package_identification:_identify(motor_commander) by extensions ['colcon_pkg']
+[1.195s] Level 1:colcon.colcon_core.package_identification:_identify(motor_commander) by extension 'colcon_pkg'
+[1.195s] Level 1:colcon.colcon_core.package_identification:_identify(motor_commander) by extensions ['colcon_meta']
+[1.195s] Level 1:colcon.colcon_core.package_identification:_identify(motor_commander) by extension 'colcon_meta'
+[1.196s] Level 1:colcon.colcon_core.package_identification:_identify(motor_commander) by extensions ['ros']
+[1.196s] Level 1:colcon.colcon_core.package_identification:_identify(motor_commander) by extension 'ros'
+[1.198s] DEBUG:colcon.colcon_core.package_identification:Package 'motor_commander' with type 'ros.ament_python' and name 'motor_commander'
+[1.199s] Level 1:colcon.colcon_core.package_identification:_identify(motor_control) by extensions ['ignore', 'ignore_ament_install']
+[1.200s] Level 1:colcon.colcon_core.package_identification:_identify(motor_control) by extension 'ignore'
+[1.200s] Level 1:colcon.colcon_core.package_identification:_identify(motor_control) by extension 'ignore_ament_install'
+[1.201s] Level 1:colcon.colcon_core.package_identification:_identify(motor_control) by extensions ['colcon_pkg']
+[1.201s] Level 1:colcon.colcon_core.package_identification:_identify(motor_control) by extension 'colcon_pkg'
+[1.201s] Level 1:colcon.colcon_core.package_identification:_identify(motor_control) by extensions ['colcon_meta']
+[1.201s] Level 1:colcon.colcon_core.package_identification:_identify(motor_control) by extension 'colcon_meta'
+[1.201s] Level 1:colcon.colcon_core.package_identification:_identify(motor_control) by extensions ['ros']
+[1.202s] Level 1:colcon.colcon_core.package_identification:_identify(motor_control) by extension 'ros'
+[1.205s] DEBUG:colcon.colcon_core.package_identification:Package 'motor_control' with type 'ros.ament_cmake' and name 'motor_control'
+[1.205s] Level 1:colcon.colcon_core.package_identification:_identify(tinker_description) by extensions ['ignore', 'ignore_ament_install']
+[1.206s] Level 1:colcon.colcon_core.package_identification:_identify(tinker_description) by extension 'ignore'
+[1.206s] Level 1:colcon.colcon_core.package_identification:_identify(tinker_description) by extension 'ignore_ament_install'
+[1.206s] Level 1:colcon.colcon_core.package_identification:_identify(tinker_description) by extensions ['colcon_pkg']
+[1.206s] Level 1:colcon.colcon_core.package_identification:_identify(tinker_description) by extension 'colcon_pkg'
+[1.207s] Level 1:colcon.colcon_core.package_identification:_identify(tinker_description) by extensions ['colcon_meta']
+[1.207s] Level 1:colcon.colcon_core.package_identification:_identify(tinker_description) by extension 'colcon_meta'
+[1.207s] Level 1:colcon.colcon_core.package_identification:_identify(tinker_description) by extensions ['ros']
+[1.207s] Level 1:colcon.colcon_core.package_identification:_identify(tinker_description) by extension 'ros'
+[1.209s] DEBUG:colcon.colcon_core.package_identification:Package 'tinker_description' with type 'ros.ament_cmake' and name 'tinker_description'
+[1.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[1.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[1.210s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[1.210s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[1.210s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.211s] WARNING:colcon.colcon_core.package_selection:ignoring unknown package 'motor_control/' in --packages-select
+[1.286s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'hardware_msg' in 'hardware_msg'
+[1.287s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'tinker_description' in 'tinker_description'
+[1.287s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'motor_commander' in 'motor_commander'
+[1.287s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'motor_control' in 'motor_control'
+[1.289s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[1.289s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[1.298s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 4 installed packages in /home/pi/Tinker_Sber/Chellenge-Tinker/install
+[1.305s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 182 installed packages in /opt/ros/humble
+[1.310s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[1.458s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[1.462s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[1.462s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.463s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.463s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[1.464s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.484s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[1.484s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.485s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.485s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[1.488s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.Notifications was not provided by any .service files
+[1.488s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[1.496s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.497s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/local_setup.ps1'
+[1.501s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/pi/Tinker_Sber/Chellenge-Tinker/install/_local_setup_util_ps1.py'
+[1.508s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/setup.ps1'
+[1.514s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/local_setup.sh'
+[1.517s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/pi/Tinker_Sber/Chellenge-Tinker/install/_local_setup_util_sh.py'
+[1.520s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/setup.sh'
+[1.526s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/local_setup.bash'
+[1.528s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/setup.bash'
+[1.534s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/local_setup.zsh'
+[1.537s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/pi/Tinker_Sber/Chellenge-Tinker/install/setup.zsh'

@@ -1,0 +1,478 @@
+[0.000000] (-) TimerEvent: {}
+[0.001588] (-) JobUnselected: {'identifier': 'hardware_msg'}
+[0.002164] (-) JobUnselected: {'identifier': 'motor_commander'}
+[0.002722] (-) JobUnselected: {'identifier': 'tinker_description'}
+[0.002932] (motor_control) JobQueued: {'identifier': 'motor_control', 'dependencies': OrderedDict([('hardware_msg', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg')])}
+[0.003117] (motor_control) JobStarted: {'identifier': 'motor_control'}
+[0.051016] (motor_control) JobProgress: {'identifier': 'motor_control', 'progress': 'cmake'}
+[0.054385] (motor_control) JobProgress: {'identifier': 'motor_control', 'progress': 'build'}
+[0.057836] (motor_control) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control', '--', '-j4', '-l4'], 'cwd': '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'pi'), ('SSH_CLIENT', '192.168.1.42 56494 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/pi'), ('TERM_PROGRAM_VERSION', '1.105.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-17d95341-6ff0-4eb0-bd53-f058f22d6d4e.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'pi'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/pi/.vscode-server/cli/servers/Stable-03c265b1adee71ac88f833e065f7bb956b60550a/server/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/pi/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-491542eb19.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.1.42 56494 192.168.1.186 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander/lib/python3.10/site-packages:/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/opt/ros/humble')]), 'shell': False}
+[0.099008] (-) TimerEvent: {}
+[0.171993] (motor_control) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.199202] (-) TimerEvent: {}
+[0.300037] (-) TimerEvent: {}
+[0.400729] (-) TimerEvent: {}
+[0.501873] (-) TimerEvent: {}
+[0.602588] (-) TimerEvent: {}
+[0.703483] (-) TimerEvent: {}
+[0.741023] (motor_control) StdoutLine: {'line': b'-- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.803621] (-) TimerEvent: {}
+[0.872135] (motor_control) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.883887] (motor_control) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.903799] (-) TimerEvent: {}
+[0.907875] (motor_control) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.946247] (motor_control) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.994698] (motor_control) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.003982] (-) TimerEvent: {}
+[1.104679] (-) TimerEvent: {}
+[1.120682] (motor_control) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[1.127097] (motor_control) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[1.204874] (-) TimerEvent: {}
+[1.305578] (-) TimerEvent: {}
+[1.406256] (-) TimerEvent: {}
+[1.507041] (-) TimerEvent: {}
+[1.607844] (-) TimerEvent: {}
+[1.609866] (motor_control) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[1.708072] (-) TimerEvent: {}
+[1.798709] (motor_control) StdoutLine: {'line': b'-- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[1.808224] (-) TimerEvent: {}
+[1.908690] (motor_control) StdoutLine: {'line': b'-- Found hardware_msg: 0.0.0 (/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake)\n'}
+[1.909274] (-) TimerEvent: {}
+[2.009863] (-) TimerEvent: {}
+[2.110557] (-) TimerEvent: {}
+[2.211439] (-) TimerEvent: {}
+[2.237808] (motor_control) StdoutLine: {'line': b'-- Configuring done\n'}
+[2.306597] (motor_control) StdoutLine: {'line': b'-- Generating done\n'}
+[2.311590] (-) TimerEvent: {}
+[2.329158] (motor_control) StdoutLine: {'line': b'-- Build files have been written to: /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control\n'}
+[2.411793] (-) TimerEvent: {}
+[2.432160] (motor_control) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target Motor_control\x1b[0m\n'}
+[2.493786] (motor_control) StderrLine: {'line': b"gmake[2]: Warning: File '/usr/include/stdc-predef.h' has modification time 1894746 s in the future\n"}
+[2.512042] (-) TimerEvent: {}
+[2.545964] (motor_control) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding CXX object CMakeFiles/Motor_control.dir/src/Motor_control.cpp.o\x1b[0m\n'}
+[2.551025] (motor_control) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding C object CMakeFiles/Motor_control.dir/src/comm.c.o\x1b[0m\n'}
+[2.556380] (motor_control) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/Motor_control.dir/src/serial.cpp.o\x1b[0m\n'}
+[2.570865] (motor_control) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/Motor_control.dir/src/spi.cpp.o\x1b[0m\n'}
+[2.612311] (-) TimerEvent: {}
+[2.713925] (-) TimerEvent: {}
+[2.809838] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kint open_port(int)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.810882] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:19:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.811960] (motor_control) StderrLine: {'line': b'   19 |     char *pDev[]={\x1b[01;35m\x1b[K"/dev/ttyACM0"\x1b[m\x1b[K,"/dev/ttyS1","/dev/ttyS2","/dev/ttyS3",\n'}
+[2.812955] (motor_control) StderrLine: {'line': b'      |                   \x1b[01;35m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.814381] (-) TimerEvent: {}
+[2.815347] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:34:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.816254] (motor_control) StderrLine: {'line': b'   19 |     char *pDev[]={"/dev/ttyACM0",\x1b[01;35m\x1b[K"/dev/ttyS1"\x1b[m\x1b[K,"/dev/ttyS2","/dev/ttyS3",\n'}
+[2.817043] (motor_control) StderrLine: {'line': b'      |                                  \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.817573] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:47:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.818058] (motor_control) StderrLine: {'line': b'   19 |     char *pDev[]={"/dev/ttyACM0","/dev/ttyS1",\x1b[01;35m\x1b[K"/dev/ttyS2"\x1b[m\x1b[K,"/dev/ttyS3",\n'}
+[2.818482] (motor_control) StderrLine: {'line': b'      |                                               \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.818906] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:60:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.819443] (motor_control) StderrLine: {'line': b'   19 |     char *pDev[]={"/dev/ttyACM0","/dev/ttyS1","/dev/ttyS2",\x1b[01;35m\x1b[K"/dev/ttyS3"\x1b[m\x1b[K,\n'}
+[2.819805] (motor_control) StderrLine: {'line': b'      |                                                            \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.820156] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.820551] (motor_control) StderrLine: {'line': b'   20 |                     \x1b[01;35m\x1b[K"/dev/ttyS4"\x1b[m\x1b[K,"/dev/ttyS5","/dev/ttyS6","/dev/ttyS7",\n'}
+[2.821036] (motor_control) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.829712] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:34:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.830406] (motor_control) StderrLine: {'line': b'   20 |                     "/dev/ttyS4",\x1b[01;35m\x1b[K"/dev/ttyS5"\x1b[m\x1b[K,"/dev/ttyS6","/dev/ttyS7",\n'}
+[2.830749] (motor_control) StderrLine: {'line': b'      |                                  \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.831095] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:47:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.831422] (motor_control) StderrLine: {'line': b'   20 |                     "/dev/ttyS4","/dev/ttyS5",\x1b[01;35m\x1b[K"/dev/ttyS6"\x1b[m\x1b[K,"/dev/ttyS7",\n'}
+[2.831719] (motor_control) StderrLine: {'line': b'      |                                               \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.832006] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:60:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.832373] (motor_control) StderrLine: {'line': b'   20 |                     "/dev/ttyS4","/dev/ttyS5","/dev/ttyS6",\x1b[01;35m\x1b[K"/dev/ttyS7"\x1b[m\x1b[K,\n'}
+[2.832731] (motor_control) StderrLine: {'line': b'      |                                                            \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.833085] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.833390] (motor_control) StderrLine: {'line': b'   21 |                     \x1b[01;35m\x1b[K"/dev/ttyS8"\x1b[m\x1b[K,"/dev/ttyS9","/dev/ttyS10","/dev/ttyS11"};\n'}
+[2.833858] (motor_control) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.834233] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:34:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.834629] (motor_control) StderrLine: {'line': b'   21 |                     "/dev/ttyS8",\x1b[01;35m\x1b[K"/dev/ttyS9"\x1b[m\x1b[K,"/dev/ttyS10","/dev/ttyS11"};\n'}
+[2.835012] (motor_control) StderrLine: {'line': b'      |                                  \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.835461] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:47:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.835896] (motor_control) StderrLine: {'line': b'   21 |                     "/dev/ttyS8","/dev/ttyS9",\x1b[01;35m\x1b[K"/dev/ttyS10"\x1b[m\x1b[K,"/dev/ttyS11"};\n'}
+[2.836298] (motor_control) StderrLine: {'line': b'      |                                               \x1b[01;35m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.836680] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:61:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids converting a string constant to \xe2\x80\x98\x1b[01m\x1b[Kchar*\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings\x07-Wwrite-strings\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.837111] (motor_control) StderrLine: {'line': b'   21 |                     "/dev/ttyS8","/dev/ttyS9","/dev/ttyS10",\x1b[01;35m\x1b[K"/dev/ttyS11"\x1b[m\x1b[K};\n'}
+[2.845763] (motor_control) StderrLine: {'line': b'      |                                                             \x1b[01;35m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.881232] (motor_control) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding CXX object CMakeFiles/Motor_control.dir/src/sys_timer.cpp.o\x1b[0m\n'}
+[2.914636] (-) TimerEvent: {}
+[2.920474] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/spi.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kint SPIDataRW(int, uint8_t*, uint8_t*, int)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.921270] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/spi.cpp:38:5:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Ki\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.922481] (motor_control) StderrLine: {'line': b'   38 | int \x1b[01;35m\x1b[Ki\x1b[m\x1b[K = 0;\n'}
+[2.923117] (motor_control) StderrLine: {'line': b'      |     \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[3.014838] (-) TimerEvent: {}
+[3.115566] (-) TimerEvent: {}
+[3.216285] (-) TimerEvent: {}
+[3.317025] (-) TimerEvent: {}
+[3.417811] (-) TimerEvent: {}
+[3.518575] (-) TimerEvent: {}
+[3.619398] (-) TimerEvent: {}
+[3.651122] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/sys_timer.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint32_t GetSysTime_us()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.651731] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/sys_timer.cpp:19:27:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++17 does not allow \xe2\x80\x98\x1b[01m\x1b[Kregister\x1b[m\x1b[K\xe2\x80\x99 storage class specifier [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wregister\x07-Wregister\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.652274] (motor_control) StderrLine: {'line': b'   19 |         register uint32_t \x1b[01;35m\x1b[Kms\x1b[m\x1b[K;\n'}
+[3.652673] (motor_control) StderrLine: {'line': b'      |                           \x1b[01;35m\x1b[K^~\x1b[m\x1b[K\n'}
+[3.719595] (-) TimerEvent: {}
+[3.820699] (-) TimerEvent: {}
+[3.921511] (-) TimerEvent: {}
+[4.022196] (-) TimerEvent: {}
+[4.122894] (-) TimerEvent: {}
+[4.223572] (-) TimerEvent: {}
+[4.324278] (-) TimerEvent: {}
+[4.424964] (-) TimerEvent: {}
+[4.525663] (-) TimerEvent: {}
+[4.626458] (-) TimerEvent: {}
+[4.727302] (-) TimerEvent: {}
+[4.828128] (-) TimerEvent: {}
+[4.928922] (-) TimerEvent: {}
+[5.029856] (-) TimerEvent: {}
+[5.130616] (-) TimerEvent: {}
+[5.231395] (-) TimerEvent: {}
+[5.332174] (-) TimerEvent: {}
+[5.432944] (-) TimerEvent: {}
+[5.533740] (-) TimerEvent: {}
+[5.634599] (-) TimerEvent: {}
+[5.735444] (-) TimerEvent: {}
+[5.836253] (-) TimerEvent: {}
+[5.937044] (-) TimerEvent: {}
+[6.037921] (-) TimerEvent: {}
+[6.138722] (-) TimerEvent: {}
+[6.244723] (-) TimerEvent: {}
+[6.345550] (-) TimerEvent: {}
+[6.446323] (-) TimerEvent: {}
+[6.547108] (-) TimerEvent: {}
+[6.647944] (-) TimerEvent: {}
+[6.748780] (-) TimerEvent: {}
+[6.849590] (-) TimerEvent: {}
+[6.950365] (-) TimerEvent: {}
+[7.051205] (-) TimerEvent: {}
+[7.152091] (-) TimerEvent: {}
+[7.252877] (-) TimerEvent: {}
+[7.353647] (-) TimerEvent: {}
+[7.454403] (-) TimerEvent: {}
+[7.555163] (-) TimerEvent: {}
+[7.655956] (-) TimerEvent: {}
+[7.756828] (-) TimerEvent: {}
+[7.857632] (-) TimerEvent: {}
+[7.958408] (-) TimerEvent: {}
+[8.059180] (-) TimerEvent: {}
+[8.159968] (-) TimerEvent: {}
+[8.260818] (-) TimerEvent: {}
+[8.361587] (-) TimerEvent: {}
+[8.462362] (-) TimerEvent: {}
+[8.563178] (-) TimerEvent: {}
+[8.663982] (-) TimerEvent: {}
+[8.764875] (-) TimerEvent: {}
+[8.865689] (-) TimerEvent: {}
+[8.966468] (-) TimerEvent: {}
+[9.067248] (-) TimerEvent: {}
+[9.168039] (-) TimerEvent: {}
+[9.268840] (-) TimerEvent: {}
+[9.369671] (-) TimerEvent: {}
+[9.470464] (-) TimerEvent: {}
+[9.571247] (-) TimerEvent: {}
+[9.672208] (-) TimerEvent: {}
+[9.772986] (-) TimerEvent: {}
+[9.873825] (-) TimerEvent: {}
+[9.974591] (-) TimerEvent: {}
+[10.075445] (-) TimerEvent: {}
+[10.176234] (-) TimerEvent: {}
+[10.277103] (-) TimerEvent: {}
+[10.377935] (-) TimerEvent: {}
+[10.478752] (-) TimerEvent: {}
+[10.579543] (-) TimerEvent: {}
+[10.680370] (-) TimerEvent: {}
+[10.781157] (-) TimerEvent: {}
+[10.881996] (-) TimerEvent: {}
+[10.982779] (-) TimerEvent: {}
+[11.083652] (-) TimerEvent: {}
+[11.184460] (-) TimerEvent: {}
+[11.285403] (-) TimerEvent: {}
+[11.386302] (-) TimerEvent: {}
+[11.487106] (-) TimerEvent: {}
+[11.587920] (-) TimerEvent: {}
+[11.688797] (-) TimerEvent: {}
+[11.789616] (-) TimerEvent: {}
+[11.890442] (-) TimerEvent: {}
+[11.991246] (-) TimerEvent: {}
+[12.092066] (-) TimerEvent: {}
+[12.192880] (-) TimerEvent: {}
+[12.293706] (-) TimerEvent: {}
+[12.394479] (-) TimerEvent: {}
+[12.495269] (-) TimerEvent: {}
+[12.596104] (-) TimerEvent: {}
+[12.663559] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kint slave_rx(uint8_t*, int)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[12.664218] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:176:13:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kid\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[12.664647] (motor_control) StderrLine: {'line': b'  176 |     uint8_t \x1b[01;35m\x1b[Kid\x1b[m\x1b[K;\n'}
+[12.665014] (motor_control) StderrLine: {'line': b'      |             \x1b[01;35m\x1b[K^~\x1b[m\x1b[K\n'}
+[12.665833] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid can_board_send(char)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[12.666517] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:273:18:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kt_temp\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[12.666927] (motor_control) StderrLine: {'line': b'  273 |     static float \x1b[01;35m\x1b[Kt_temp\x1b[m\x1b[K = 0;\n'}
+[12.667280] (motor_control) StderrLine: {'line': b'      |                  \x1b[01;35m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[12.667686] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:274:10:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kid\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[12.668086] (motor_control) StderrLine: {'line': b'  274 |     char \x1b[01;35m\x1b[Kid\x1b[m\x1b[K = 0;\n'}
+[12.668892] (motor_control) StderrLine: {'line': b'      |          \x1b[01;35m\x1b[K^~\x1b[m\x1b[K\n'}
+[12.669328] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:275:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[K_cnt\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[12.669827] (motor_control) StderrLine: {'line': b'  275 |     char sum_t = 0, \x1b[01;35m\x1b[K_cnt\x1b[m\x1b[K = 0;\n'}
+[12.670255] (motor_control) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[12.670649] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:276:17:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kbldc_id_sel\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[12.671038] (motor_control) StderrLine: {'line': b'  276 |     static char \x1b[01;35m\x1b[Kbldc_id_sel\x1b[m\x1b[K=0;\n'}
+[12.671412] (motor_control) StderrLine: {'line': b'      |                 \x1b[01;35m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[12.671778] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid transfer(int, int)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[12.672193] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:330:27:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Krx_cnt\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[12.672621] (motor_control) StderrLine: {'line': b'  330 |     static uint8_t state, \x1b[01;35m\x1b[Krx_cnt\x1b[m\x1b[K;\n'}
+[12.673019] (motor_control) StderrLine: {'line': b'      |                           \x1b[01;35m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[12.673473] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:328:19:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kfd\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[12.673963] (motor_control) StderrLine: {'line': b'  328 | void transfer(\x1b[01;35m\x1b[Kint fd\x1b[m\x1b[K, int sel)//\xe5\x8f\x91\xe9\x80\x81\n'}
+[12.674442] (motor_control) StderrLine: {'line': b'      |               \x1b[01;35m\x1b[K~~~~^~\x1b[m\x1b[K\n'}
+[12.696300] (-) TimerEvent: {}
+[12.797071] (-) TimerEvent: {}
+[12.897898] (-) TimerEvent: {}
+[12.998693] (-) TimerEvent: {}
+[13.099475] (-) TimerEvent: {}
+[13.200331] (-) TimerEvent: {}
+[13.301160] (-) TimerEvent: {}
+[13.401958] (-) TimerEvent: {}
+[13.502747] (-) TimerEvent: {}
+[13.504389] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[KMotor_control::Motor_control()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[13.505011] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:458:10:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kbuf_mem\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[13.505603] (motor_control) StderrLine: {'line': b'  458 |     char \x1b[01;35m\x1b[Kbuf_mem\x1b[m\x1b[K[MEM_SIZE]={1,2};\n'}
+[13.506050] (motor_control) StderrLine: {'line': b'      |          \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[13.517600] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid Motor_control::on_motors_commands(hardware_msg::msg::MotorsCommands_<std::allocator<void> >::SharedPtr)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[13.518261] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:526:25:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kusing element_type = struct hardware_msg::msg::MotorsCommands_<std::allocator<void> >\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kstruct hardware_msg::msg::MotorsCommands_<std::allocator<void> >\x1b[m\x1b[K\xe2\x80\x99} has no member named \xe2\x80\x98\x1b[01m\x1b[Kmotor_id\x1b[m\x1b[K\xe2\x80\x99\n'}
+[13.519008] (motor_control) StderrLine: {'line': b'  526 |     int motor_id = msg->\x1b[01;31m\x1b[Kmotor_id\x1b[m\x1b[K;\n'}
+[13.519594] (motor_control) StderrLine: {'line': b'      |                         \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[13.602952] (-) TimerEvent: {}
+[13.703768] (-) TimerEvent: {}
+[13.804554] (-) TimerEvent: {}
+[13.905377] (-) TimerEvent: {}
+[14.006482] (-) TimerEvent: {}
+[14.107268] (-) TimerEvent: {}
+[14.208035] (-) TimerEvent: {}
+[14.308826] (-) TimerEvent: {}
+[14.409670] (-) TimerEvent: {}
+[14.510527] (-) TimerEvent: {}
+[14.611311] (-) TimerEvent: {}
+[14.712120] (-) TimerEvent: {}
+[14.812916] (-) TimerEvent: {}
+[14.913713] (-) TimerEvent: {}
+[15.014487] (-) TimerEvent: {}
+[15.115284] (-) TimerEvent: {}
+[15.216072] (-) TimerEvent: {}
+[15.316901] (-) TimerEvent: {}
+[15.417744] (-) TimerEvent: {}
+[15.518505] (-) TimerEvent: {}
+[15.619271] (-) TimerEvent: {}
+[15.720033] (-) TimerEvent: {}
+[15.820825] (-) TimerEvent: {}
+[15.921617] (-) TimerEvent: {}
+[16.022410] (-) TimerEvent: {}
+[16.123220] (-) TimerEvent: {}
+[16.224075] (-) TimerEvent: {}
+[16.325059] (-) TimerEvent: {}
+[16.425903] (-) TimerEvent: {}
+[16.526686] (-) TimerEvent: {}
+[16.627483] (-) TimerEvent: {}
+[16.728357] (-) TimerEvent: {}
+[16.829121] (-) TimerEvent: {}
+[16.929922] (-) TimerEvent: {}
+[17.030717] (-) TimerEvent: {}
+[17.131513] (-) TimerEvent: {}
+[17.232286] (-) TimerEvent: {}
+[17.333077] (-) TimerEvent: {}
+[17.433888] (-) TimerEvent: {}
+[17.534796] (-) TimerEvent: {}
+[17.635827] (-) TimerEvent: {}
+[17.736655] (-) TimerEvent: {}
+[17.837500] (-) TimerEvent: {}
+[17.938286] (-) TimerEvent: {}
+[18.039081] (-) TimerEvent: {}
+[18.139920] (-) TimerEvent: {}
+[18.241584] (-) TimerEvent: {}
+[18.342403] (-) TimerEvent: {}
+[18.443250] (-) TimerEvent: {}
+[18.544133] (-) TimerEvent: {}
+[18.644923] (-) TimerEvent: {}
+[18.745707] (-) TimerEvent: {}
+[18.846545] (-) TimerEvent: {}
+[18.947329] (-) TimerEvent: {}
+[19.048113] (-) TimerEvent: {}
+[19.148922] (-) TimerEvent: {}
+[19.249854] (-) TimerEvent: {}
+[19.350658] (-) TimerEvent: {}
+[19.451447] (-) TimerEvent: {}
+[19.552261] (-) TimerEvent: {}
+[19.653046] (-) TimerEvent: {}
+[19.753860] (-) TimerEvent: {}
+[19.854638] (-) TimerEvent: {}
+[19.955421] (-) TimerEvent: {}
+[20.056268] (-) TimerEvent: {}
+[20.157065] (-) TimerEvent: {}
+[20.257884] (-) TimerEvent: {}
+[20.358667] (-) TimerEvent: {}
+[20.459457] (-) TimerEvent: {}
+[20.560267] (-) TimerEvent: {}
+[20.661052] (-) TimerEvent: {}
+[20.761860] (-) TimerEvent: {}
+[20.862689] (-) TimerEvent: {}
+[20.963521] (-) TimerEvent: {}
+[21.064338] (-) TimerEvent: {}
+[21.165121] (-) TimerEvent: {}
+[21.265956] (-) TimerEvent: {}
+[21.366731] (-) TimerEvent: {}
+[21.467522] (-) TimerEvent: {}
+[21.568306] (-) TimerEvent: {}
+[21.669083] (-) TimerEvent: {}
+[21.769918] (-) TimerEvent: {}
+[21.870694] (-) TimerEvent: {}
+[21.971479] (-) TimerEvent: {}
+[22.072283] (-) TimerEvent: {}
+[22.173052] (-) TimerEvent: {}
+[22.273912] (-) TimerEvent: {}
+[22.374732] (-) TimerEvent: {}
+[22.475515] (-) TimerEvent: {}
+[22.576326] (-) TimerEvent: {}
+[22.677099] (-) TimerEvent: {}
+[22.777922] (-) TimerEvent: {}
+[22.878758] (-) TimerEvent: {}
+[22.979571] (-) TimerEvent: {}
+[23.080367] (-) TimerEvent: {}
+[23.181225] (-) TimerEvent: {}
+[23.282161] (-) TimerEvent: {}
+[23.382963] (-) TimerEvent: {}
+[23.483784] (-) TimerEvent: {}
+[23.584578] (-) TimerEvent: {}
+[23.685372] (-) TimerEvent: {}
+[23.786228] (-) TimerEvent: {}
+[23.886999] (-) TimerEvent: {}
+[23.987771] (-) TimerEvent: {}
+[24.088530] (-) TimerEvent: {}
+[24.189308] (-) TimerEvent: {}
+[24.290130] (-) TimerEvent: {}
+[24.390983] (-) TimerEvent: {}
+[24.491752] (-) TimerEvent: {}
+[24.592549] (-) TimerEvent: {}
+[24.693322] (-) TimerEvent: {}
+[24.794134] (-) TimerEvent: {}
+[24.894894] (-) TimerEvent: {}
+[24.995711] (-) TimerEvent: {}
+[25.096501] (-) TimerEvent: {}
+[25.197281] (-) TimerEvent: {}
+[25.298089] (-) TimerEvent: {}
+[25.398877] (-) TimerEvent: {}
+[25.499663] (-) TimerEvent: {}
+[25.600446] (-) TimerEvent: {}
+[25.701236] (-) TimerEvent: {}
+[25.802063] (-) TimerEvent: {}
+[25.902902] (-) TimerEvent: {}
+[26.003700] (-) TimerEvent: {}
+[26.104523] (-) TimerEvent: {}
+[26.205352] (-) TimerEvent: {}
+[26.306171] (-) TimerEvent: {}
+[26.407009] (-) TimerEvent: {}
+[26.507793] (-) TimerEvent: {}
+[26.608612] (-) TimerEvent: {}
+[26.709460] (-) TimerEvent: {}
+[26.810233] (-) TimerEvent: {}
+[26.911016] (-) TimerEvent: {}
+[27.011775] (-) TimerEvent: {}
+[27.112539] (-) TimerEvent: {}
+[27.213339] (-) TimerEvent: {}
+[27.314171] (-) TimerEvent: {}
+[27.414939] (-) TimerEvent: {}
+[27.515744] (-) TimerEvent: {}
+[27.616567] (-) TimerEvent: {}
+[27.717348] (-) TimerEvent: {}
+[27.818179] (-) TimerEvent: {}
+[27.919002] (-) TimerEvent: {}
+[28.019837] (-) TimerEvent: {}
+[28.120679] (-) TimerEvent: {}
+[28.221778] (-) TimerEvent: {}
+[28.323240] (-) TimerEvent: {}
+[28.424082] (-) TimerEvent: {}
+[28.524877] (-) TimerEvent: {}
+[28.625702] (-) TimerEvent: {}
+[28.726518] (-) TimerEvent: {}
+[28.827345] (-) TimerEvent: {}
+[28.928207] (-) TimerEvent: {}
+[29.029038] (-) TimerEvent: {}
+[29.129930] (-) TimerEvent: {}
+[29.230751] (-) TimerEvent: {}
+[29.331645] (-) TimerEvent: {}
+[29.432504] (-) TimerEvent: {}
+[29.533358] (-) TimerEvent: {}
+[29.634261] (-) TimerEvent: {}
+[29.735152] (-) TimerEvent: {}
+[29.835959] (-) TimerEvent: {}
+[29.936764] (-) TimerEvent: {}
+[30.037607] (-) TimerEvent: {}
+[30.138386] (-) TimerEvent: {}
+[30.239178] (-) TimerEvent: {}
+[30.339988] (-) TimerEvent: {}
+[30.440797] (-) TimerEvent: {}
+[30.541591] (-) TimerEvent: {}
+[30.642360] (-) TimerEvent: {}
+[30.743195] (-) TimerEvent: {}
+[30.844047] (-) TimerEvent: {}
+[30.944830] (-) TimerEvent: {}
+[31.045685] (-) TimerEvent: {}
+[31.146520] (-) TimerEvent: {}
+[31.247353] (-) TimerEvent: {}
+[31.348200] (-) TimerEvent: {}
+[31.449044] (-) TimerEvent: {}
+[31.549845] (-) TimerEvent: {}
+[31.650620] (-) TimerEvent: {}
+[31.751410] (-) TimerEvent: {}
+[31.852177] (-) TimerEvent: {}
+[31.952978] (-) TimerEvent: {}
+[32.053822] (-) TimerEvent: {}
+[32.154975] (-) TimerEvent: {}
+[32.255698] (-) TimerEvent: {}
+[32.356405] (-) TimerEvent: {}
+[32.457136] (-) TimerEvent: {}
+[32.557884] (-) TimerEvent: {}
+[32.658605] (-) TimerEvent: {}
+[32.759314] (-) TimerEvent: {}
+[32.860014] (-) TimerEvent: {}
+[32.960724] (-) TimerEvent: {}
+[33.061414] (-) TimerEvent: {}
+[33.162145] (-) TimerEvent: {}
+[33.262984] (-) TimerEvent: {}
+[33.363747] (-) TimerEvent: {}
+[33.464568] (-) TimerEvent: {}
+[33.565464] (-) TimerEvent: {}
+[33.666309] (-) TimerEvent: {}
+[33.767278] (-) TimerEvent: {}
+[33.868069] (-) TimerEvent: {}
+[33.968864] (-) TimerEvent: {}
+[34.069801] (-) TimerEvent: {}
+[34.170683] (-) TimerEvent: {}
+[34.271657] (-) TimerEvent: {}
+[34.372471] (-) TimerEvent: {}
+[34.473281] (-) TimerEvent: {}
+[34.574149] (-) TimerEvent: {}
+[34.674949] (-) TimerEvent: {}
+[34.775780] (-) TimerEvent: {}
+[34.876582] (-) TimerEvent: {}
+[34.921965] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:\x1b[m\x1b[K At global scope:\n'}
+[34.923190] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:330:27:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krx_cnt\x1b[m\x1b[K\xe2\x80\x99 defined but not used [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[34.924551] (motor_control) StderrLine: {'line': b'  330 |     static uint8_t state, \x1b[01;35m\x1b[Krx_cnt\x1b[m\x1b[K;\n'}
+[34.925651] (motor_control) StderrLine: {'line': b'      |                           \x1b[01;35m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[34.926916] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:276:17:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kbldc_id_sel\x1b[m\x1b[K\xe2\x80\x99 defined but not used [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[34.928384] (motor_control) StderrLine: {'line': b'  276 |     static char \x1b[01;35m\x1b[Kbldc_id_sel\x1b[m\x1b[K=0;\n'}
+[34.929759] (motor_control) StderrLine: {'line': b'      |                 \x1b[01;35m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[34.931294] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:273:18:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kt_temp\x1b[m\x1b[K\xe2\x80\x99 defined but not used [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[34.932638] (motor_control) StderrLine: {'line': b'  273 |     static float \x1b[01;35m\x1b[Kt_temp\x1b[m\x1b[K = 0;\n'}
+[34.934050] (motor_control) StderrLine: {'line': b'      |                  \x1b[01;35m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[34.935445] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:157:12:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kint intFromData_spi(unsigned char*, int*)\x1b[m\x1b[K\xe2\x80\x99 defined but not used [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-function\x07-Wunused-function\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[34.936994] (motor_control) StderrLine: {'line': b'  157 | static int \x1b[01;35m\x1b[KintFromData_spi\x1b[m\x1b[K(unsigned char *data, int *anal_cnt)\n'}
+[34.938272] (motor_control) StderrLine: {'line': b'      |            \x1b[01;35m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[34.939460] (motor_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:105:13:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kvoid setDataInt_spi(int)\x1b[m\x1b[K\xe2\x80\x99 defined but not used [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-function\x07-Wunused-function\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[34.940752] (motor_control) StderrLine: {'line': b'  105 | static void \x1b[01;35m\x1b[KsetDataInt_spi\x1b[m\x1b[K(int i)\n'}
+[34.941915] (motor_control) StderrLine: {'line': b'      |             \x1b[01;35m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[34.976898] (-) TimerEvent: {}
+[35.078145] (-) TimerEvent: {}
+[35.081973] (motor_control) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/Motor_control.dir/build.make:76: CMakeFiles/Motor_control.dir/src/Motor_control.cpp.o] Error 1\n'}
+[35.083013] (motor_control) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/Motor_control.dir/all] Error 2\n'}
+[35.083936] (motor_control) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[35.090789] (motor_control) CommandEnded: {'returncode': 2}
+[35.147742] (motor_control) JobEnded: {'identifier': 'motor_control', 'rc': 2}
+[35.160090] (-) EventReactorShutdown: {}

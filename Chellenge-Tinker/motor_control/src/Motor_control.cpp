@@ -526,7 +526,22 @@ private:
     spi_tx.q_set[MOTOR_ID] = msg->target_pos;
     spi_tx.dq_set[MOTOR_ID] = msg->target_vel;
     spi_tx.tau_ff[MOTOR_ID] = msg->target_trq;
-   }
+    
+    // Логирование полученных команд
+    RCLCPP_INFO(this->get_logger(), 
+        "Received motor commands - Motor ID: %d, Target Pos: %.3f, Target Vel: %.3f, Target Trq: %.3f",
+        MOTOR_ID, 
+        msg->target_pos, 
+        msg->target_vel, 
+        msg->target_trq);
+    
+    // Дополнительное отладочное логирование текущих значений в spi_tx
+    RCLCPP_DEBUG(this->get_logger(),
+        "SPI TX values - q_set[%d]: %.3f, dq_set[%d]: %.3f, tau_ff[%d]: %.3f",
+        MOTOR_ID, spi_tx.q_set[MOTOR_ID],
+        MOTOR_ID, spi_tx.dq_set[MOTOR_ID], 
+        MOTOR_ID, spi_tx.tau_ff[MOTOR_ID]);
+  }
 
   void on_board_parameters(const hardware_msg::msg::BoardParameters::SharedPtr msg) { 
     spi_tx.beep_state=msg->beep_state;

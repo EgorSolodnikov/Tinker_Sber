@@ -1,0 +1,140 @@
+[0.058s] Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control': CMAKE_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/opt/ros/humble /usr/bin/cmake --build /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control -- -j4 -l4
+[0.167s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.736s] -- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+[0.867s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.878s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.902s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.941s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.989s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.116s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.121s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.607s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.791s] -- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[1.901s] -- Found hardware_msg: 0.0.0 (/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg/share/hardware_msg/cmake)
+[2.230s] -- Configuring done
+[2.297s] -- Generating done
+[2.320s] -- Build files have been written to: /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control
+[2.424s] [35m[1mConsolidate compiler generated dependencies of target Motor_control[0m
+[2.485s] gmake[2]: Warning: File '/usr/include/stdc-predef.h' has modification time 1894418 s in the future
+[2.539s] [ 16%] [32mBuilding CXX object CMakeFiles/Motor_control.dir/src/Motor_control.cpp.o[0m
+[2.544s] [ 33%] [32mBuilding CXX object CMakeFiles/Motor_control.dir/src/serial.cpp.o[0m
+[2.547s] [ 50%] [32mBuilding C object CMakeFiles/Motor_control.dir/src/comm.c.o[0m
+[2.550s] [ 66%] [32mBuilding CXX object CMakeFiles/Motor_control.dir/src/spi.cpp.o[0m
+[2.794s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:[m[K In function ‘[01m[Kint open_port(int)[m[K’:
+[2.795s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:19:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.795s]    19 |     char *pDev[]={[01;35m[K"/dev/ttyACM0"[m[K,"/dev/ttyS1","/dev/ttyS2","/dev/ttyS3",
+[2.796s]       |                   [01;35m[K^~~~~~~~~~~~~~[m[K
+[2.796s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:34:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.797s]    19 |     char *pDev[]={"/dev/ttyACM0",[01;35m[K"/dev/ttyS1"[m[K,"/dev/ttyS2","/dev/ttyS3",
+[2.798s]       |                                  [01;35m[K^~~~~~~~~~~~[m[K
+[2.798s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:47:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.799s]    19 |     char *pDev[]={"/dev/ttyACM0","/dev/ttyS1",[01;35m[K"/dev/ttyS2"[m[K,"/dev/ttyS3",
+[2.799s]       |                                               [01;35m[K^~~~~~~~~~~~[m[K
+[2.799s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:60:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.800s]    19 |     char *pDev[]={"/dev/ttyACM0","/dev/ttyS1","/dev/ttyS2",[01;35m[K"/dev/ttyS3"[m[K,
+[2.800s]       |                                                            [01;35m[K^~~~~~~~~~~~[m[K
+[2.801s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:21:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.801s]    20 |                     [01;35m[K"/dev/ttyS4"[m[K,"/dev/ttyS5","/dev/ttyS6","/dev/ttyS7",
+[2.802s]       |                     [01;35m[K^~~~~~~~~~~~[m[K
+[2.802s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:34:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.803s]    20 |                     "/dev/ttyS4",[01;35m[K"/dev/ttyS5"[m[K,"/dev/ttyS6","/dev/ttyS7",
+[2.803s]       |                                  [01;35m[K^~~~~~~~~~~~[m[K
+[2.803s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:47:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.804s]    20 |                     "/dev/ttyS4","/dev/ttyS5",[01;35m[K"/dev/ttyS6"[m[K,"/dev/ttyS7",
+[2.804s]       |                                               [01;35m[K^~~~~~~~~~~~[m[K
+[2.805s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:60:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.805s]    20 |                     "/dev/ttyS4","/dev/ttyS5","/dev/ttyS6",[01;35m[K"/dev/ttyS7"[m[K,
+[2.805s]       |                                                            [01;35m[K^~~~~~~~~~~~[m[K
+[2.806s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:21:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.806s]    21 |                     [01;35m[K"/dev/ttyS8"[m[K,"/dev/ttyS9","/dev/ttyS10","/dev/ttyS11"};
+[2.806s]       |                     [01;35m[K^~~~~~~~~~~~[m[K
+[2.806s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:34:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.807s]    21 |                     "/dev/ttyS8",[01;35m[K"/dev/ttyS9"[m[K,"/dev/ttyS10","/dev/ttyS11"};
+[2.807s]       |                                  [01;35m[K^~~~~~~~~~~~[m[K
+[2.807s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:47:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.808s]    21 |                     "/dev/ttyS8","/dev/ttyS9",[01;35m[K"/dev/ttyS10"[m[K,"/dev/ttyS11"};
+[2.808s]       |                                               [01;35m[K^~~~~~~~~~~~~[m[K
+[2.817s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:61:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+[2.818s]    21 |                     "/dev/ttyS8","/dev/ttyS9","/dev/ttyS10",[01;35m[K"/dev/ttyS11"[m[K};
+[2.819s]       |                                                             [01;35m[K^~~~~~~~~~~~~[m[K
+[2.859s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/spi.cpp:[m[K In function ‘[01m[Kint SPIDataRW(int, uint8_t*, uint8_t*, int)[m[K’:
+[2.860s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/spi.cpp:38:5:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ki[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[2.861s]    38 | int [01;35m[Ki[m[K = 0;
+[2.862s]       |     [01;35m[K^[m[K
+[2.921s] [ 83%] [32mBuilding CXX object CMakeFiles/Motor_control.dir/src/sys_timer.cpp.o[0m
+[3.702s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/sys_timer.cpp:[m[K In function ‘[01m[Kuint32_t GetSysTime_us()[m[K’:
+[3.703s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/sys_timer.cpp:19:27:[m[K [01;35m[Kwarning: [m[KISO C++17 does not allow ‘[01m[Kregister[m[K’ storage class specifier [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wregister-Wregister]8;;[m[K]
+[3.704s]    19 |         register uint32_t [01;35m[Kms[m[K;
+[3.704s]       |                           [01;35m[K^~[m[K
+[12.632s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:[m[K In function ‘[01m[Kint slave_rx(uint8_t*, int)[m[K’:
+[12.632s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:176:13:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kid[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[12.632s]   176 |     uint8_t [01;35m[Kid[m[K;
+[12.633s]       |             [01;35m[K^~[m[K
+[12.634s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:[m[K In function ‘[01m[Kvoid can_board_send(char)[m[K’:
+[12.635s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:273:18:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kt_temp[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[12.635s]   273 |     static float [01;35m[Kt_temp[m[K = 0;
+[12.635s]       |                  [01;35m[K^~~~~~[m[K
+[12.636s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:274:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kid[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[12.637s]   274 |     char [01;35m[Kid[m[K = 0;
+[12.637s]       |          [01;35m[K^~[m[K
+[12.637s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:275:21:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[K_cnt[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[12.638s]   275 |     char sum_t = 0, [01;35m[K_cnt[m[K = 0;
+[12.638s]       |                     [01;35m[K^~~~[m[K
+[12.639s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:276:17:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kbldc_id_sel[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[12.639s]   276 |     static char [01;35m[Kbldc_id_sel[m[K=0;
+[12.639s]       |                 [01;35m[K^~~~~~~~~~~[m[K
+[12.640s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:[m[K In function ‘[01m[Kvoid transfer(int, int)[m[K’:
+[12.640s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:330:27:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Krx_cnt[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[12.641s]   330 |     static uint8_t state, [01;35m[Krx_cnt[m[K;
+[12.641s]       |                           [01;35m[K^~~~~~[m[K
+[12.642s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:328:19:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kfd[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[12.642s]   328 | void transfer([01;35m[Kint fd[m[K, int sel)//发送
+[12.642s]       |               [01;35m[K~~~~^~[m[K
+[13.447s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:[m[K In constructor ‘[01m[KMotor_control::Motor_control()[m[K’:
+[13.447s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:458:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kbuf_mem[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[13.448s]   458 |     char [01;35m[Kbuf_mem[m[K[MEM_SIZE]={1,2};
+[13.448s]       |          [01;35m[K^~~~~~~[m[K
+[34.916s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:[m[K At global scope:
+[34.918s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:330:27:[m[K [01;35m[Kwarning: [m[K‘[01m[Krx_cnt[m[K’ defined but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[34.919s]   330 |     static uint8_t state, [01;35m[Krx_cnt[m[K;
+[34.920s]       |                           [01;35m[K^~~~~~[m[K
+[34.921s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:276:17:[m[K [01;35m[Kwarning: [m[K‘[01m[Kbldc_id_sel[m[K’ defined but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[34.922s]   276 |     static char [01;35m[Kbldc_id_sel[m[K=0;
+[34.924s]       |                 [01;35m[K^~~~~~~~~~~[m[K
+[34.925s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:273:18:[m[K [01;35m[Kwarning: [m[K‘[01m[Kt_temp[m[K’ defined but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[34.926s]   273 |     static float [01;35m[Kt_temp[m[K = 0;
+[34.927s]       |                  [01;35m[K^~~~~~[m[K
+[34.929s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:157:12:[m[K [01;35m[Kwarning: [m[K‘[01m[Kint intFromData_spi(unsigned char*, int*)[m[K’ defined but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-function-Wunused-function]8;;[m[K]
+[34.930s]   157 | static int [01;35m[KintFromData_spi[m[K(unsigned char *data, int *anal_cnt)
+[34.932s]       |            [01;35m[K^~~~~~~~~~~~~~~[m[K
+[34.933s] [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:105:13:[m[K [01;35m[Kwarning: [m[K‘[01m[Kvoid setDataInt_spi(int)[m[K’ defined but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-function-Wunused-function]8;;[m[K]
+[34.934s]   105 | static void [01;35m[KsetDataInt_spi[m[K(int i)
+[34.935s]       |             [01;35m[K^~~~~~~~~~~~~~[m[K
+[71.261s] [100%] [32m[1mLinking CXX executable Motor_control[0m
+[75.366s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[75.401s] [100%] Built target Motor_control
+[75.441s] Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control' returned '0': CMAKE_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/opt/ros/humble /usr/bin/cmake --build /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control -- -j4 -l4
+[75.480s] Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control': CMAKE_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/opt/ros/humble /usr/bin/cmake --install /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control
+[75.509s] -- Install configuration: ""
+[75.511s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/lib/motor_control/Motor_control
+[75.593s] -- Set runtime path of "/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/lib/motor_control/Motor_control" to ""
+[75.594s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/launch
+[75.594s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/launch/display.launch.py
+[75.595s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/urdf
+[75.595s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/urdf/robot.urdf
+[75.596s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/ament_index/resource_index/package_run_dependencies/motor_control
+[75.596s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/ament_index/resource_index/parent_prefix_path/motor_control
+[75.597s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/environment/ament_prefix_path.sh
+[75.598s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/environment/ament_prefix_path.dsv
+[75.600s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/environment/path.sh
+[75.600s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/environment/path.dsv
+[75.601s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/local_setup.bash
+[75.602s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/local_setup.sh
+[75.604s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/local_setup.zsh
+[75.605s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/local_setup.dsv
+[75.606s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/package.dsv
+[75.608s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/ament_index/resource_index/packages/motor_control
+[75.608s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/cmake/motor_controlConfig.cmake
+[75.609s] -- Installing: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/cmake/motor_controlConfig-version.cmake
+[75.611s] -- Up-to-date: /home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control/share/motor_control/package.xml
+[75.617s] Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control' returned '0': CMAKE_PREFIX_PATH=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_commander:/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description:/home/pi/Tinker_Sber/Chellenge-Tinker/install/motor_control:/opt/ros/humble /usr/bin/cmake --install /home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_control

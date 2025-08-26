@@ -1,0 +1,236 @@
+gmake[2]: Warning: File '/usr/include/stdc-predef.h' has modification time 1894217 s in the future
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:[m[K In function ‘[01m[Kint open_port(int)[m[K’:
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:19:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   19 |     char *pDev[]={[01;35m[K"/dev/ttyACM0"[m[K,"/dev/ttyS1","/dev/ttyS2","/dev/ttyS3",
+      |                   [01;35m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:34:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   19 |     char *pDev[]={"/dev/ttyACM0",[01;35m[K"/dev/ttyS1"[m[K,"/dev/ttyS2","/dev/ttyS3",
+      |                                  [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:47:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   19 |     char *pDev[]={"/dev/ttyACM0","/dev/ttyS1",[01;35m[K"/dev/ttyS2"[m[K,"/dev/ttyS3",
+      |                                               [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:60:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   19 |     char *pDev[]={"/dev/ttyACM0","/dev/ttyS1","/dev/ttyS2",[01;35m[K"/dev/ttyS3"[m[K,
+      |                                                            [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:21:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   20 |                     [01;35m[K"/dev/ttyS4"[m[K,"/dev/ttyS5","/dev/ttyS6","/dev/ttyS7",
+      |                     [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:34:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   20 |                     "/dev/ttyS4",[01;35m[K"/dev/ttyS5"[m[K,"/dev/ttyS6","/dev/ttyS7",
+      |                                  [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:47:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   20 |                     "/dev/ttyS4","/dev/ttyS5",[01;35m[K"/dev/ttyS6"[m[K,"/dev/ttyS7",
+      |                                               [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:60:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   20 |                     "/dev/ttyS4","/dev/ttyS5","/dev/ttyS6",[01;35m[K"/dev/ttyS7"[m[K,
+      |                                                            [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:21:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   21 |                     [01;35m[K"/dev/ttyS8"[m[K,"/dev/ttyS9","/dev/ttyS10","/dev/ttyS11"};
+      |                     [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:34:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   21 |                     "/dev/ttyS8",[01;35m[K"/dev/ttyS9"[m[K,"/dev/ttyS10","/dev/ttyS11"};
+      |                                  [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:47:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   21 |                     "/dev/ttyS8","/dev/ttyS9",[01;35m[K"/dev/ttyS10"[m[K,"/dev/ttyS11"};
+      |                                               [01;35m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:61:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   21 |                     "/dev/ttyS8","/dev/ttyS9","/dev/ttyS10",[01;35m[K"/dev/ttyS11"[m[K};
+      |                                                             [01;35m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/spi.cpp:[m[K In function ‘[01m[Kint SPIDataRW(int, uint8_t*, uint8_t*, int)[m[K’:
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/spi.cpp:38:5:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ki[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+   38 | int [01;35m[Ki[m[K = 0;
+      |     [01;35m[K^[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/sys_timer.cpp:[m[K In function ‘[01m[Kuint32_t GetSysTime_us()[m[K’:
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/sys_timer.cpp:19:27:[m[K [01;35m[Kwarning: [m[KISO C++17 does not allow ‘[01m[Kregister[m[K’ storage class specifier [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wregister-Wregister]8;;[m[K]
+   19 |         register uint32_t [01;35m[Kms[m[K;
+      |                           [01;35m[K^~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:[m[K In function ‘[01m[Kint slave_rx(uint8_t*, int)[m[K’:
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:176:13:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kid[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  176 |     uint8_t [01;35m[Kid[m[K;
+      |             [01;35m[K^~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:[m[K In function ‘[01m[Kvoid can_board_send(char)[m[K’:
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:273:18:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kt_temp[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  273 |     static float [01;35m[Kt_temp[m[K = 0;
+      |                  [01;35m[K^~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:274:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kid[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  274 |     char [01;35m[Kid[m[K = 0;
+      |          [01;35m[K^~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:275:21:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[K_cnt[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  275 |     char sum_t = 0, [01;35m[K_cnt[m[K = 0;
+      |                     [01;35m[K^~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:276:17:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kbldc_id_sel[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  276 |     static char [01;35m[Kbldc_id_sel[m[K=0;
+      |                 [01;35m[K^~~~~~~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:[m[K In function ‘[01m[Kvoid transfer(int, int)[m[K’:
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:330:27:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Krx_cnt[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  330 |     static uint8_t state, [01;35m[Krx_cnt[m[K;
+      |                           [01;35m[K^~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:328:19:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kfd[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  328 | void transfer([01;35m[Kint fd[m[K, int sel)//发送
+      |               [01;35m[K~~~~^~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:[m[K At global scope:
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:534:5:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ after class definition
+  534 |    }
+      |     [01;31m[K^[m[K
+      |     [32m[K;[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:[m[K In constructor ‘[01m[KMotor_control::Motor_control()[m[K’:
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:462:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kfd[m[K’ was not declared in this scope
+  462 |     [01;31m[Kfd[m[K=SPISetup(0,speed); //初始化SPI通道0，并设置为最大速度500000hz
+      |     [01;31m[K^~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:492:33:[m[K [01;31m[Kerror: [m[K‘[01m[Kon_board_parameters[m[K’ is not a member of ‘[01m[KMotor_control[m[K’
+  492 |       std::bind(&Motor_control::[01;31m[Kon_board_parameters[m[K, this, std::placeholders::_1)
+      |                                 [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:496:33:[m[K [01;31m[Kerror: [m[K‘[01m[Kon_imu_parameters[m[K’ is not a member of ‘[01m[KMotor_control[m[K’
+  496 |       std::bind(&Motor_control::[01;31m[Kon_imu_parameters[m[K, this, std::placeholders::_1)
+      |                                 [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:500:33:[m[K [01;31m[Kerror: [m[K‘[01m[Kon_motor_parameters[m[K’ is not a member of ‘[01m[KMotor_control[m[K’
+  500 |       std::bind(&Motor_control::[01;31m[Kon_motor_parameters[m[K, this, std::placeholders::_1)
+      |                                 [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:505:5:[m[K [01;31m[Kerror: [m[K‘[01m[Ktimer_[m[K’ was not declared in this scope; did you mean ‘[01m[Ktimer_t[m[K’?
+  505 |     [01;31m[Ktimer_[m[K = this->create_wall_timer(1ms, std::bind(&Motor_control::on_timer, this));
+      |     [01;31m[K^~~~~~[m[K
+      |     [32m[Ktimer_t[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:505:69:[m[K [01;31m[Kerror: [m[K‘[01m[Kon_timer[m[K’ is not a member of ‘[01m[KMotor_control[m[K’
+  505 |  this->create_wall_timer(1ms, std::bind(&Motor_control::[01;31m[Kon_timer[m[K, this));
+      |                                                         [01;31m[K^~~~~~~~[m[K
+
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:458:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kbuf_mem[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  458 |     char [01;35m[Kbuf_mem[m[K[MEM_SIZE]={1,2};
+      |          [01;35m[K^~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:6[m[K:
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:[m[K In member function ‘[01m[Kvoid Motor_control::on_motors_commands(hardware_msg::msg::MotorsCommands_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:531:24:[m[K [01;31m[Kerror: [m[K‘[01m[Kmotor_id[m[K’ was not declared in this scope
+  531 |                        [01;31m[Kmotor_id[m[K, msg->target_pos, msg->target_vel, msg->target_trq);
+      |                        [01;31m[K^~~~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:[m[K In function ‘[01m[Kvoid on_timer()[m[K’:
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:558:29:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  558 |     static auto last_time = [01;31m[Kthis[m[K->now();
+      |                             [01;31m[K^~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:564:20:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  564 |         auto now = [01;31m[Kthis[m[K->now();
+      |                    [01;31m[K^~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:6[m[K:
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:566:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  566 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "SPI frequency: %.1f Hz", 1000.0 / dt);
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:566:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:566:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  566 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "SPI frequency: %.1f Hz", 1000.0 / dt);
+      |         [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:6[m[K:
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:566:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  566 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "SPI frequency: %.1f Hz", 1000.0 / dt);
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:566:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  566 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "SPI frequency: %.1f Hz", 1000.0 / dt);
+      |                     [01;31m[K^~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:6[m[K:
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:570:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  570 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Motor command: pos=%.3f, vel=%.3f, trq=%.3f",
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:570:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:570:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  570 |         [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Motor command: pos=%.3f, vel=%.3f, trq=%.3f",
+      |         [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:6[m[K:
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:570:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  570 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Motor command: pos=%.3f, vel=%.3f, trq=%.3f",
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:570:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  570 |         RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Motor command: pos=%.3f, vel=%.3f, trq=%.3f",
+      |                     [01;31m[K^~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:579:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kimu_pub_[m[K’ was not declared in this scope
+  579 |       [01;31m[Kimu_pub_[m[K->publish(imu_msg);
+      |       [01;31m[K^~~~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:585:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kmotors_states_pub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kmotors_states_msg[m[K’?
+  585 |       [01;31m[Kmotors_states_pub_[m[K->publish(motors_states_msg);
+      |       [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+      |       [32m[Kmotors_states_msg[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:592:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kmotor_data_pub_[m[K’ was not declared in this scope; did you mean ‘[01m[Kmotor_data_msg[m[K’?
+  592 |       [01;31m[Kmotor_data_pub_[m[K->publish(motor_data_msg);
+      |       [01;31m[K^~~~~~~~~~~~~~~[m[K
+      |       [32m[Kmotor_data_msg[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:595:25:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+  595 |       js.header.stamp = [01;31m[Kthis[m[K->get_clock()->now();
+      |                         [01;31m[K^~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:596:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kjoint_names_[m[K’ was not declared in this scope
+  596 |       js.name = [01;31m[Kjoint_names_[m[K;
+      |                 [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:602:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kjoint_state_pub_[m[K’ was not declared in this scope
+  602 |       [01;31m[Kjoint_state_pub_[m[K->publish(js);
+      |       [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:[m[K At global scope:
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:620:1:[m[K [01;31m[Kerror: [m[Kexpected declaration before ‘[01m[K}[m[K’ token
+  620 | [01;31m[K}[m[K;
+      | [01;31m[K^[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:330:27:[m[K [01;35m[Kwarning: [m[K‘[01m[Krx_cnt[m[K’ defined but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  330 |     static uint8_t state, [01;35m[Krx_cnt[m[K;
+      |                           [01;35m[K^~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:276:17:[m[K [01;35m[Kwarning: [m[K‘[01m[Kbldc_id_sel[m[K’ defined but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  276 |     static char [01;35m[Kbldc_id_sel[m[K=0;
+      |                 [01;35m[K^~~~~~~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:273:18:[m[K [01;35m[Kwarning: [m[K‘[01m[Kt_temp[m[K’ defined but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  273 |     static float [01;35m[Kt_temp[m[K = 0;
+      |                  [01;35m[K^~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:157:12:[m[K [01;35m[Kwarning: [m[K‘[01m[Kint intFromData_spi(unsigned char*, int*)[m[K’ defined but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-function-Wunused-function]8;;[m[K]
+  157 | static int [01;35m[KintFromData_spi[m[K(unsigned char *data, int *anal_cnt)
+      |            [01;35m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pi/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:105:13:[m[K [01;35m[Kwarning: [m[K‘[01m[Kvoid setDataInt_spi(int)[m[K’ defined but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-function-Wunused-function]8;;[m[K]
+  105 | static void [01;35m[KsetDataInt_spi[m[K(int i)
+      |             [01;35m[K^~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/Motor_control.dir/build.make:76: CMakeFiles/Motor_control.dir/src/Motor_control.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/Motor_control.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
