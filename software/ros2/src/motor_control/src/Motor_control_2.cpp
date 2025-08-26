@@ -280,7 +280,7 @@ void can_board_send(char sel, const _SPI_TX &tx_data, const _MEMS &mems_data)
     switch (sel)
     {
     case 45:
-        spi_tx_buf[spi_tx_cnt++] = tx_data.en_motor * 100 + tx_data.reset_q * 10 + tx_data.reset_err;
+        spi_tx_buf[spi_tx_cnt++] = tx_data.en_motor * 100 + (tx_data.reset_q * 2)* 10 + tx_data.reset_err;
         spi_tx_buf[spi_tx_cnt++] = mems_data.Acc_CALIBRATE * 100 + mems_data.Gyro_CALIBRATE * 10 + mems_data.Mag_CALIBRATE;
         spi_tx_buf[spi_tx_cnt++] = tx_data.beep_state;
 
@@ -546,9 +546,30 @@ private:
             en_motor_atomic.store(0);
         else if (msg->cmd == tinker_msgs::msg::ControlCmd::SET_ZERO_POSITION)
         {
-            reset_q_atomic.store(2);
+            // Защита: обнуление можно делать только при отключенных двигателях
+            if (en_motor_atomic.load() != 0)
+            {
+                RCLCPP_WARN(this->get_logger(), "SET_ZERO_POSITION: Отклонено - двигатели включены. Сначала отключите двигатели (DISABLE)");
+                return;
+            }
+            reset_q_atomic.store(1);
             reset_q_set_time = std::chrono::steady_clock::now();
             reset_q_timer_active.store(true);
+            
+            // Обнуляем все значения при начале обнуления позиции, чтобы не передавались старые значения
+            {
+                std::lock_guard<std::mutex> lock(motor_cmd_mutex_);
+                for (int i = 0; i < 10; ++i)
+                {
+                    spi_tx_.q_set[i] = 0.0f;
+                    spi_tx_.dq_set[i] = 0.0f;
+                    spi_tx_.tau_ff[i] = 0.0f;
+                    kp_cmd_[i] = 0.0f;
+                    kd_cmd_[i] = 0.0f;
+                }
+                spi_tx_.kp = 0.0f;
+                spi_tx_.kd = 0.0f;
+            }
         }
         else if (msg->cmd == tinker_msgs::msg::ControlCmd::CLEAR_ERROR)
             reset_err_atomic.store(1);
