@@ -1,4 +1,4 @@
-/build 
-/log 
-/install 
-/ShiWarai 
+.gitignore 
+log/
+build/
+install/
