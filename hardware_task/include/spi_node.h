@@ -5,7 +5,7 @@
 #define CAN_T_DIV 500.0
 #define CAN_I_DIV 100.0
 #define CAN_F_DIV 100.0
-#define CAN_POS_DIV 50.0
+#define CAN_POS_DIV 30.0
 #define CAN_DPOS_DIV 20.0
 #define CAN_GAIN_DIV_P 500.0
 #define CAN_GAIN_DIV_I 10000.0
@@ -84,13 +84,13 @@ float acc_b_usb[3];
 float att_usb_bias[3];
 float att_rate_usb_bias[3];
 float acc_b_usb_bias[3];
-float q[4][3];
-float dq[4][3];
-float tau[4][3];
+float q[14];
+float dq[14];
+float tau[14];
 float bat_v[4];
 char connect[4];
-char connect_motor[4][3];
-char ready[4][3];
+char connect_motor[14];
+char ready[14];
 _OCU ocu;
 _AOA aoa;
 _ARMSS arm_cmd_s;
@@ -103,9 +103,11 @@ extern _SPI_RX spi_rx;
 
 typedef struct
 {
-float q_set[4][3];
-float q_reset[4][3];
-float tau_ff[4][3];
+float q_set[14];
+float dq_set[14];
+float tau_ff[14];
+
+float q_reset[14];
 float t_to_i;
 float max_i;
 float kp,ki,kd;
@@ -114,7 +116,7 @@ float kp_sw,ki_sw,kd_sw;
 float kp_st_d[3],ki_st_d[3],kd_st_d[3];
 float kp_sw_d[3],ki_sw_d[3],kd_sw_d[3];
 char param_sel[4];
-char en_motor,reser_q,reset_err;
+char en_motor,reset_q,reset_err;
 char led_enable[2];
 char beep_state;
 _ARMSS arm_cmd_s;

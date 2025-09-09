@@ -46,7 +46,7 @@ _MEMS mems;
     #define SPI_SEND_MAX  85
 #else
     #define SPI_SEND_MAX  120+20+20//equal to stm32 spi send cnt
-    #define SPI_SEND_MAX 254
+    // #define SPI_SEND_MAX 254
 #endif
 #else
 #define SPI_SEND_MAX  40
@@ -126,7 +126,7 @@ static float floatFromData_spi(unsigned char *data, int *anal_cnt)
     return *(float *)&i;
 }
 
-static float floatFromData_spi_int(unsigned char *data, int *anal_cnt,float size)
+static float floatFromData_spi_int(unsigned char *data, int *anal_cnt, float size)
 {
     float temp=0;
     temp=(float)((int16_t)(*(data + *anal_cnt + 0)<<8)|*(data + *anal_cnt + 1))/size;
@@ -157,122 +157,9 @@ float To_180_degrees(float x)
     return (x>180?(x-360):(x<-180?(x+360):x));
 }
 
-void can_board_send(char sel)//发送到单片机
-{
-    int i;
-    static float t_temp = 0;
-    char id = 0;
-    char sum_t = 0, _cnt = 0;
-    static char bldc_id_sel=0;
-    spi_tx_cnt = 0;
-
-    spi_tx_buf[spi_tx_cnt++] = 0xFE;
-    spi_tx_buf[spi_tx_cnt++] = 0xFC;
-    spi_tx_buf[spi_tx_cnt++] = sel;
-    spi_tx_buf[spi_tx_cnt++] = 0;
-
-    switch (sel)
-    {
-    case 45://2022/4/4 3BLDC param div---------------------------------
-        spi_tx_buf[spi_tx_cnt++] = spi_tx.en_motor*100+spi_tx.reser_q*10+spi_tx.reset_err;
-        //spi_tx_buf[spi_tx_cnt++] = bldc_id_sel*100+spi_tx.led_enable[0]*10+spi_tx.led_enable[1];//bldc id sel
-
-        //setDataFloat_spi_int( mems.imu_att.z,CAN_POS_DIV);
-        spi_tx_buf[spi_tx_cnt++] =  mems.Acc_CALIBRATE*100+mems.Gyro_CALIBRATE*10+mems.Mag_CALIBRATE;
-        spi_tx_buf[spi_tx_cnt++] =  spi_tx.beep_state;
-
-        //setDataFloat_spi_int(spi_tx.t_to_i,1000);
-
-        for (int id = 0; id < 4; id++)
-        {
-            setDataFloat_spi_int(spi_tx.q_set[id][0],CAN_POS_DIV);
-            //setDataFloat_spi_int(spi_tx.tau_ff[id][0],CAN_T_DIV);
-            //setDataFloat_spi_int(spi_tx.q_reset[id][0],CAN_POS_DIV);
-            
-
-            setDataFloat_spi_int(spi_tx.q_set[id][1],CAN_POS_DIV);
-            setDataFloat_spi_int(spi_tx.tau_ff[id][1],CAN_T_DIV);
-            setDataFloat_spi_int(spi_tx.q_reset[id][1],CAN_POS_DIV);
-
-            setDataFloat_spi_int(spi_tx.q_set[id][2],CAN_POS_DIV);
-            setDataFloat_spi_int(spi_tx.tau_ff[id][2],CAN_T_DIV);
-            setDataFloat_spi_int(spi_tx.q_reset[id][2],CAN_POS_DIV);
-            
-            setDataFloat_spi_int(spi_tx.q_reset[id][1],CAN_POS_DIV);
-            setDataFloat_spi_int(spi_tx.q_reset[id][2],CAN_POS_DIV);
-            spi_tx_buf[spi_tx_cnt++] =spi_tx.param_sel[id];//chose sw or st param
-        }
-#if 1
-
-
-            setDataFloat_spi_int(spi_tx.kp_sw_d[bldc_id_sel],CAN_GAIN_DIV_P);
-            setDataFloat_spi_int(spi_tx.ki_sw_d[bldc_id_sel],CAN_GAIN_DIV_I);
-            setDataFloat_spi_int(spi_tx.kd_sw_d[bldc_id_sel],CAN_GAIN_DIV_D);
-
-            setDataFloat_spi_int(spi_tx.kp_st_d[bldc_id_sel],CAN_GAIN_DIV_P);
-            setDataFloat_spi_int(spi_tx.ki_st_d[bldc_id_sel],CAN_GAIN_DIV_I);
-            setDataFloat_spi_int(spi_tx.kd_st_d[bldc_id_sel],CAN_GAIN_DIV_D);
-#endif
-            // printf("bldc_id_sel=%d %f %f %f\n",bldc_id_sel,spi_tx.kp_sw_d[bldc_id_sel],spi_tx.ki_sw_d[bldc_id_sel],spi_tx.kd_sw_d[bldc_id_sel]);
-
-
-            //OCU param
-//             setDataFloat_spi_int(spi_tx.arm_cmd_s.pos_set.x,20);
-//             setDataFloat_spi_int(spi_tx.arm_cmd_s.pos_set.y,20);
-//             setDataFloat_spi_int(spi_tx.arm_cmd_s.pos_set.z,20);
-//             setDataFloat_spi_int(spi_tx.arm_cmd_s.att_set[0],20);
-//             setDataFloat_spi_int(spi_tx.arm_cmd_s.att_set[1],20);
-//             setDataFloat_spi_int(spi_tx.arm_cmd_s.att_set[2],20);
-//             spi_tx_buf[spi_tx_cnt++] = spi_tx.arm_cmd_s.power*10+spi_tx.arm_cmd_s.mode;
-//             spi_tx_buf[spi_tx_cnt++] = spi_tx.arm_cmd_s.cap;
-
-//             bldc_id_sel++;
-//             if(bldc_id_sel>2)
-//                 bldc_id_sel=0;
-
-//             break;
-
-    case 50://发送OCU配置
-        //--------------------Param From OCU-------------
-        setDataFloat_spi_int( mems.imu_pos.x,1000);
-        setDataFloat_spi_int( mems.imu_pos.y,1000);
-        setDataFloat_spi_int( mems.imu_pos.z,1000);
-        setDataFloat_spi_int( mems.imu_att.x,CAN_POS_DIV);
-        setDataFloat_spi_int( mems.imu_att.y,CAN_POS_DIV);
-        setDataFloat_spi_int( mems.imu_att.z,CAN_POS_DIV);
-        setDataFloat_spi_int( mems.gps_pos.x,1000);
-        setDataFloat_spi_int( mems.gps_pos.y,1000);
-        setDataFloat_spi_int( mems.gps_pos.z,1000);
-        spi_tx_buf[spi_tx_cnt++] =  mems.Acc_CALIBRATE;
-        spi_tx_buf[spi_tx_cnt++] =  mems.Gyro_CALIBRATE;
-        spi_tx_buf[spi_tx_cnt++] =  mems.Mag_CALIBRATE;
-
-    break;
-
-    default:
-        for (int id = 0; id < 4; id++)
-        {
-            setDataFloat_spi(0);
-            setDataFloat_spi(0);
-            setDataFloat_spi(0);
-            setDataFloat_spi(0);
-        }
-        break;
-    }
-
-    spi_tx_buf[3] = (spi_tx_cnt)-4;
-    for (i = 0; i < spi_tx_cnt; i++)
-        sum_t += spi_tx_buf[i];
-    spi_tx_buf[spi_tx_cnt++] = sum_t;
-
-    // printf("spi_tx_cnt=%d\n",spi_tx_cnt);
-    if(spi_tx_cnt>SPI_SEND_MAX)
-       printf("spi_tx_cnt=%d over flow!!!\n",spi_tx_cnt);
-    spi_tx_cnt_show=spi_tx_cnt;
-}
-
 int slave_rx(uint8_t *data_buf, int num)//接收解码--------------from stm32
 {
+    //printf("slave_rx num=%d\n",num);
     static int cnt_p = 0;
     static int cnt_err_sum=0;
     uint8_t id;
@@ -302,7 +189,7 @@ int slave_rx(uint8_t *data_buf, int num)//接收解码--------------from stm32
         return 0;
     }
 
-    printf("spi_rx_buf[2]=%d\n", *(data_buf + 2));
+    //printf("spi_rx_buf[2]=%d\n", *(data_buf + 2));
     if (*(data_buf + 2) == 26) //------------------old version---------- use now=======================2022/4/16
     {
         spi_loss_cnt = 0;
@@ -315,7 +202,7 @@ int slave_rx(uint8_t *data_buf, int num)//接收解码--------------from stm32
         spi_rx.att[0] = floatFromData_spi(spi_rx_buf, &anal_cnt);
         spi_rx.att[1] = floatFromData_spi(spi_rx_buf, &anal_cnt);
         spi_rx.att[2] = floatFromData_spi(spi_rx_buf, &anal_cnt);
-        printf("att0=%f att1=%f att2=%f dt=%f\n",spi_rx.att[0],spi_rx.att[1],spi_rx.att[2], Get_Cycle_T(0));
+        //printf("att0=%f att1=%f att2=%f dt=%f\n",spi_rx.att[0],spi_rx.att[1],spi_rx.att[2], Get_Cycle_T(0));
 
         spi_rx.att_rate[0] = floatFromData_spi(spi_rx_buf, &anal_cnt);
         spi_rx.att_rate[1] = floatFromData_spi(spi_rx_buf, &anal_cnt);
@@ -325,106 +212,165 @@ int slave_rx(uint8_t *data_buf, int num)//接收解码--------------from stm32
         spi_rx.acc_b[1] = floatFromData_spi(spi_rx_buf, &anal_cnt);
         spi_rx.acc_b[2] = floatFromData_spi(spi_rx_buf, &anal_cnt);
 
-        // spi_rx.acc_n[0] = floatFromData_spi(spi_rx_buf, &anal_cnt);
-        // spi_rx.acc_n[1] = floatFromData_spi(spi_rx_buf, &anal_cnt);
-        // spi_rx.acc_n[2] = floatFromData_spi(spi_rx_buf, &anal_cnt);
-
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 14; i++)
         {
-            spi_rx.q[i][0] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,CAN_POS_DIV);
-            spi_rx.tau[i][0] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,CAN_T_DIV);
+            spi_rx.q[i] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,CAN_POS_DIV);
+            spi_rx.dq[i] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,CAN_POS_DIV);
+            spi_rx.tau[i] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,CAN_T_DIV);
 
             temp = charFromData_spi(spi_rx_buf, &anal_cnt);
-            spi_rx.connect[i] = temp / 100;
-            spi_rx.connect_motor[i][0] = (temp - spi_rx.connect[i] * 100) / 10;
-            spi_rx.ready[i][0] = temp % 10;
+            // printf("temp = %d\n", temp);
+            spi_rx.connect_motor[i] = (temp % 100) / 10;
+            spi_rx.ready[i] = temp % 10;
 
-            if(spi_rx.connect_motor[i][0] == 1){
-                printf("q[%d][0] = %f, tau[%d][0] = %f\n", i, spi_rx.q[i][0], i, spi_rx.tau[i][0]);
+            if(spi_rx.connect_motor[i] == 1){
+                printf("q[%d] = %f, tau[%d] = %f\n", i, spi_rx.q[i], i, spi_rx.tau[i]);
             }
-
-            spi_rx.q[i][1] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,CAN_POS_DIV);
-            spi_rx.tau[i][1] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,CAN_T_DIV);
-
-            temp = charFromData_spi(spi_rx_buf, &anal_cnt);
-            spi_rx.connect_motor[i][1] = (temp - spi_rx.connect[i] * 100) / 10;
-            spi_rx.ready[i][1] = temp % 10;
-
-            if(spi_rx.connect_motor[i][1] == 1){
-                printf("q[%d][1] = %f, tau[%d][1] = %f\n", i, spi_rx.q[i][1], i, spi_rx.tau[i][1]);
-            }
-
-            spi_rx.q[i][2] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,CAN_POS_DIV);
-            spi_rx.tau[i][2] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,CAN_T_DIV);
-            temp = charFromData_spi(spi_rx_buf, &anal_cnt);
-            spi_rx.connect_motor[i][2] = (temp - spi_rx.connect[i] * 100) / 10;
-            spi_rx.ready[i][2] = temp % 10;
-
-            if(spi_rx.connect_motor[i][2] == 1){
-                printf("q[%d][2] = %f, tau[%d][2] = %f\n", i, spi_rx.q[i][2], i, spi_rx.tau[i][2]);
-            }
-
-
-            //printf("connect[%d] = %d, connect_motor[%d][0] = %d, connect_motor[%d][1] = %d, connect_motor[%d][2] = %d\n", i, spi_rx.connect[i], i, spi_rx.connect_motor[i][0], i, spi_rx.connect_motor[i][1], i, spi_rx.connect_motor[i][2]);
         }
 
-    } else if (*(data_buf + 2) == 36) { // Пока не используем
-        spi_rx.bat_v[0] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,100);
-        spi_rx.bat_v[0] =spi_rx.bat_v[1] =spi_rx.bat_v[2];
+    } 
+    // else if (*(data_buf + 2) == 36) { // Пока не используем
+    //     spi_rx.bat_v[0] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,100);
+    //     spi_rx.bat_v[0] =spi_rx.bat_v[1] =spi_rx.bat_v[2];
 
-        //Sbus from STM32
-        spi_rx.ocu.sbus_ch[0] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,100);
-        spi_rx.ocu.sbus_ch[1] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,100);
-        spi_rx.ocu.sbus_ch[2] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,100);
-        spi_rx.ocu.sbus_ch[3] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,100);
-        spi_rx.ocu.sbus_ch[4] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,100);
-        spi_rx.ocu.sbus_ch[5] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,100);
+    //     //Sbus from STM32
+    //     spi_rx.ocu.sbus_ch[0] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,100);
+    //     spi_rx.ocu.sbus_ch[1] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,100);
+    //     spi_rx.ocu.sbus_ch[2] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,100);
+    //     spi_rx.ocu.sbus_ch[3] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,100);
+    //     spi_rx.ocu.sbus_ch[4] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,100);
+    //     spi_rx.ocu.sbus_ch[5] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,100);
 
-        temp= charFromData_spi(spi_rx_buf, &anal_cnt);
-        spi_rx.ocu.sbus_conncect = temp/100;
-        spi_rx.ocu.sbus_aux[0] = (temp-int(temp/100) *100)/10;
-        spi_rx.ocu.sbus_aux[1] = temp%10;
+    //     temp= charFromData_spi(spi_rx_buf, &anal_cnt);
+    //     spi_rx.ocu.sbus_conncect = temp/100;
+    //     spi_rx.ocu.sbus_aux[0] = (temp-int(temp/100) *100)/10;
+    //     spi_rx.ocu.sbus_aux[1] = temp%10;
 
-        temp= charFromData_spi(spi_rx_buf, &anal_cnt);
-        // spi_rx.ocu.sbus_aux[0] = temp/100;
-        spi_rx.ocu.sbus_aux[2] = (temp-int(temp/100) *100)/10;
-        spi_rx.ocu.sbus_aux[3] = temp%10;
+    //     temp= charFromData_spi(spi_rx_buf, &anal_cnt);
+    //     // spi_rx.ocu.sbus_aux[0] = temp/100;
+    //     spi_rx.ocu.sbus_aux[2] = (temp-int(temp/100) *100)/10;
+    //     spi_rx.ocu.sbus_aux[3] = temp%10;
 
-        temp= charFromData_spi(spi_rx_buf, &anal_cnt);
-        // spi_rx.ocu.sbus_aux[0] = temp/100;
-        spi_rx.ocu.sbus_aux[4] = (temp-int(temp/100) *100)/10;
-        spi_rx.ocu.sbus_aux[5] = temp%10;
+    //     temp= charFromData_spi(spi_rx_buf, &anal_cnt);
+    //     // spi_rx.ocu.sbus_aux[0] = temp/100;
+    //     spi_rx.ocu.sbus_aux[4] = (temp-int(temp/100) *100)/10;
+    //     spi_rx.ocu.sbus_aux[5] = temp%10;
 
-        spi_rx.aoa.dis= floatFromData_spi_int(spi_rx_buf, &anal_cnt,100);
-        spi_rx.aoa.angle= floatFromData_spi_int(spi_rx_buf, &anal_cnt,10);
-        spi_rx.aoa.rssi= charFromData_spi(spi_rx_buf, &anal_cnt);
+    //     spi_rx.aoa.dis= floatFromData_spi_int(spi_rx_buf, &anal_cnt,100);
+    //     spi_rx.aoa.angle= floatFromData_spi_int(spi_rx_buf, &anal_cnt,10);
+    //     spi_rx.aoa.rssi= charFromData_spi(spi_rx_buf, &anal_cnt);
 
-        //--arm
-        spi_rx.arm_cmd_s.pos_now.x = floatFromData_spi_int(spi_rx_buf, &anal_cnt,20);
-        spi_rx.arm_cmd_s.pos_now.y = floatFromData_spi_int(spi_rx_buf, &anal_cnt,20);
-        spi_rx.arm_cmd_s.pos_now.z = floatFromData_spi_int(spi_rx_buf, &anal_cnt,20);
-        spi_rx.arm_cmd_s.att_now[0] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,20);
-        spi_rx.arm_cmd_s.att_now[1] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,20);
-        spi_rx.arm_cmd_s.att_now[2] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,20);
-         #if 0
-        printf("%f %f %d\n",spi_rx.aoa.dis,spi_rx.aoa.angle,spi_rx.aoa.rssi);
-        #endif
-        #if 0
-          printf("connect=%d st=%d back=%d x=%d a=%d\n",
-              spi_rx.ocu.connect ,  spi_rx.ocu.key_st,spi_rx.ocu.key_back, spi_rx.ocu.key_x,spi_rx.ocu.key_a );
-          printf("b=%d y=%d ll=%d rr=%d lr=%d up=%d\n",
-              spi_rx.ocu.key_b ,  spi_rx.ocu.key_y,spi_rx.ocu.key_ll, spi_rx.ocu.key_rr,spi_rx.ocu.key_lr ,spi_rx.ocu.key_ud);
-          printf("spd0=%f spd1=%f att0=%f att1=%f yaw=%f\n",
-              spi_rx.ocu.rc_spd_w[0],spi_rx.ocu.rc_spd_w[1],spi_rx.ocu.rc_att_w[0],spi_rx.ocu.rc_att_w[1],spi_rx.ocu.rate_yaw_w);
-        #endif
-        #if 0
-          printf("connect=%d st=%d back=%d x=%d a=%d\n",
-              spi_rx.ocu.sbus_conncect ,  spi_rx.ocu.sbus_aux[0],spi_rx.ocu.sbus_aux[1], spi_rx.ocu.sbus_aux[2],spi_rx.ocu.sbus_aux[3] );
-          printf("rc0=%f rc1=%f rc2=%f rc3=%f\n",
-              spi_rx.ocu.sbus_ch[0],spi_rx.ocu.sbus_ch[1],spi_rx.ocu.sbus_ch[2],spi_rx.ocu.sbus_ch[3]);
-        #endif
-    }
+    //     //--arm
+    //     spi_rx.arm_cmd_s.pos_now.x = floatFromData_spi_int(spi_rx_buf, &anal_cnt,20);
+    //     spi_rx.arm_cmd_s.pos_now.y = floatFromData_spi_int(spi_rx_buf, &anal_cnt,20);
+    //     spi_rx.arm_cmd_s.pos_now.z = floatFromData_spi_int(spi_rx_buf, &anal_cnt,20);
+    //     spi_rx.arm_cmd_s.att_now[0] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,20);
+    //     spi_rx.arm_cmd_s.att_now[1] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,20);
+    //     spi_rx.arm_cmd_s.att_now[2] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,20);
+    //      #if 0
+    //     printf("%f %f %d\n",spi_rx.aoa.dis,spi_rx.aoa.angle,spi_rx.aoa.rssi);
+    //     #endif
+    //     #if 0
+    //       printf("connect=%d st=%d back=%d x=%d a=%d\n",
+    //           spi_rx.ocu.connect ,  spi_rx.ocu.key_st,spi_rx.ocu.key_back, spi_rx.ocu.key_x,spi_rx.ocu.key_a );
+    //       printf("b=%d y=%d ll=%d rr=%d lr=%d up=%d\n",
+    //           spi_rx.ocu.key_b ,  spi_rx.ocu.key_y,spi_rx.ocu.key_ll, spi_rx.ocu.key_rr,spi_rx.ocu.key_lr ,spi_rx.ocu.key_ud);
+    //       printf("spd0=%f spd1=%f att0=%f att1=%f yaw=%f\n",
+    //           spi_rx.ocu.rc_spd_w[0],spi_rx.ocu.rc_spd_w[1],spi_rx.ocu.rc_att_w[0],spi_rx.ocu.rc_att_w[1],spi_rx.ocu.rate_yaw_w);
+    //     #endif
+    //     #if 0
+    //       printf("connect=%d st=%d back=%d x=%d a=%d\n",
+    //           spi_rx.ocu.sbus_conncect ,  spi_rx.ocu.sbus_aux[0],spi_rx.ocu.sbus_aux[1], spi_rx.ocu.sbus_aux[2],spi_rx.ocu.sbus_aux[3] );
+    //       printf("rc0=%f rc1=%f rc2=%f rc3=%f\n",
+    //           spi_rx.ocu.sbus_ch[0],spi_rx.ocu.sbus_ch[1],spi_rx.ocu.sbus_ch[2],spi_rx.ocu.sbus_ch[3]);
+    //     #endif
+    // }
     return 1;
+}
+
+void can_board_send(char sel)//发送到单片机
+{
+    //printf("can_board_send sel=%d\n",sel);
+    int i;
+    static float t_temp = 0;
+    char id = 0;
+    char sum_t = 0, _cnt = 0;
+    static char bldc_id_sel=0;
+    spi_tx_cnt = 0;
+
+    spi_tx_buf[spi_tx_cnt++] = 0xFE;
+    spi_tx_buf[spi_tx_cnt++] = 0xFC;
+    spi_tx_buf[spi_tx_cnt++] = sel;
+    spi_tx_buf[spi_tx_cnt++] = 0;
+
+    switch (sel)
+    {
+        case 45://2022/4/4 3BLDC param div---------------------------------
+            spi_tx_buf[spi_tx_cnt++] = spi_tx.en_motor*100+spi_tx.reset_q*10+spi_tx.reset_err; // Включение двигателей, установка нуля, сброс ошибки 
+
+            spi_tx_buf[spi_tx_cnt++] =  mems.Acc_CALIBRATE*100+mems.Gyro_CALIBRATE*10+mems.Mag_CALIBRATE; // Калибровка
+
+            spi_tx_buf[spi_tx_cnt++] =  spi_tx.beep_state;
+
+            // printf("mems.en_motor=%d\n",spi_tx.en_motor);
+            // printf("mems.reset_q=%d\n",spi_tx.reset_q);
+            // printf("mems.reset_err=%d\n",spi_tx.reset_err);
+            // printf("mems.Acc_CALIBRATE=%d\n",mems.Acc_CALIBRATE);
+            // printf("mems.Gyro_CALIBRATE=%d\n",mems.Gyro_CALIBRATE);
+            // printf("mems.Mag_CALIBRATE=%d\n",mems.Mag_CALIBRATE);
+            // printf("spi_tx.beep_state=%d\n",spi_tx.beep_state);
+            // spi_tx_buf[spi_tx_cnt++] = bldc_id_sel*100+spi_tx.led_enable[0]*10+spi_tx.led_enable[1];//bldc id sel
+
+            //setDataFloat_spi_int( mems.imu_att.z,CAN_POS_DIV);
+            
+            
+
+            //setDataFloat_spi_int(spi_tx.t_to_i,1000);
+
+            for (int id = 0; id < 14; id++)
+            {
+                setDataFloat_spi_int(spi_tx.q_set[id], CAN_POS_DIV);
+                setDataFloat_spi_int(spi_tx.dq_set[id],CAN_DPOS_DIV);
+                setDataFloat_spi_int(spi_tx.tau_ff[id],CAN_T_DIV);
+                setDataFloat_spi_int(spi_tx.kp,CAN_GAIN_DIV_P);
+                setDataFloat_spi_int(spi_tx.kd,CAN_GAIN_DIV_D);
+            }
+        break;
+        // case 50://发送OCU配置
+        //     //--------------------Param From OCU-------------
+        //     setDataFloat_spi_int( mems.imu_pos.x,1000);
+        //     setDataFloat_spi_int( mems.imu_pos.y,1000);
+        //     setDataFloat_spi_int( mems.imu_pos.z,1000);
+        //     setDataFloat_spi_int( mems.imu_att.x,CAN_POS_DIV);
+        //     setDataFloat_spi_int( mems.imu_att.y,CAN_POS_DIV);
+        //     setDataFloat_spi_int( mems.imu_att.z,CAN_POS_DIV);
+        //     setDataFloat_spi_int( mems.gps_pos.x,1000);
+        //     setDataFloat_spi_int( mems.gps_pos.y,1000);
+        //     setDataFloat_spi_int( mems.gps_pos.z,1000);
+        //     spi_tx_buf[spi_tx_cnt++] =  mems.Acc_CALIBRATE;
+        //     spi_tx_buf[spi_tx_cnt++] =  mems.Gyro_CALIBRATE;
+        //     spi_tx_buf[spi_tx_cnt++] =  mems.Mag_CALIBRATE;
+
+        // break;
+        default:
+            for (int id = 0; id < 14; id++)
+            {
+                setDataFloat_spi(0);
+                setDataFloat_spi(0);
+                setDataFloat_spi(0);
+            }
+        break;
+    }
+
+    spi_tx_buf[3] = (spi_tx_cnt)-4;
+    for (i = 0; i < spi_tx_cnt; i++)
+        sum_t += spi_tx_buf[i];
+    spi_tx_buf[spi_tx_cnt++] = sum_t;
+
+    // printf("spi_tx_cnt=%d\n",spi_tx_cnt);
+    if(spi_tx_cnt>SPI_SEND_MAX)
+       printf("spi_tx_cnt=%d over flow!!!\n",spi_tx_cnt);
+    spi_tx_cnt_show=spi_tx_cnt;
 }
 
 void transfer(int fd, int sel)//发送
@@ -435,17 +381,16 @@ void transfer(int fd, int sel)//发送
     uint8_t data = 0;
 
     can_board_send(sel);
-    //printf("before1\n");
+    
+    // for(int i=0;i<spi_tx_cnt;i++)
+    //     printf("0x%X ",spi_tx_buf[i]);
+    // printf("\n");
+
+    // printf("spi_tx_cnt=%d\n",spi_tx_cnt);
     ret=SPIDataRW(0,spi_tx_buf,rx,SPI_SEND_MAX); //向总线中写入7个数据
     //printf("after1\n");
     //printf("ret=%d cnt=%d\n",ret,spi_tx_cnt);
     
-    #if 0
-    for(int i=0;i<ret;i++)
-        printf("0x%X ",rx[i]);
-
-    printf("ret=%d \n",ret);
-    #endif
 
     if (ret < 1){
        printf("SPI Reopen!\n");
@@ -535,10 +480,11 @@ static void setDataChar_mem(char f)
     mem_write_buf[mem_write_cnt++] = (f);
 }
 
-void memory_write(void)//写入内存 to control
+void memory_write(void)
 {
     static float temp=0;
     mem_write_cnt=0;
+    
     setDataFloat_mem( spi_rx.att[0]);
     setDataFloat_mem( spi_rx.att[1]);
     setDataFloat_mem( spi_rx.att[2]);
@@ -548,179 +494,78 @@ void memory_write(void)//写入内存 to control
     setDataFloat_mem( spi_rx.acc_b[0]);
     setDataFloat_mem( spi_rx.acc_b[1]);
     setDataFloat_mem( spi_rx.acc_b[2]);
-    setDataFloat_mem( spi_rx.acc_n[0]);
-    setDataFloat_mem( spi_rx.acc_n[1]);
-    setDataFloat_mem( spi_rx.acc_n[2]);
-    //-----------MEMS USB
 
-    //printf("moco:%f %f %f\n",spi_rx.att[0],spi_rx.att[1],spi_rx.att[2]);
-    //printf("moco:%f %f %f\n",spi_rx.acc_b[0],spi_rx.acc_b[1],spi_rx.acc_b[2]);
-    spi_rx.att_usb[0]=-AHRSData_Packet.Roll*57.3;
-    spi_rx.att_usb[1]= AHRSData_Packet.Pitch*57.3;
-    spi_rx.att_usb[2]= To_180_degrees(AHRSData_Packet.Heading*57.3);
-#if 0
-    spi_rx.att_rate_usb[0]=-AHRSData_Packet.RollSpeed*57.3;
-    spi_rx.att_rate_usb[1]= AHRSData_Packet.PitchSpeed*57.3;
-    spi_rx.att_rate_usb[2]=-AHRSData_Packet.HeadingSpeed*57.3;
-#else
-    spi_rx.att_rate_usb[0]=-IMUData_Packet.gyroscope_x*57.3;
-    spi_rx.att_rate_usb[1]= IMUData_Packet.gyroscope_y*57.3;
-    spi_rx.att_rate_usb[2]=-IMUData_Packet.gyroscope_z*57.3;
-   // printf("moco:%f %f %f\n",spi_rx.att_rate[0],spi_rx.att_rate[1],spi_rx.att_rate[2]);
-   // printf("use::%f %f %f\n",spi_rx.att_rate_usb[0],spi_rx.att_rate_usb[1],spi_rx.att_rate_usb[2]);
-#endif
-    spi_rx.acc_b_usb[0]=-IMUData_Packet.accelerometer_x/9.81;
-    spi_rx.acc_b_usb[1]= IMUData_Packet.accelerometer_y/9.81;
-    spi_rx.acc_b_usb[2]=-IMUData_Packet.accelerometer_z/9.81;
-    //printf("use::%f %f %f\n",spi_rx.att_usb[0],spi_rx.att_usb[1],spi_rx.att_usb[2]);
-    //printf("use::%f %f %f\n",spi_rx.acc_b_usb[0],spi_rx.acc_b_usb[1],spi_rx.acc_b_usb[2]);
-
-    setDataChar_mem (mems_usb_connect);
-    setDataFloat_mem( To_180_degrees(spi_rx.att_usb[0]-spi_rx.att_usb_bias[0])*mems_usb_connect);
-    setDataFloat_mem( To_180_degrees(spi_rx.att_usb[1]-spi_rx.att_usb_bias[1])*mems_usb_connect);
-    setDataFloat_mem( To_180_degrees(spi_rx.att_usb[2]-spi_rx.att_usb_bias[2])*mems_usb_connect);
-    setDataFloat_mem( (spi_rx.att_rate_usb[0]-spi_rx.att_rate_usb_bias[0])*mems_usb_connect);
-    setDataFloat_mem( (spi_rx.att_rate_usb[1]-spi_rx.att_rate_usb_bias[1])*mems_usb_connect);
-    setDataFloat_mem( (spi_rx.att_rate_usb[2]-spi_rx.att_rate_usb_bias[2])*mems_usb_connect);
-    setDataFloat_mem( spi_rx.acc_b_usb[0]*mems_usb_connect);
-    setDataFloat_mem( spi_rx.acc_b_usb[1]*mems_usb_connect);
-    setDataFloat_mem( spi_rx.acc_b_usb[2]*mems_usb_connect);
-
-    for (int i = 0; i < 4; i++)
+    // 14 двигателей вместо 4 ног × 3 мотора
+    for (int i = 0; i < 14; i++)
     {
-        setDataFloat_mem(spi_rx.q[i][0]);
-        setDataFloat_mem(spi_rx.q[i][1]);
-        setDataFloat_mem(spi_rx.q[i][2]);
-        setDataFloat_mem(spi_rx.tau[i][0]);
-        setDataFloat_mem(spi_rx.tau[i][1]);
-        setDataFloat_mem(spi_rx.tau[i][2]);
-
-        setDataFloat_mem(spi_rx.bat_v[i]);
-
-        setDataChar_mem(spi_rx.connect[i]*100+spi_rx.connect_motor[i][0]*10+spi_rx.ready[i][0]);
-        setDataChar_mem(spi_rx.connect[i]*100+spi_rx.connect_motor[i][1]*10+spi_rx.ready[i][1]);
-        setDataChar_mem(spi_rx.connect[i]*100+spi_rx.connect_motor[i][2]*10+spi_rx.ready[i][2]);
+        setDataFloat_mem(spi_rx.q[i]);
+        setDataFloat_mem(spi_rx.dq[i]);
+        setDataFloat_mem(spi_rx.tau[i]);
     }
 
-    //SBUS
-    setDataChar_mem( spi_rx.ocu.sbus_conncect *100+ spi_rx.ocu.sbus_aux[0]*10+spi_rx.ocu.sbus_aux[1]);
-    setDataChar_mem( spi_rx.ocu.sbus_aux[2]*10+spi_rx.ocu.sbus_aux[3]);
-    setDataChar_mem( spi_rx.ocu.sbus_aux[4]*10+spi_rx.ocu.sbus_aux[5]);
+    // Напряжения батарей (оставляем 4, так как это системные)
+    for (int i = 0; i < 4; i++)
+    {
+        setDataFloat_mem(spi_rx.bat_v[i]);
+    }
 
-    setDataFloat_mem(spi_rx.ocu.sbus_ch[0]);
-    setDataFloat_mem(spi_rx.ocu.sbus_ch[1]);
-    setDataFloat_mem(spi_rx.ocu.sbus_ch[2]);
-    setDataFloat_mem(spi_rx.ocu.sbus_ch[3]);
-    setDataFloat_mem(spi_rx.ocu.sbus_ch[4]);
-    setDataFloat_mem(spi_rx.ocu.sbus_ch[5]);
+    // Статус подключения для 14 двигателей
+    for (int i = 0; i < 14; i++)
+    {
+        setDataChar_mem(spi_rx.connect_motor[i]);
+    }
 
-    //AOA UWB
-    setDataFloat_mem(spi_rx.aoa.angle);
-    setDataFloat_mem(spi_rx.aoa.dis);
-    setDataFloat_mem(spi_rx.aoa.rssi);
-
-    //arm
-    setDataFloat_mem(spi_rx.arm_cmd_s.pos_now.x);
-    setDataFloat_mem(spi_rx.arm_cmd_s.pos_now.y);
-    setDataFloat_mem(spi_rx.arm_cmd_s.pos_now.z);
-    setDataFloat_mem(spi_rx.arm_cmd_s.att_now[0]);
-    setDataFloat_mem(spi_rx.arm_cmd_s.att_now[1]);
-    setDataFloat_mem(spi_rx.arm_cmd_s.att_now[2]);
-
+    // Готовность для 14 двигателей
+    for (int i = 0; i < 14; i++)
+    {
+        setDataChar_mem(spi_rx.ready[i]);
+    }
 }
 
-void memory_read(void){//读取内存 from control
-int mem_read_cnt=MEM_SIZE/2;
-float test1,test2;
-for (int i = 0; i < 4; i++)
-{
-    spi_tx.q_set[i][0] = floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.q_set[i][1] = floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.q_set[i][2] = floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.q_reset[i][0] = floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.q_reset[i][1] = floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.q_reset[i][2] = floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.tau_ff[i][0] = floatFromData_spi(mem_read_buf, &mem_read_cnt)*mem_connect;
-    spi_tx.tau_ff[i][1] = floatFromData_spi(mem_read_buf, &mem_read_cnt)*mem_connect;
-    spi_tx.tau_ff[i][2] = floatFromData_spi(mem_read_buf, &mem_read_cnt)*mem_connect;
+void memory_read(void){
+    int mem_read_cnt=MEM_SIZE/2;
 
-    spi_tx.param_sel[i]=mem_read_buf[mem_read_cnt++];//id isolate
-}
-    spi_tx.t_to_i= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.max_i= floatFromData_spi(mem_read_buf, &mem_read_cnt);
+    printf("mem_read_cnt=%d\n",mem_read_cnt);
+
+    // 14 двигателей вместо 4 ног × 3 мотора
+    for (int i = 0; i < 14; i++)
+    {
+        spi_tx.q_set[i] = floatFromData_spi(mem_read_buf, &mem_read_cnt);
+        printf("q_set[%d]=%f\n",i,spi_tx.q_set[i]);
+
+        spi_tx.dq_set[i] = floatFromData_spi(mem_read_buf, &mem_read_cnt);
+        printf("dq_set[%d]=%f\n",i,spi_tx.dq_set[i]);
+
+        spi_tx.tau_ff[i] = floatFromData_spi(mem_read_buf, &mem_read_cnt);
+        printf("tau_ff[%d]=%f\n",i,spi_tx.tau_ff[i]);
+    }
 
     spi_tx.kp= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.ki= floatFromData_spi(mem_read_buf, &mem_read_cnt);
+    printf("kp=%f\n",spi_tx.kp);
     spi_tx.kd= floatFromData_spi(mem_read_buf, &mem_read_cnt);
+    printf("kd=%f\n",spi_tx.kd);
 
-    spi_tx.kp_sw= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.ki_sw= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.kd_sw= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-
-    spi_tx.kp_st= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.ki_st= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.kd_st= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-
-    //bldc 0
-    spi_tx.kp_sw_d[0]= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.ki_sw_d[0]= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.kd_sw_d[0]= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-
-    spi_tx.kp_st_d[0]= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.ki_st_d[0]= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.kd_st_d[0]= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    //bldc 1
-    spi_tx.kp_sw_d[1]= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.ki_sw_d[1]= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.kd_sw_d[1]= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-
-    spi_tx.kp_st_d[1]= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.ki_st_d[1]= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.kd_st_d[1]= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    //bldc 2
-    spi_tx.kp_sw_d[2]= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.ki_sw_d[2]= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.kd_sw_d[2]= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-
-    spi_tx.kp_st_d[2]= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.ki_st_d[2]= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.kd_st_d[2]= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-
- //   printf("%f %f %f\n",spi_tx.q_reset[0][0],spi_tx.q_reset[0][1],spi_tx.q_reset[0][2]);
-//    printf("%f %f %f %f %f %f\n",spi_tx.kp_sw,spi_tx.ki_sw,spi_tx.kd_sw,
-//           spi_tx.kp_st,spi_tx.ki_st,spi_tx.kd_st);
-    spi_tx.en_motor= mem_read_buf[mem_read_cnt++]*mem_connect;
-    spi_tx.reser_q= mem_read_buf[mem_read_cnt++];
+    
+    spi_tx.en_motor= mem_read_buf[mem_read_cnt++];
+    spi_tx.reset_q= mem_read_buf[mem_read_cnt++];
     spi_tx.reset_err= mem_read_buf[mem_read_cnt++];
+    printf("en_motor=%d\n",spi_tx.en_motor);
 
-    spi_tx.led_enable[0]= mem_read_buf[mem_read_cnt]/10; spi_tx.led_enable[1]= mem_read_buf[mem_read_cnt++]%10;
+    mems.Acc_CALIBRATE=charFromData_spi(mem_read_buf, &mem_read_cnt);
+    mems.Gyro_CALIBRATE=charFromData_spi(mem_read_buf, &mem_read_cnt);
+    mems.Mag_CALIBRATE=charFromData_spi(mem_read_buf, &mem_read_cnt);
 
-    //-----------------------OCU param-------------------
-    mems.imu_pos.x= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    mems.imu_pos.y= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    mems.imu_pos.z= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    mems.imu_att.x= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    mems.imu_att.y= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    mems.imu_att.z= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    mems.gps_pos.x= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    mems.gps_pos.y= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    mems.gps_pos.z= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    mems.Acc_CALIBRATE=charFromData_spi(mem_read_buf, &mem_read_cnt)*mem_connect;
-    mems.Gyro_CALIBRATE=charFromData_spi(mem_read_buf, &mem_read_cnt)*mem_connect;
-    mems.Mag_CALIBRATE=charFromData_spi(mem_read_buf, &mem_read_cnt)*mem_connect;
-    spi_tx.beep_state=charFromData_spi(mem_read_buf, &mem_read_cnt)*mem_connect;
+    spi_tx.beep_state=charFromData_spi(mem_read_buf, &mem_read_cnt);
 
-    //arm
-    spi_tx.arm_cmd_s.pos_set.x= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.arm_cmd_s.pos_set.y= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.arm_cmd_s.pos_set.z= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-
-    spi_tx.arm_cmd_s.att_set[0]= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.arm_cmd_s.att_set[1]= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.arm_cmd_s.att_set[2]= floatFromData_spi(mem_read_buf, &mem_read_cnt);
-    spi_tx.arm_cmd_s.power= charFromData_spi(mem_read_buf, &mem_read_cnt)*mem_connect;
-    spi_tx.arm_cmd_s.mode= charFromData_spi(mem_read_buf, &mem_read_cnt)*mem_connect;
-    spi_tx.arm_cmd_s.cap= charFromData_spi(mem_read_buf, &mem_read_cnt);
+    // mems.imu_pos.x= floatFromData_spi(mem_read_buf, &mem_read_cnt);
+    // mems.imu_pos.y= floatFromData_spi(mem_read_buf, &mem_read_cnt);
+    // mems.imu_pos.z= floatFromData_spi(mem_read_buf, &mem_read_cnt);
+    // mems.imu_att.x= floatFromData_spi(mem_read_buf, &mem_read_cnt);
+    // mems.imu_att.y= floatFromData_spi(mem_read_buf, &mem_read_cnt);
+    // mems.imu_att.z= floatFromData_spi(mem_read_buf, &mem_read_cnt);
+    // mems.gps_pos.x= floatFromData_spi(mem_read_buf, &mem_read_cnt);
+    // mems.gps_pos.y= floatFromData_spi(mem_read_buf, &mem_read_cnt);
+    // mems.gps_pos.z= floatFromData_spi(mem_read_buf, &mem_read_cnt);
 }
 
 
@@ -756,6 +601,7 @@ void* Thread_Mem(void*)//内存管理线程
             }
             mem_loss_cnt=0;
             //pthread_mutex_lock(&lock);
+            printf("memory_write\n");
             memory_write();
             for(int k=0;k<MEM_SIZE/2-1;k++)
                 pshm_rx->szMsg[k]=mem_write_buf[k];
@@ -773,13 +619,9 @@ void* Thread_Mem(void*)//内存管理线程
             mem_connect=0;
             mem_loss_cnt=0;
             mem_init_cnt=0;
-            for (int i = 0; i < 4; i++){
-            spi_tx.q_set[i][0] = spi_rx.q[i][0];
-            spi_tx.q_set[i][1] = spi_rx.q[i][1];
-            spi_tx.q_set[i][2] = spi_rx.q[i][2];
-            spi_tx.tau_ff[i][0] = 0;
-            spi_tx.tau_ff[i][1] = 0;
-            spi_tx.tau_ff[i][2] = 0;
+            for (int i = 0; i < 14; i++){
+                spi_tx.q_set[i] = spi_rx.q[i];
+                spi_tx.tau_ff[i] = 0;
             }
             spi_tx.kp= spi_tx.ki= spi_tx.kd= spi_tx.en_motor= 0;
             spi_tx.kp_sw= spi_tx.ki_sw= spi_tx.kd_sw= spi_tx.en_motor= 0;
@@ -842,7 +684,7 @@ void* Thread_SPI(void*)//内存管理线程
         timer_spi1+= sys_dt;
         timer_spi2+= sys_dt;
 
-        transfer(fd, 41);//3 bldc div 41
+        transfer(fd, 45);//3 bldc div 41
         
         usleep(DELAY_SPI);
     }
@@ -919,13 +761,9 @@ void* Thread_ALL(void*)
             mem_connect=0;
             mem_loss_cnt=0;
             mem_init_cnt=0;
-            for (int i = 0; i < 4; i++){
-            spi_tx.q_set[i][0] = spi_rx.q[i][0];
-            spi_tx.q_set[i][1] = spi_rx.q[i][1];
-            spi_tx.q_set[i][2] = spi_rx.q[i][2];
-            spi_tx.tau_ff[i][0] = 0;
-            spi_tx.tau_ff[i][1] = 0;
-            spi_tx.tau_ff[i][2] = 0;
+            for (int i = 0; i < 14; i++){
+                spi_tx.q_set[i] = spi_rx.q[i];
+                spi_tx.tau_ff[i] = 0;
             }
             spi_tx.kp= spi_tx.ki= spi_tx.kd= spi_tx.en_motor= 0;
             spi_tx.kp_st= spi_tx.ki_st= spi_tx.kd_st= spi_tx.en_motor= 0;
@@ -1063,7 +901,6 @@ void* Thread_USB(void*)//not use now
         for (int i = 0; i < nread; i++)
         {
             //data_usb = buff[i];
-            printf("%02x ",buff[i]);
             // printf("%d ",buff[i]);
             if (state_usb == 0 && data_usb == 0xFF)
             {
@@ -1177,11 +1014,9 @@ void* Thread_USB(void*)//not use now
             mem_connect=0;
             mem_loss_cnt=0;
             mem_init_cnt=0;
-            for (int i = 0; i < 4; i++){
-            spi_tx.q_set[i][0] = spi_rx.q[i][0];
-            spi_tx.q_set[i][1] = spi_rx.q[i][1];
-            spi_tx.tau_ff[i][0] = 0;
-            spi_tx.tau_ff[i][1] = 0;
+            for (int i = 0; i < 14; i++){
+                spi_tx.q_set[i] = spi_rx.q[i];
+                spi_tx.tau_ff[i] = 0;
             }
             spi_tx.kp= spi_tx.ki= spi_tx.kd= spi_tx.en_motor= 0;
 
