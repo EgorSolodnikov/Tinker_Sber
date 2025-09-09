@@ -121,33 +121,33 @@ extern int can2_rx_cnt;
 typedef struct 
 {
 	char connect;
-	char connect_motor[14];
-	char ready[14];
+	char connect_motor[10];
+	char ready[10];
   char connect_motor_w[4];
 	char ready_w[4];
 	int loss_cnt;
-	char cal_div[14];
+	char cal_div[10];
 	char reset_q,reset_err;
 	char motor_en,motor_en_reg;
 	char motor_mode,motor_mode_reg;
-	char err_flag[14];
-	float q_now[14],qd_now[14],qdd_now[14];
-	float t_now[14];
+	char err_flag[10];
+	float q_now[10],qd_now[10],qdd_now[10];
+	float t_now[10];
 	
 	
-	float q_set[14],qd_set[14],qdd_set[14];
-	float set_t[14],set_t_flt[14];
-	float kp[14];
-	float kd[14];
-	float q_reset[14];
-	float stiff[14];
+	float q_set[10],qd_set[10],qdd_set[10];
+	float set_t[10],set_t_flt[10];
+	float kp[10];
+	float kd[10];
+	float q_reset[10];
+	float stiff[10];
 	
-	float set_i[14],set_i_flt[14];
+	float set_i[10],set_i_flt[10];
 	float set_t_w[4];
 	float set_i_w[4];
 	float dq_now_w[4];
 	float t_now_w[4];
-	float max_t[14];
+	float max_t[10];
 	float max_t_w[4];
 }_LEG_MOTOR;
 extern _LEG_MOTOR leg_motor;
@@ -247,7 +247,7 @@ typedef struct{
 	motor_param_m motor;
 }motor_measure_t;
 
-extern motor_measure_t  motor_chassis[14];
+extern motor_measure_t  motor_chassis[10];
 
 void mit_bldc_thread(char en_all,float dt);
 void data_can_mit_anal(motor_measure_t *ptr,uint8_t buf_rx[8]);

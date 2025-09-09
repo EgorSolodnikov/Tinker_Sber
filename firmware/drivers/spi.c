@@ -396,7 +396,7 @@ void slave_send(char sel)//发送到Odroid
 //			leg_motor.connect = 1;
 //			leg_motor.connect_motor[10] = 1;
 //			leg_motor.ready[10] = 1;
-				for(id=0;id<14;id++){
+				for(id=0;id<10;id++){
 					setDataFloat_spi_int(leg_motor.q_now[id],CAN_POS_DIV);//关节角度
 					setDataFloat_spi_int(leg_motor.qd_now[id],CAN_DPOS_DIV);//关节角速度
 					setDataFloat_spi_int(leg_motor.t_now[id],CAN_T_DIV);//关节扭矩
@@ -493,7 +493,7 @@ void slave_rx(u8 *data_buf,u8 num)//---------------------------从Linux控制器接收
 		
     robotwb.beep_state=charFromData_spi(spi_rx_buf,&anal_cnt);//蜂鸣器状态		
 		
-		for(i=0;i<14;i++){
+		for(i=0;i<10;i++){
 			leg_motor.q_set[i]=floatFromData_spi_int(spi_rx_buf,&anal_cnt,CAN_POS_DIV);//期望角度
 			leg_motor.qd_set[i]=floatFromData_spi_int(spi_rx_buf,&anal_cnt,CAN_DPOS_DIV);
 			leg_motor.set_t[i]=floatFromData_spi_int(spi_rx_buf,&anal_cnt,CAN_T_DIV);//期望扭矩
@@ -503,16 +503,16 @@ void slave_rx(u8 *data_buf,u8 num)//---------------------------从Linux控制器接收
 
 //----------------输出到缓存数组---------------------
 		//if(ocu_connect==0){
-			for(i=0;i<14;i++){
+			for(i=0;i<10;i++){
 				motor_chassis[i].set_q=leg_motor.q_set[i];
 				motor_chassis[i].set_qd=leg_motor.qd_set[i];				
 				motor_chassis[i].set_t=leg_motor.set_t[i];
 				motor_chassis[i].kp=leg_motor.kp[i]; 
 				motor_chassis[i].kd=leg_motor.kd[i]; 	
 				
-				motor_chassis[i].param.q_reset_angle=leg_motor.q_reset[i];
-				motor_chassis[i].max_t=leg_motor.max_t[i]; //桩麓髤ぞ貜迻茡蓧蠋禄禄煤扫謨
-				motor_chassis[i].stiff=leg_motor.stiff[i];
+				//motor_chassis[i].param.q_reset_angle=leg_motor.q_reset[i];
+				//motor_chassis[i].max_t=leg_motor.max_t[i]; //桩麓髤ぞ貜迻茡蓧蠋禄禄煤扫謨
+				//motor_chassis[i].stiff=leg_motor.stiff[i];
 				
 				if(leg_motor.reset_q==2&&motor_chassis[i].reset_q==0)
 					motor_chassis[i].reset_q=1;
@@ -539,7 +539,7 @@ void slave_rx(u8 *data_buf,u8 num)//---------------------------从Linux控制器接收
 //		
 //    robotwb.beep_state=charFromData_spi(spi_rx_buf,&anal_cnt);//蜂鸣器状态		
 //		
-//		for(i=0;i<14;i++){
+//		for(i=0;i<10;i++){
 //			palm_dj.q_exp[i]=floatFromData_spi_int(spi_rx_buf,&anal_cnt,CAN_POS_DIV);//标0角度
 //			leg_motor.q_reset[i]=floatFromData_spi_int(spi_rx_buf,&anal_cnt,CAN_POS_DIV);//标0角度
 //			leg_motor.stiff[i]=floatFromData_spi_int(spi_rx_buf,&anal_cnt,CAN_F_DIV);//stiff
@@ -548,7 +548,7 @@ void slave_rx(u8 *data_buf,u8 num)//---------------------------从Linux控制器接收
 //				
 ////----------------输出到缓存数组---------------------
 //		if(ocu_connect==0){
-//			for(i=0;i<14;i++){
+//			for(i=0;i<10;i++){
 ////			  if(motor_chassis[i].param.control_mode==1)	
 ////					motor_chassis[i].set_qd=leg_motor.q_set[i]; 
 ////				else
@@ -587,7 +587,7 @@ void slave_rx(u8 *data_buf,u8 num)//---------------------------从Linux控制器接收
 //		
 //    robotwb.beep_state=charFromData_spi(spi_rx_buf,&anal_cnt);//蜂鸣器状态		
 //		
-//		for(i=0;i<14;i++){//扩展电机PD系数内置只设置刚度
+//		for(i=0;i<10;i++){//扩展电机PD系数内置只设置刚度
 //			palm_dj.t_exp[i]=floatFromData_spi_int(spi_rx_buf,&anal_cnt,CAN_POS_DIV);//期望Tau
 //			palm_dj.q_reset[i]=floatFromData_spi_int(spi_rx_buf,&anal_cnt,CAN_POS_DIV);//标0角度
 //			palm_dj.stiff[i]=floatFromData_spi_int(spi_rx_buf,&anal_cnt,CAN_F_DIV);//刚度
@@ -621,7 +621,7 @@ void slave_rx(u8 *data_buf,u8 num)//---------------------------从Linux控制器接收
 //		robot.ip1=charFromData_spi(spi_rx_buf,&anal_cnt);
 //		robot.ip2=charFromData_spi(spi_rx_buf,&anal_cnt);
 //		
-//		for(i=0;i<14;i++){//扩展电机PD系数
+//		for(i=0;i<10;i++){//扩展电机PD系数
 //			palm_dj.kp[i]=floatFromData_spi_int(spi_rx_buf,&anal_cnt,CAN_GAIN_DIV_P_M);//期望Tau
 //			palm_dj.kd[i]=floatFromData_spi_int(spi_rx_buf,&anal_cnt,CAN_GAIN_DIV_D_M);//标0角度
 //		}

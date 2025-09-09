@@ -9,7 +9,7 @@
 #include "usbd_usr.h" 
 #include "usbd_cdc_vcp.h" 
 _LEG_MOTOR leg_motor;
-motor_measure_t  motor_chassis[14];
+motor_measure_t  motor_chassis[10];
 uint32_t can1_rx_id;
 int can_rx_over[5],can_rx_cnt[5];
 u8 canbuft1[8],canbufr1[8];
@@ -29,7 +29,7 @@ void CAN_motor_init(void)
 {
 	char i;
 	
-	for(i=0;i<14;i++)
+	for(i=0;i<10;i++)
 	{
 		leg_motor.connect=0;
 		leg_motor.motor_en=0;
@@ -39,7 +39,7 @@ void CAN_motor_init(void)
 		
 		motor_chassis[i].max_t=leg_motor.max_t[i]=120;//Nm 最大力矩
 		
-		motor_chassis[i].stiff=1;
+		motor_chassis[i].stiff=1.0;
 		motor_chassis[i].kp=0.5;
 		motor_chassis[i].kd=0.1;
 	}
@@ -247,7 +247,7 @@ void CAN1_RX0_IRQHandler(void)
 			motor_chassis[0].motor.type>=EC_1) /* 数据长度为8 */
 		{
 			RV_can_data_repack(&RxMessage,0,0);
-			for(i=0;i<14;i++)
+			for(i=0;i<10;i++)
 			{
 				leg_motor.q_now[i]=motor_chassis[i].q_now_flt;
 				leg_motor.qd_now[i]=motor_chassis[i].qd_now_flt;
@@ -406,46 +406,46 @@ void CAN2_RX0_IRQHandler(void)
 	&& ((RxMessage.DLC == 6||RxMessage.DLC == 8))) /* 数据长度为8 */
 	{
 			if(RxMessage.Data[0]==0+1||RxMessage.Data[0]==0+1+0x10){
-				data_can_mit_anal(&motor_chassis[7+0],RxMessage.Data);
-				leg_motor.q_now[7+0]=motor_chassis[7+0].q_now_flt;
-				leg_motor.qd_now[7+0]=motor_chassis[7+0].qd_now_flt;
-				leg_motor.t_now[7+0]=motor_chassis[7+0].t_now_flt;
+				data_can_mit_anal(&motor_chassis[5+0],RxMessage.Data);
+				leg_motor.q_now[5+0]=motor_chassis[5+0].q_now_flt;
+				leg_motor.qd_now[5+0]=motor_chassis[5+0].qd_now_flt;
+				leg_motor.t_now[5+0]=motor_chassis[5+0].t_now_flt;
 			}
 			else if(RxMessage.Data[0]==1+1||RxMessage.Data[0]==1+1+0x10){
-				data_can_mit_anal(&motor_chassis[7+1],RxMessage.Data);
-				leg_motor.q_now[7+1]=motor_chassis[7+1].q_now_flt;
-				leg_motor.qd_now[7+1]=motor_chassis[7+1].qd_now_flt;
-				leg_motor.t_now[7+1]=motor_chassis[7+1].t_now_flt;
+				data_can_mit_anal(&motor_chassis[5+1],RxMessage.Data);
+				leg_motor.q_now[5+1]=motor_chassis[5+1].q_now_flt;
+				leg_motor.qd_now[5+1]=motor_chassis[5+1].qd_now_flt;
+				leg_motor.t_now[5+1]=motor_chassis[5+1].t_now_flt;
 			}
 			else if(RxMessage.Data[0]==2+1||RxMessage.Data[0]==2+1+0x10){
-				data_can_mit_anal(&motor_chassis[7+2],RxMessage.Data);
-				leg_motor.q_now[7+2]=motor_chassis[7+2].q_now_flt;
-				leg_motor.qd_now[7+2]=motor_chassis[7+2].qd_now_flt;
-				leg_motor.t_now[7+2]=motor_chassis[7+2].t_now_flt;
+				data_can_mit_anal(&motor_chassis[5+2],RxMessage.Data);
+				leg_motor.q_now[5+2]=motor_chassis[5+2].q_now_flt;
+				leg_motor.qd_now[5+2]=motor_chassis[5+2].qd_now_flt;
+				leg_motor.t_now[5+2]=motor_chassis[5+2].t_now_flt;
 			}
 			else if(RxMessage.Data[0]==3+1||RxMessage.Data[0]==3+1+0x10){
-				data_can_mit_anal(&motor_chassis[7+3],RxMessage.Data);
-				leg_motor.q_now[7+3]=motor_chassis[7+3].q_now_flt;
-				leg_motor.qd_now[7+3]=motor_chassis[7+3].qd_now_flt;
-				leg_motor.t_now[7+3]=motor_chassis[7+3].t_now_flt;
+				data_can_mit_anal(&motor_chassis[5+3],RxMessage.Data);
+				leg_motor.q_now[5+3]=motor_chassis[5+3].q_now_flt;
+				leg_motor.qd_now[5+3]=motor_chassis[5+3].qd_now_flt;
+				leg_motor.t_now[5+3]=motor_chassis[5+3].t_now_flt;
 			}
 			else if(RxMessage.Data[0]==4+1||RxMessage.Data[0]==4+1+0x10){
-				data_can_mit_anal(&motor_chassis[7+4],RxMessage.Data);
-				leg_motor.q_now[7+4]=motor_chassis[7+4].q_now_flt;
-				leg_motor.qd_now[7+4]=motor_chassis[7+4].qd_now_flt;
-				leg_motor.t_now[7+4]=motor_chassis[7+4].t_now_flt;
+				data_can_mit_anal(&motor_chassis[5+4],RxMessage.Data);
+				leg_motor.q_now[5+4]=motor_chassis[5+4].q_now_flt;
+				leg_motor.qd_now[5+4]=motor_chassis[5+4].qd_now_flt;
+				leg_motor.t_now[5+4]=motor_chassis[5+4].t_now_flt;
 			}
 		  else if(RxMessage.Data[0]==5+1||RxMessage.Data[0]==5+1+0x10){
-				data_can_mit_anal(&motor_chassis[7+5],RxMessage.Data);
-				leg_motor.q_now[7+5]=motor_chassis[7+5].q_now_flt;
-				leg_motor.qd_now[7+5]=motor_chassis[7+5].qd_now_flt;
-				leg_motor.t_now[7+5]=motor_chassis[7+5].t_now_flt;
+				data_can_mit_anal(&motor_chassis[5+5],RxMessage.Data);
+				leg_motor.q_now[5+5]=motor_chassis[5+5].q_now_flt;
+				leg_motor.qd_now[5+5]=motor_chassis[5+5].qd_now_flt;
+				leg_motor.t_now[5+5]=motor_chassis[5+5].t_now_flt;
 			}
 		 else if(RxMessage.Data[0]==6+1||RxMessage.Data[0]==6+1+0x10){
-				data_can_mit_anal(&motor_chassis[7+6],RxMessage.Data);
-				leg_motor.q_now[7+6]=motor_chassis[7+6].q_now_flt;
-				leg_motor.qd_now[7+6]=motor_chassis[7+6].qd_now_flt;
-				leg_motor.t_now[7+6]=motor_chassis[7+6].t_now_flt;
+				data_can_mit_anal(&motor_chassis[5+6],RxMessage.Data);
+				leg_motor.q_now[5+6]=motor_chassis[5+6].q_now_flt;
+				leg_motor.qd_now[5+6]=motor_chassis[5+6].qd_now_flt;
+				leg_motor.t_now[5+6]=motor_chassis[5+6].t_now_flt;
 			}
 	}	
 	
@@ -457,7 +457,7 @@ void CAN2_RX0_IRQHandler(void)
 			motor_chassis[0].motor.type>=EC_1) /* 数据长度为8 */
 		{
 			RV_can_data_repack(&RxMessage,0,1);//can2
-			for(i=0;i<14;i++){
+			for(i=0;i<10;i++){
 				leg_motor.q_now[i]=motor_chassis[i].q_now_flt;
 				leg_motor.qd_now[i]=motor_chassis[i].qd_now_flt; 
 				leg_motor.t_now[i]=motor_chassis[i].t_now_flt;
@@ -559,13 +559,13 @@ void CAN_motor_sm(float dt)
 	{
 		if(!can_cmd_usb_disable||ocu_connect==0)//usb没连接
 		{
-			for(i=0;i<14;i++)
+			for(i=0;i<10;i++)
 				motor_chassis[i].en_cmd=leg_motor.motor_en;
 				mit_bldc_thread_rv(leg_motor.motor_en,dt);
 		}
 		else
 		{
-			for(i=0;i<14;i++)
+			for(i=0;i<10;i++)
 			{
 				motor_chassis[i].en_cmd=motor_chassis[i].en_cmd_ocu;
 				mit_bldc_thread_rv(motor_chassis[0].en_cmd_ocu,dt);
@@ -576,14 +576,14 @@ void CAN_motor_sm(float dt)
 	{
 		if(!can_cmd_usb_disable||ocu_connect==0)//usb没连接
 		{
-			for(i=0;i<14;i++)
+			for(i=0;i<10;i++)
 				motor_chassis[i].en_cmd=leg_motor.motor_en;
 			
 			mit_bldc_thread(leg_motor.motor_en,dt);
 		}
 		else
 		{
-			for(i=0;i<14;i++)
+			for(i=0;i<10;i++)
 				motor_chassis[i].en_cmd=motor_chassis[i].en_cmd_ocu;
 			
 			mit_bldc_thread(motor_chassis[0].en_cmd_ocu,dt);

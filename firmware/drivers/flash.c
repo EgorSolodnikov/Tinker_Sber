@@ -214,7 +214,7 @@ vmc_all.your_key[0]=temp/10000;
 vmc_all.your_key[1]=(temp-vmc_all.your_key[0]*10000)/100;
 vmc_all.your_key[2]=(temp-vmc_all.your_key[0]*10000-vmc_all.your_key[1]*100);
 //------------
-for(i=0;i<14;i++){
+for(i=0;i<10;i++){
 	motor_chassis[i].param.q_reset_angle=floatFromDataf(FLASH_Buffer,&anal_cnt);
 	motor_chassis[i].param.t_inv_flag_cmd=intFromDataf(FLASH_Buffer,&anal_cnt);
 	motor_chassis[i].param.t_inv_flag_measure=intFromDataf(FLASH_Buffer,&anal_cnt);
@@ -226,7 +226,7 @@ for(i=0;i<14;i++){
 flash_rd_end=charFromDataf(FLASH_Buffer,&anal_cnt);
 
 //Òì³£´¦Àí
-for(i=0;i<14;i++){
+for(i=0;i<10;i++){
 	if(motor_chassis[i].motor.type>30){
 		motor_chassis[i].param.t_inv_flag_measure=1;
 		motor_chassis[i].param.t_inv_flag_cmd=1;
@@ -285,7 +285,7 @@ setDataFloatf(FLASH_Buffer,vmc_all.tar_att_bias[ROLr]);
 setDataIntf(FLASH_Buffer,vmc_all.your_key[0]*10000+vmc_all.your_key[1]*100+vmc_all.your_key[2]);
 
 //--------
-for(i=0;i<14;i++)
+for(i=0;i<10;i++)
 {
 	setDataFloatf(FLASH_Buffer,motor_chassis[i].param.q_reset_angle);
 	setDataIntf(FLASH_Buffer,motor_chassis[i].param.t_inv_flag_cmd);

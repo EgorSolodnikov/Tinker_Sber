@@ -6,16 +6,16 @@
 #include "gait_math.h"
 char state_mit[4]={0};
 
-float P_MIN_CAN_MIT[14] ={-12.5f,-12.5f,-12.5f};
-float P_MAX_CAN_MIT[14]  ={12.5f,12.5f,12.5f};
-float V_MIN_CAN_MIT[14] ={-38.2f,-38.2f,-38.2f};
-float V_MAX_CAN_MIT[14] ={38.2f,38.2f,38.2f};
-float KP_MIN_CAN_MIT[14] ={0.0f,0.0f,0.0f};
-float KP_MAX_CAN_MIT[14] ={500.0f,500.0f,500.0f};
-float KD_MIN_CAN_MIT[14] ={0.0f,0.0f,0.0f};
-float KD_MAX_CAN_MIT[14] ={5.0f,5.0f,5.0f};
-float T_MIN_CAN_MIT[14] ={-12.0f,-12.0f,-12.0f};
-float T_MAX_CAN_MIT[14] ={12.0f,12.0f,12.0f};
+float P_MIN_CAN_MIT[10] ={-12.5f,-12.5f,-12.5f};
+float P_MAX_CAN_MIT[10]  ={12.5f,12.5f,12.5f};
+float V_MIN_CAN_MIT[10] ={-38.2f,-38.2f,-38.2f};
+float V_MAX_CAN_MIT[10] ={38.2f,38.2f,38.2f};
+float KP_MIN_CAN_MIT[10] ={0.0f,0.0f,0.0f};
+float KP_MAX_CAN_MIT[10] ={500.0f,500.0f,500.0f};
+float KD_MIN_CAN_MIT[10] ={0.0f,0.0f,0.0f};
+float KD_MAX_CAN_MIT[10] ={5.0f,5.0f,5.0f};
+float T_MIN_CAN_MIT[10] ={-12.0f,-12.0f,-12.0f};
+float T_MAX_CAN_MIT[10] ={12.0f,12.0f,12.0f};
 
 float fmaxf_mit(float x, float y){
     /// Returns maximum of x, y ///
@@ -65,10 +65,10 @@ u8 mit_motor_mode_en( char id,char en){//使能电机
 	u8 mbox;
   u16 i=0;
 	CanTxMsg TxMessage;
-	if(id<7)
+	if(id<5)
 		TxMessage.StdId=0x00+id+1;	 // 标准标识符为0
 	else
-		TxMessage.StdId=0x00+id+1-7;
+		TxMessage.StdId=0x00+id+1-5;
 	
   TxMessage.ExtId=0x00;//0x200;	 // 设置扩展标示符（29位）
   TxMessage.IDE=0;		  // 使用扩展标识符
@@ -86,7 +86,7 @@ u8 mit_motor_mode_en( char id,char en){//使能电机
 	else
 		TxMessage.Data[7] = 0xFD;
 	
-	if(id<7){
+	if(id<5){
 		mbox= CAN_Transmit(CAN1, &TxMessage);   
 		i=0;
 		while((CAN_TransmitStatus(CAN1, mbox)==CAN_TxStatus_Failed)&&(i<0XFFF))i++;	//等待发送结束
@@ -104,10 +104,10 @@ u8 mit_set_pos_zero( char id){//设置零位
 	u8 mbox;
   u16 i=0;
 	CanTxMsg TxMessage;
-	if(id<7)
+	if(id<5)
 		TxMessage.StdId=0x00+id+1;	 // 标准标识符为0
 	else
-		TxMessage.StdId=0x00+id+1-7;
+		TxMessage.StdId=0x00+id+1-5;
 	
   TxMessage.ExtId=0x00;//0x200;	 // 设置扩展标示符（29位）
   TxMessage.IDE=0;		  // 使用扩展标识符
@@ -122,7 +122,7 @@ u8 mit_set_pos_zero( char id){//设置零位
 	TxMessage.Data[6] = 0xFF;
 	TxMessage.Data[7] = 0xFE;
 	
-	if(id<7){
+	if(id<5){
 		mbox= CAN_Transmit(CAN1, &TxMessage);   
 		i=0;
 		while((CAN_TransmitStatus(CAN1, mbox)==CAN_TxStatus_Failed)&&(i<0XFFF))i++;	//等待发送结束
@@ -149,6 +149,7 @@ int en_over_save2=0;
 int en_over_save3=0;
 float t_check_over=12;
 float err_dead=1.2;
+
 void data_can_mit_anal(motor_measure_t *ptr,uint8_t buf_rx[8])//解析电机数据
 {
 	char i;	
@@ -190,8 +191,8 @@ void data_can_mit_anal(motor_measure_t *ptr,uint8_t buf_rx[8])//解析电机数据
 	ptr->param.qd_now_reg=ptr->qd_now;
 }
 
-float v_des_ff[14];
-float t_des_ff[14];
+float v_des_ff[10];
+float t_des_ff[10];
 float k_spd_all=5;//butler new
 //float k_spd_all=1;//butler old
 char data_can_mit_send(motor_measure_t *ptr){//发送控制指令
@@ -266,10 +267,10 @@ char data_can_mit_send(motor_measure_t *ptr){//发送控制指令
 	u8 mbox;
 	u16 i=0;
 	CanTxMsg TxMessage1;
-	if(ptr->param.id<7)
+	if(ptr->param.id<5)
 		TxMessage1.StdId=0x00+ptr->param.id+1;	 // 标准标识符为0
 	else
-		TxMessage1.StdId=0x00+ptr->param.id+1-7;
+		TxMessage1.StdId=0x00+ptr->param.id+1-5;
 	
 	TxMessage1.ExtId=0x00;//0x200;	 // 设置扩展标示符（29位）
 	TxMessage1.IDE=0;		  // 使用扩展标识符
@@ -285,7 +286,7 @@ char data_can_mit_send(motor_measure_t *ptr){//发送控制指令
 	TxMessage1.Data[7] = canbuft_mit1[7];
 	
 	
-	if(ptr->param.id<7){
+	if(ptr->param.id<5){
 		mbox = CAN_Transmit(CAN1, &TxMessage1);
 		
 		while((CAN_TransmitStatus(CAN1, mbox)==CAN_TxStatus_Failed)&&(i<0XFFF))
@@ -344,10 +345,10 @@ char data_can_sample_only(motor_measure_t *ptr){//数据采集
 	u8 mbox;
   u16 i=0;
 	CanTxMsg TxMessage1;
-	if(ptr->param.id<7)
+	if(ptr->param.id<5)
 		TxMessage1.StdId=0x00+ptr->param.id+1;	 // 标准标识符为0
 	else
-		TxMessage1.StdId=0x00+ptr->param.id+1-7;
+		TxMessage1.StdId=0x00+ptr->param.id+1-5;
 	
   TxMessage1.ExtId=0x00;//0x200;	 // 设置扩展标示符（29位）
   TxMessage1.IDE=0;		  // 使用扩展标识符
@@ -362,7 +363,7 @@ char data_can_sample_only(motor_measure_t *ptr){//数据采集
 	TxMessage1.Data[6] = canbuft1[6];
 	TxMessage1.Data[7] = canbuft1[7];
 	
-	if(ptr->param.id<7){
+	if(ptr->param.id<5){
 		mbox= CAN_Transmit(CAN1, &TxMessage1);   
 		i=0;
 		while((CAN_TransmitStatus(CAN1, mbox)==CAN_TxStatus_Failed)&&(i<0XFFF))i++;	//等待发送结束
@@ -406,7 +407,7 @@ void mit_bldc_thread(char en_all,float dt)
 			motor_chassis[i].param.control_mode=0;//POS
 	
 	#endif
-	for(i=0;i<14;i++){
+	for(i=0;i<10;i++){
 		motor_chassis[i].param.id=i;
 		switch(motor_chassis[i].motor.type){
 	    case M_3508:		
@@ -484,7 +485,7 @@ void mit_bldc_thread(char en_all,float dt)
 	//test
 	timer_sin+=dt*test_cmd[0];
 	mit_connect_cnt=0;
-	for(i=0;i<14;i++){
+	for(i=0;i<10;i++){
 		if(motor_chassis[i].param.connect)
 			mit_connect_cnt++;
 		if(reg_cmd_mode!=motor_chassis[0].cmd_mode||!en_all){
@@ -497,7 +498,7 @@ void mit_bldc_thread(char en_all,float dt)
 	}
 	reg_cmd_mode=motor_chassis[0].cmd_mode;
 	//标定
-	for(i=0;i<14;i++){
+	for(i=0;i<10;i++){
 		if((motor_chassis[i].reset_q==1||motor_chassis[i].cal_div==1)&&motor_chassis[i].reset_q_lock==0){
 				mit_set_pos_zero(i);
 				delay_us(mit_delay);
@@ -531,7 +532,7 @@ void mit_bldc_thread(char en_all,float dt)
 	//保存配置
 	if(can_write_flash==1){
 			//stop motor
-			for(i=0;i<14;i++){
+			for(i=0;i<10;i++){
 				motor_chassis[i].en_cmd=0;
 				motor_chassis[i].param.given_current=0;
 				motor_chassis[i].given_current_cmd=0;
@@ -543,57 +544,40 @@ void mit_bldc_thread(char en_all,float dt)
 			WRITE_PARM();
   }
 			
-	#if 1//发送控制指令
-		for(i=0;i<14;i++){
-			if(en_mit_out==2)//使能发送命令 MIT控制模式
-			{
-				data_can_mit_send(&motor_chassis[i]);
-				delay_us(mit_delay);
-			}else//否则就采集数据  电机扭矩均为0
-			{
-				data_can_sample_only(&motor_chassis[i]);
-				delay_us(mit_delay);
-			}
+	//发送控制指令
+	for(i=0;i<10;i++){
+		if(en_mit_out==2)//使能发送命令 MIT控制模式
+		{
+			data_can_mit_send(&motor_chassis[i]);
+			delay_us(mit_delay);
+		}else//否则就采集数据  电机扭矩均为0
+		{
+			data_can_sample_only(&motor_chassis[i]);
+			delay_us(mit_delay);
 		}
-	#else
-		for(i=0;i<6;i++){
-			if(en_mit_out==2)//使能发送命令 MIT控制模式
-			{
-				data_can_mit_send(&motor_chassis[i]);
-				delay_us(mit_delay_d[0]);
-				data_can_mit_send(&motor_chassis[i*2]);
-				delay_us(mit_delay_d[1]);
-			}else//否则就采集数据  电机扭矩均为0
-			{
-				data_can_sample_only(&motor_chassis[i]);
-				delay_us(mit_delay_d[0]);
-				data_can_sample_only(&motor_chassis[i*2]);
-				delay_us(mit_delay_d[1]);
-			}
-		}
-	#endif
-	
+	}
+
 	switch(en_mit_out)//----------------使能信号的状态机
 	{
 		case 0://关闭状态
-		auto_off_t+=dt;
-		if(auto_off_t>0.5&&1)//自动关闭周期发送
+			auto_off_t+=dt;
+			if(auto_off_t>0.5)//自动关闭周期发送
 			{
 				auto_off_t=0;
-				for(i=0;i<14;i++){
+				for(i=0;i<10;i++){
 					mit_motor_mode_en(i,0);
 					delay_us(mit_delay);
 				}
 			}else if(en_test||en_all)
 			{
-				for(i=0;i<14;i++){
+				for(i=0;i<10;i++){
 					mit_motor_mode_en(i,1);
 					delay_us(mit_delay);
 				}
 				en_mit_out++;
 				auto_off_t=0;
 			}
-		break;
+			break;
 		case 1:
 			auto_off_t+=dt;
 			if(auto_off_t>0.5&&1)//
@@ -601,21 +585,21 @@ void mit_bldc_thread(char en_all,float dt)
 				auto_off_t=0;
 				en_mit_out++;
 			}
-			for(i=0;i<14;i++){
+			for(i=0;i<10;i++){
 				mit_motor_mode_en(i,1);
 				delay_us(mit_delay);
 			}				
-		break;
+			break;
 		case 2://使能后
 			if(!en_test&&!en_all)//触发式关闭
 			{
-				for(i=0;i<14;i++){
+				for(i=0;i<10;i++){
 					mit_motor_mode_en(i,0);
 					delay_us(mit_delay);
 				}
 				en_mit_out=0;
 			}
-		break;
+			break;
 	}
 	
 	for(i=0;i<4;i++)

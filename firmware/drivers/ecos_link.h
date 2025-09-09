@@ -52,7 +52,7 @@ typedef struct
 	uint16_t	feedback_KD;
 }OD_Motor_Msg;
 
-extern OD_Motor_Msg rv_motor_msg[14];
+extern OD_Motor_Msg rv_motor_msg[10];
 extern uint16_t motor_id_check;
 
 void MotorIDReset(void);

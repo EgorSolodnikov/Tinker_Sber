@@ -18,19 +18,19 @@
 //#define I_MIN -30.0f
 //#define I_MAX 30.0f
 
-float POS_MIN[14] ={-12.5f,-12.5f,-12.5f};
-float POS_MAX[14]  ={12.5f,12.5f,12.5f};
-float SPD_MIN[14] ={-18};
-float SPD_MAX[14] ={18};
-float KP_MIN[14] ={0.0f,0.0f,0.0f};
-float KP_MAX[14] ={500.0f,500.0f,500.0f};
-float KD_MIN[14] ={0.0f,0.0f,0.0f};
-float KD_MAX[14] ={5.0f,5.0f,5.0f};
-float T_MIN[14] ={-12.0f,-12.0f,-12.0f};
-float T_MAX[14] ={12.0f,12.0f,12.0f};
-float I_MIN[14] ={-12.0f,-12.0f,-12.0f};
-float I_MAX[14] ={12.0f,12.0f,12.0f};
-float k_t_i[14] ={1};
+float POS_MIN[10] ={-12.5f,-12.5f,-12.5f};
+float POS_MAX[10]  ={12.5f,12.5f,12.5f};
+float SPD_MIN[10] ={-18};
+float SPD_MAX[10] ={18};
+float KP_MIN[10] ={0.0f,0.0f,0.0f};
+float KP_MAX[10] ={500.0f,500.0f,500.0f};
+float KD_MIN[10] ={0.0f,0.0f,0.0f};
+float KD_MAX[10] ={5.0f,5.0f,5.0f};
+float T_MIN[10] ={-12.0f,-12.0f,-12.0f};
+float T_MAX[10] ={12.0f,12.0f,12.0f};
+float I_MIN[10] ={-12.0f,-12.0f,-12.0f};
+float I_MAX[10] ={12.0f,12.0f,12.0f};
+float k_t_i[10] ={1};
 
 float fmaxf(float x, float y){
     /// Returns maximum of x, y ///
@@ -148,7 +148,7 @@ void MotorSetting(uint16_t motor_id,uint8_t cmd)
 	TxMessage.Data[2]=0x00;
 	TxMessage.Data[3]=cmd;
 	
-	if(motor_id<7)
+	if(motor_id<5)
 		CAN_Transmit(CAN1, &TxMessage);
 	else
 		CAN_Transmit(CAN2, &TxMessage);
@@ -190,7 +190,7 @@ void MotorIDSetting(uint16_t motor_id,uint16_t motor_id_new)
 	TxMessage.Data[4]=motor_id_new>>8;
 	TxMessage.Data[5]=motor_id_new&0xff;
 	
-	if(motor_id<7)
+	if(motor_id<5)
 		CAN_Transmit(CAN1, &TxMessage);
 	else
 		CAN_Transmit(CAN2, &TxMessage);
@@ -209,7 +209,7 @@ void MotorCommModeReading(uint16_t motor_id)
 	TxMessage.Data[2]=0x00;
 	TxMessage.Data[3]=0x81;
 	
-	if(motor_id<7)
+	if(motor_id<5)
 		CAN_Transmit(CAN1, &TxMessage);
 	else
 		CAN_Transmit(CAN2, &TxMessage);
@@ -293,7 +293,7 @@ pos:-12.5rad~12.5rad
 spd:-18rad/s~18rad/s
 tor:-30Nm~30Nm
 */
-void send_motor_ctrl_cmd(uint16_t motor_id,float kp,float kd,float pos,float spd,float tor)//0~14
+void send_motor_ctrl_cmd(uint16_t motor_id,float kp,float kd,float pos,float spd,float tor)//0~10
 { 
 	u8 mbox;
   u16 i=0;
@@ -305,10 +305,10 @@ void send_motor_ctrl_cmd(uint16_t motor_id,float kp,float kd,float pos,float spd
 	
 	CanTxMsg TxMessage;
 	TxMessage.IDE = CAN_ID_STD;
-	if(motor_id<7)
-		TxMessage.StdId=0x00+motor_id+1;	 // 标准标识符为0  1~14
+	if(motor_id<5)
+		TxMessage.StdId=0x00+motor_id+1;	 // 标准标识符为0  1~10
 	else
-		TxMessage.StdId=0x00+motor_id+1-7;
+		TxMessage.StdId=0x00+motor_id+1-5;
 	
 	TxMessage.RTR = CAN_RTR_DATA;
 	TxMessage.DLC = 8;
@@ -341,13 +341,13 @@ void send_motor_ctrl_cmd(uint16_t motor_id,float kp,float kd,float pos,float spd
 	TxMessage.Data[6]=(spd_int&0x0F)<<4|(tor_int>>8);
 	TxMessage.Data[7]=tor_int&0xff;
 	
-	if(motor_id<7) // 0-6
+	if(motor_id<5) // 0-6
 	{
 		mbox= CAN_Transmit(CAN1, &TxMessage);   
 		i=0;
 		while((CAN_TransmitStatus(CAN1, mbox)==CAN_TxStatus_Failed)&&(i<0XFFF))i++;	//等待发送结束
 	}
-	else // motor_id ≥ 7   7-13
+	else // motor_id ≥ 5   5-10
 	{
 		mbox= CAN_Transmit(CAN2, &TxMessage);   
 		i=0;
@@ -564,23 +564,23 @@ void get_motor_parameter(uint16_t motor_id,uint8_t param_cmd)//unuse
   u16 i=0;
 	CanTxMsg TxMessage;
 	TxMessage.IDE = CAN_ID_STD;//CAN_ID_EXT
-	if(motor_id<7)
+	if(motor_id<5)
 		TxMessage.StdId=0x00+motor_id+1;	 // 标准标识符为0
 	else
-		TxMessage.StdId=0x00+motor_id+1-7;
+		TxMessage.StdId=0x00+motor_id+1-5;
 	TxMessage.RTR = CAN_RTR_DATA;
 	TxMessage.DLC = 2;
 	
   TxMessage.Data[0]=0xE0;
 	TxMessage.Data[1]=param_cmd;
 	
-   if(motor_id<7) // 0-6
+   if(motor_id<5) // 0-5
 	{
 		mbox= CAN_Transmit(CAN1, &TxMessage);   
 		i=0;
 		while((CAN_TransmitStatus(CAN1, mbox)==CAN_TxStatus_Failed)&&(i<0XFFF))i++;	//等待发送结束
 	}
-	else // motor_id ≥ 7   7-13
+	else // motor_id ≥ 5   5-10
 	{
 		mbox= CAN_Transmit(CAN2, &TxMessage);   
 		i=0;
@@ -624,7 +624,7 @@ void data_can_rv_anal(motor_measure_t *ptr,float q_rx,float v_rx,float t_rx)
 }
 
 MotorCommFbd motor_comm_fbd;
-OD_Motor_Msg rv_motor_msg[14]; 
+OD_Motor_Msg rv_motor_msg[10]; 
 uint16_t motor_id_check=0;
 void RV_can_data_repack(CanRxMsg *RxMessage,uint8_t comm_mode,uint8_t sel)
 {
@@ -670,8 +670,8 @@ void RV_can_data_repack(CanRxMsg *RxMessage,uint8_t comm_mode,uint8_t sel)
 			pos_int=RxMessage->Data[1]<<8|RxMessage->Data[2];
 			spd_int=RxMessage->Data[3]<<4|(RxMessage->Data[4]&0xF0)>>4;
 			cur_int=(RxMessage->Data[4]&0x0F)<<8|RxMessage->Data[5];
-			int id=rv_motor_msg[motor_id_t].motor_id;//0~7
-			if(id>=0&&id<14){
+			int id=rv_motor_msg[motor_id_t].motor_id;//0~5
+			if(id>=0&&id<10){
 				if(sel==0){
 					rv_motor_msg[id].angle_actual_rad=uint_to_float_rv(pos_int,POS_MIN[id],POS_MAX[id],16);
 					rv_motor_msg[id].speed_actual_rad=uint_to_float_rv(spd_int,SPD_MIN[id],SPD_MAX[id],12);
@@ -684,15 +684,15 @@ void RV_can_data_repack(CanRxMsg *RxMessage,uint8_t comm_mode,uint8_t sel)
 					rv_motor_msg[id].current_actual_float*k_t_i[id]);
 				}
 				else{
-					rv_motor_msg[id+7].angle_actual_rad=uint_to_float_rv(pos_int,POS_MIN[id+7],POS_MAX[id+7],16);
-					rv_motor_msg[id+7].speed_actual_rad=uint_to_float_rv(spd_int,SPD_MIN[id+7],SPD_MAX[id+7],12);
-					rv_motor_msg[id+7].current_actual_float=uint_to_float_rv(cur_int,I_MIN[id+7],I_MAX[id+7],12);
-					rv_motor_msg[id+7].temperature=(RxMessage->Data[6]-50)/2;
+					rv_motor_msg[id+5].angle_actual_rad=uint_to_float_rv(pos_int,POS_MIN[id+5],POS_MAX[id+5],16);
+					rv_motor_msg[id+5].speed_actual_rad=uint_to_float_rv(spd_int,SPD_MIN[id+5],SPD_MAX[id+5],12);
+					rv_motor_msg[id+5].current_actual_float=uint_to_float_rv(cur_int,I_MIN[id+5],I_MAX[id+5],12);
+					rv_motor_msg[id+5].temperature=(RxMessage->Data[6]-50)/2;
 					
-					data_can_rv_anal(&motor_chassis[id+7],
-					rv_motor_msg[id+7].angle_actual_rad,//输出轴
-					rv_motor_msg[id+7].speed_actual_rad,
-					rv_motor_msg[id+7].current_actual_float*k_t_i[id+7]);
+					data_can_rv_anal(&motor_chassis[id+5],
+					rv_motor_msg[id+5].angle_actual_rad,//输出轴
+					rv_motor_msg[id+5].speed_actual_rad,
+					rv_motor_msg[id+5].current_actual_float*k_t_i[id+5]);
 				}
 			}
 		}
@@ -908,16 +908,16 @@ u8 mit_rv_pos_zero( char id)
   TxMessage.RTR=0;		  // 消息类型为数据帧，一帧8位
   TxMessage.DLC=4;							 // 发送两帧信息
 	TxMessage.Data[0] = 0x00;//300??
-	if(id<7)
+	if(id<5)
 		TxMessage.Data[1] = 0x00+id+1;	 // 标准标识符为0
 	else
-		TxMessage.Data[1] = 0x00+id+1-7;
+		TxMessage.Data[1] = 0x00+id+1-5;
 	//TxMessage.Data[1] = id;
 	TxMessage.Data[2] = 0x00;
 	TxMessage.Data[3] = 0x03;
 
   mbox= CAN_Transmit(CAN1, &TxMessage);   
-	if(id<7)
+	if(id<5)
 		CAN_Transmit(CAN1, &TxMessage);
 	else
 		CAN_Transmit(CAN2, &TxMessage);
@@ -937,23 +937,8 @@ void mit_bldc_thread_rv(char en_all,float dt)
 	static char state_reg[4]={0};
 	static float timer_sin=0;
 	static int reg_cmd_mode;
-	#if 0//lite
-		//left
-		motor_chassis[0].motor.type=EC_1;//pitch
-		motor_chassis[1].motor.type=EC_2;//yaw
-		motor_chassis[2].motor.type=EC_3;//rol
-		motor_chassis[3].motor.type=EC_1;//knee
-		motor_chassis[4].motor.type=EC_2;//ankle pitch
-		motor_chassis[5].motor.type=EC_2;//ankle roll
-		//right
-		motor_chassis[7].motor.type=EC_1;//pitch
-		motor_chassis[8].motor.type=EC_2;//yaw
-		motor_chassis[9].motor.type=EC_3;//rol
-		motor_chassis[10].motor.type=EC_1;//knee
-		motor_chassis[11].motor.type=EC_2;//ankle pitch
-		motor_chassis[12].motor.type=EC_2;//ankle roll	
-	#endif
-	for(i=0;i<14;i++)
+
+	for(i=0;i<10;i++)
 	{
 		motor_chassis[i].param.id=i;
 	  //不同电机配置参数
@@ -1022,7 +1007,7 @@ void mit_bldc_thread_rv(char en_all,float dt)
 		}
 	}
 	#if 1 
-	for(i=0;i<14;i++)
+	for(i=0;i<10;i++)
 	{
 		if(en_rv_out==2)//使能发送命令 MIT控制模式
 		{
@@ -1039,7 +1024,7 @@ void mit_bldc_thread_rv(char en_all,float dt)
 	//test
 	timer_sin+=dt*test_cmd_rv[0];
 	rv_connect_cnt=0;
-	for(i=0;i<14;i++)
+	for(i=0;i<10;i++)
 	{
 		if(motor_chassis[i].param.connect)
 			rv_connect_cnt++;
@@ -1055,7 +1040,7 @@ void mit_bldc_thread_rv(char en_all,float dt)
 	}
 	reg_cmd_mode=motor_chassis[0].cmd_mode;
 	//标定
-	for(i=0;i<14;i++)
+	for(i=0;i<10;i++)
 	{
 		if((motor_chassis[i].reset_q==1||motor_chassis[i].cal_div==1)&&motor_chassis[i].reset_q_lock==0)
 		{
@@ -1093,7 +1078,7 @@ void mit_bldc_thread_rv(char en_all,float dt)
 	if(can_write_flash==1)
 	{
 		//stop motor
-		for(i=0;i<14;i++)
+		for(i=0;i<10;i++)
 		{
 			motor_chassis[i].en_cmd=0;
 			motor_chassis[i].param.given_current=0;
@@ -1113,7 +1098,7 @@ void mit_bldc_thread_rv(char en_all,float dt)
 			if(auto_off_t_rv>0.5&&1)//自动关闭周期发送
 			{
 				auto_off_t_rv=0;
-				for(i=0;i<14;i++)
+				for(i=0;i<10;i++)
 				{
 					rv_motor_mode_en(i,0);
 					delay_us(rv_delay);
@@ -1121,7 +1106,7 @@ void mit_bldc_thread_rv(char en_all,float dt)
 			}
 			else if(en_test_rv||en_all)
 			{
-				for(i=0;i<14;i++)
+				for(i=0;i<10;i++)
 				{
 					rv_motor_mode_en(i,1);
 					delay_us(rv_delay);
@@ -1137,7 +1122,7 @@ void mit_bldc_thread_rv(char en_all,float dt)
 				auto_off_t_rv=0;
 				en_rv_out++;
 			}
-			for(i=0;i<14;i++){
+			for(i=0;i<10;i++){
 				rv_motor_mode_en(i,1);// 发送can控制帧
 				delay_us(rv_delay);   // 每次延时0.3ms 
 			}
@@ -1145,7 +1130,7 @@ void mit_bldc_thread_rv(char en_all,float dt)
 		case 2://使能后
 			if(!en_test_rv&&!en_all)//触发式关闭
 			{
-				for(i=0;i<14;i++){
+				for(i=0;i<10;i++){
 					rv_motor_mode_en(i,0);
 					delay_us(rv_delay);
 				}

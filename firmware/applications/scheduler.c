@@ -276,7 +276,7 @@ void Duty_Att_Fushion()//姿态解算 100Hz
 void Duty_Link()//USB 通讯 上位机
 {
 	static u16 cnt[3];
-	static float pos_rx_timer[14];
+	static float pos_rx_timer[10];
 	static float cnt_mavlink_data,cnt_rc;
 	static float test_sin_t=0;
 	char i;
@@ -350,7 +350,7 @@ void Duty_System()//遥控 保护
 	if(ocu_loss_cnt++>2/0.05)ocu_connect=0;
   if(spi_master_loss_pi++>2/0.05){spi_master_connect_pi=0;spi_master_loss_pi_all++;}
  
-	for(i=0;i<14;i++){
+	for(i=0;i<10;i++){
 		leg_motor.connect_motor[i]=motor_chassis[i].param.connect;
 		if(motor_chassis[i].param.loss_cnt++>0.5/0.05)
 			motor_chassis[i].param.connect=0;
@@ -359,16 +359,16 @@ void Duty_System()//遥控 保护
 	//robot.extcan_link=palm_dj.connect_link;
 	robot.extcan_link=0;
 	if(palm_dj.connect_link)
-		for(i=0;i<14;i++)
+		for(i=0;i<10;i++)
 			robot.extcan_link+=palm_dj.connect[i];
 	else
 		robot.extcan_link=0;
 	robot.can1_link=0;robot.can2_link=0;
-	for(int i=0;i<7;i++){
+	for(int i=0;i<5;i++){
 		if(leg_motor.connect_motor[i]==1)
 			robot.can1_link++;
 	}
-	for(int i=7;i<14;i++){
+	for(int i=5;i<10;i++){
 		if(leg_motor.connect_motor[i]==1)
 			robot.can2_link++;
 	}
@@ -492,7 +492,7 @@ void Duty_Loop()   					//最短任务周期为1ms，总的代码执行时间需
 
 		if(!spi_master_connect_pi)//掉线保护
 		{
-			for(id=0;id<14;id++){
+			for(id=0;id<10;id++){
 				leg_motor.set_t[id]=0;
 				leg_motor.q_set[id]=leg_motor.q_now[id];
 				leg_motor.motor_en=0;
