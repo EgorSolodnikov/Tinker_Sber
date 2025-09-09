@@ -8,7 +8,7 @@ MEM_SPI_KEY = 1  # key_t MEM_SPI = 0001
 MEM_SIZE = 2048
 SHARED_MEM_SIZE = 4 + MEM_SIZE  # flag (int) + szMsg[MEM_SIZE]
 HALF_MEM_SIZE = MEM_SIZE // 2  # 1024
-MOTOR_COUNT = 14
+MOTOR_COUNT = 10
 BYTES_PER_FLOAT = 4
 BYTES_PER_MOTOR = 12  # q_set (4) + dq_set (4) + tau_ff (4)
 
@@ -53,10 +53,12 @@ def set_flag_to_zero(shm):
     print("Флаг установлен в 0. Изменения будут прочитаны оборудованием.")
 
 # Функция обновления параметра в shared memory
-def update_parameter(shm, param_name, index=None, value=None):
+def update_parameter(shm, param_name, id=0, value=None):
     if param_name in ['q_set', 'dq_set', 'tau_ff']:
-        if index is None or not (0 <= index < MOTOR_COUNT):
+        if id == 0 or not (1 <= id < (MOTOR_COUNT+1)):
             raise ValueError(f"Для {param_name} требуется индекс (0-{MOTOR_COUNT-1})")
+
+        index = id - 1
         motor_offset = index * BYTES_PER_MOTOR
         if param_name == 'q_set':
             offset = Q_SET_OFFSET_START + motor_offset + 4  # +4 из-за flag
@@ -122,15 +124,15 @@ def main():
 
     print("Консольное приложение для обновления параметров в shared memory.")
     print("Доступные параметры: q_set, dq_set, tau_ff (массивы 0-13), kp, kd, en_motor (скаляры)")
-    print("Введите 'выход' для завершения или 'reset' для обнуления всех данных.")
+    print("Введите 'exit' для завершения или 'reset' для обнуления всех данных.")
 
     while True:
         # Ожидание flag == 1 перед обновлениями
         wait_for_flag(shm)
 
         # Запрос ввода
-        user_input = input("Введите параметр (например, q_set 5 1.23) или 'reset' или 'выход': ").strip()
-        if user_input.lower() == 'выход':
+        user_input = input("Введите параметр (например, q_set 5 1.23) или 'reset' или 'exit': ").strip()
+        if user_input.lower() == 'exit':
             break
         elif user_input.lower() == 'reset':
             reset_all(shm)
@@ -139,21 +141,21 @@ def main():
 
         parts = user_input.split()
         if len(parts) < 2:
-            print("Неверный ввод. Формат: param_name [index] value")
+            print("Неверный ввод. Формат: param_name [id] value")
             continue
 
         param_name = parts[0]
         if param_name in ['q_set', 'dq_set', 'tau_ff']:
             if len(parts) != 3:
-                print("Для массивов: param_name index value")
+                print("Для массивов: param_name id value")
                 continue
             try:
-                index = int(parts[1])
+                id = int(parts[1])
                 value = float(parts[2])
             except ValueError:
                 print("Неверный индекс или значение.")
                 continue
-            update_parameter(shm, param_name, index, value)
+            update_parameter(shm, param_name, id, value)
         elif param_name in ['kp', 'kd', 'en_motor']:
             if len(parts) != 2:
                 print("Для скаляров: param_name value")

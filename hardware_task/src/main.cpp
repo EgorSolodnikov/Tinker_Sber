@@ -26,12 +26,18 @@
 #include <pthread.h>
 #include <yaml-cpp/yaml.h>
 #include <yaml-cpp/node/parse.h>
+#include <signal.h>
+#include <errno.h>
 
 YAML::Node config_hardware=YAML::LoadFile("/home/odroid/Tinker/Param/param_hardware.yaml");
 
 // ps -ef | grep hardware_task
 // kill －9 324
 _MEMS mems;
+
+// Глобальные переменные для многопоточности
+pthread_mutex_t lock;
+volatile int running = 1;  // Флаг для управления потоками
 
 #define SPI_TEST 0
 
@@ -199,6 +205,8 @@ int slave_rx(uint8_t *data_buf, int num)//接收解码--------------from stm32
             spi_connect = 1;
         }
 
+        // Защита доступа к spi_rx данным
+        pthread_mutex_lock(&lock);
         spi_rx.att[0] = floatFromData_spi(spi_rx_buf, &anal_cnt);
         spi_rx.att[1] = floatFromData_spi(spi_rx_buf, &anal_cnt);
         spi_rx.att[2] = floatFromData_spi(spi_rx_buf, &anal_cnt);
@@ -212,7 +220,7 @@ int slave_rx(uint8_t *data_buf, int num)//接收解码--------------from stm32
         spi_rx.acc_b[1] = floatFromData_spi(spi_rx_buf, &anal_cnt);
         spi_rx.acc_b[2] = floatFromData_spi(spi_rx_buf, &anal_cnt);
 
-        for (int i = 0; i < 14; i++)
+        for (int i = 0; i < 10; i++)
         {
             spi_rx.q[i] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,CAN_POS_DIV);
             spi_rx.dq[i] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,CAN_POS_DIV);
@@ -227,6 +235,7 @@ int slave_rx(uint8_t *data_buf, int num)//接收解码--------------from stm32
                 printf("q[%d] = %f, tau[%d] = %f\n", i, spi_rx.q[i], i, spi_rx.tau[i]);
             }
         }
+        pthread_mutex_unlock(&lock);
 
     } 
     // else if (*(data_buf + 2) == 36) { // Пока не используем
@@ -303,16 +312,19 @@ void can_board_send(char sel)//发送到单片机
     spi_tx_buf[spi_tx_cnt++] = sel;
     spi_tx_buf[spi_tx_cnt++] = 0;
 
+    // Защита доступа к spi_tx и mems данным
+    pthread_mutex_lock(&lock);
+
     switch (sel)
     {
-        case 45://2022/4/4 3BLDC param div---------------------------------
+        case 45:
             spi_tx_buf[spi_tx_cnt++] = spi_tx.en_motor*100+spi_tx.reset_q*10+spi_tx.reset_err; // Включение двигателей, установка нуля, сброс ошибки 
 
             spi_tx_buf[spi_tx_cnt++] =  mems.Acc_CALIBRATE*100+mems.Gyro_CALIBRATE*10+mems.Mag_CALIBRATE; // Калибровка
 
             spi_tx_buf[spi_tx_cnt++] =  spi_tx.beep_state;
 
-            // printf("mems.en_motor=%d\n",spi_tx.en_motor);
+            //printf("mems.en_motor=%d\n",spi_tx.en_motor);
             // printf("mems.reset_q=%d\n",spi_tx.reset_q);
             // printf("mems.reset_err=%d\n",spi_tx.reset_err);
             // printf("mems.Acc_CALIBRATE=%d\n",mems.Acc_CALIBRATE);
@@ -327,7 +339,7 @@ void can_board_send(char sel)//发送到单片机
 
             //setDataFloat_spi_int(spi_tx.t_to_i,1000);
 
-            for (int id = 0; id < 14; id++)
+            for (int id = 0; id < 10; id++)
             {
                 setDataFloat_spi_int(spi_tx.q_set[id], CAN_POS_DIV);
                 setDataFloat_spi_int(spi_tx.dq_set[id],CAN_DPOS_DIV);
@@ -353,7 +365,7 @@ void can_board_send(char sel)//发送到单片机
 
         // break;
         default:
-            for (int id = 0; id < 14; id++)
+            for (int id = 0; id < 10; id++)
             {
                 setDataFloat_spi(0);
                 setDataFloat_spi(0);
@@ -371,6 +383,7 @@ void can_board_send(char sel)//发送到单片机
     if(spi_tx_cnt>SPI_SEND_MAX)
        printf("spi_tx_cnt=%d over flow!!!\n",spi_tx_cnt);
     spi_tx_cnt_show=spi_tx_cnt;
+    pthread_mutex_unlock(&lock);
 }
 
 void transfer(int fd, int sel)//发送
@@ -485,6 +498,8 @@ void memory_write(void)
     static float temp=0;
     mem_write_cnt=0;
     
+    // Защита доступа к spi_rx данных
+    pthread_mutex_lock(&lock);
     setDataFloat_mem( spi_rx.att[0]);
     setDataFloat_mem( spi_rx.att[1]);
     setDataFloat_mem( spi_rx.att[2]);
@@ -495,8 +510,8 @@ void memory_write(void)
     setDataFloat_mem( spi_rx.acc_b[1]);
     setDataFloat_mem( spi_rx.acc_b[2]);
 
-    // 14 двигателей вместо 4 ног × 3 мотора
-    for (int i = 0; i < 14; i++)
+    // 10 двигателей вместо 4 ног × 3 мотора
+    for (int i = 0; i < 10; i++)
     {
         setDataFloat_mem(spi_rx.q[i]);
         setDataFloat_mem(spi_rx.dq[i]);
@@ -509,17 +524,18 @@ void memory_write(void)
         setDataFloat_mem(spi_rx.bat_v[i]);
     }
 
-    // Статус подключения для 14 двигателей
-    for (int i = 0; i < 14; i++)
+    // Статус подключения для 10 двигателей
+    for (int i = 0; i < 10; i++)
     {
         setDataChar_mem(spi_rx.connect_motor[i]);
     }
 
-    // Готовность для 14 двигателей
-    for (int i = 0; i < 14; i++)
+    // Готовность для 10 двигателей
+    for (int i = 0; i < 10; i++)
     {
         setDataChar_mem(spi_rx.ready[i]);
     }
+    pthread_mutex_unlock(&lock);
 }
 
 void memory_read(void){
@@ -527,8 +543,10 @@ void memory_read(void){
 
     printf("mem_read_cnt=%d\n",mem_read_cnt);
 
-    // 14 двигателей вместо 4 ног × 3 мотора
-    for (int i = 0; i < 14; i++)
+    // Защита доступа к spi_tx и mems данным
+    pthread_mutex_lock(&lock);
+    // 10 двигателей вместо 4 ног × 3 мотора
+    for (int i = 0; i < 10; i++)
     {
         spi_tx.q_set[i] = floatFromData_spi(mem_read_buf, &mem_read_cnt);
         printf("q_set[%d]=%f\n",i,spi_tx.q_set[i]);
@@ -556,6 +574,7 @@ void memory_read(void){
     mems.Mag_CALIBRATE=charFromData_spi(mem_read_buf, &mem_read_cnt);
 
     spi_tx.beep_state=charFromData_spi(mem_read_buf, &mem_read_cnt);
+    pthread_mutex_unlock(&lock);
 
     // mems.imu_pos.x= floatFromData_spi(mem_read_buf, &mem_read_cnt);
     // mems.imu_pos.y= floatFromData_spi(mem_read_buf, &mem_read_cnt);
@@ -569,7 +588,11 @@ void memory_read(void){
 }
 
 
-pthread_mutex_t lock;
+// Обработчик сигналов для корректного завершения
+void signal_handler(int sig) {
+    printf("Hardware::Received signal %d, shutting down...\n", sig);
+    running = 0;
+}
 
 void* Thread_Mem(void*)//内存管理线程
 {
@@ -579,15 +602,17 @@ void* Thread_Mem(void*)//内存管理线程
     int i=0,memory_update=0;
     int flag = 0;
     int link_cnt=0;
+    
+    printf("Hardware::Thread_Mem started\n");
     //共享内存
-    int shmid_rx = shmget((key_t)MEM_SPI, sizeof(shareMemory_spi), 0666|IPC_CREAT); //失败返回-1，假设成功。
-    //0666表示权限，与文件一样。如0644,它表示允许一个进程创建的共享内存被内存创建者所拥有的进程向共享内存读取和写入数据，同时其他用户创建的进程只能读取共享内存。
-    void *shm_rx = shmat(shmid_rx, (void*)0, 0);  //失败返回-1，假设成功
+    int shmid_rx = shmget((key_t)MEM_SPI, sizeof(shareMemory_spi), 0666|IPC_CREAT);
+    void *shm_rx = shmat(shmid_rx, (void*)0, 0);
+    
     shareMemory *pshm_rx = (shareMemory*)shm_rx;
     pshm_rx->flag = 0;
     printf("Hardware::Memory Hardware attached at %p\n",shm_rx);
 
-    while (1)
+    while (running)
     {
         //共享内存写
         if(pshm_rx->flag == 0)
@@ -600,7 +625,6 @@ void* Thread_Mem(void*)//内存管理线程
                 }
             }
             mem_loss_cnt=0;
-            //pthread_mutex_lock(&lock);
             printf("memory_write\n");
             memory_write();
             for(int k=0;k<MEM_SIZE/2-1;k++)
@@ -608,7 +632,6 @@ void* Thread_Mem(void*)//内存管理线程
             for(int k=MEM_SIZE/2;k<MEM_SIZE;k++)
                 mem_read_buf[k]=pshm_rx->szMsg[k];
             memory_read();
-            //pthread_mutex_unlock(&lock);
             pshm_rx->flag = 1;
         }else{
             mem_loss_cnt+=sys_dt;
@@ -619,13 +642,15 @@ void* Thread_Mem(void*)//内存管理线程
             mem_connect=0;
             mem_loss_cnt=0;
             mem_init_cnt=0;
-            for (int i = 0; i < 14; i++){
+            pthread_mutex_lock(&lock);
+            for (int i = 0; i < 10; i++){
                 spi_tx.q_set[i] = spi_rx.q[i];
                 spi_tx.tau_ff[i] = 0;
             }
             spi_tx.kp= spi_tx.ki= spi_tx.kd= spi_tx.en_motor= 0;
             spi_tx.kp_sw= spi_tx.ki_sw= spi_tx.kd_sw= spi_tx.en_motor= 0;
             spi_tx.kp_st= spi_tx.ki_st= spi_tx.kd_st= spi_tx.en_motor= 0;
+            pthread_mutex_unlock(&lock);
             printf("Hardware::Memery Control Loss!!!\n");
         }
 
@@ -637,7 +662,7 @@ void* Thread_Mem(void*)//内存管理线程
 }
 
 
-void* Thread_SPI(void*)//内存管理线程
+void* Thread_SPI(void*)//SPI管理线程
 {
     static float timer_spi1 = 0,timer_spi2=0;
     static int cnt = 0;
@@ -651,12 +676,14 @@ void* Thread_SPI(void*)//内存管理线程
     int flag = 0;
     int fd = 0;
     char buf_mem[MEM_SIZE]={1,2};
+    
+    printf("Hardware::Thread_SPI started\n");
     Cycle_Time_Init();
     fd=SPISetup(0,speed); //初始化SPI通道0，并设置为最大速度500000hz
     if(fd==-1)
         printf("init spi failed!\n");
 
-    while (1)
+    while (running)
     {
         sys_dt = Get_Cycle_T(15);
         timer_cnt+=sys_dt;
@@ -693,90 +720,6 @@ void* Thread_SPI(void*)//内存管理线程
 }
 
 
-#if NO_THREAD&&!EN_MULTI_THREAD
-int Thread_ALL(void)
-#else
-void* Thread_ALL(void*)
-#endif
-{
-    static float timer_spi1 = 0,timer_spi2=0;
-    static int mem_init_cnt=0;
-    float sys_dt = 0;
-    int i=0,memory_update=0;
-    int flag = 0;
-    int link_cnt=0;
-    int fd = 0;
-    char buf_mem[MEM_SIZE]={1,2};
-    Cycle_Time_Init();
-
-    fd=SPISetup(0,speed); //初始化SPI通道0，并设置为最大速度500000hz
-    if(fd==-1)
-        printf("init spi failed!\n");
-    //while(1);
-    //共享内存
-    int shmid_rx = shmget((key_t)MEM_SPI, sizeof(shareMemory_spi), 0666|IPC_CREAT); //失败返回-1，假设成功。
-    //0666表示权限，与文件一样。如0644,它表示允许一个进程创建的共享内存被内存创建者所拥有的进程向共享内存读取和写入数据，同时其他用户创建的进程只能读取共享内存。
-    void *shm_rx = shmat(shmid_rx, (void*)0, 0);  //失败返回-1，假设成功
-    shareMemory *pshm_rx = (shareMemory*)shm_rx;
-    pshm_rx->flag = 0;
-    printf("Hardware::Memory Hardware attached at %p\n",shm_rx);
-    while (1)
-    {
-        sys_dt = Get_Cycle_T(15);
-        spi_loss_cnt += sys_dt;
-        if (spi_loss_cnt > 1.5&& spi_connect==1)
-        {
-            spi_loss_cnt = 0;
-            spi_connect = 0;
-            printf("Hardware::Hardware SPI-STM32 Loss!!!\n");
-        }
-        //-------SPI CAN发送
-        timer_spi1+= sys_dt;
-        timer_spi2+= sys_dt;
-
-        transfer(fd, 41);
-
-        //共享内存写
-        if(pshm_rx->flag == 0)
-        {
-            if(!mem_connect){
-                mem_init_cnt++;
-                if(mem_init_cnt>3){
-                printf("Hardware::Memery Control Link=%d!!!\n",link_cnt++);
-                mem_connect=1;
-                }
-            }
-            mem_loss_cnt=0;
-            memory_write();
-            for(int k=0;k<MEM_SIZE/2-1;k++)
-                pshm_rx->szMsg[k]=mem_write_buf[k];
-            for(int k=MEM_SIZE/2;k<MEM_SIZE;k++)
-                mem_read_buf[k]=pshm_rx->szMsg[k];
-            memory_read();
-            pshm_rx->flag = 1;
-        }else
-            mem_loss_cnt+=sys_dt;
-
-        if(mem_loss_cnt>1&&mem_connect==1){
-            mem_connect=0;
-            mem_loss_cnt=0;
-            mem_init_cnt=0;
-            for (int i = 0; i < 14; i++){
-                spi_tx.q_set[i] = spi_rx.q[i];
-                spi_tx.tau_ff[i] = 0;
-            }
-            spi_tx.kp= spi_tx.ki= spi_tx.kd= spi_tx.en_motor= 0;
-            spi_tx.kp_st= spi_tx.ki_st= spi_tx.kd_st= spi_tx.en_motor= 0;
-            spi_tx.kp_sw= spi_tx.ki_sw= spi_tx.kd_sw= spi_tx.en_motor= 0;
-            printf("Hardware::Memery Control Loss!!!\n");
-        }
-        usleep(200);
-    }
-    close(fd);
-    shmdt(shm_rx);  //失败返回-1，假设成功
-    shmctl(shmid_rx, IPC_RMID, 0);  //
-    return 0;
-}
 
 
 //===========================================================USB-STM32 Comm===========================
@@ -790,259 +733,6 @@ using namespace std;
 //serial::Serial m_serial("/dev/ttyACM0",2000000 , serial::Timeout::simpleTimeout(1000));
 #endif
 const char *dev  = "/dev/ttyACM0";
-
-void* Thread_USB(void*)//not use now
-{
-
-    int i;
-    static uint8_t state_usb=0, rx_cnt_usb=0;
-    static uint8_t _data_len2_usb = 0, _data_cnt2_usb = 0;
-    int ret=0;
-    int rx_length=42;
-    uint8_t data_usb = 0;
-    int iResult = -1;
-    int fd = -1,iCommPort,iBaudRate,iDataSize,iStopBit;
-    char cParity;
-    int iLen;
-#if !USE_SERIAL
-    iCommPort = 1;
-    fd = open_port(iCommPort);
-    if( fd<0 )
-    {
-    close_port(fd);
-    printf("Hardware::USB open_port error !\n");
-    //return 1;
-    }
-    iBaudRate = 2000000;
-    iDataSize = 8;
-    cParity = 'N';
-    iStopBit = 1;
-    iResult = set_port(fd,iBaudRate,iDataSize,cParity,iStopBit);
-#else
-    serial::Serial m_serial;
-    //配置串口：serial_port_ = "/dev/ttyUSB0"
-    m_serial.setPort( "/dev/ttyACM0");
-    //配置波特率：baudrate_ = 115200
-    m_serial.setBaudrate(2000000);
-    m_serial.setBytesize(serial::eightbits);
-    //设置奇偶校验位//serial::parity_even :偶校验  serial::parity_odd :奇校验 serial::parity_mark :校验位始终为1 serial::parity_space :校验位始终为0 serial::parity_none :无校验
-    m_serial.setParity(serial::parity_none);
-    //设置停止位 serial::stopbits_one ：1位 serial::stopbits_one_point_five ：1.5位 serial::stopbits_two ：2位
-    m_serial.setStopbits(serial::stopbits_one);
-    m_serial.open();
-    cout << "Is the serial port open?"<< endl;
-    if(m_serial.isOpen())
-    cout << " Yes." << endl;
-    else
-    cout << " No." << endl;
-#endif
-//------------------------------------------memery-------------------------------------
-    static float timer_spi1 = 0,timer_spi2=0;
-    static int mem_init_cnt=0;
-    float sys_dt = 0;
-    int memory_update=0;
-    int flag = 0;
-    int link_cnt=0;
-    char buf_mem[MEM_SIZE]={1,2};
-    Cycle_Time_Init();
-    //共享内存
-#if 0
-    int shmid_rx = shmget((key_t)MEM_SPI, sizeof(shareMemory_spi), 0666|IPC_CREAT); //失败返回-1，假设成功。
-    //0666表示权限，与文件一样。如0644,它表示允许一个进程创建的共享内存被内存创建者所拥有的进程向共享内存读取和写入数据，同时其他用户创建的进程只能读取共享内存。
-    void *shm_rx = shmat(shmid_rx, (void*)0, 0);  //失败返回-1，假设成功
-    shareMemory *pshm_rx = (shareMemory*)shm_rx;
-    pshm_rx->flag = 0;
-    printf("Hardware::Memory Hardware attached at %p\n",shm_rx);
-#endif
-    fd_set  rset;
-    int  rv = -1 ;
-    int nread=0;
-    struct timeval timeout;
-    timeout.tv_sec=0;
-    timeout.tv_usec=1000;
-
-    while (1)
-    {
-
-        sys_dt = Get_Cycle_T(20);
-        spi_loss_cnt += sys_dt;
-        if (spi_loss_cnt > 1.5&& spi_connect==1)
-        {
-            spi_loss_cnt = 0;
-            spi_connect = 0;
-            printf("Hardware::Hardware USB-STM32 Loss!!!\n");
-        }
-
-#if USE_SERIAL
-        nread = m_serial.available();
-        // printf(" read_cefore=%d\n",nread);
-        if (nread>0){
-            printf(" \n read_cefore=%d\n",nread);
-            m_serial.read(buff, nread);
-            //m_serial.flush();
-            //m_serial.flushInput();
-        }
-#else
-        //iLen = read_port(fd,buff,rx_length);
-        FD_ZERO(&rset);
-        FD_SET(fd, &rset);
-        rv = select(fd+1, &rset, NULL, NULL, &timeout);
-        nread=0;
-        if(rv < 0)
-        {
-            //printf("select() failed: %s\n", strerror(errno));
-            //return 0;
-        }else{
-        nread = read(fd, buff, rx_length);
-        //printf("nread=%d\n",nread);
-        }
-#endif
-       // printf("nread=%d\n ",nread);
-        for (int i = 0; i < nread; i++)
-        {
-            //data_usb = buff[i];
-            // printf("%d ",buff[i]);
-            if (state_usb == 0 && data_usb == 0xFF)
-            {
-                state_usb = 1;
-                usb_rx_buf[0] = data_usb;
-            }
-            else if (state_usb == 1 && data_usb == 0xFB)
-            {
-                state_usb = 2;
-                usb_rx_buf[1] = data_usb;
-                //printf("rx_check1\n");
-            }
-            else if (state_usb == 2 && data_usb > 0 && data_usb < 0XF1)
-            {
-                state_usb = 3;
-                usb_rx_buf[2] = data_usb;
-                 //printf("rx_check2 data=%d\n",data_usb);
-            }
-            else if (state_usb == 3 && data_usb < SPI_BUF_SIZE)
-            {
-                state_usb = 4;
-                usb_rx_buf[3] = data_usb;
-                _data_len2_usb = data_usb;
-                _data_cnt2_usb = 0;
-                //printf("rx_check3 data=%d\n",data_usb);
-            }
-            else if (state_usb == 4 && _data_len2_usb > 0)
-            {
-                _data_len2_usb--;
-                usb_rx_buf[4 + _data_cnt2_usb++] = data_usb;
-                if (_data_len2_usb == 0)
-                    state_usb = 5;
-            }
-            else if (state_usb == 5)
-            {
-                state_usb = 0;
-                usb_rx_buf[4 + _data_cnt2_usb] = data_usb;
-                usb_rx_cnt = 4;
-                for(i=0;i<SPI_BUF_SIZE;i++)
-                    spi_rx_buf[i]=usb_rx_buf[i];
-                slave_rx(spi_rx_buf, _data_cnt2_usb + 5);
-                //printf("att0=%f att1=%f att2=%f dt=%f\n",spi_rx.att[0],spi_rx.att[1],spi_rx.att[2], Get_Cycle_T(0));
-                //printf("rx_check3\n");
-            }
-            else
-                state_usb = 0;
-        }
-
-       // printf(" iLen=%d\n",iLen);
-        //printf("\n");
-
-        //-------USB CAN发送
-        timer_spi1+= sys_dt;
-        timer_spi2+= sys_dt;
-        if (timer_spi2 > 1)
-        {
-            timer_spi2 = 0;
-            can_board_send(50);
-        }
-        #if EN_SPI_BIG||0
-            can_board_send(20);
-        #else
-        else if (timer_spi1 > 0.1)//10ms
-        {
-            timer_spi1 = 0;
-            can_board_send(2);
-        }
-        else
-            can_board_send(1); //1ms
-        #endif
-#if 1
-        for(i=0;i<spi_tx_cnt;i++){
-            usb_tx_buf[i]=spi_tx_buf[i];
-            //printf("%02x ",usb_tx_buf[i]);
-        }
-       // printf("\n");
-#else
-        spi_tx_cnt=0;
-        for(i=0;i<41;i++)
-         spi_tx_buf[spi_tx_cnt++]=i;
-#endif
-#if !USE_SERIAL
-        iLen = write_port(fd,usb_tx_buf,spi_tx_cnt);
-#else
-        m_serial.write(usb_tx_buf, spi_tx_cnt);
-#endif
-        //printf("tx=%d\n",iLen);
-#if 0
-        //共享内存写
-        if(pshm_rx->flag == 0)
-        {
-            if(!mem_connect){
-                mem_init_cnt++;
-                if(mem_init_cnt>3){
-                printf("Hardware::Memery Control Link=%d!!!\n",link_cnt++);
-                mem_connect=1;
-                }
-            }
-            mem_loss_cnt=0;
-            memory_write();
-            for(int k=0;k<MEM_SIZE/2-1;k++)
-                pshm_rx->szMsg[k]=mem_write_buf[k];
-            for(int k=MEM_SIZE/2;k<MEM_SIZE;k++)
-                mem_read_buf[k]=pshm_rx->szMsg[k];
-            memory_read();
-            pshm_rx->flag = 1;
-        }else
-            mem_loss_cnt+=sys_dt;
-
-        if(mem_loss_cnt>1&&mem_connect==1){
-            mem_connect=0;
-            mem_loss_cnt=0;
-            mem_init_cnt=0;
-            for (int i = 0; i < 14; i++){
-                spi_tx.q_set[i] = spi_rx.q[i];
-                spi_tx.tau_ff[i] = 0;
-            }
-            spi_tx.kp= spi_tx.ki= spi_tx.kd= spi_tx.en_motor= 0;
-
-            printf("Hardware::Memery Control Loss!!!\n");
-        }
-#endif
-       usleep(50);
-    }
-    close(fd);
-   // shmdt(shm_rx);  //失败返回-1，假设成功
-    //shmctl(shmid_rx, IPC_RMID, 0);  //
-    return 0;
-}
-
-
-//===========================================================USB-MEMS==========================================================
-IMUData_Packet_t IMUData_Packet; 
-AHRSData_Packet_t AHRSData_Packet;
-char ttl_receive;
-char Fd_data[64];
-char Fd_rsimu[64];
-char Fd_rsahrs[64];
-int rs_imutype =0;
-int rs_ahrstype =0;
-extern int Time_count;
-const char *dev_usb_mems  = "/dev/ttyUSB0";
 
 /*************
 实现16进制的can数据转换成浮点型数据
@@ -1079,283 +769,32 @@ long long timestamp(char Data_1,char Data_2,char Data_3,char Data_4)
     return transition_32;
 }
 
-void AHRSData2PC(void)
-{
-    printf("AHRS: The RollSpeed =  %f\r\n",AHRSData_Packet.RollSpeed);
-    printf("AHRS: The PitchSpeed =  %f\r\n",AHRSData_Packet.PitchSpeed);
-    printf("AHRS: The HeadingSpeed =  %f\r\n",AHRSData_Packet.HeadingSpeed);
-    printf("AHRS: The Roll =  %f\r\n",AHRSData_Packet.Roll);
-    printf("AHRS: The Pitch =  %f\r\n",AHRSData_Packet.Pitch);
-    printf("AHRS: The Heading =  %f\r\n",AHRSData_Packet.Heading);
-//    printf("AHRS: The Quaternion.Qw =  %f\r\n",AHRSData_Packet.Qw);
-//    printf("AHRS: The Quaternion.Qx =  %f\r\n",AHRSData_Packet.Qx);
-//    printf("AHRS: The Quaternion.Qy =  %f\r\n",AHRSData_Packet.Qy);
-//    printf("AHRS: The Quaternion.Qz =  %f\r\n",AHRSData_Packet.Qz);
-//    printf("AHRS: The Timestamp =  %d\r\n",AHRSData_Packet.Timestamp);
-}
-
-void IMUData2PC(void)
-{
-    //printf("Now start sending IMU data.\r\n");
-    printf("IMU: The gyroscope_x =  %f\r\n",IMUData_Packet.gyroscope_x);
-    printf("IMU:The gyroscope_y =  %f\r\n",IMUData_Packet.gyroscope_y);
-    printf("IMU:The gyroscope_z =  %f\r\n",IMUData_Packet.gyroscope_z);
-    printf("IMU:The accelerometer_x =  %f\r\n",IMUData_Packet.accelerometer_x);
-    printf("IMU:The accelerometer_y =  %f\r\n",IMUData_Packet.accelerometer_y);
-    printf("IMU:The accelerometer_z =  %f\r\n",IMUData_Packet.accelerometer_z);
-//    printf("IMU:The magnetometer_x =  %f\r\n",IMUData_Packet.magnetometer_x);
-//    printf("IMU:The magnetometer_y =  %f\r\n",IMUData_Packet.magnetometer_y);
-//    printf("IMU:The magnetometer_z =  %f\r\n",IMUData_Packet.magnetometer_z);
-//    printf("IMU:The Timestamp =  %d\r\n",IMUData_Packet.Timestamp);
-    //printf("Now the data of IMU has been sent.\r\n");
-
-}
-
-char TTL_Hex2Dec(void)
-{
-    char i;
-     if(rs_ahrstype==1)
-    {
-        if(Fd_rsahrs[1]==TYPE_AHRS&&Fd_rsahrs[2]==AHRS_LEN)
-        {
-        AHRSData_Packet.RollSpeed=DATA_Trans(Fd_rsahrs[7],Fd_rsahrs[8],Fd_rsahrs[9],Fd_rsahrs[10]);       //横滚角速度
-        AHRSData_Packet.PitchSpeed=DATA_Trans(Fd_rsahrs[11],Fd_rsahrs[12],Fd_rsahrs[13],Fd_rsahrs[14]);   //俯仰角速度
-        AHRSData_Packet.HeadingSpeed=DATA_Trans(Fd_rsahrs[15],Fd_rsahrs[16],Fd_rsahrs[17],Fd_rsahrs[18]); //偏航角速度
-
-        AHRSData_Packet.Roll=DATA_Trans(Fd_rsahrs[19],Fd_rsahrs[20],Fd_rsahrs[21],Fd_rsahrs[22]);      //横滚角
-        AHRSData_Packet.Pitch=DATA_Trans(Fd_rsahrs[23],Fd_rsahrs[24],Fd_rsahrs[25],Fd_rsahrs[26]);     //俯仰角
-        AHRSData_Packet.Heading=DATA_Trans(Fd_rsahrs[27],Fd_rsahrs[28],Fd_rsahrs[29],Fd_rsahrs[30]);	 //偏航角
-
-        AHRSData_Packet.Qw=DATA_Trans(Fd_rsahrs[31],Fd_rsahrs[32],Fd_rsahrs[33],Fd_rsahrs[34]);  //四元数
-        AHRSData_Packet.Qx=DATA_Trans(Fd_rsahrs[35],Fd_rsahrs[36],Fd_rsahrs[37],Fd_rsahrs[38]);
-        AHRSData_Packet.Qy=DATA_Trans(Fd_rsahrs[39],Fd_rsahrs[40],Fd_rsahrs[41],Fd_rsahrs[42]);
-        AHRSData_Packet.Qz=DATA_Trans(Fd_rsahrs[43],Fd_rsahrs[44],Fd_rsahrs[45],Fd_rsahrs[46]);
-        AHRSData_Packet.Timestamp=timestamp(Fd_rsahrs[47],Fd_rsahrs[48],Fd_rsahrs[49],Fd_rsahrs[50]);   //时间戳
-        //AHRSData2PC();
-        }
-    rs_ahrstype=0;
-    }
-
-    if(rs_imutype==1)
-    {
-        if(Fd_rsimu[1]==TYPE_IMU&&Fd_rsimu[2]==IMU_LEN)
-        {
-        // printf("SDFFDSFDSFSDFDS");
-        IMUData_Packet.gyroscope_x=DATA_Trans(Fd_rsimu[7],Fd_rsimu[8],Fd_rsimu[9],Fd_rsimu[10]);  //角速度
-        IMUData_Packet.gyroscope_y=DATA_Trans(Fd_rsimu[11],Fd_rsimu[12],Fd_rsimu[13],Fd_rsimu[14]);
-        IMUData_Packet.gyroscope_z=DATA_Trans(Fd_rsimu[15],Fd_rsimu[16],Fd_rsimu[17],Fd_rsimu[18]);
-
-        IMUData_Packet.accelerometer_x=DATA_Trans(Fd_rsimu[19],Fd_rsimu[20],Fd_rsimu[21],Fd_rsimu[22]);  //线加速度
-        IMUData_Packet.accelerometer_y=DATA_Trans(Fd_rsimu[23],Fd_rsimu[24],Fd_rsimu[25],Fd_rsimu[26]);
-        IMUData_Packet.accelerometer_z=DATA_Trans(Fd_rsimu[27],Fd_rsimu[28],Fd_rsimu[29],Fd_rsimu[30]);
-
-        IMUData_Packet.magnetometer_x=DATA_Trans(Fd_rsimu[31],Fd_rsimu[32],Fd_rsimu[33],Fd_rsimu[34]);  //磁力计数据
-        IMUData_Packet.magnetometer_y=DATA_Trans(Fd_rsimu[35],Fd_rsimu[36],Fd_rsimu[37],Fd_rsimu[38]);
-        IMUData_Packet.magnetometer_z=DATA_Trans(Fd_rsimu[39],Fd_rsimu[40],Fd_rsimu[41],Fd_rsimu[42]);
-
-        IMUData_Packet.Timestamp=timestamp(Fd_rsimu[55],Fd_rsimu[56],Fd_rsimu[57],Fd_rsimu[58]);   //时间戳
-        //IMUData2PC();
-        }
-        rs_imutype=0;
-    }
-    return 0;
-}
-
-void* Thread_USB_MEMS(void*)//not use now
-{
-
-    int i;
-    static uint8_t state_usb=0, rx_cnt_usb=0;
-    static uint8_t _data_len2_usb = 0, _data_cnt2_usb = 0;
-    int ret=0;
-    int rx_length=42;
-    uint8_t data_usb = 0;
-    int iResult = -1;
-    int fd = -1,iCommPort,iBaudRate,iDataSize,iStopBit;
-    char cParity;
-    int iLen;
-
-    serial::Serial m_serial;
-    m_serial.setPort( "/dev/ttyUSB0");
-    m_serial.setBaudrate(921600);
-    m_serial.setBytesize(serial::eightbits);
-    m_serial.setParity(serial::parity_none);
-    m_serial.setStopbits(serial::stopbits_one);
-    m_serial.open();
-    while(m_serial.isOpen()==0)
-    {
-        m_serial.open();
-        usleep(100000);
-    }
-//------------------------------------------memery-------------------------------------
-    static float timer_spi1 = 0,timer_spi2=0;
-    static int mem_init_cnt=0;
-    float sys_dt = 0;
-    int memory_update=0;
-    int flag = 0;
-    int link_cnt=0;
-    char buf_mem[MEM_SIZE]={1,2};
-    Cycle_Time_Init();
-
-    fd_set  rset;
-    int  rv = -1 ;
-    int nread=0;
-    struct timeval timeout;
-    timeout.tv_sec=0;
-    timeout.tv_usec=1000;
-
-    static char Count=0;
-    static char rs_count=0;
-    static char last_rsnum=0;
-    static char rsimu_flag=1;
-    static char rsacc_flag=0;
-    int att_cal=0,gyro_cal=0;
-    //read bias
-    spi_rx.att_usb_bias[0]=config_hardware["mems_param"]["att_bias"][0].as<float>();//
-    spi_rx.att_usb_bias[1]=config_hardware["mems_param"]["att_bias"][1].as<float>();//
-    spi_rx.att_usb_bias[2]=config_hardware["mems_param"]["att_bias"][2].as<float>();//
-    spi_rx.att_rate_usb_bias[0]=config_hardware["mems_param"]["gyro_bias"][0].as<float>();//
-    spi_rx.att_rate_usb_bias[1]=config_hardware["mems_param"]["gyro_bias"][1].as<float>();//
-    spi_rx.att_rate_usb_bias[2]=config_hardware["mems_param"]["gyro_bias"][2].as<float>();//
-
-    while (1)
-    {
-        sys_dt = Get_Cycle_T(20);
-        mems_usb_loss_cnt += sys_dt;
-        if (mems_usb_loss_cnt > 1.5&& mems_usb_connect==1)
-        {
-            mems_usb_loss_cnt = 0;
-            mems_usb_connect = 0;
-            printf("Hardware::Hardware USB-MEMS Loss!!!\n");
-        }
-
-        nread = m_serial.available();
-        if (nread>0){
-            //printf(" \n read_cefore=%d\n",nread);
-            m_serial.read(buff, nread);
-        }
-
-        for (int i = 0; i < nread; i++)
-        {
-            // printf("%02x ",buff[i]);
-            Fd_data[Count]=buff[i];  //串口数据填入数组
-            if(((last_rsnum==FRAME_END)&&(buff[i] == FRAME_HEAD))||Count>0)
-                {
-                rs_count=1;
-                Count++;
-
-                mems_usb_loss_cnt=0;
-                if(!mems_usb_connect){
-                 printf("Hardware::Hardware USB-MEMS Connect-In!!!\n");
-                 mems_usb_connect=1;
-                }
-
-                if((Fd_data[1]==TYPE_IMU)&&(Fd_data[2]==IMU_LEN))
-                   { rsimu_flag=1;rsacc_flag=0;}
-                else if((Fd_data[1]==TYPE_AHRS)&&(Fd_data[2]==AHRS_LEN))
-                   { rsacc_flag=1;rsimu_flag=0;}
-                }
-                else
-                    Count=0;
-                last_rsnum=buff[i];
-
-            if(rsimu_flag==1 && Count==IMU_RS) //将本帧数据保存至Fd_rsimu数组中
-            {
-                Count=0;
-                rsimu_flag=0;
-                rs_imutype=0;
-                if(Fd_data[IMU_RS-1]==FRAME_END) //帧尾校验
-                memcpy(Fd_rsimu, Fd_data, sizeof(Fd_data));
-            }
-            else if(rsacc_flag==1 && Count==AHRS_RS) //
-            {
-                Count=0;
-                rsacc_flag=0;
-                rs_ahrstype=1;
-                if(Fd_data[AHRS_RS-1]==FRAME_END)
-                memcpy(Fd_rsahrs, Fd_data, sizeof(Fd_data));
-            }
-        }
-
-      TTL_Hex2Dec();
-
-      //cal imu
-      if(att_cal==0&&(mems.Acc_CALIBRATE))
-          att_cal=1;
-     // printf("%d %d\n",att_cal,mems.Acc_CALIBRATE);
-      if(att_cal==1){
-        att_cal=2;
-        spi_rx.att_usb_bias[0]=spi_rx.att_usb[0];
-        spi_rx.att_usb_bias[1]=spi_rx.att_usb[1];
-        config_hardware["mems_param"]["att_bias"][0]=spi_rx.att_usb_bias[0];//
-        config_hardware["mems_param"]["att_bias"][1]=spi_rx.att_usb_bias[1];//
-        config_hardware["mems_param"]["att_bias"][2]=spi_rx.att_usb_bias[2];//
-        std::ofstream fout_hard("/home/odroid/Tinker/Param/param_hardware.yaml");
-        fout_hard<<config_hardware;
-        fout_hard.close();
-      }
-      if(att_cal==2&&mems.Acc_CALIBRATE==0&&mems.Gyro_CALIBRATE==0){
-          printf("Hardware::IMU Mems Att bias is [%f] [%f] [%f]\n",spi_rx.att_usb_bias[0],spi_rx.att_usb_bias[1],spi_rx.att_usb_bias[2]);
-          att_cal=0;
-      }
-
-      if(gyro_cal==0&&(mems.Gyro_CALIBRATE))
-          gyro_cal=1;
-
-      if(gyro_cal==1){
-        gyro_cal=2;
-        spi_rx.att_rate_usb_bias[0]=spi_rx.att_rate_usb[0];
-        spi_rx.att_rate_usb_bias[1]=spi_rx.att_rate_usb[1];
-        spi_rx.att_rate_usb_bias[2]=spi_rx.att_rate_usb[2];
-        config_hardware["mems_param"]["gyro_bias"][0]=spi_rx.att_rate_usb_bias[0];//
-        config_hardware["mems_param"]["gyro_bias"][1]=spi_rx.att_rate_usb_bias[1];//
-        config_hardware["mems_param"]["gyro_bias"][2]=spi_rx.att_rate_usb_bias[2];//
-        std::ofstream fout_hard("/home/odroid/Tinker/Param/param_hardware.yaml");
-        fout_hard<<config_hardware;
-        fout_hard.close();
-      }
-      if(gyro_cal==2&&mems.Acc_CALIBRATE==0&&mems.Gyro_CALIBRATE==0){
-          printf("Hardware::IMU Mems Gyro bias is [%f] [%f] [%f]\n",spi_rx.att_rate_usb_bias[0],spi_rx.att_rate_usb_bias[1],spi_rx.att_rate_usb_bias[2]);
-          gyro_cal=0;
-      }
-      usleep(2*1000);
-    }
-    close(fd);
-
-    return 0;
-}
-
-
 int main(int argc, char *argv[])
 {
-    int use_usb_imu=config_hardware["mems_param"]["imu_usb_enable"].as<float>();//
-#if NO_THREAD&&!EN_MULTI_THREAD&&!USE_USB
-    Thread_ALL();
-#else
-    pthread_t tida, tidb,tidc;
+    pthread_t tida, tidb;
+    int ret;
+    
+    // Установка обработчика сигналов
+    signal(SIGINT, signal_handler);
+    signal(SIGTERM, signal_handler);
+    
+    // Инициализация мьютекса
     pthread_mutex_init(&lock, NULL);
-    #if EN_MULTI_THREAD&&!USE_USB
+
+    // Создание потоков
     pthread_create(&tida, NULL, Thread_Mem, NULL);
-    pthread_create(&tida, NULL, Thread_SPI, NULL);
-    if(use_usb_imu)
-        pthread_create(&tidc, NULL, Thread_USB_MEMS, NULL);
+    pthread_create(&tidb, NULL, Thread_SPI, NULL);
+
+    printf("Hardware::Threads created successfully\n");
+
+    // Ожидание завершения потоков
+    printf("Hardware::Waiting for threads to finish...\n");
     pthread_join(tida, NULL);
     pthread_join(tidb, NULL);
-    if(use_usb_imu)
-        pthread_join(tidc, NULL);
-    #else
-#if !USE_USB
-    pthread_create(&tida, NULL, Thread_ALL, NULL);
-    pthread_join(tida, NULL);
-#else
-    pthread_create(&tidb, NULL, Thread_Mem, NULL);
-    pthread_create(&tidc, NULL, Thread_USB, NULL);
-#endif
-#if EN_MULTI_THREAD
-    pthread_join(tidb, NULL);
-    pthread_join(tidc, NULL);
-#endif
-    #endif
-#endif
-    return 1;
+
+    // Очистка ресурсов
+    pthread_mutex_destroy(&lock);
+    printf("Hardware::All threads finished, program exiting\n");
+
+    return 0;
 }

@@ -84,13 +84,13 @@ float acc_b_usb[3];
 float att_usb_bias[3];
 float att_rate_usb_bias[3];
 float acc_b_usb_bias[3];
-float q[14];
-float dq[14];
-float tau[14];
+float q[10];
+float dq[10];
+float tau[10];
 float bat_v[4];
 char connect[4];
-char connect_motor[14];
-char ready[14];
+char connect_motor[10];
+char ready[10];
 _OCU ocu;
 _AOA aoa;
 _ARMSS arm_cmd_s;
@@ -103,11 +103,11 @@ extern _SPI_RX spi_rx;
 
 typedef struct
 {
-float q_set[14];
-float dq_set[14];
-float tau_ff[14];
+float q_set[10];
+float dq_set[10];
+float tau_ff[10];
 
-float q_reset[14];
+float q_reset[10];
 float t_to_i;
 float max_i;
 float kp,ki,kd;
