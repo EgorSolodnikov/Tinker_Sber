@@ -62,7 +62,6 @@ volatile int running = 1;  // Флаг для управления потока�
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))
 #define MEM_SPI 0001
 #define MEM_SIZE 2048
-#define EN_DBG_PRINT 0
 
 #if NO_THREAD&&!EN_MULTI_THREAD
 static uint32_t speed = 150000*4;//3Mhz 死机
@@ -165,8 +164,6 @@ float To_180_degrees(float x)
 
 int slave_rx(uint8_t *data_buf, int num)//接收解码--------------from stm32
 {
-    //printf("slave_rx num=%d\n",num);
-    static int cnt_p = 0;
     static int cnt_err_sum=0;
     uint8_t id;
     uint8_t sum = 0;
@@ -186,12 +183,15 @@ int slave_rx(uint8_t *data_buf, int num)//接收解码--------------from stm32
     // printf("\n");
 
     if (!(sum == *(data_buf + num - 1))){
-        printf("spi sum err=%d sum_cal=0x%X sum=0x%X !!\n",cnt_err_sum++,sum,*(data_buf + num - 1));
+        cnt_err_sum++;
+        printf("SPI ERROR: sum err=%d sum_cal=0x%X sum=0x%X\n",
+               cnt_err_sum, sum, *(data_buf + num - 1));
         return 0;
     }
 
     if (!(*(data_buf) == 0xFF && *(data_buf + 1) == 0xFB)){
-        printf("spi head err!!\n");
+        printf("SPI ERROR: Invalid header! Expected 0xFF 0xFB, got 0x%02X 0x%02X\n", 
+               *(data_buf), *(data_buf + 1));
         return 0;
     }
 
@@ -207,10 +207,10 @@ int slave_rx(uint8_t *data_buf, int num)//接收解码--------------from stm32
 
         // Защита доступа к spi_rx данным
         pthread_mutex_lock(&lock);
+        
         spi_rx.att[0] = floatFromData_spi(spi_rx_buf, &anal_cnt);
         spi_rx.att[1] = floatFromData_spi(spi_rx_buf, &anal_cnt);
         spi_rx.att[2] = floatFromData_spi(spi_rx_buf, &anal_cnt);
-        //printf("att0=%f att1=%f att2=%f dt=%f\n",spi_rx.att[0],spi_rx.att[1],spi_rx.att[2], Get_Cycle_T(0));
 
         spi_rx.att_rate[0] = floatFromData_spi(spi_rx_buf, &anal_cnt);
         spi_rx.att_rate[1] = floatFromData_spi(spi_rx_buf, &anal_cnt);
@@ -220,8 +220,20 @@ int slave_rx(uint8_t *data_buf, int num)//接收解码--------------from stm32
         spi_rx.acc_b[1] = floatFromData_spi(spi_rx_buf, &anal_cnt);
         spi_rx.acc_b[2] = floatFromData_spi(spi_rx_buf, &anal_cnt);
 
+        printf("Roll=%.2f, Pitch=%.2f, Yaw=%.2f, GyroX=%.2f, GyroY=%.2f, GyroZ=%.2f, AccX=%.2f, AccY=%.2f, AccZ=%.2f\n",
+            spi_rx.att[0], spi_rx.att[1], spi_rx.att[2],
+            spi_rx.att_rate[0], spi_rx.att_rate[1], spi_rx.att_rate[2],
+            spi_rx.acc_b[0], spi_rx.acc_b[1], spi_rx.acc_b[2]);
+
         for (int i = 0; i < 10; i++)
         {
+            // Проверка на переполнение буфера
+            if (anal_cnt + 6 > num) { // 6 байт для q, dq, tau (по 2 байта) + 1 байт для temp
+                printf("SPI ERROR: Buffer overflow in motor data parsing! anal_cnt=%d, num=%d, motor=%d\n", 
+                       anal_cnt, num, i);
+                break;
+            }
+            
             spi_rx.q[i] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,CAN_POS_DIV);
             spi_rx.dq[i] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,CAN_POS_DIV);
             spi_rx.tau[i] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,CAN_T_DIV);
@@ -232,12 +244,16 @@ int slave_rx(uint8_t *data_buf, int num)//接收解码--------------from stm32
             spi_rx.ready[i] = temp % 10;
 
             if(spi_rx.connect_motor[i] == 1){
-                printf("q[%d] = %f, tau[%d] = %f\n", i, spi_rx.q[i], i, spi_rx.tau[i]);
+                printf("q[%d] = %f, dq[%d] = %f, tau[%d] = %f\n", i, spi_rx.q[i], i, spi_rx.dq[i], i, spi_rx.tau[i]);
             }
         }
         pthread_mutex_unlock(&lock);
 
     } 
+    else {
+        // Неизвестный ID пакета - игнорируем
+        return 0;
+    }
     // else if (*(data_buf + 2) == 36) { // Пока не используем
     //     spi_rx.bat_v[0] = floatFromData_spi_int(spi_rx_buf, &anal_cnt,100);
     //     spi_rx.bat_v[0] =spi_rx.bat_v[1] =spi_rx.bat_v[2];
@@ -390,6 +406,7 @@ void transfer(int fd, int sel)//发送
 {
     static uint8_t state, rx_cnt;
     static uint8_t _data_len2 = 0, _data_cnt2 = 0;
+    static int parser_timeout = 0;
     int ret;
     uint8_t data = 0;
 
@@ -406,7 +423,7 @@ void transfer(int fd, int sel)//发送
     
 
     if (ret < 1){
-       printf("SPI Reopen!\n");
+       printf("SPI ERROR: Reopen! ret=%d\n", ret);
        SPISetup(0,speed);//printf("can't send spi message\n");
     }
     else
@@ -415,50 +432,88 @@ void transfer(int fd, int sel)//发送
         for (int i = 0; i < SPI_SEND_MAX; i++)
         {
             data = rx[i];
+            parser_timeout++;
+            
+            // Таймаут парсера - сбрасываем состояние если слишком долго парсим
+            if (parser_timeout > 1000) {
+                state = 0;
+                parser_timeout = 0;
+            }
+            
             if (state == 0 && data == 0xFF)
             {
-
                 state = 1;
                 spi_rx_buf[0] = data;
+                parser_timeout = 0;
             }
             else if (state == 1 && data == 0xFB)
             {
                 //printf("state 0 0x%X ",spi_rx_buf[0]);
                 state = 2;
                 spi_rx_buf[1] = data;
+                parser_timeout = 0;
                 //printf("state 1 0x%X ",data);
+            }
+            else if (state == 1 && data == 0xFF)
+            {
+                // Если получили еще один 0xFF, остаемся в состоянии 1
+                // Это нормально, так как может быть много 0xFF подряд
+                spi_rx_buf[0] = data;
+                parser_timeout = 0;
             }
             else if (state == 2 && data > 0 && data < 0XF1)
             {
                 state = 3;
                 spi_rx_buf[2] = data;
+                parser_timeout = 0;
                 //printf("state 2 0x%X ",data);
             }
             else if (state == 3 && data < SPI_BUF_SIZE)
             {
+                // Проверяем разумный размер пакета (должен быть ~111 байт)
+                if (data < 50 || data > 150) {
+                    state = 0;
+                    parser_timeout = 0;
+                    continue;
+                }
+                
                 state = 4;
                 spi_rx_buf[3] = data;
                 _data_len2 = data;
                 _data_cnt2 = 0;
+                parser_timeout = 0;
+                
                 //printf("state 3 0x%X ",data);
             }
             else if (state == 4 && _data_len2 > 0)
             {
                 _data_len2--;
                 spi_rx_buf[4 + _data_cnt2++] = data;
-                if (_data_len2 == 0)
+                if (_data_len2 == 0) {
                     state = 5;
+                    parser_timeout = 0;
+                }
                 //printf("state 4 0x%X ",data);
             }
             else if (state == 5)
             {
                 state = 0;
                 spi_rx_buf[4 + _data_cnt2] = data;
+                parser_timeout = 0;
+                
                 slave_rx(spi_rx_buf, _data_cnt2 + 5);
                 //printf("state 5 0x%X ",data);
             }
-            else
-                state = 0;
+            else {
+                
+                // Если получили 0xFF, сразу переходим в состояние 1
+                if (data == 0xFF) {
+                    state = 1;
+                    spi_rx_buf[0] = data;
+                } else {
+                    state = 0;
+                }
+            }
             // printf("%02x ",rx[i]); 
         }
         // printf("\n");
@@ -669,6 +724,8 @@ void* Thread_SPI(void*)//SPI管理线程
     static int timer_1s=0;
     static int timer_1m=0;
     static int timer_1h=0;
+    static int consecutive_errors = 0;
+    static int max_consecutive_errors = 10;
     // printf("SDFDSFDFS");
     static float timer_cnt=0;
     float sys_dt = 0;
@@ -705,8 +762,27 @@ void* Thread_SPI(void*)//SPI管理线程
         {
             spi_loss_cnt = 0;
             spi_connect = 0;
-            printf("Hardware::Hardware SPI-STM32 Loss!!!\n");
+            consecutive_errors++;
+            printf("Hardware::Hardware SPI-STM32 Loss!!! consecutive_errors=%d\n", consecutive_errors);
+            
+            // Если слишком много ошибок подряд, попробуем переинициализировать SPI
+            if (consecutive_errors >= max_consecutive_errors) {
+                printf("Hardware::Too many consecutive errors, reinitializing SPI...\n");
+                close(fd);
+                usleep(100000); // 100ms задержка
+                fd = SPISetup(0, speed);
+                if (fd == -1) {
+                    printf("Hardware::SPI reinitialization failed!\n");
+                } else {
+                    printf("Hardware::SPI reinitialized successfully\n");
+                    consecutive_errors = 0;
+                }
+            }
         }
+        else if (spi_connect == 1) {
+            consecutive_errors = 0; // Сброс счетчика при успешной связи
+        }
+        
         //-------SPI CAN发送
         timer_spi1+= sys_dt;
         timer_spi2+= sys_dt;
@@ -717,56 +793,6 @@ void* Thread_SPI(void*)//SPI管理线程
     }
     close(fd);
     return 0;
-}
-
-
-
-
-//===========================================================USB-STM32 Comm===========================
-#include "serial.hpp"
-#include <serial/serial.h>
-#include <iostream>
-uint8_t buff[512];
-
-using namespace std;
-#if USE_SERIAL
-//serial::Serial m_serial("/dev/ttyACM0",2000000 , serial::Timeout::simpleTimeout(1000));
-#endif
-const char *dev  = "/dev/ttyACM0";
-
-/*************
-实现16进制的can数据转换成浮点型数据
-****************/
-float DATA_Trans(char Data_1,char Data_2,char Data_3,char Data_4)
-{
-    long long transition_32;
-    float tmp=0;
-    int sign=0;
-    int exponent=0;
-    float mantissa=0;
-    transition_32 = 0;
-    transition_32 |=  Data_4<<24;
-    transition_32 |=  Data_3<<16;
-    transition_32 |=  Data_2<<8;
-    transition_32 |=  Data_1;
-    sign = (transition_32 & 0x80000000) ? -1 : 1;//符号位
-    //先右移操作，再按位与计算，出来结果是30到23位对应的e
-    exponent = ((transition_32 >> 23) & 0xff) - 127;
-    //将22~0转化为10进制，得到对应的x系数
-    mantissa = 1 + ((float)(transition_32 & 0x7fffff) / 0x7fffff);
-    tmp=sign * mantissa * pow(2, exponent);
-    return tmp;
-}
-
-long long timestamp(char Data_1,char Data_2,char Data_3,char Data_4)
-{
-    long transition_32;
-    transition_32 = 0;
-    transition_32 |=  Data_4<<24;
-    transition_32 |=  Data_3<<16;
-    transition_32 |=  Data_2<<8;
-    transition_32 |=  Data_1;
-    return transition_32;
 }
 
 int main(int argc, char *argv[])

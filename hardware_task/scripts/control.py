@@ -55,17 +55,20 @@ def set_flag_to_zero(shm):
 # Функция обновления параметра в shared memory
 def update_parameter(shm, param_name, id=0, value=None):
     if param_name in ['q_set', 'dq_set', 'tau_ff']:
-        if id == 0 or not (1 <= id < (MOTOR_COUNT+1)):
-            raise ValueError(f"Для {param_name} требуется индекс (0-{MOTOR_COUNT-1})")
+        if id == 0 or not (1 <= id <= MOTOR_COUNT):
+            raise ValueError(f"Для {param_name} требуется индекс (1-{MOTOR_COUNT})")
 
-        index = id - 1
-        motor_offset = index * BYTES_PER_MOTOR
+        index = id - 1  # Преобразуем в 0-based индекс
+        # Структура: q_set[0], dq_set[0], tau_ff[0], q_set[1], dq_set[1], tau_ff[1], ...
+        # Каждый двигатель занимает 12 байт (3 * 4 байта)
+        motor_offset = index * 12  # 12 байт на двигатель
+        
         if param_name == 'q_set':
-            offset = Q_SET_OFFSET_START + motor_offset + 4  # +4 из-за flag
+            offset = WRITE_OFFSET_BASE + motor_offset + 4  # +4 из-за flag
         elif param_name == 'dq_set':
-            offset = DQ_SET_OFFSET_START + motor_offset + 4
+            offset = WRITE_OFFSET_BASE + motor_offset + 4 + 4  # +4 для q_set, +4 для dq_set
         else:  # tau_ff
-            offset = TAU_FF_OFFSET_START + motor_offset + 4
+            offset = WRITE_OFFSET_BASE + motor_offset + 4 + 8  # +4 для q_set, +4 для dq_set, +4 для tau_ff
         data = pack_float(value)
         shm.write(data, offset)
         print(f"Обновлен {param_name}[{index}] на {value} по смещению {offset-4} в szMsg.")
@@ -93,12 +96,12 @@ def update_parameter(shm, param_name, id=0, value=None):
 
 # Функция обнуления всех данных
 def reset_all(shm):
-    # Обнуление массивов
+    # Обнуление массивов (чередующаяся структура)
     for i in range(MOTOR_COUNT):
-        motor_offset = i * BYTES_PER_MOTOR
-        shm.write(pack_float(0.0), Q_SET_OFFSET_START + motor_offset + 4)
-        shm.write(pack_float(0.0), DQ_SET_OFFSET_START + motor_offset + 4)
-        shm.write(pack_float(0.0), TAU_FF_OFFSET_START + motor_offset + 4)
+        motor_offset = i * 12  # 12 байт на двигатель
+        shm.write(pack_float(0.0), WRITE_OFFSET_BASE + motor_offset + 4)  # q_set
+        shm.write(pack_float(0.0), WRITE_OFFSET_BASE + motor_offset + 8)  # dq_set
+        shm.write(pack_float(0.0), WRITE_OFFSET_BASE + motor_offset + 12) # tau_ff
     
     # Обнуление скаляров
     shm.write(pack_float(0.0), KP_OFFSET + 4)
