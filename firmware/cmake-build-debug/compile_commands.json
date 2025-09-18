@@ -1,0 +1,146 @@
+[
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o CMakeFiles\\firmware.dir\\Core\\Src\\CAN_Messages.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Core\\Src\\CAN_Messages.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Core/Src/CAN_Messages.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/CMakeFiles/firmware.dir/Core/Src/CAN_Messages.c.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o CMakeFiles\\firmware.dir\\Core\\Src\\main.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Core\\Src\\main.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Core/Src/main.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/CMakeFiles/firmware.dir/Core/Src/main.c.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o CMakeFiles\\firmware.dir\\Core\\Src\\stm32f4xx_it.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Core\\Src\\stm32f4xx_it.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Core/Src/stm32f4xx_it.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/CMakeFiles/firmware.dir/Core/Src/stm32f4xx_it.c.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o CMakeFiles\\firmware.dir\\Core\\Src\\stm32f4xx_hal_msp.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Core\\Src\\stm32f4xx_hal_msp.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Core/Src/stm32f4xx_hal_msp.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/CMakeFiles/firmware.dir/Core/Src/stm32f4xx_hal_msp.c.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o CMakeFiles\\firmware.dir\\Core\\Src\\sysmem.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Core\\Src\\sysmem.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Core/Src/sysmem.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/CMakeFiles/firmware.dir/Core/Src/sysmem.c.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o CMakeFiles\\firmware.dir\\Core\\Src\\syscalls.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Core\\Src\\syscalls.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Core/Src/syscalls.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/CMakeFiles/firmware.dir/Core/Src/syscalls.c.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -o CMakeFiles\\firmware.dir\\startup_stm32f405xx.s.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\startup_stm32f405xx.s",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/startup_stm32f405xx.s",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/CMakeFiles/firmware.dir/startup_stm32f405xx.s.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o cmake\\stm32cubemx\\CMakeFiles\\STM32_Drivers.dir\\__\\__\\Core\\Src\\system_stm32f4xx.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Core\\Src\\system_stm32f4xx.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Core/Src/system_stm32f4xx.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f4xx.c.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o cmake\\stm32cubemx\\CMakeFiles\\STM32_Drivers.dir\\__\\__\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_can.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_can.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o cmake\\stm32cubemx\\CMakeFiles\\STM32_Drivers.dir\\__\\__\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_rcc.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_rcc.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o cmake\\stm32cubemx\\CMakeFiles\\STM32_Drivers.dir\\__\\__\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_rcc_ex.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_rcc_ex.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o cmake\\stm32cubemx\\CMakeFiles\\STM32_Drivers.dir\\__\\__\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_flash.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_flash.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o cmake\\stm32cubemx\\CMakeFiles\\STM32_Drivers.dir\\__\\__\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_flash_ex.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_flash_ex.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o cmake\\stm32cubemx\\CMakeFiles\\STM32_Drivers.dir\\__\\__\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_flash_ramfunc.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_flash_ramfunc.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o cmake\\stm32cubemx\\CMakeFiles\\STM32_Drivers.dir\\__\\__\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_gpio.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_gpio.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o cmake\\stm32cubemx\\CMakeFiles\\STM32_Drivers.dir\\__\\__\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_dma_ex.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_dma_ex.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o cmake\\stm32cubemx\\CMakeFiles\\STM32_Drivers.dir\\__\\__\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_dma.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_dma.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o cmake\\stm32cubemx\\CMakeFiles\\STM32_Drivers.dir\\__\\__\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_pwr.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_pwr.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o cmake\\stm32cubemx\\CMakeFiles\\STM32_Drivers.dir\\__\\__\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_pwr_ex.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_pwr_ex.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o cmake\\stm32cubemx\\CMakeFiles\\STM32_Drivers.dir\\__\\__\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_cortex.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_cortex.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o cmake\\stm32cubemx\\CMakeFiles\\STM32_Drivers.dir\\__\\__\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o cmake\\stm32cubemx\\CMakeFiles\\STM32_Drivers.dir\\__\\__\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_exti.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_exti.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o cmake\\stm32cubemx\\CMakeFiles\\STM32_Drivers.dir\\__\\__\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_spi.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_spi.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj"
+},
+{
+  "directory": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug",
+  "command": "D:\\Jetbrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DDEBUG -DSTM32F405xx -DSTM32_THREAD_SAFE_STRATEGY=2 -DUSE_HAL_DRIVER -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Core/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/KODIM/Clion/Tinkermy/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include -g -std=gnu11 -fdiagnostics-color=always -o cmake\\stm32cubemx\\CMakeFiles\\STM32_Drivers.dir\\__\\__\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_uart.c.obj -c D:\\KODIM\\Clion\\Tinkermy\\firmware\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_hal_uart.c",
+  "file": "D:/KODIM/Clion/Tinkermy/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c",
+  "output": "D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj"
+}
+]

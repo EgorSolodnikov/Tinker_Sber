@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/cmake_install.cmake",
+		"D:/KODIM/Clion/Tinkermy/firmware/cmake-build-debug/cmake/stm32cubemx/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
