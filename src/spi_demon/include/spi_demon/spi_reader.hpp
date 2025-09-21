@@ -1,13 +1,18 @@
 #ifndef SPI_READER_HPP 
 #define SPI_READER_HPP
 
+#include <cstring>
+#include <cstdint>
+#include <stdexcept>
+#include <array>
+#include <iostream>
+#include <iomanip>
+#include <linux/types.h>
 #include <linux/spi/spidev.h>
 #include <fcntl.h>
-#include <unistd.h>
+#include <unistd.h>  
 #include <sys/ioctl.h>
-#include <cstring>
-#include <vector>
-#include <stdexcept>
+#include <cerrno>
 
 #include "hardware_msg/msg/imu_state.hpp"
 #include "hardware_msg/msg/motors_state.hpp"
@@ -19,10 +24,10 @@ class SpiReader{
 
 private:
     //Parameters for reading/writing SPI
-    int spi_fd_;
     std::string device_;
     uint32_t speed_;
     uint8_t mode_;
+    int spi_fd_;
     uint8_t bits_per_word_;
     size_t transfer_size_;
 
