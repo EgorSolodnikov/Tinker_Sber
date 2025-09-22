@@ -11,7 +11,10 @@ find_package(rclcpp REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/BoardParameters.msg"
   "msg/ImuState.msg"
+  "msg/MotorsCommand.msg"
+  "msg/MotorsParameters.msg"
   "msg/MotorsState.msg"
   "msg/MotorsTelemetry.msg"
 )
