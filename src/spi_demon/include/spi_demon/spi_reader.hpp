@@ -45,6 +45,10 @@ private:
     hardware_msg::msg::MotorsState internal_parse_motor_state_data() const;
     hardware_msg::msg::MotorsTelemetry internal_parse_motor_telemetry_data() const;
 
+    float parse_float(const uint8_t* data) const;
+    int16_t parse_int16(const uint8_t* data) const;
+    
+
 public:
 
     SpiReader(const std::string& device = "/dev/spidev0.0", 

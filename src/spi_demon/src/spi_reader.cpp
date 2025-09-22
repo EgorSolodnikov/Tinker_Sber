@@ -48,183 +48,167 @@ bool SpiReader::init() {
 
 bool SpiReader::read_data() {
     if (spi_fd_ < 0) {
+        std::cerr << "SPI device not initialized" << std::endl;
         return false;
     }
 
-    // Clear tx_buffer_ 
     std::fill(tx_buffer_.begin(), tx_buffer_.end(), 0);
 
-    struct spi_ioc_transfer transfer = {
-        reinterpret_cast<__u64>(tx_buffer_.data()),
-        reinterpret_cast<__u64>(rx_buffer_.data()),
-        static_cast<__u32>(transfer_size_),
-        static_cast<__u32>(speed_),
-        static_cast<__u16>(0),
-        static_cast<__u8>(bits_per_word_),
-        static_cast<__u8>(0),
-        static_cast<__u8>(0),
-        static_cast<__u8>(0),
-        static_cast<__u16>(0),
-        static_cast<__u32>(0)
-    };
+    struct spi_ioc_transfer transfer;
+    transfer.tx_buf = reinterpret_cast<__u64>(tx_buffer_.data());
+    transfer.rx_buf = reinterpret_cast<__u64>(rx_buffer_.data());
+    transfer.len = static_cast<__u32>(transfer_size_);
+    transfer.speed_hz = static_cast<__u32>(speed_);
+    transfer.delay_usecs = static_cast<__u16>(0);
+    transfer.bits_per_word = static_cast<__u8>(bits_per_word_);
+    transfer.cs_change = static_cast<__u8>(0);
+    transfer.tx_nbits = static_cast<__u8>(0);
+    transfer.rx_nbits = static_cast<__u8>(0);
+    transfer.word_delay_usecs = static_cast<__u8>(0);  // Add this
+    transfer.pad = static_cast<__u16>(0);
 
     int ret = ioctl(spi_fd_, SPI_IOC_MESSAGE(1), &transfer);
     if (ret < 0) {
-        std::cerr << "SPI transfer failed with error: " << strerror(errno) << std::endl;
-        return false;
-    }
-    if (ret != 1) {
-        std::cerr << "SPI transfer incomplete: " << ret << " transfers succeeded" << std::endl;
+        std::cerr << "SPI transfer failed: " << strerror(errno) << std::endl;
         return false;
     }
 
-    // Basic check: ensure we received at least header
     if (rx_buffer_.size() < 4) {
-        std::cerr << "Received buffer too small for header" << std::endl;
+        std::cerr << "Buffer too small for header" << std::endl;
         return false;
     }
 
     const uint8_t* data = rx_buffer_.data();
-    uint8_t len = data[3];
-    size_t expected_size = 4 + static_cast<size_t>(len) + 1;  // + checksum
-    if (rx_buffer_.size() < expected_size) {
-        std::cerr << "Received buffer too small: " << rx_buffer_.size() << " < " << expected_size << std::endl;
-        return false;
-    }
-
-    // Debug: print first few bytes
-    std::cerr << "Received SPI data (first 10 bytes): ";
-    for (size_t i = 0; i < 10 && i < rx_buffer_.size(); ++i) {
-        std::cerr << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(data[i]) << " ";
-    }
-    std::cerr << std::dec << std::endl;
-
-    // Check header
     if (data[0] != 0xFF || data[1] != 0xFB) {
-        std::cerr << "Invalid SPI header: expected 0xFF 0xFB, got 0x" 
-                  << std::hex << static_cast<int>(data[0]) << " 0x" << static_cast<int>(data[1]) << std::dec << std::endl;
+        std::cerr << "Invalid header" << std::endl;
         return false;
     }
 
-    // TODO: Add checksum verification (sum or XOR of data[0..120] == data[121]?)
+    if (data[2] != 26) {
+        std::cerr << "Invalid packet ID" << std::endl;
+        return false;
+    }
 
-    // Parse and put to buffers
+    uint8_t len = data[3];
+    size_t expected_size = 4 + static_cast<size_t>(len) + 1;
+    if (rx_buffer_.size() < expected_size) {
+        std::cerr << "Buffer too small" << std::endl;
+        return false;
+    }
+
+    // Additional check for minimal payload length (IMU 36 bytes + motors 70 bytes = 106 bytes)
+    if (len < 106) {
+        std::cerr << "Payload length too small for complete data: " << static_cast<int>(len) << " < 106" << std::endl;
+        return false;
+    }
+
+    uint8_t sum = 0;
+    for (size_t i = 0; i < expected_size - 1; ++i) {
+        sum += data[i];
+    }
+    if (sum != data[expected_size - 1]) {
+        std::cerr << "Checksum error" << std::endl;
+        return false;
+    }
+
+    // Parse with potential exceptions or errors
     try {
         imu_buffer_.put(internal_parse_imu_data());
         motors_state_buffer_.put(internal_parse_motor_state_data());
         motors_telemetry_buffer_.put(internal_parse_motor_telemetry_data());
     } catch (const std::exception& e) {
-        std::cerr << "Parsing error: " << e.what() << std::endl;
+        std::cerr << "Parsing exception: " << e.what() << std::endl;
         return false;
     }
 
     return true;
 }
 
-// Implement these functions
-hardware_msg::msg::ImuState SpiReader::internal_parse_imu_data() const {
-    hardware_msg::msg::ImuState state(rosidl_runtime_cpp::MessageInitialization::ZERO);
+// Helper for float parsing (big-endian wire format, as in original)
+float SpiReader::parse_float(const uint8_t* data) const {
+    uint32_t i = (static_cast<uint32_t>(data[3]) << 24) |
+                 (static_cast<uint32_t>(data[2]) << 16) |
+                 (static_cast<uint32_t>(data[1]) << 8) |
+                 static_cast<uint32_t>(data[0]);
+    float f;
+    std::memcpy(&f, &i, sizeof(float));
+    return f;
+}
 
-    if (rx_buffer_.size() < 16) {  // At least up to yaw (bytes 0-15)
-        std::cerr << "Buffer too small for IMU data" << std::endl;
-        return state;
-    }
+// Helper for int16 parsing (big-endian wire format, high byte first, as in original)
+int16_t SpiReader::parse_int16(const uint8_t* data) const {
+    return static_cast<int16_t>((static_cast<uint16_t>(data[0]) << 8) | data[1]);
+}
+
+hardware_msg::msg::ImuState SpiReader::internal_parse_imu_data() const {
+    hardware_msg::msg::ImuState state;
 
     const uint8_t* data = rx_buffer_.data();
+    size_t offset = 4;  // Start of payload
+    size_t payload_end = rx_buffer_.size() - 1;  // Before checksum
 
-    // Header already checked in read_data
-
-    uint8_t len = data[3];
-    if (rx_buffer_.size() < 4u + static_cast<size_t>(len) + 1u) {
-        std::cerr << "Buffer size " << rx_buffer_.size() << " smaller than header + len + checksum " << (4u + static_cast<size_t>(len) + 1u) << std::endl;
-        return state;
+    // Check for full IMU data (3 att + 3 rate + 3 acc = 9 floats = 36 bytes)
+    if (offset + 36 > payload_end) {
+        throw std::runtime_error("Buffer too small for IMU data");
     }
 
-    if (4u + static_cast<size_t>(len) < 16u) {
-        std::cerr << "Data length too small for IMU" << std::endl;
-        return state;
-    }
+    // Parse att (roll, pitch, yaw)
+    state.roll = parse_float(data + offset); offset += 4;
+    state.pitch = parse_float(data + offset); offset += 4;
+    state.yaw = parse_float(data + offset); offset += 4;
 
-    // Parse angles: roll (4-7), pitch (8-11), yaw (12-15)
-    float roll_f, pitch_f, yaw_f;
-    std::memcpy(&roll_f, data + 4, sizeof(float));
-    std::memcpy(&pitch_f, data + 8, sizeof(float));
-    std::memcpy(&yaw_f, data + 12, sizeof(float));
-
-    state.pitch = pitch_f;
-    state.roll = roll_f;
-    state.yaw = yaw_f;
-
-    // Debug print
-    std::cerr << "Parsed IMU: pitch=" << state.pitch << ", roll=" << state.roll << ", yaw=" << state.yaw << std::endl;
+    // Skip att_rate and acc_b (less functional, but advance offset to match structure)
+    offset += 24;  // 6 floats * 4 bytes
 
     return state;
 }
 
 hardware_msg::msg::MotorsState SpiReader::internal_parse_motor_state_data() const {
-    hardware_msg::msg::MotorsState state(rosidl_runtime_cpp::MessageInitialization::ZERO);
-
-    if (rx_buffer_.size() < 110) {  // Up to end of motor data (40-109)
-        std::cerr << "Buffer too small for motor state data" << std::endl;
-        return state;
-    }
+    hardware_msg::msg::MotorsState state;
 
     const uint8_t* data = rx_buffer_.data();
-
-    // Header already checked
-
-    uint8_t len = data[3];
-    if (rx_buffer_.size() < 4u + static_cast<size_t>(len) + 1u || 4u + static_cast<size_t>(len) < 110u) {
-        std::cerr << "Invalid length for motor state: " << static_cast<int>(len) << std::endl;
-        return state;
-    }
-
-    constexpr size_t motor_start = 40;
+    constexpr size_t motor_start = 40;  // After 36 bytes of IMU
     constexpr size_t bytes_per_motor = 7;
+    constexpr float POS_DIV = 30.0f;  // Based on CAN_POS_DIV (assumed value from provided code)
+    constexpr float VEL_DIV = 30.0f;  // Based on CAN_DPOS_DIV (assumed)
+    constexpr float TOR_DIV = 500.0f; // Based on CAN_T_DIV (assumed)
 
-    state.position.resize(10);
-    state.velocity.resize(10);
-    state.torque.resize(10);
+    size_t payload_end = rx_buffer_.size() - 1;  // Before checksum
+
+    state.position.resize(10, 0.0f);
+    state.velocity.resize(10, 0.0f);
+    state.torque.resize(10, 0.0f);
 
     for (int i = 0; i < 10; ++i) {
-        size_t offset = motor_start + i * bytes_per_motor;
+        size_t offset = motor_start + static_cast<size_t>(i) * bytes_per_motor;
 
-        int16_t q_raw, dq_raw, tau_raw;
-        std::memcpy(&q_raw, data + offset, sizeof(int16_t));
-        std::memcpy(&dq_raw, data + offset + 2, sizeof(int16_t));
-        std::memcpy(&tau_raw, data + offset + 4, sizeof(int16_t));
+        // Check for buffer overflow before parsing q, dq, tau (6 bytes) + status (1 byte)
+        if (offset + 7 > payload_end) {
+            std::cerr << "Buffer overflow in motor state parsing for motor " << i << std::endl;
+            // Fill remaining with defaults or throw
+            throw std::runtime_error("Buffer overflow in motor state parsing");
+        }
 
-        state.position[i] = static_cast<float>(q_raw) / 30.0f;
-        state.velocity[i] = static_cast<float>(dq_raw) / 30.0f;
-        state.torque[i] = static_cast<float>(tau_raw) / 500.0f;
+        int16_t q_raw = parse_int16(data + offset);
+        int16_t dq_raw = parse_int16(data + offset + 2);
+        int16_t tau_raw = parse_int16(data + offset + 4);
+
+        state.position[i] = static_cast<float>(q_raw) / POS_DIV;
+        state.velocity[i] = static_cast<float>(dq_raw) / VEL_DIV;
+        state.torque[i] = static_cast<float>(tau_raw) / TOR_DIV;
     }
-
-    // Debug: print first motor
-    std::cerr << "Parsed Motor 0 state: pos=" << state.position[0] << ", vel=" << state.velocity[0] << ", tor=" << state.torque[0] << std::endl;
 
     return state;
 }
 
 hardware_msg::msg::MotorsTelemetry SpiReader::internal_parse_motor_telemetry_data() const {
-    hardware_msg::msg::MotorsTelemetry telemetry(rosidl_runtime_cpp::MessageInitialization::ZERO);
-
-    if (rx_buffer_.size() < 110) {
-        std::cerr << "Buffer too small for motor telemetry data" << std::endl;
-        return telemetry;
-    }
+    hardware_msg::msg::MotorsTelemetry telemetry;
 
     const uint8_t* data = rx_buffer_.data();
-
-    // Header already checked
-
-    uint8_t len = data[3];
-    if (rx_buffer_.size() < 4u + static_cast<size_t>(len) + 1u || 4u + static_cast<size_t>(len) < 110u) {
-        std::cerr << "Invalid length for motor telemetry: " << static_cast<int>(len) << std::endl;
-        return telemetry;
-    }
-
     constexpr size_t motor_start = 40;
     constexpr size_t bytes_per_motor = 7;
+
+    size_t payload_end = rx_buffer_.size() - 1;
 
     telemetry.id.resize(10);
     telemetry.connect.resize(10);
@@ -232,27 +216,26 @@ hardware_msg::msg::MotorsTelemetry SpiReader::internal_parse_motor_telemetry_dat
     telemetry.ready.resize(10);
 
     for (int i = 0; i < 10; ++i) {
-        telemetry.id[i] = static_cast<uint8_t>(i);
+        size_t offset = motor_start + static_cast<size_t>(i) * bytes_per_motor + 6;  // Status byte
 
-        size_t offset = motor_start + i * bytes_per_motor + 6;  // Status at +6
+        // Check for buffer overflow for status byte
+        if (offset >= payload_end) {
+            std::cerr << "Buffer overflow in motor telemetry parsing for motor " << i << std::endl;
+            throw std::runtime_error("Buffer overflow in motor telemetry parsing");
+        }
 
         uint8_t status = data[offset];
-        bool is_connected = (status / 10u) != 0;
-        bool is_ready = (status % 10u) != 0;
+        uint8_t connect_val = (status % 100) / 10;
+        uint8_t ready_val = status % 10;
 
-        telemetry.connect[i] = is_connected;
-        telemetry.motor_connected[i] = is_connected;  // Assuming same as connect
-        telemetry.ready[i] = is_ready;
+        telemetry.id[i] = static_cast<uint8_t>(i);
+        telemetry.connect[i] = (connect_val != 0);
+        telemetry.motor_connected[i] = (connect_val != 0);
+        telemetry.ready[i] = (ready_val != 0);
     }
-
-    // Debug: print first motor telemetry
-    std::cerr << "Parsed Motor 0 telemetry: connected=" << (telemetry.connect[0] ? "true" : "false") 
-              << ", motor_connected=" << (telemetry.motor_connected[0] ? "true" : "false") 
-              << ", ready=" << (telemetry.ready[0] ? "true" : "false") << std::endl;
 
     return telemetry;
 }
-
 hardware_msg::msg::ImuState SpiReader::get_imu_data() {
     return imu_buffer_.get();
 }
