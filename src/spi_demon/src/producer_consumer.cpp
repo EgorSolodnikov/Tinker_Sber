@@ -61,5 +61,6 @@ CallbackReturn ProducerConsumer::stop() {
     producer_cv_.notify_all();
     consumer_thread_.join();
     producer_thread_.join();
+    spi_reader_.reset();
     return CallbackReturn::SUCCESS;
 }

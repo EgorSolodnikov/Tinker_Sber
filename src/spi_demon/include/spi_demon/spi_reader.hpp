@@ -20,8 +20,9 @@
 
 #include "circular_buffer_spi.hpp"
 
-class SpiReader{
 
+class SpiReader{
+    
 private:
     //Parameters for reading/writing SPI
     std::string device_;
