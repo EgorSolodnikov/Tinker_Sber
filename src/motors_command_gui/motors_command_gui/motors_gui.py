@@ -1,141 +1,157 @@
-#!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
 from rclpy.executors import MultiThreadedExecutor
 from hardware_msg.msg import MotorsCommand
 from threading import Thread
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QSlider, QLabel, QVBoxLayout, QWidget
+import os
+from PyQt5.QtWidgets import (QApplication, QWidget, QVBoxLayout, QHBoxLayout, 
+                             QGridLayout, QLabel, QSlider, QLineEdit, 
+                             QPlainTextEdit, QPushButton)
+from PyQt5.QtGui import QPixmap, QColor, QIcon
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QPixmap
+from ament_index_python.packages import get_package_share_directory
+from functools import partial
 
 class MotorGuiNode(Node):
     def __init__(self):
         super().__init__('motor_gui_node')
         self.publisher = self.create_publisher(MotorsCommand, 'MotorsCommand', 10)
-        self.positions = [50.0] * 10
+        self.positions = [-50.0, -10.0, -50.0, -10.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0] 
+
     def publish_positions(self):
         msg = MotorsCommand()
         msg.position = self.positions
         self.publisher.publish(msg)
         self.get_logger().info(f'Publish position: {self.positions}')
 
-class MotorGUI(QMainWindow):
+class MotorGUI(QWidget):
     def __init__(self, node):
         super().__init__()
         self.node = node
-        self.setWindowTitle('Motor Control GUI (10 Motors)')
-        self.setGeometry(100, 100, 500, 700)
-
-        self.setStyleSheet("""
-            QMainWindow {
-                background-color: #2b2b2b;
-                color: white;
-            }
-            QLabel {
-                font-weight: bold;
-                font-size: 12px;
-                color: white;
-                padding: 5px;
-                border: 1px solid #555;
-                background-color: #3c3c3c;
-                border-radius: 5px;
-            }
-            QSlider::groove:horizontal {
-                border: 1px solid #999;
-                height: 8px;
-                background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #4e79a0, stop:1 #f28e2b);
-                margin: 2px 0;
-                border-radius: 4px;
-            }
-            QSlider::handle:horizontal {
-                background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #ffffff, stop:1 #dddddd);
-                border: 1px solid #444;
-                width: 18px;
-                margin: -2px 0;
-                border-radius: 9px;
-            }
-            QWidget {
-                background-color: #2b2b2b;
-            }
-        """)
-
-        central_widget = QWidget()
-        self.setCentralWidget(central_widget)
-        layout = QVBoxLayout(central_widget)
-        layout.setSpacing(10)
-        layout.setContentsMargins(20, 20, 20, 20)
-
-        self.image_label = QLabel()
-        pixmap = QPixmap('/motors_command_gui/icons/robot.png')
-        if not pixmap.isNull():
-            self.image_label.setPixmap(pixmap.scaled(200, 100, Qt.KeepAspectRatio))
-        else:
-            self.image_label.setText("Image not found")
-        self.image_label.setAlignment(Qt.AlignCenter)
-        layout.addWidget(self.image_label)
-
+        self.setWindowTitle("Motor Calibration")
+        self.setStyleSheet("background-color: #4CAF50;")
+        
+        main_layout = QVBoxLayout()
+        
+        title = QLabel("Motor calibration")
+        title.setStyleSheet("color: purple; font-size: 20px;")
+        title.setAlignment(Qt.AlignCenter)
+        main_layout.addWidget(title)
+        
+        grid_layout = QGridLayout()
+        grid_layout.setHorizontalSpacing(100)
+        grid_layout.setVerticalSpacing(50)
         self.sliders = []
-        self.position_labels = []
+        self.line_edits = []
+        
+        slider_stylesheet = """
+        QSlider::groove:horizontal {
+            background: white;
+            height: 20px;
+            border-radius: 10px;
+        }
+        QSlider::handle:horizontal {
+            background: #e57373;
+            width: 30px;
+            height: 30px;
+            margin: -5px 0;
+            border-radius: 15px;
+        }
+        """
+        
         for i in range(10):
-            # Лейбл мотора
-            motor_label = QLabel(f'Motor {i+1} Position:')
-            layout.addWidget(motor_label)
-
-            # Слайдер
+            motor_vbox = QVBoxLayout()
+            
+            motor_label = QLabel(f"{i+1} Motor")
+            motor_label.setStyleSheet("color: darkred;")
+            motor_label.setAlignment(Qt.AlignCenter)
+            motor_vbox.addWidget(motor_label)
+            
             slider = QSlider(Qt.Horizontal)
-            slider.setMinimum(0)
-            slider.setMaximum(100)
-            slider.setValue(50)
-            slider.valueChanged.connect(lambda value, idx=i: self.on_slider_changed(value, idx))
-            layout.addWidget(slider)
+            slider.setStyleSheet(slider_stylesheet)
+            slider.setMinimum(-1092)
+            slider.setMaximum(1092)
+            slider.setValue(int(self.node.positions[i]))
+            slider.setMinimumWidth(300)
+            slider.valueChanged.connect(lambda value, idx=i: self.update_position(idx, value))
             self.sliders.append(slider)
-
-            # Лейбл текущей позиции
-            position_label = QLabel(f'Position: 50.0')
-            layout.addWidget(position_label)
-            self.position_labels.append(position_label)
-
-        # Кнопка "Reset All" (бонус, для удобства)
-        from PyQt5.QtWidgets import QPushButton
-        reset_button = QPushButton('Reset All to 50')
-        reset_button.clicked.connect(self.reset_all)
-        reset_button.setStyleSheet("QPushButton { background-color: #4e79a0; color: white; border: none; padding: 10px; font-weight: bold; border-radius: 5px; } QPushButton:hover { background-color: #f28e2b; }")
-        layout.addWidget(reset_button)
-
-    def on_slider_changed(self, value, motor_index):
-        self.node.positions[motor_index] = float(value)
+            motor_vbox.addWidget(slider)
+            
+            pos_hbox = QHBoxLayout()
+            pos_label = QLabel("Position:")
+            pos_hbox.addWidget(pos_label)
+            
+            line_edit = QLineEdit(str(self.node.positions[i]))
+            line_edit.setFixedWidth(50)
+            line_edit.returnPressed.connect(partial(self.update_from_edit, i))
+            self.line_edits.append(line_edit)
+            pos_hbox.addWidget(line_edit)
+            
+            motor_vbox.addLayout(pos_hbox)
+            
+            row = i // 2
+            col = i % 2
+            grid_layout.addLayout(motor_vbox, row, col)
+        
+        main_layout.addLayout(grid_layout)
+        
+        send_button = QPushButton("Send Positions")
+        send_button.clicked.connect(self.send_positions)
+        main_layout.addWidget(send_button)
+        
+        self.log_text = QPlainTextEdit()
+        self.log_text.setReadOnly(True)
+        main_layout.addWidget(self.log_text)
+        
+        self.setLayout(main_layout)
+    
+    def update_position(self, index, value):
+        self.node.positions[index] = float(value)
+        self.line_edits[index].setText(str(value))
+    
+    def update_from_edit(self, index):
+        text = self.line_edits[index].text()
+        try:
+            value = float(text)
+            if -1092 <= value <= 1092:
+                self.node.positions[index] = value
+                self.sliders[index].setValue(int(value))
+            else:
+                self.line_edits[index].setText(str(self.node.positions[index]))
+                error_msg = f'Invalid position for motor {index+1}: {value} (out of range -1092 to 1092)'
+                self.log_text.appendPlainText(error_msg)
+                self.node.get_logger().warning(error_msg)
+        except ValueError:
+            self.line_edits[index].setText(str(self.node.positions[index]))
+            error_msg = f'Invalid input for motor {index+1}: {text} (not a number)'
+            self.log_text.appendPlainText(error_msg)
+            self.node.get_logger().warning(error_msg)
+    
+    def send_positions(self):
         self.node.publish_positions()
-        # Обновляем лейбл позиции
-        self.position_labels[motor_index].setText(f'Position: {value:.1f}')
-
-    def reset_all(self):
-        for i in range(10):
-            self.sliders[i].setValue(50)
-            self.node.positions[i] = 50.0
-            self.position_labels[i].setText('Position: 50.0')
-        self.node.publish_positions()
+        self.log_text.appendPlainText(f'Publish position: {self.node.positions}')
 
 def main(args=None):
     rclpy.init(args=args)
-    node = MotorGuiNode()
-    executor = MultiThreadedExecutor()
-
+    motor_gui_node = MotorGuiNode()
     app = QApplication(sys.argv)
-    gui = MotorGUI(node)
+    gui = MotorGUI(motor_gui_node)
     gui.show()
-
-    # Запуск ROS в отдельном потоке
-    thread = Thread(target=executor.spin)
-    thread.start()
-    node.get_logger().info('ROS2 нода запущена')
-
+    
+    executor = MultiThreadedExecutor()
+    executor.add_node(motor_gui_node)
+    executor_thread = Thread(target=executor.spin, daemon=True)
+    executor_thread.start()
+    
     try:
-        sys.exit(app.exec_())
+        app.exec_()
+    except SystemExit:
+        pass
     finally:
-        node.get_logger().info('Завершение')
-        node.destroy_node()
         executor.shutdown()
+        motor_gui_node.destroy_node()
+        rclpy.shutdown()
 
 if __name__ == '__main__':
     main()
