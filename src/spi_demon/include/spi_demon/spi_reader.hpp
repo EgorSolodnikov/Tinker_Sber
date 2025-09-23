@@ -47,7 +47,7 @@ private:
 
     float parse_float(const uint8_t* data) const;
     int16_t parse_int16(const uint8_t* data) const;
-    
+
 
 public:
 

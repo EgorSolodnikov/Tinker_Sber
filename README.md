@@ -1,4 +1,4 @@
-# SPI READER
+# SPI READER (ROS2 Humble on Rasberri Pi)
 
 ## Project
 **Project launches nodes for reading/publishing/sending information from/to SPI protocol. Write fully with ROS2 framework.**
