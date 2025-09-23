@@ -8,7 +8,7 @@ import os
 from PyQt5.QtWidgets import (QApplication, QWidget, QVBoxLayout, QHBoxLayout, 
                              QGridLayout, QLabel, QSlider, QLineEdit, 
                              QPlainTextEdit, QPushButton)
-from PyQt5.QtGui import QPixmap, QColor, QIcon
+from PyQt5.QtGui import QPixmap, QColor, QIcon, QFont
 from PyQt5.QtCore import Qt
 from ament_index_python.packages import get_package_share_directory
 from functools import partial
@@ -30,44 +30,77 @@ class MotorGUI(QWidget):
         super().__init__()
         self.node = node
         self.setWindowTitle("Motor Calibration")
-        self.setStyleSheet("background-color: #4CAF50;")
+        
+        # Set pastel green background and modern font
+        self.setStyleSheet("""
+            QWidget {
+                background-color: #E6F4EA;
+                font-family: 'Inter', 'Roboto', sans-serif;
+                font-size: 14px;
+            }
+        """)
         
         main_layout = QVBoxLayout()
+        main_layout.setSpacing(20)
+        main_layout.setContentsMargins(20, 20, 20, 20)
         
-        title = QLabel("Motor calibration")
-        title.setStyleSheet("color: purple; font-size: 20px;")
+        # Title styling
+        title = QLabel("Motor Calibration")
+        title.setStyleSheet("""
+            color: #2F4F4F;
+            font-size: 24px;
+            font-weight: 600;
+            padding: 10px;
+            background-color: #D4E4D8;
+            border-radius: 10px;
+        """)
         title.setAlignment(Qt.AlignCenter)
         main_layout.addWidget(title)
         
         grid_layout = QGridLayout()
-        grid_layout.setHorizontalSpacing(100)
-        grid_layout.setVerticalSpacing(50)
+        grid_layout.setHorizontalSpacing(30)
+        grid_layout.setVerticalSpacing(20)
         self.sliders = []
         self.line_edits = []
         
+        # Slider styling with pastel green palette
         slider_stylesheet = """
-        QSlider::groove:horizontal {
-            background: white;
-            height: 20px;
-            border-radius: 10px;
-        }
-        QSlider::handle:horizontal {
-            background: #e57373;
-            width: 30px;
-            height: 30px;
-            margin: -5px 0;
-            border-radius: 15px;
-        }
+            QSlider::groove:horizontal {
+                background: #C8E6C9;
+                height: 12px;
+                border-radius: 6px;
+                margin: 0 10px;
+            }
+            QSlider::handle:horizontal {
+                background: #A5D6A7;
+                width: 24px;
+                height: 24px;
+                margin: -6px 0;
+                border-radius: 12px;
+                border: 2px solid #81C784;
+            }
+            QSlider::sub-page:horizontal {
+                background: #A5D6A7;
+                border-radius: 6px;
+            }
         """
         
         for i in range(10):
             motor_vbox = QVBoxLayout()
+            motor_vbox.setSpacing(10)
             
-            motor_label = QLabel(f"{i+1} Motor")
-            motor_label.setStyleSheet("color: darkred;")
+            # Motor label styling
+            motor_label = QLabel(f"Motor {i+1}")
+            motor_label.setStyleSheet("""
+                color: #2F4F4F;
+                font-size: 16px;
+                font-weight: 500;
+                padding: 5px;
+            """)
             motor_label.setAlignment(Qt.AlignCenter)
             motor_vbox.addWidget(motor_label)
             
+            # Slider
             slider = QSlider(Qt.Horizontal)
             slider.setStyleSheet(slider_stylesheet)
             slider.setMinimum(-1092)
@@ -78,12 +111,26 @@ class MotorGUI(QWidget):
             self.sliders.append(slider)
             motor_vbox.addWidget(slider)
             
+            # Position input styling
             pos_hbox = QHBoxLayout()
             pos_label = QLabel("Position:")
+            pos_label.setStyleSheet("color: #2F4F4F; font-size: 14px;")
             pos_hbox.addWidget(pos_label)
             
             line_edit = QLineEdit(str(self.node.positions[i]))
-            line_edit.setFixedWidth(50)
+            line_edit.setFixedWidth(80)
+            line_edit.setStyleSheet("""
+                QLineEdit {
+                    background-color: #FFFFFF;
+                    border: 1px solid #C8E6C9;
+                    border-radius: 8px;
+                    padding: 5px;
+                    font-size: 14px;
+                }
+                QLineEdit:focus {
+                    border: 1px solid #81C784;
+                }
+            """)
             line_edit.returnPressed.connect(partial(self.update_from_edit, i))
             self.line_edits.append(line_edit)
             pos_hbox.addWidget(line_edit)
@@ -96,12 +143,41 @@ class MotorGUI(QWidget):
         
         main_layout.addLayout(grid_layout)
         
+        # Send button styling
         send_button = QPushButton("Send Positions")
+        send_button.setStyleSheet("""
+            QPushButton {
+                background-color: #A5D6A7;
+                color: #2F4F4F;
+                font-size: 16px;
+                font-weight: 500;
+                padding: 10px;
+                border-radius: 10px;
+                border: none;
+            }
+            QPushButton:hover {
+                background-color: #81C784;
+            }
+            QPushButton:pressed {
+                background-color: #4CAF50;
+            }
+        """)
         send_button.clicked.connect(self.send_positions)
         main_layout.addWidget(send_button)
         
+        # Log text area styling
         self.log_text = QPlainTextEdit()
         self.log_text.setReadOnly(True)
+        self.log_text.setStyleSheet("""
+            QPlainTextEdit {
+                background-color: #FFFFFF;
+                border: 1px solid #C8E6C9;
+                border-radius: 10px;
+                padding: 10px;
+                font-size: 14px;
+                color: #2F4F4F;
+            }
+        """)
         main_layout.addWidget(self.log_text)
         
         self.setLayout(main_layout)
