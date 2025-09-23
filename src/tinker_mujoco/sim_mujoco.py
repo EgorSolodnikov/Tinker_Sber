@@ -6,40 +6,21 @@ import numpy as np
 
 # Получаем абсолютный путь к текущей директории
 current_dir = os.path.dirname(os.path.abspath(__file__))
-xml_path = os.path.join(current_dir, 'tinker_mjcf.xml')
+xml_path = os.path.join(current_dir, "xml", "world.xml")
 
 print(f"Loading model from: {xml_path}")
 model = mujoco.MjModel.from_xml_path(xml_path)
 data = mujoco.MjData(model)
 
-# Фиксируем начальное положение робота - ставим его на пол
-data.qpos[:] = np.zeros(model.nq)  # Сбрасываем все позиции
-data.qpos[2] = 0.5  # Поднимаем робота немного выше пола
-data.qvel[:] = np.zeros(model.nv)  # Сбрасываем все скорости
+print("Starting viewer. Управление в окне MuJoCo: Space — пауза/старт, ESC — выход.")
 
-print("Starting simulation. Press ESC to exit.")
-print("Robot should fall and settle on the ground.")
+with mujoco.viewer.launch(model, data) as viewer:
+    # Настройка камеры
+    viewer.cam.lookat[:] = [0, 0, 0.5]
+    viewer.cam.distance = 2.0
+    viewer.cam.azimuth = 45
 
-# Запускаем визуализатор
-with mujoco.viewer.launch_passive(model, data) as viewer:
-    # Устанавливаем камеру на начальную позицию
-    viewer.cam.lookat[:] = [0, 0, 0.5]  # Центр сцены
-    viewer.cam.distance = 2.0  # Дистанция от камеры
-    viewer.cam.azimuth = 45  # Поворот камеры для лучшего обзора
-    
-    # Основной цикл симуляции
     while viewer.is_running():
-        step_start = time.time()
-        
-        # Шаг симуляции (обновление физики)
-        mujoco.mj_step(model, data)
-        
-        # Синхронизация визуализации
-        viewer.sync()
-        
-        # Поддержание реального времени
-        time_until_next_step = model.opt.timestep - (time.time() - step_start)
-        if time_until_next_step > 0:
-            time.sleep(time_until_next_step)
+        time.sleep(0.01)
 
-print("Simulation finished.")
+print("Viewer closed.")
