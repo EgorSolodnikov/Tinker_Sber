@@ -1,0 +1,2193 @@
+00168||46802||Upper_Panel.m3d.options||4406||Upper_Panel.m3d.paramopt||30725||Upper_Panel.m3d.topopt||1517||Upper_Panel.frm||8||Upper_Panel.m3dres||16||Upper_Panel.m3d.dat||{
+    "eOptionsGroups::eCalculationOptions": {
+        "eOptionsGroups::eOG3dElMag": {
+            "e1LC2Calc": 0,
+            "eNOIP1": 1,
+            "eOptionsGroups::eSLAESolverGroup": {
+                "eAccuracy": 1e-10,
+                "eMKLCoreType": 1,
+                "eMKLSaveData": false,
+                "eMKLSaveRes": false,
+                "eMaxIter": 100000,
+                "eRAM": 3072,
+                "eSolver": 2,
+                "version": 39
+            },
+            "ePerformCalculation": false,
+            "eSolver": 2,
+            "eThetha1": 0.5,
+            "eTimeElMag": 0.0,
+            "version": 39
+        },
+        "eOptionsGroups::eOGCurrCond": {
+            "e1LC2Calc": 0,
+            "eOptionsGroups::eSLAESolverGroup": {
+                "eAccuracy": 1e-10,
+                "eMKLCoreType": 1,
+                "eMKLSaveData": false,
+                "eMKLSaveRes": false,
+                "eMaxIter": 100000,
+                "eRAM": 3072,
+                "eSolver": 2,
+                "version": 39
+            },
+            "ePerformCalculation": false,
+            "eSolver": 2,
+            "version": 39
+        },
+        "eOptionsGroups::eOGElectroStatic": {
+            "e1LC2Calc": 0,
+            "eOptionsGroups::eSLAESolverGroup": {
+                "eAccuracy": 1e-10,
+                "eMKLCoreType": 1,
+                "eMKLSaveData": false,
+                "eMKLSaveRes": false,
+                "eMaxIter": 100000,
+                "eRAM": 3072,
+                "eSolver": 2,
+                "version": 39
+            },
+            "ePerformCalculation": false,
+            "eSolver": 2,
+            "version": 39
+        },
+        "eOptionsGroups::eOGFSI": {
+            "eFL_FSI_iter": 10,
+            "eFL_FSI_solidCT": 0,
+            "eFL_FSI_solidLC": 0,
+            "eFL_FSI_tol": 0.001,
+            "eNLC2Calc": "0",
+            "ePerformCalculation": false,
+            "version": 39
+        },
+        "eOptionsGroups::eOGFluid": {
+            "eNLC2Calc": "0",
+            "ePerformCalculation": false,
+            "version": 39
+        },
+        "eOptionsGroups::eOGFluidSeepage": {
+            "eNLC2Calc": "0",
+            "ePerformCalculation": false,
+            "version": 39
+        },
+        "eOptionsGroups::eOGFluidStokes": {
+            "eFL_Conv_Ends_Eps": 1e-05,
+            "eFL_Conv_Ends_Max": 1e+15,
+            "eFL_Conv_Ends_Min": -1e+15,
+            "eFL_Conv_Enke_Eps": 1e-05,
+            "eFL_Conv_Enke_Max": 1e+15,
+            "eFL_Conv_Enke_Min": -1e+15,
+            "eFL_Conv_IterNum": 3000,
+            "eFL_Conv_Pres_Eps": 1e-05,
+            "eFL_Conv_Pres_Max": 1e+15,
+            "eFL_Conv_Pres_Min": -1e+15,
+            "eFL_Conv_Temp_Eps": 1e-05,
+            "eFL_Conv_Temp_Max": 1e+15,
+            "eFL_Conv_Temp_Min": -1e+15,
+            "eFL_Conv_VF_Eps": 1e-05,
+            "eFL_Conv_VelX_Eps": 1e-05,
+            "eFL_Conv_VelX_Max": 1e+15,
+            "eFL_Conv_VelX_Min": -1e+15,
+            "eFL_Conv_VelX_Use": true,
+            "eFL_Conv_VelY_Eps": 1e-05,
+            "eFL_Conv_VelY_Max": 1e+15,
+            "eFL_Conv_VelY_Min": -1e+15,
+            "eFL_Conv_VelY_Use": true,
+            "eFL_Conv_VelZ_Eps": 1e-05,
+            "eFL_Conv_VelZ_Max": 1e+15,
+            "eFL_Conv_VelZ_Min": -1e+15,
+            "eFL_Conv_VelZ_Use": true,
+            "eFL_Por_Loss": false,
+            "eFL_Por_P": false,
+            "eFL_Por_Temp": false,
+            "eFL_Por_Turb": false,
+            "eFL_Prob_Alg": 101,
+            "eFL_Prob_Compr": 112,
+            "eFL_Prob_RelCoef": 0.95,
+            "eFL_Prob_Therm": 114,
+            "eFL_Prob_Therm_E": false,
+            "eFL_Prob_Therm_F": false,
+            "eFL_Prob_Therm_W": false,
+            "eFL_Prob_Trans": 110,
+            "eFL_Prob_Turb": 117,
+            "eFL_Prob_VF": 118,
+            "eFL_Ref_Cond": 0.6,
+            "eFL_Ref_Dens": 1000.0,
+            "eFL_Ref_Pres": 101350.0,
+            "eFL_Ref_Spht": 4187.0,
+            "eFL_Ref_Temp": 293.0,
+            "eFL_Ref_Visc": 0.001,
+            "eFL_Res_ClearAvail": true,
+            "eFL_Res_Cond": false,
+            "eFL_Res_Dens": false,
+            "eFL_Res_Ends": false,
+            "eFL_Res_Enke": false,
+            "eFL_Res_IT": -1,
+            "eFL_Res_IterNum": 0,
+            "eFL_Res_LC": -1,
+            "eFL_Res_LS": -1,
+            "eFL_Res_Log": true,
+            "eFL_Res_LogLevel": 0,
+            "eFL_Res_Spht": false,
+            "eFL_Res_TCond": false,
+            "eFL_Res_TPres": false,
+            "eFL_Res_TTemp": false,
+            "eFL_Res_TVisc": true,
+            "eFL_Res_Temp": false,
+            "eFL_Res_UseAvail": false,
+            "eFL_Res_Visc": false,
+            "eFL_Solv_Pres_ct": 16,
+            "eFL_Solv_Pres_iter": 100000,
+            "eFL_Solv_Pres_sv": true,
+            "eFL_Solv_Pres_tol": 1e-15,
+            "eFL_Solv_Temp_ct": 17,
+            "eFL_Solv_Temp_iter": 100000,
+            "eFL_Solv_Temp_sv": true,
+            "eFL_Solv_Temp_tol": 1e-15,
+            "eFL_Solv_Turb_ct": 17,
+            "eFL_Solv_Turb_iter": 100000,
+            "eFL_Solv_Turb_sv": true,
+            "eFL_Solv_Turb_tol": 1e-15,
+            "eFL_Solv_VF_ct": 2,
+            "eFL_Solv_VF_iter": 100000,
+            "eFL_Solv_VF_sv": true,
+            "eFL_Solv_VF_tol": 1e-15,
+            "eFL_Solv_Vel_ct": 13,
+            "eFL_Solv_Vel_iter": 100000,
+            "eFL_Solv_Vel_sv": true,
+            "eFL_Solv_Vel_tol": 1e-15,
+            "eFL_Stab_ArtVisc": 0.0,
+            "eFL_Stab_Cond_Rel": 0.5,
+            "eFL_Stab_Dens_Rel": 0.5,
+            "eFL_Stab_Ends_Rel": 0.5,
+            "eFL_Stab_Enke_Rel": 0.5,
+            "eFL_Stab_Pres_Adv": 123,
+            "eFL_Stab_Pres_Ine": 1e+15,
+            "eFL_Stab_Pres_Rel": 0.5,
+            "eFL_Stab_QuadOrd": 0,
+            "eFL_Stab_Spht_Rel": 0.5,
+            "eFL_Stab_TCond_Rel": 0.5,
+            "eFL_Stab_TVisc_Rel": 0.5,
+            "eFL_Stab_Temp_Adv": 125,
+            "eFL_Stab_Temp_Ine": 1e+15,
+            "eFL_Stab_Temp_Mir": 0.0,
+            "eFL_Stab_Temp_Rel": 0.5,
+            "eFL_Stab_Turb_Adv": 127,
+            "eFL_Stab_Turb_Ine": 1e+15,
+            "eFL_Stab_Turb_Mir": 0.0,
+            "eFL_Stab_VF_Rel": 0.5,
+            "eFL_Stab_VelX_Rel": 0.5,
+            "eFL_Stab_VelY_Rel": 0.5,
+            "eFL_Stab_VelZ_Rel": 0.5,
+            "eFL_Stab_Vel_Adv": 121,
+            "eFL_Stab_Vel_Ine": 1e+15,
+            "eFL_Stab_Vel_Mir": 0.0,
+            "eFL_Stab_Visc_Rel": 0.5,
+            "eFL_Trans_Time": 10.0,
+            "eFL_Trans_TimeP": 10,
+            "eFL_Trans_TimeRC": 1.0,
+            "eFL_Turb_C1": 1.44,
+            "eFL_Turb_C2": 1.92,
+            "eFL_Turb_CMU": 0.09,
+            "eFL_Turb_CSTD": 1.3,
+            "eFL_Turb_CSTK": 1.0,
+            "eFL_Turb_CSTM": 1.0,
+            "eFL_Turb_CSTT": 0.8,
+            "eFL_Turb_CSTW": 2.0,
+            "eFL_Turb_FuncE": 9.0,
+            "eFL_Turb_FuncK": 0.4,
+            "eFL_Turb_FuncWall": 165,
+            "eFL_Turb_Ls": -1.0,
+            "eFL_Turb_Model": 150,
+            "eFL_VF_surf_tens": 0.07286,
+            "eFL_VF_surf_thick": 0.5,
+            "eFL_VF_use_surf_tens": false,
+            "eMKLCoreType": 1,
+            "eNLC2Calc": "0",
+            "ePerformCalculation": false,
+            "eRAM": 2048,
+            "version": 39
+        },
+        "eOptionsGroups::eOGFluidStoks": {
+            "eFL_Conv_IterNum": 3000,
+            "eFL_Conv_Pres_Eps": 1e-05,
+            "eFL_Conv_Pres_Max": 1e+15,
+            "eFL_Conv_Pres_Min": -1e+15,
+            "eFL_Conv_Temp_Eps": 1e-05,
+            "eFL_Conv_Temp_Max": 1e+15,
+            "eFL_Conv_Temp_Min": -1e+15,
+            "eFL_Conv_VF_Eps": 1e-05,
+            "eFL_Conv_VelX_Eps": 1e-05,
+            "eFL_Conv_VelX_Max": 1e+15,
+            "eFL_Conv_VelX_Min": -1e+15,
+            "eFL_Conv_VelX_Use": true,
+            "eFL_Conv_VelY_Eps": 1e-05,
+            "eFL_Conv_VelY_Max": 1e+15,
+            "eFL_Conv_VelY_Min": -1e+15,
+            "eFL_Conv_VelY_Use": true,
+            "eFL_Conv_VelZ_Eps": 1e-05,
+            "eFL_Conv_VelZ_Max": 1e+15,
+            "eFL_Conv_VelZ_Min": -1e+15,
+            "eFL_Conv_VelZ_Use": true,
+            "eFL_Prob_Alg": 100,
+            "eFL_Prob_Therm": 114,
+            "eFL_Prob_Trans": 110,
+            "eFL_Prob_VF": 118,
+            "eFL_Ref_Cond": 0.6,
+            "eFL_Ref_Dens": 1000.0,
+            "eFL_Ref_Pres": 101350.0,
+            "eFL_Ref_Spht": 4187.0,
+            "eFL_Ref_Temp": 293.0,
+            "eFL_Ref_Visc": 0.001,
+            "eFL_Res_Cond": false,
+            "eFL_Res_Dens": false,
+            "eFL_Res_Spht": false,
+            "eFL_Res_TPres": false,
+            "eFL_Res_Time_Num": 10,
+            "eFL_Res_Time_Save": 0,
+            "eFL_Res_Visc": false,
+            "eFL_Solv_Pres_ct": 2,
+            "eFL_Solv_Pres_iter": 100000,
+            "eFL_Solv_Pres_sv": true,
+            "eFL_Solv_Pres_tol": 1e-15,
+            "eFL_Solv_Temp_ct": 2,
+            "eFL_Solv_Temp_iter": 100000,
+            "eFL_Solv_Temp_sv": true,
+            "eFL_Solv_Temp_tol": 1e-15,
+            "eFL_Solv_VF_ct": 2,
+            "eFL_Solv_VF_iter": 100000,
+            "eFL_Solv_VF_sv": true,
+            "eFL_Solv_VF_tol": 1e-15,
+            "eFL_Solv_Vel_ct": 13,
+            "eFL_Solv_Vel_iter": 100000,
+            "eFL_Solv_Vel_sv": true,
+            "eFL_Solv_Vel_tol": 1e-15,
+            "eFL_Stab_Cond_Rel": 0.5,
+            "eFL_Stab_Dens_Rel": 0.5,
+            "eFL_Stab_Pres_Rel": 0.5,
+            "eFL_Stab_Spht_Rel": 0.5,
+            "eFL_Stab_Temp_Rel": 0.5,
+            "eFL_Stab_VF_Rel": 0.5,
+            "eFL_Stab_VelX_Rel": 0.5,
+            "eFL_Stab_VelY_Rel": 0.5,
+            "eFL_Stab_VelZ_Rel": 0.5,
+            "eFL_Stab_Visc_Rel": 0.5,
+            "eFL_Trans_Method": 131,
+            "eFL_Trans_Stop": false,
+            "eFL_Trans_Stop_Tol": 1e-05,
+            "eFL_Trans_Time": 10.0,
+            "eFL_Trans_TimeP": 10,
+            "eFL_Trans_TimeRC": 1.0,
+            "eFL_VF_surf_tens": 0.07286,
+            "eFL_VF_surf_thick": 0.5,
+            "eFL_VF_use_surf_tens": false,
+            "eMKLCoreType": 1,
+            "eNLC2Calc": "0",
+            "ePerformCalculation": false,
+            "eRAM": 2048,
+            "version": 39
+        },
+        "eOptionsGroups::eOGFluidTransSeepage": {
+            "eFL_Trans_Time": 10.0,
+            "eFL_Trans_TimeP": 10,
+            "eFL_Trans_TimeRC": 1.0,
+            "eNLC2Calc": "0",
+            "ePerformCalculation": false,
+            "version": 39
+        },
+        "eOptionsGroups::eOGHarmonicElMag": {
+            "eNLC2Calc": "0",
+            "eOptionsGroups::eSLAESolverGroup": {
+                "eAccuracy": 1e-10,
+                "eMKLCoreType": 1,
+                "eMKLSaveData": false,
+                "eMKLSaveRes": false,
+                "eMaxIter": 100000,
+                "eRAM": 3072,
+                "eSolver": 2,
+                "version": 39
+            },
+            "ePerformCalculation": false,
+            "eSolver": 2,
+            "version": 39
+        },
+        "eOptionsGroups::eOGMagnetoStatic": {
+            "e1LC2Calc": 0,
+            "eOptionsGroups::eSLAESolverGroup": {
+                "eAccuracy": 1e-10,
+                "eMKLCoreType": 1,
+                "eMKLSaveData": false,
+                "eMKLSaveRes": false,
+                "eMaxIter": 100000,
+                "eRAM": 3072,
+                "eSolver": 2,
+                "version": 39
+            },
+            "ePerformCalculation": false,
+            "eSolver": 2,
+            "version": 39
+        },
+        "eOptionsGroups::eOGNLCommon": {
+            "e1LC2Calc": 0,
+            "eAccuracy": 0.001,
+            "eCalcEnergy": false,
+            "eLoadSteps": 10,
+            "eMaxIter": 10,
+            "eNLCommonLargeDispl": false,
+            "eNLEpsType": 0,
+            "eNLGeomAddGeomMatrixNL": false,
+            "eNLTrackingLoad": false,
+            "eOptionsGroups::eSLAESolverGroup": {
+                "eAccuracy": 1e-10,
+                "eMKLCoreType": 1,
+                "eMaxIter": 100000,
+                "eRAM": 3072,
+                "eSolver": 10,
+                "version": 39
+            },
+            "ePerformCalculation": false,
+            "eUnloading": false,
+            "version": 39
+        },
+        "eOptionsGroups::eOGNLContact": {
+            "e1LC2Calc": 0,
+            "eAccuracy": 0.001,
+            "eLoadSteps": 10,
+            "eMaxIter": 10,
+            "eNLEpsType": 0,
+            "eOptionsGroups::eSLAESolverGroup": {
+                "eAccuracy": 1e-10,
+                "eMKLCoreType": 1,
+                "eMaxIter": 100000,
+                "eRAM": 3072,
+                "eSolver": 10,
+                "version": 39
+            },
+            "ePerformCalculation": false,
+            "version": 39
+        },
+        "eOptionsGroups::eOGNLCrackLifeDeath": {
+            "e1LC2Calc": 0,
+            "eMaxIter": 30,
+            "eOptionsGroups::eOptionsLinearStatic": {
+                "eCalcEnergy": false,
+                "eCheckConnection": false,
+                "eNLC2Calc": "0",
+                "eOptionsGroups::eFGAStatic": {
+                    "e1LC2Calc": -1,
+                    "eFGACalc": -1,
+                    "eFGAIter": -1,
+                    "eFGATime": -1,
+                    "eFGAUsePres": false,
+                    "eFGAUseTemp": false,
+                    "version": 39
+                },
+                "eOptionsGroups::eOptionsEigenFreq": {
+                    "e1LC2Calc": 0,
+                    "eNumberValuesRequested": 16,
+                    "eOptionsGroups::eGenEigSolver": {
+                        "eAccuracy": 0.001,
+                        "eMKLCoreType": 1,
+                        "eMaxIter": 100,
+                        "eRAM": 3072,
+                        "eSolver": 2,
+                        "version": 39
+                    },
+                    "ePerformCalculation": false,
+                    "ePrestress": false,
+                    "ePrestressCalcType": 0,
+                    "version": 39
+                },
+                "eOptionsGroups::eSLAESolverGroup": {
+                    "eAccuracy": 1e-10,
+                    "eMKLCoreType": 1,
+                    "eMKLSaveData": false,
+                    "eMKLSaveRes": false,
+                    "eMaxIter": 100000,
+                    "eRAM": 3072,
+                    "eSolver": 2,
+                    "version": 39
+                },
+                "eOptionsGroups::eThermalAccount": {
+                    "e1LC2Calc": 0,
+                    "eThermalNSTime": 0.0,
+                    "eThermalSourceType": 0,
+                    "eUseThermal": false,
+                    "version": 39
+                },
+                "ePerformCalculation": true,
+                "version": 39
+            },
+            "ePerformCalculation": false,
+            "version": 39
+        },
+        "eOptionsGroups::eOGNLGeom": {
+            "e1LC2Calc": 0,
+            "eAccuracy": 0.001,
+            "eCalcEnergy": false,
+            "eLoadSteps": 1,
+            "eMaxIter": 30,
+            "eNLEpsType": 0,
+            "eNLGeomAddGeomMatrixNL": false,
+            "eNLTrackingLoad": false,
+            "eOptionsGroups::eSLAESolverGroup": {
+                "eAccuracy": 1e-10,
+                "eMKLCoreType": 1,
+                "eMaxIter": 100000,
+                "eRAM": 3072,
+                "eSolver": 10,
+                "version": 39
+            },
+            "ePerformCalculation": false,
+            "version": 39
+        },
+        "eOptionsGroups::eOGNLPhys": {
+            "e1LC2Calc": 0,
+            "eAccuracy": 0.001,
+            "eCalcEnergy": false,
+            "eLoadSteps": 10,
+            "eMaxIter": 10,
+            "eNLEpsType": 0,
+            "eOptionsGroups::eSLAESolverGroup": {
+                "eAccuracy": 1e-10,
+                "eMKLCoreType": 1,
+                "eMaxIter": 100000,
+                "eRAM": 3072,
+                "eSolver": 10,
+                "version": 39
+            },
+            "ePerformCalculation": false,
+            "eUnloading": false,
+            "version": 39
+        },
+        "eOptionsGroups::eOGNLPhysGeom": {
+            "e1LC2Calc": 0,
+            "eAccuracy": 0.001,
+            "eCalcEnergy": false,
+            "eLoadSteps": 10,
+            "eMaxIter": 10,
+            "eNLEpsType": 0,
+            "eNLGeomAddGeomMatrixNL": false,
+            "eNLTrackingLoad": false,
+            "eOptionsGroups::eSLAESolverGroup": {
+                "eAccuracy": 1e-10,
+                "eMKLCoreType": 1,
+                "eMaxIter": 100000,
+                "eRAM": 3072,
+                "eSolver": 10,
+                "version": 39
+            },
+            "ePerformCalculation": false,
+            "eUnloading": false,
+            "version": 39
+        },
+        "eOptionsGroups::eOGNLXFEM": {
+            "e1LC2Calc": 0,
+            "ePerformCalculation": false,
+            "e_XFEM_integration_precision": 20,
+            "version": 39
+        },
+        "eOptionsGroups::eOGThermalSteadyState": {
+            "eNLC2Calc": "0",
+            "eOptionsGroups::eSLAESolverGroup": {
+                "eMKLCoreType": 1,
+                "eRAM": 3072,
+                "eSolver": 11,
+                "version": 39
+            },
+            "ePerformCalculation": false,
+            "version": 39
+        },
+        "eOptionsGroups::eOGThermalTransient": {
+            "e1LC2Calc": 0,
+            "eNLC2Calc": "0",
+            "eOptionsGroups::eSLAESolverGroup": {
+                "eMKLCoreType": 1,
+                "eMKLSaveData": false,
+                "eMKLSaveRes": false,
+                "eRAM": 3072,
+                "eSolver": 2,
+                "version": 39
+            },
+            "ePerformCalculation": false,
+            "eThermalTheta": 0.5,
+            "eTimeEnd": 1.0,
+            "eTimeNum": 10,
+            "version": 39
+        },
+        "eOptionsGroups::eOGTransientElMag": {
+            "e1LC2Calc": 0,
+            "eHFMLFreqNum": 5,
+            "eHFMLLowerBound": 1000000,
+            "eHFMLNumIterations": 1000,
+            "eHFMLPrecision": 1.0,
+            "eOptionsGroups::eSLAESolverGroup": {
+                "eAccuracy": 1e-10,
+                "eMKLCoreType": 1,
+                "eMKLSaveData": false,
+                "eMKLSaveRes": false,
+                "eMaxIter": 100000,
+                "eRAM": 3072,
+                "eSolver": 2,
+                "version": 39
+            },
+            "ePerformCalculation": false,
+            "eSolver": 2,
+            "version": 39
+        },
+        "eOptionsGroups::eOptionsEigenFreq": {
+            "e1LC2Calc": 0,
+            "eNumberValuesRequested": 16,
+            "eOptionsGroups::eGenEigSolver": {
+                "eAccuracy": 0.001,
+                "eMKLCoreType": 1,
+                "eMaxIter": 100,
+                "eRAM": 3072,
+                "eSolver": 2,
+                "version": 39
+            },
+            "ePerformCalculation": false,
+            "ePrestress": false,
+            "ePrestressCalcType": 0,
+            "version": 39
+        },
+        "eOptionsGroups::eOptionsElasFoundation": {
+            "e2LC2Calc": 0,
+            "eAccuracy": 0.08,
+            "eElasFound_Parameter1": false,
+            "eElasFound_Parameter2": true,
+            "eElasFound_Parameter3": 0.1,
+            "eElasFound_Parameter4": 0.4,
+            "eElasFound_Parameter5": 1.0,
+            "eElasFound_StressRatio": 0.2,
+            "eMaxIter": 6,
+            "eNLC2Calc": "0",
+            "version": 39
+        },
+        "eOptionsGroups::eOptionsFatigue": {
+            "eFatigueCalc2SymType": 0,
+            "eFatigueCalcAlphaEq": 1.0,
+            "eFatigueCalcAmpType": 3,
+            "eFatigueCalcMeanType": 3,
+            "eFatigueCalcPsiSigmaType": 0,
+            "eFatigueCalcPsiSigmaVal": 0.102,
+            "eFatigueCalcPsiTauType": 0,
+            "eFatigueCalcPsiTauVal": 0.051,
+            "eFatigueCalcSrcType": 1,
+            "eFatigueDamageLELPercVal": 100.0,
+            "eFatigueDamageLELType": 0,
+            "eFatigueDamageType": 0,
+            "eFatigueHist2DCnt": 512,
+            "eFatigueHist2DMaxType": 3,
+            "eFatigueHist2DMaxVal": 100.0,
+            "eFatigueHist2DMinType": 2,
+            "eFatigueHist2DMinVal": 100.0,
+            "eFatigueKOverVal": 1.0,
+            "eFatigueMCalcType": 0,
+            "eFatigueMVal": 6.0,
+            "eFatigueNgCalcType": 0,
+            "eFatigueNgVal": 2000000.0,
+            "eFatigueSEqMaxVal": 10000.0,
+            "eFatigueSEqTolVal": 1e-06,
+            "eFatigueSchShift": false,
+            "eFatigueSchType": 0,
+            "eFatigueSigmaValMeanType": false,
+            "eFatigueVohlerInterpType": 2,
+            "eFatigueWarningPrn": true,
+            "eNLC2Calc": "0",
+            "ePerformCalculation": false,
+            "version": 39
+        },
+        "eOptionsGroups::eOptionsForcedOscil": {
+            "FOeSuperElOnly": false,
+            "e1LC2Calc": 0,
+            "e2LC2Calc": 0,
+            "e3LC2Calc": 0,
+            "eFOEigMinFreq": 0.0,
+            "eFOEigVec": 8,
+            "eFOInit": false,
+            "eFOLogDecrement": 0.3,
+            "eFOTimeStep": 0.001,
+            "eOptionsGroups::eFOSolver": {
+                "eAccuracy": 0.001,
+                "eFileSize": 1500,
+                "eMKLCoreType": 1,
+                "eMaxIter": 100,
+                "eRAM": 8000,
+                "eSolver": 2,
+                "version": 39
+            },
+            "eOptionsGroups::eOptionsEigenFreq": {
+                "e1LC2Calc": 0,
+                "eNumberValuesRequested": 16,
+                "eOptionsGroups::eGenEigSolver": {
+                    "eAccuracy": 0.001,
+                    "eMKLCoreType": 1,
+                    "eMaxIter": 100,
+                    "eRAM": 3072,
+                    "eSolver": 2,
+                    "version": 39
+                },
+                "ePerformCalculation": false,
+                "ePrestress": false,
+                "ePrestressCalcType": 0,
+                "version": 39
+            },
+            "eOptionsGroups::eThermalAccount": {
+                "e1LC2Calc": 0,
+                "eThermalNSTime": 0.0,
+                "eThermalSourceType": 0,
+                "eUseThermal": false,
+                "version": 39
+            },
+            "ePerformCalculation": false,
+            "ePrestress": false,
+            "eSolver": 0,
+            "eTimeEnd": 1.0,
+            "eTimeNum": 10,
+            "version": 39
+        },
+        "eOptionsGroups::eOptionsGeneral": {
+            "eDynCaseTotalAverage": false,
+            "eGravityConst": 9.81,
+            "eRodsSectMeshElems1": 3203,
+            "eRodsSectMeshElems2": 600,
+            "eRodsSectMeshType": 0,
+            "eRodsSectNum": 10,
+            "eRodsShearCenter": false,
+            "eWeightForPart": false,
+            "eZeroTemp": 293.15,
+            "version": 39
+        },
+        "eOptionsGroups::eOptionsHarmonicAnalysis": {
+            "e1LC2Calc": 0,
+            "e2LC2Calc": 0,
+            "eDempAlpha": 0.0,
+            "eDempBeta": 0.0001,
+            "eDempDefault": 0.001,
+            "eDempElasFoundationType": 2,
+            "eDempElasFoundationValue": 0.0,
+            "eDempElasLinkType": 0,
+            "eDempElasLinkValue": 10.0,
+            "eDempRatio": 0.05,
+            "eDempSpringSupportType": 2,
+            "eDempSpringSupportValue": 0.0,
+            "eDempType": 2,
+            "eFreqDivType": 2,
+            "eFreqEnd": 100.0,
+            "eFreqNum": 100,
+            "eFreqStart": 1.0,
+            "eHACurCircFrequencyValue": 10.0,
+            "eHAFreqPerc": 0.1,
+            "eHAFreqSDMinNum": 7,
+            "eHASaveMatrixSigma": 1,
+            "eOptionsGroups::eCHACalcOptions2": {
+                "eBaseAccelValue": 0.0003,
+                "eBaseDispValue": 8e-09,
+                "eBaseVelValue": 5e-05,
+                "eCalcTypeComplex": 0,
+                "eCalcTypeFreq": 0,
+                "eCalcTypeValVibro": 0,
+                "eFreq4GroupVal": 0.0,
+                "eFreqTypeHz": true,
+                "eFreqTypeLog": false,
+                "eHATypeSpectr": 0,
+                "eSpectFindFreqEnd": 1000.0,
+                "eSpectFindFreqStart": 1.0,
+                "eSpectFindType": 0,
+                "eTypeFillMatrix": 3,
+                "eTypeVibro": 0,
+                "eVibroType_dB": true,
+                "eViewTypeSpectr": 0,
+                "version": 39
+            },
+            "eOptionsGroups::eCHASaveOptions": {
+                "eFileName": "",
+                "eHASaveFreqItem": 0,
+                "eHASaveMatrix": false,
+                "eHASaveMatrixA": false,
+                "eHASaveMatrixBin": true,
+                "eHASaveMatrixC": false,
+                "eHASaveMatrixK": false,
+                "eHASaveMatrixM": false,
+                "eHASaveMatrixPath": "C:\\Users\\User\\AppData\\Local\\Temp\\",
+                "eHASaveMatrixSamePath": true,
+                "eHASaveVectorF": false,
+                "eHASaveVectorX": false,
+                "version": 39
+            },
+            "eOptionsGroups::eHarmonicAnalysisSolver": {
+                "eAccuracy": 1e-10,
+                "eMKLCoreType": 1,
+                "eMaxIter": 100000,
+                "eRAM": 3072,
+                "eSolver": 2,
+                "version": 39
+            },
+            "eOptionsGroups::eOptionsEigenFreq": {
+                "e1LC2Calc": 0,
+                "eNumberValuesRequested": 16,
+                "eOptionsGroups::eGenEigSolver": {
+                    "eAccuracy": 0.001,
+                    "eMKLCoreType": 1,
+                    "eMaxIter": 100,
+                    "eRAM": 3072,
+                    "eSolver": 2,
+                    "version": 39
+                },
+                "ePerformCalculation": false,
+                "ePrestress": false,
+                "ePrestressCalcType": 0,
+                "version": 39
+            },
+            "ePerformCalculation": false,
+            "ePrestress": false,
+            "eProgressDlgWithLogAutoCloseInt": 1,
+            "eSolver": 0,
+            "version": 39
+        },
+        "eOptionsGroups::eOptionsLinearStatic": {
+            "eCalcEnergy": false,
+            "eCheckConnection": false,
+            "eNLC2Calc": "0",
+            "eOptionsGroups::eFGAStatic": {
+                "e1LC2Calc": -1,
+                "eFGACalc": -1,
+                "eFGAIter": -1,
+                "eFGATime": -1,
+                "eFGAUsePres": false,
+                "eFGAUseTemp": false,
+                "version": 39
+            },
+            "eOptionsGroups::eOptionsEigenFreq": {
+                "e1LC2Calc": 0,
+                "eNumberValuesRequested": 16,
+                "eOptionsGroups::eGenEigSolver": {
+                    "eAccuracy": 0.001,
+                    "eMKLCoreType": 1,
+                    "eMaxIter": 100,
+                    "eRAM": 3072,
+                    "eSolver": 2,
+                    "version": 39
+                },
+                "ePerformCalculation": false,
+                "ePrestress": false,
+                "ePrestressCalcType": 0,
+                "version": 39
+            },
+            "eOptionsGroups::eSLAESolverGroup": {
+                "eAccuracy": 1e-10,
+                "eMKLCoreType": 1,
+                "eMKLSaveData": false,
+                "eMKLSaveRes": false,
+                "eMaxIter": 100000,
+                "eRAM": 3072,
+                "eSolver": 2,
+                "version": 39
+            },
+            "eOptionsGroups::eThermalAccount": {
+                "e1LC2Calc": 0,
+                "eThermalNSTime": 0.0,
+                "eThermalSourceType": 0,
+                "eUseThermal": false,
+                "version": 39
+            },
+            "ePerformCalculation": true,
+            "version": 39
+        },
+        "eOptionsGroups::eOptionsNLOneDir": {
+            "e2LC2Calc": -1,
+            "eAccuracy": 0.01,
+            "eNLC2Calc": "0",
+            "eOptionsGroups::eOptionsLinearStatic": {
+                "eCalcEnergy": false,
+                "eCheckConnection": false,
+                "eNLC2Calc": "0",
+                "eOptionsGroups::eFGAStatic": {
+                    "e1LC2Calc": -1,
+                    "eFGACalc": -1,
+                    "eFGAIter": -1,
+                    "eFGATime": -1,
+                    "eFGAUsePres": false,
+                    "eFGAUseTemp": false,
+                    "version": 39
+                },
+                "eOptionsGroups::eOptionsEigenFreq": {
+                    "e1LC2Calc": 0,
+                    "eNumberValuesRequested": 16,
+                    "eOptionsGroups::eGenEigSolver": {
+                        "eAccuracy": 0.001,
+                        "eMKLCoreType": 1,
+                        "eMaxIter": 100,
+                        "eRAM": 3072,
+                        "eSolver": 2,
+                        "version": 39
+                    },
+                    "ePerformCalculation": false,
+                    "ePrestress": false,
+                    "ePrestressCalcType": 0,
+                    "version": 39
+                },
+                "eOptionsGroups::eSLAESolverGroup": {
+                    "eMKLCoreType": 1,
+                    "eMKLSaveData": false,
+                    "eMKLSaveRes": false,
+                    "eRAM": 3072,
+                    "eSolver": 2,
+                    "version": 39
+                },
+                "eOptionsGroups::eThermalAccount": {
+                    "e1LC2Calc": 0,
+                    "eThermalNSTime": 0.0,
+                    "eThermalSourceType": 0,
+                    "eUseThermal": false,
+                    "version": 39
+                },
+                "ePerformCalculation": true,
+                "version": 39
+            },
+            "eOptionsGroups::eSLAESolverGroup": {
+                "eMKLCoreType": 1,
+                "eMKLSaveData": false,
+                "eMKLSaveRes": false,
+                "eRAM": 3072,
+                "eSolver": 2,
+                "version": 39
+            },
+            "ePerformCalculation": false,
+            "ePrestress": false,
+            "version": 39
+        },
+        "eOptionsGroups::eOptionsPSDSmall": {
+            "eOptionsGroups::eCalcSAOpts": {
+                "ePSDTypeExtrem": 1,
+                "ePSDTypeSACalc": 0,
+                "ePSDTypeSACoord": 0,
+                "version": 39
+            },
+            "eOptionsGroups::eCommonLogLocalOpts": {
+                "eLogPrintLevel": 0,
+                "eLogWriteLevel": 0,
+                "version": 39
+            },
+            "eOptionsGroups::eHALogLocalOpts": {
+                "eLogPrintLevel": 0,
+                "eOptionsGroups::eWriteLogOpts": {
+                    "eLogSaveInterval": 100,
+                    "eLogWriteLevel": 0,
+                    "eOptionsGroups::eFileName2Save": {
+                        "eFileName2SavePostfixFromDateTime": false,
+                        "eFileName2SavePrefix": "",
+                        "eFileName2SavePrefixFromDataName": false,
+                        "eFileName2SaveRootFromIndex": true,
+                        "eFileName2SaveRootFromIndexFmt": "%d",
+                        "version": 39
+                    },
+                    "eOptionsGroups::eWriteFolderOpts": {
+                        "eWriteFolderType": 0,
+                        "eWriteFolderUser": "",
+                        "version": 39
+                    },
+                    "eWriteLogSeparate": false,
+                    "version": 39
+                },
+                "eSaveLogFile": true,
+                "version": 39
+            },
+            "eOptionsGroups::eOptionsHarmonicAnalysis": {
+                "e1LC2Calc": 0,
+                "e2LC2Calc": 0,
+                "eDempAlpha": 0.0,
+                "eDempBeta": 0.0001,
+                "eDempDefault": 0.001,
+                "eDempElasFoundationType": 2,
+                "eDempElasFoundationValue": 0.0,
+                "eDempElasLinkType": 0,
+                "eDempElasLinkValue": 10.0,
+                "eDempRatio": 0.05,
+                "eDempSpringSupportType": 2,
+                "eDempSpringSupportValue": 0.0,
+                "eDempType": 2,
+                "eFreqDivType": 2,
+                "eFreqEnd": 100.0,
+                "eFreqNum": 100,
+                "eFreqStart": 1.0,
+                "eHACurCircFrequencyValue": 10.0,
+                "eHAFreqPerc": 0.1,
+                "eHAFreqSDMinNum": 7,
+                "eHASaveMatrixSigma": 1,
+                "eOptionsGroups::eCHACalcOptions2": {
+                    "eBaseAccelValue": 0.0003,
+                    "eBaseDispValue": 8e-09,
+                    "eBaseVelValue": 5e-05,
+                    "eCalcTypeComplex": 0,
+                    "eCalcTypeFreq": 0,
+                    "eCalcTypeValVibro": 0,
+                    "eFreq4GroupVal": 0.0,
+                    "eFreqTypeHz": true,
+                    "eFreqTypeLog": false,
+                    "eHATypeSpectr": 0,
+                    "eSpectFindFreqEnd": 1000.0,
+                    "eSpectFindFreqStart": 1.0,
+                    "eSpectFindType": 0,
+                    "eTypeFillMatrix": 3,
+                    "eTypeVibro": 0,
+                    "eVibroType_dB": true,
+                    "eViewTypeSpectr": 0,
+                    "version": 39
+                },
+                "eOptionsGroups::eCHASaveOptions": {
+                    "eFileName": "",
+                    "eHASaveFreqItem": 0,
+                    "eHASaveMatrix": false,
+                    "eHASaveMatrixA": false,
+                    "eHASaveMatrixBin": true,
+                    "eHASaveMatrixC": false,
+                    "eHASaveMatrixK": false,
+                    "eHASaveMatrixM": false,
+                    "eHASaveMatrixPath": "C:\\Users\\User\\AppData\\Local\\Temp\\",
+                    "eHASaveMatrixSamePath": true,
+                    "eHASaveVectorF": false,
+                    "eHASaveVectorX": false,
+                    "version": 39
+                },
+                "eOptionsGroups::eHarmonicAnalysisSolver": {
+                    "eAccuracy": 1e-10,
+                    "eMKLCoreType": 1,
+                    "eMaxIter": 100000,
+                    "eRAM": 3072,
+                    "eSolver": 2,
+                    "version": 39
+                },
+                "eOptionsGroups::eOptionsEigenFreq": {
+                    "e1LC2Calc": 0,
+                    "eNumberValuesRequested": 16,
+                    "eOptionsGroups::eGenEigSolver": {
+                        "eAccuracy": 0.001,
+                        "eMKLCoreType": 1,
+                        "eMaxIter": 100,
+                        "eRAM": 3072,
+                        "eSolver": 2,
+                        "version": 39
+                    },
+                    "ePerformCalculation": false,
+                    "ePrestress": false,
+                    "ePrestressCalcType": 0,
+                    "version": 39
+                },
+                "ePerformCalculation": false,
+                "ePrestress": false,
+                "eProgressDlgWithLogAutoCloseInt": 1,
+                "eSolver": 0,
+                "version": 39
+            },
+            "ePSDTypeMeanSigma": 1,
+            "ePSDValRMS": 1.0,
+            "version": 39
+        },
+        "eOptionsGroups::eOptionsStability": {
+            "eNLC2Calc": "0",
+            "eNumberValuesRequested": 1,
+            "eOptionsGroups::eGenEigSolver": {
+                "eAccuracy": 0.001,
+                "eFEASTparam": 8,
+                "eMKLCoreType": 1,
+                "eMaxIter": 100,
+                "eMaxSearchValue": 10.0,
+                "eMinSearchValue": 0.0,
+                "eRAM": 3072,
+                "eReferenceSearchValue": 0.01,
+                "eSolver": 8,
+                "version": 39
+            },
+            "ePerformCalculation": false,
+            "version": 39
+        },
+        "eOptionsGroups::eSolverFoundation": {
+            "eFoundationTypeCalc": 0,
+            "eSoilMapCalcSimple": true,
+            "version": 39
+        },
+        "eOptionsGroups::eSolverRSU": {
+            "eRSUTypeCalc": 0,
+            "version": 39
+        },
+        "eOptionsGroups::eSolverReinforce": {
+            "eOptionsGroups::eReinforceAKOptions": {
+                "eReinforceArmoElem  ": 0,
+                "version": 39
+            },
+            "eOptionsGroups::eReinforceGBOptions": {
+                "eReinforceCalc": 0,
+                "eReinforceFrom": 0,
+                "eReinforceNormBase ": 0,
+                "version": 39
+            },
+            "version": 39
+        },
+        "eOptionsGroups::eSolverSteel": {
+            "eSteelElemTypeCalc": 0,
+            "eSteelTypeCalc": 0,
+            "version": 39
+        },
+        "version": 39
+    },
+    "eOptionsGroups::eSettingView": {
+        "eOptionsGroups::eGridSetting": {
+            "eGridStep": 10.0,
+            "eGridType": 0,
+            "version": 39
+        },
+        "eOptionsGroups::eSnapNode": {
+            "eSnapNodeSetting": 0,
+            "version": 39
+        },
+        "version": 39
+    },
+    "eOptionsGroups::eSettingsG": {
+        "eModelPointAccuracy": 0.0001,
+        "eOptionsGroups::eBatchSettingsG": {
+            "eAutoSaveAfterCalc": true,
+            "eBatchSettingsFRMfiles": [],
+            "eBatchSettingsLoadFile": 0,
+            "eBatchSettingsOPTfile": "",
+            "eBatchSettingsParamOptOPTfile": "",
+            "eBatchSettingsRDSCompare": true,
+            "eBatchSettingsSaveFile": 0,
+            "eBatchSettingsTopOptOPTfile": "",
+            "eLogLevel": 0,
+            "eLogSaveInterval": 1000,
+            "eSaveLogFile": true,
+            "version": 39
+        },
+        "eOptionsGroups::eSettingsCPUGPU": {
+            "eNumberCPU": 8,
+            "eNumberCPUSet": true,
+            "eUseCUDA": false,
+            "eUseCUDAID": -1,
+            "eUseOMP": true,
+            "version": 39
+        },
+        "eOptionsGroups::eSettingsDiskIO": {
+            "eAutoRecovery": false,
+            "eAutoRecoveryPath": "C:\\Users\\User\\AppData\\Local\\Temp\\",
+            "eAutoRecoveryTime": 120,
+            "eAutoSaveAfterCalc": false,
+            "eConvertLoadsAccuracy": 1e-06,
+            "eConvertLoadsAndDelete": false,
+            "eConvertLoadsOnLoad": false,
+            "eConvertLoadsOnSave": false,
+            "eLogLevel": 0,
+            "eLogSaveInterval": 1000,
+            "eSaveBeforeCalcOpt": false,
+            "eSaveLogFile": false,
+            "eTempPath": "C:\\Users\\User\\AppData\\Local\\Temp\\",
+            "version": 39
+        },
+        "eOptionsGroups::eSettingsGraphics": {
+            "eRodLCSRelPosition": 0.0,
+            "eRotationCube": true,
+            "eRotationSystem": 1,
+            "eSimplDisplay": true,
+            "eSupportVisualSize": 3,
+            "eSupportVisualType": 2,
+            "eTransparency": 0.0,
+            "version": 39
+        },
+        "eOptionsGroups::eSettingsResultMap": {
+            "eAlternativeMap": false,
+            "eColNum": 4,
+            "eCoordPoint": false,
+            "eDispModeScale": 0,
+            "eLeaderFillColor": 16777215,
+            "eLeaderFontColor": 0,
+            "eLeaderFrameColor": 0,
+            "eLeaderFrameSize": 2,
+            "eLeaderResDim": true,
+            "eLeaderResFENum": false,
+            "eLeaderResName": true,
+            "eLeaderTextSize": 5,
+            "eSettingsMapUnits": {
+                "eResetToDefault": 0,
+                "eSettingsUnits_Density": {
+                    "eUnits_DensityLength": 1,
+                    "eUnits_DensityMassa": 1,
+                    "version": 39
+                },
+                "eSettingsUnits_LUMR": {
+                    "eSettingsUnits_G": {
+                        "eUnits_GForce": 1,
+                        "eUnits_GLength1": 1,
+                        "eUnits_GLength2": 1,
+                        "version": 39
+                    },
+                    "eSettingsUnits_J": {
+                        "eUnits_JForce": 1,
+                        "eUnits_JLength1": 1,
+                        "eUnits_JLength2": 1,
+                        "version": 39
+                    },
+                    "eSettingsUnits_K": {
+                        "eUnits_KForce": 1,
+                        "eUnits_KLength1": 1,
+                        "eUnits_KLength2": 1,
+                        "version": 39
+                    },
+                    "eSettingsUnits_Paris": {
+                        "eUnits_ParisForce": 1,
+                        "eUnits_ParisLength1": 1,
+                        "eUnits_ParisLength2": 1,
+                        "eUnits_ParisLength3": 1,
+                        "version": 39
+                    },
+                    "version": 39
+                },
+                "eSettingsUnits_LongForce": {
+                    "eUnits_LongForceForce": 1,
+                    "eUnits_LongForceLength": 1,
+                    "version": 39
+                },
+                "eSettingsUnits_Moment": {
+                    "eUnits_MomentForce": 1,
+                    "eUnits_MomentLength": 1,
+                    "version": 39
+                },
+                "eSettingsUnits_Preasure": {
+                    "eUnits_PreasureForce": 1,
+                    "eUnits_PreasureLength": 1,
+                    "version": 39
+                },
+                "eSettingsUnits_Stress": {
+                    "eUnits_StressForce": 1,
+                    "eUnits_StressLength": 1,
+                    "version": 39
+                },
+                "eSettingsUnits_ThermalCapacity": {
+                    "eUnits_ThermalCapacityTemp": 1,
+                    "eUnits_ThermalCapacityWeight": 1,
+                    "eUnits_ThermalCapacityWork": 1,
+                    "version": 39
+                },
+                "eSettingsUnits_ThermalConductivity": {
+                    "eUnits_ThermalConductivityLength": 1,
+                    "eUnits_ThermalConductivityPower": 1,
+                    "eUnits_ThermalConductivityTemperature": 1,
+                    "version": 39
+                },
+                "eUnits_Angle": 1,
+                "eUnits_Force": 1,
+                "eUnits_Freq": 1,
+                "eUnits_Length": 1,
+                "eUnits_Massa": 1,
+                "eUnits_Power": 1,
+                "eUnits_SectionLength": 1,
+                "eUnits_Temperature": 1,
+                "eUnits_Time": 1,
+                "eUnits_Work": 1,
+                "version": 39
+            },
+            "version": 39
+        },
+        "eSettingsUnits": {
+            "eResetToDefault": 0,
+            "eSettingsUnits_Density": {
+                "eUnits_DensityLength": 1,
+                "eUnits_DensityMassa": 1,
+                "version": 39
+            },
+            "eSettingsUnits_LUMR": {
+                "eSettingsUnits_G": {
+                    "eUnits_GForce": 1,
+                    "eUnits_GLength1": 1,
+                    "eUnits_GLength2": 1,
+                    "version": 39
+                },
+                "eSettingsUnits_J": {
+                    "eUnits_JForce": 1,
+                    "eUnits_JLength1": 1,
+                    "eUnits_JLength2": 1,
+                    "version": 39
+                },
+                "eSettingsUnits_K": {
+                    "eUnits_KForce": 1,
+                    "eUnits_KLength1": 1,
+                    "eUnits_KLength2": 1,
+                    "version": 39
+                },
+                "eSettingsUnits_Paris": {
+                    "eUnits_ParisForce": 1,
+                    "eUnits_ParisLength1": 1,
+                    "eUnits_ParisLength2": 1,
+                    "eUnits_ParisLength3": 1,
+                    "version": 39
+                },
+                "version": 39
+            },
+            "eSettingsUnits_LongForce": {
+                "eUnits_LongForceForce": 1,
+                "eUnits_LongForceLength": 1,
+                "version": 39
+            },
+            "eSettingsUnits_Moment": {
+                "eUnits_MomentForce": 1,
+                "eUnits_MomentLength": 1,
+                "version": 39
+            },
+            "eSettingsUnits_Preasure": {
+                "eUnits_PreasureForce": 1,
+                "eUnits_PreasureLength": 1,
+                "version": 39
+            },
+            "eSettingsUnits_Stress": {
+                "eUnits_StressForce": 1,
+                "eUnits_StressLength": 1,
+                "version": 39
+            },
+            "eSettingsUnits_ThermalCapacity": {
+                "eUnits_ThermalCapacityTemp": 1,
+                "eUnits_ThermalCapacityWeight": 1,
+                "eUnits_ThermalCapacityWork": 1,
+                "version": 39
+            },
+            "eSettingsUnits_ThermalConductivity": {
+                "eUnits_ThermalConductivityLength": 1,
+                "eUnits_ThermalConductivityPower": 1,
+                "eUnits_ThermalConductivityTemperature": 1,
+                "version": 39
+            },
+            "eUnits_Angle": 1,
+            "eUnits_Force": 1,
+            "eUnits_Freq": 1,
+            "eUnits_Length": 1,
+            "eUnits_Massa": 1,
+            "eUnits_Power": 1,
+            "eUnits_SectionLength": 1,
+            "eUnits_Temperature": 1,
+            "eUnits_Time": 1,
+            "eUnits_Work": 1,
+            "version": 39
+        },
+        "eUnSelect": false,
+        "eUndoRedoItems": 10,
+        "eUndoRedoRAMChunk": 20,
+        "eVisualMFCStyle": 0,
+        "version": 39
+    },
+    "version": 39
+}
+{
+    "39": {
+        "data": {
+            "eParamOptCalcResults": {
+                "eParamOptCalcResultsDispl": {
+                    "eParamOptDisplAdd": 0,
+                    "e_PO_type_displ": 4133,
+                    "version": 39
+                },
+                "eParamOptCalcResultsStability": {
+                    "eParamOptStabilityAdd": 0,
+                    "version": 39
+                },
+                "eParamOptCalcResultsStresses": {
+                    "eParamOptStressAdd": 0,
+                    "e_PO_mid_stress_in_nodes": true,
+                    "e_PO_type_stress": 4129,
+                    "version": 39
+                },
+                "eParamOptCalcResultsTheoryCalc": {
+                    "e_PO_lam_mid_val_in_nodes": true,
+                    "version": 39
+                },
+                "version": 39
+            },
+            "eParamOptConstraintsEquality": {
+                "eParamOptCEAdd": 0,
+                "version": 39
+            },
+            "eParamOptConstraintsInequality": {
+                "eParamOptCIAdd": 0,
+                "version": 39
+            },
+            "eParamOptDesignSpace": {
+                "eParamOptDesignSpaceContactElems": {
+                    "version": 39
+                },
+                "eParamOptDesignSpaceLayers": {
+                    "eParamOptLayerAdd": 0,
+                    "version": 39
+                },
+                "eParamOptDesignSpaceMaterials": {
+                    "version": 39
+                },
+                "version": 39
+            },
+            "eParamOptTargetFunctions": {
+                "eParamOptTFAdd": 0,
+                "version": 39
+            },
+            "e_PO_metods": 0,
+            "e_PO_precision_calc": 0.001,
+            "version": 39
+        },
+        "group": {
+            "0": 98,
+            "1": 110,
+            "2": 119,
+            "3": 121,
+            "4": 123
+        },
+        "groupcontent": {
+            "0": {
+                "group": {
+                    "0": 99,
+                    "1": 100,
+                    "2": 1210
+                },
+                "groupcontent": {
+                    "0": {
+                        "groupnum": 0,
+                        "version": 39
+                    },
+                    "1": {
+                        "groupnum": 0,
+                        "version": 39
+                    },
+                    "2": {
+                        "groupnum": 0,
+                        "version": 39
+                    }
+                },
+                "groupnum": 3,
+                "groupversion": {
+                    "0": 39,
+                    "1": 39,
+                    "2": 39
+                },
+                "version": 39
+            },
+            "1": {
+                "group": {
+                    "0": 111,
+                    "1": 140,
+                    "2": 148,
+                    "3": 1208
+                },
+                "groupcontent": {
+                    "0": {
+                        "groupnum": 0,
+                        "version": 39
+                    },
+                    "1": {
+                        "groupnum": 0,
+                        "version": 39
+                    },
+                    "2": {
+                        "groupnum": 0,
+                        "version": 39
+                    },
+                    "3": {
+                        "groupnum": 0,
+                        "version": 39
+                    }
+                },
+                "groupnum": 4,
+                "groupversion": {
+                    "0": 39,
+                    "1": 39,
+                    "2": 39,
+                    "3": 39
+                },
+                "version": 39
+            },
+            "2": {
+                "groupnum": 0,
+                "version": 39
+            },
+            "3": {
+                "groupnum": 0,
+                "version": 39
+            },
+            "4": {
+                "groupnum": 0,
+                "version": 39
+            }
+        },
+        "groupnum": 5,
+        "groupversion": {
+            "0": 39,
+            "1": 39,
+            "2": 39,
+            "3": 39,
+            "4": 39
+        },
+        "version": 39
+    },
+    "version": 39
+}
+{
+    "39": {
+        "data": {
+            "39": {
+                "data": {
+                    "eOptionsTopOpt": {
+                        "eNLC2Calc": "0",
+                        "eOptionsGroups::eOptionsEigenFreq": {
+                            "e1LC2Calc": 0,
+                            "eNumberValuesRequested": 1,
+                            "eOptionsGroups::eGenEigSolver": {
+                                "eAccuracy": 0.001,
+                                "eMKLCoreType": 0,
+                                "eMaxIter": 100,
+                                "eRAM": 3072,
+                                "eSolver": 5,
+                                "version": 39
+                            },
+                            "ePerformCalculation": false,
+                            "ePrestress": false,
+                            "ePrestressCalcType": 0,
+                            "version": 39
+                        },
+                        "eOptionsGroups::eOptionsLinearStatic": {
+                            "eCalcEnergy": false,
+                            "eCheckConnection": false,
+                            "eNLC2Calc": "0",
+                            "eOptionsGroups::eFGAStatic": {
+                                "e1LC2Calc": -1,
+                                "eFGACalc": -1,
+                                "eFGAIter": -1,
+                                "eFGATime": -1,
+                                "eFGAUsePres": false,
+                                "eFGAUseTemp": false,
+                                "version": 39
+                            },
+                            "eOptionsGroups::eOptionsEigenFreq": {
+                                "e1LC2Calc": 0,
+                                "eNumberValuesRequested": 16,
+                                "eOptionsGroups::eGenEigSolver": {
+                                    "eAccuracy": 0.001,
+                                    "eMKLCoreType": 1,
+                                    "eMaxIter": 100,
+                                    "eRAM": 3072,
+                                    "eSolver": 2,
+                                    "version": 39
+                                },
+                                "ePerformCalculation": false,
+                                "ePrestress": false,
+                                "ePrestressCalcType": 0,
+                                "version": 39
+                            },
+                            "eOptionsGroups::eSLAESolverGroup": {
+                                "eAccuracy": 1e-10,
+                                "eMKLCoreType": 0,
+                                "eMKLSaveData": false,
+                                "eMKLSaveRes": false,
+                                "eMaxIter": 100000,
+                                "eRAM": 3072,
+                                "eSolver": 2,
+                                "version": 39
+                            },
+                            "eOptionsGroups::eThermalAccount": {
+                                "e1LC2Calc": 0,
+                                "eThermalNSTime": 0.0,
+                                "eThermalSourceType": 0,
+                                "eUseThermal": false,
+                                "version": 39
+                            },
+                            "ePerformCalculation": true,
+                            "version": 39
+                        },
+                        "eOptionsGroups::eOptionsStability": {
+                            "eNLC2Calc": "0",
+                            "eNumberValuesRequested": 1,
+                            "eOptionsGroups::eGenEigSolver": {
+                                "eAccuracy": 0.001,
+                                "eMKLCoreType": 0,
+                                "eMaxIter": 100,
+                                "eMaxSearchValue": 10.0,
+                                "eRAM": 3072,
+                                "eReferenceSearchValue": 0.01,
+                                "eSolver": 4,
+                                "version": 39
+                            },
+                            "ePerformCalculation": false,
+                            "version": 39
+                        },
+                        "ePerformCalculation": false,
+                        "eTopOptAdjointSLAESolver": {
+                            "eOptionsGroups::eSLAESolverGroup": {
+                                "eAccuracy": 1e-10,
+                                "eMKLCoreType": 0,
+                                "eMKLSaveData": false,
+                                "eMKLSaveRes": false,
+                                "eMaxIter": 100000,
+                                "eRAM": 3072,
+                                "eSolver": 2,
+                                "version": 39
+                            },
+                            "version": 39
+                        },
+                        "eTopOptAlbefa": 0.1,
+                        "eTopOptFilterType": 2,
+                        "eTopOptLogMetricsFlag": false,
+                        "eTopOptLogSavingFlag": false,
+                        "eTopOptMMADecr": 0.7,
+                        "eTopOptMMAIncr": 1.08,
+                        "eTopOptMMAInit": 0.25,
+                        "eTopOptMMAMove": 0.5,
+                        "eTopOptMMAa": 0.0,
+                        "eTopOptMMAc": 1000.0,
+                        "eTopOptMMAd": 0.0,
+                        "eTopOptMaxIterNum": 150,
+                        "eTopOptMaxStep": 0.2,
+                        "eTopOptPenalty": 3.0,
+                        "eTopOptResSaveInterval": 1,
+                        "eTopOptResSaveVTU": false,
+                        "eTopOptRestart": false,
+                        "eTopOptResultsSavingInterval": 0,
+                        "eTopOptRobustnesLow": 0.0001,
+                        "eTopOptRobustnesUp": 10000.0,
+                        "eTopOptSaveStresses": false,
+                        "eTopOptStopMaxChange": 1e-05,
+                        "eTopOptTestGradient": false,
+                        "eTopOptVFStart": false,
+                        "eTopOptdEmin": 1e-06,
+                        "e_TopOpt_Optimizer": 0,
+                        "version": 39
+                    },
+                    "eTopOptConstraintSettingsGlobal": {
+                        "eTopOptConstraintAdd": 0,
+                        "version": 39
+                    },
+                    "eTopOptDesignSpace": {
+                        "eTopOptDSAdd": 0,
+                        "eTopOptDSDelete": 0,
+                        "eTopOptDSRemove": 0,
+                        "eTopOptDSShow": 0,
+                        "version": 39
+                    },
+                    "eTopOptTargetFunctionSettings": {
+                        "eTopOptCalcDOF": {
+                            "eTOLocDOFNumber": 0,
+                            "eTOLocDOF_ROTX": false,
+                            "eTOLocDOF_ROTY": false,
+                            "eTOLocDOF_ROTZ": false,
+                            "eTOLocDOF_X": true,
+                            "eTOLocDOF_Y": false,
+                            "eTOLocDOF_Z": false,
+                            "version": 39
+                        },
+                        "eTopOptClusteringSettings": {
+                            "eTOClusterPenalty": 9.0,
+                            "version": 39
+                        },
+                        "eTopOptDirection": {
+                            "eTOResponseDirection_x": 1.0,
+                            "eTOResponseDirection_y": 0.0,
+                            "eTOResponseDirection_z": 0.0,
+                            "version": 39
+                        },
+                        "eTopOptIndices": {
+                            "eTopOpt1Index1": 0,
+                            "eTopOpt1Index2": 0,
+                            "eTopOptAddInd": 0,
+                            "eTopOptCS": true,
+                            "eTopOptDeleteInd": 0,
+                            "eTopOptElType": 8,
+                            "eTopOptIndices3": [],
+                            "eTopOptIndices5": 0,
+                            "eTopOptIndices6": "0",
+                            "eTopOptSumByIndices": false,
+                            "version": 39
+                        },
+                        "eTopOptMinimizeTF": 0,
+                        "eTopOptResponseLC": {
+                            "e1LC2Calc": 0,
+                            "version": 39
+                        },
+                        "eTopOptResponseModuleCalc": {
+                            "eTOResponseModuleCalc": false,
+                            "version": 39
+                        },
+                        "eTopOptResponseNLC": {
+                            "eNLC2Calc": "0",
+                            "version": 39
+                        },
+                        "eTopOptResponses": {
+                            "eTOResponses": 4,
+                            "version": 39
+                        },
+                        "version": 39
+                    },
+                    "e_TopOpt_Constraints": {
+                        "eTopOptMilling": {
+                            "eTopOptMillingDepth": 10.0,
+                            "eTopOptMillingDiameter": 3.0,
+                            "eTopOptMillingDirectionX": 1.0,
+                            "eTopOptMillingDirectionY": 0.0,
+                            "eTopOptMillingDirectionZ": 0.0,
+                            "eTopOptMillingSwitch": false,
+                            "eTopOptMillingToolSetting": 0,
+                            "version": 39
+                        },
+                        "e_TO_constraint_application_area": 1,
+                        "e_TopOpt_3D_printing": {
+                            "e_TO_printing_direction_X": 0.0,
+                            "e_TO_printing_direction_Y": 1.0,
+                            "e_TO_printing_direction_Z": 0.0,
+                            "e_TO_printing_lambda": 100.0,
+                            "e_TO_printing_switch": false,
+                            "version": 39
+                        },
+                        "e_TopOpt_extrusion": {
+                            "e_TO_extrusion_direction_x": 0.0,
+                            "e_TO_extrusion_direction_y": 1.0,
+                            "e_TO_extrusion_direction_z": 0.0,
+                            "e_TO_extrusion_switch": false,
+                            "version": 39
+                        },
+                        "e_TopOpt_max_d": {
+                            "e_TO_max_d_method": 1,
+                            "e_TO_max_d_switch": false,
+                            "e_TO_max_d_value": 0.0,
+                            "version": 39
+                        },
+                        "e_TopOpt_min_d": {
+                            "e_TO_min_d_switch": true,
+                            "e_TO_min_d_value": 3.0,
+                            "version": 39
+                        },
+                        "e_TopOpt_stamping": {
+                            "e_TO_stamping_New_Alg": false,
+                            "e_TO_stamping_direction_x": 0.0,
+                            "e_TO_stamping_direction_y": 1.0,
+                            "e_TO_stamping_direction_z": 0.0,
+                            "e_TO_stamping_point_on_plane_with_material__switch": false,
+                            "e_TO_stamping_point_x": 0.0,
+                            "e_TO_stamping_point_y": 0.0,
+                            "e_TO_stamping_point_z": 0.0,
+                            "e_TO_stamping_switch": false,
+                            "version": 39
+                        },
+                        "e_TopOpt_sym": {
+                            "e_TO_sym_PS2_switch": false,
+                            "e_TO_sym_PS3_switch": false,
+                            "e_TO_sym_pure_set_up": false,
+                            "e_TO_sym_switch": false,
+                            "e_TO_sym_x1": 1.0,
+                            "e_TO_sym_x2": 0.0,
+                            "e_TO_sym_y1": 0.0,
+                            "e_TO_sym_y2": 0.0,
+                            "e_TO_sym_z1": 0.0,
+                            "e_TO_sym_z2": 0.0,
+                            "version": 39
+                        },
+                        "version": 39
+                    },
+                    "version": 39
+                },
+                "group": {
+                    "0": 67,
+                    "1": 69,
+                    "2": 79,
+                    "3": 11,
+                    "4": 36
+                },
+                "groupcontent": {
+                    "0": {
+                        "groupnum": 0,
+                        "version": 39
+                    },
+                    "1": {
+                        "group": {
+                            "0": 71,
+                            "1": 76,
+                            "2": 74,
+                            "3": 75,
+                            "4": 95,
+                            "5": 73,
+                            "6": 72,
+                            "7": 96
+                        },
+                        "groupcontent": {
+                            "0": {
+                                "groupnum": 0,
+                                "version": 39
+                            },
+                            "1": {
+                                "groupnum": 0,
+                                "version": 39
+                            },
+                            "2": {
+                                "groupnum": 0,
+                                "version": 39
+                            },
+                            "3": {
+                                "groupnum": 0,
+                                "version": 39
+                            },
+                            "4": {
+                                "groupnum": 0,
+                                "version": 39
+                            },
+                            "5": {
+                                "groupnum": 0,
+                                "version": 39
+                            },
+                            "6": {
+                                "groupnum": 0,
+                                "version": 39
+                            },
+                            "7": {
+                                "groupnum": 0,
+                                "version": 39
+                            }
+                        },
+                        "groupnum": 8,
+                        "groupversion": {
+                            "0": 39,
+                            "1": 39,
+                            "2": 39,
+                            "3": 39,
+                            "4": 39,
+                            "5": 39,
+                            "6": 39,
+                            "7": 39
+                        },
+                        "version": 39
+                    },
+                    "2": {
+                        "groupnum": 0,
+                        "version": 39
+                    },
+                    "3": {
+                        "group": {
+                            "0": 9,
+                            "1": 12,
+                            "2": 10,
+                            "3": 153
+                        },
+                        "groupcontent": {
+                            "0": {
+                                "group": {
+                                    "0": 13,
+                                    "1": 45,
+                                    "2": 10,
+                                    "3": 94
+                                },
+                                "groupcontent": {
+                                    "0": {
+                                        "groupnum": 0,
+                                        "version": 39
+                                    },
+                                    "1": {
+                                        "groupnum": 0,
+                                        "version": 39
+                                    },
+                                    "2": {
+                                        "group": {
+                                            "0": 32
+                                        },
+                                        "groupcontent": {
+                                            "0": {
+                                                "groupnum": 0,
+                                                "version": 39
+                                            }
+                                        },
+                                        "groupnum": 1,
+                                        "groupversion": {
+                                            "0": 39
+                                        },
+                                        "version": 39
+                                    },
+                                    "3": {
+                                        "groupnum": 0,
+                                        "version": 39
+                                    }
+                                },
+                                "groupnum": 4,
+                                "groupversion": {
+                                    "0": 39,
+                                    "1": 39,
+                                    "2": 39,
+                                    "3": 39
+                                },
+                                "version": 39
+                            },
+                            "1": {
+                                "group": {
+                                    "0": 32
+                                },
+                                "groupcontent": {
+                                    "0": {
+                                        "groupnum": 0,
+                                        "version": 39
+                                    }
+                                },
+                                "groupnum": 1,
+                                "groupversion": {
+                                    "0": 39
+                                },
+                                "version": 39
+                            },
+                            "2": {
+                                "group": {
+                                    "0": 32
+                                },
+                                "groupcontent": {
+                                    "0": {
+                                        "groupnum": 0,
+                                        "version": 39
+                                    }
+                                },
+                                "groupnum": 1,
+                                "groupversion": {
+                                    "0": 39
+                                },
+                                "version": 39
+                            },
+                            "3": {
+                                "group": {
+                                    "0": 13
+                                },
+                                "groupcontent": {
+                                    "0": {
+                                        "groupnum": 0,
+                                        "version": 39
+                                    }
+                                },
+                                "groupnum": 1,
+                                "groupversion": {
+                                    "0": 39
+                                },
+                                "version": 39
+                            }
+                        },
+                        "groupnum": 4,
+                        "groupversion": {
+                            "0": 39,
+                            "1": 39,
+                            "2": 39,
+                            "3": 39
+                        },
+                        "version": 39
+                    },
+                    "4": {
+                        "group": {
+                            "0": 37,
+                            "1": 38,
+                            "2": 39,
+                            "3": 40,
+                            "4": 41,
+                            "5": 42,
+                            "6": 2222
+                        },
+                        "groupcontent": {
+                            "0": {
+                                "groupnum": 0,
+                                "version": 39
+                            },
+                            "1": {
+                                "groupnum": 0,
+                                "version": 39
+                            },
+                            "2": {
+                                "groupnum": 0,
+                                "version": 39
+                            },
+                            "3": {
+                                "groupnum": 0,
+                                "version": 39
+                            },
+                            "4": {
+                                "groupnum": 0,
+                                "version": 39
+                            },
+                            "5": {
+                                "groupnum": 0,
+                                "version": 39
+                            },
+                            "6": {
+                                "groupnum": 0,
+                                "version": 39
+                            }
+                        },
+                        "groupnum": 7,
+                        "groupversion": {
+                            "0": 39,
+                            "1": 39,
+                            "2": 39,
+                            "3": 39,
+                            "4": 39,
+                            "5": 39,
+                            "6": 39
+                        },
+                        "version": 39
+                    }
+                },
+                "groupnum": 5,
+                "groupversion": {
+                    "0": 39,
+                    "1": 39,
+                    "2": 39,
+                    "3": 39,
+                    "4": 39
+                },
+                "version": 39
+            }
+        },
+        "group": {
+            "0": 67,
+            "1": 69,
+            "2": 79,
+            "3": 11,
+            "4": 36
+        },
+        "groupcontent": {
+            "0": {
+                "groupnum": 0,
+                "version": 39
+            },
+            "1": {
+                "group": {
+                    "0": 71,
+                    "1": 76,
+                    "2": 74,
+                    "3": 75,
+                    "4": 95,
+                    "5": 73,
+                    "6": 72,
+                    "7": 96
+                },
+                "groupcontent": {
+                    "0": {
+                        "groupnum": 0,
+                        "version": 39
+                    },
+                    "1": {
+                        "groupnum": 0,
+                        "version": 39
+                    },
+                    "2": {
+                        "groupnum": 0,
+                        "version": 39
+                    },
+                    "3": {
+                        "groupnum": 0,
+                        "version": 39
+                    },
+                    "4": {
+                        "groupnum": 0,
+                        "version": 39
+                    },
+                    "5": {
+                        "groupnum": 0,
+                        "version": 39
+                    },
+                    "6": {
+                        "groupnum": 0,
+                        "version": 39
+                    },
+                    "7": {
+                        "groupnum": 0,
+                        "version": 39
+                    }
+                },
+                "groupnum": 8,
+                "groupversion": {
+                    "0": 39,
+                    "1": 39,
+                    "2": 39,
+                    "3": 39,
+                    "4": 39,
+                    "5": 39,
+                    "6": 39,
+                    "7": 39
+                },
+                "version": 39
+            },
+            "2": {
+                "groupnum": 0,
+                "version": 39
+            },
+            "3": {
+                "group": {
+                    "0": 9,
+                    "1": 12,
+                    "2": 10,
+                    "3": 153
+                },
+                "groupcontent": {
+                    "0": {
+                        "group": {
+                            "0": 13,
+                            "1": 45,
+                            "2": 10,
+                            "3": 94
+                        },
+                        "groupcontent": {
+                            "0": {
+                                "groupnum": 0,
+                                "version": 39
+                            },
+                            "1": {
+                                "groupnum": 0,
+                                "version": 39
+                            },
+                            "2": {
+                                "group": {
+                                    "0": 32
+                                },
+                                "groupcontent": {
+                                    "0": {
+                                        "groupnum": 0,
+                                        "version": 39
+                                    }
+                                },
+                                "groupnum": 1,
+                                "groupversion": {
+                                    "0": 39
+                                },
+                                "version": 39
+                            },
+                            "3": {
+                                "groupnum": 0,
+                                "version": 39
+                            }
+                        },
+                        "groupnum": 4,
+                        "groupversion": {
+                            "0": 39,
+                            "1": 39,
+                            "2": 39,
+                            "3": 39
+                        },
+                        "version": 39
+                    },
+                    "1": {
+                        "group": {
+                            "0": 32
+                        },
+                        "groupcontent": {
+                            "0": {
+                                "groupnum": 0,
+                                "version": 39
+                            }
+                        },
+                        "groupnum": 1,
+                        "groupversion": {
+                            "0": 39
+                        },
+                        "version": 39
+                    },
+                    "2": {
+                        "group": {
+                            "0": 32
+                        },
+                        "groupcontent": {
+                            "0": {
+                                "groupnum": 0,
+                                "version": 39
+                            }
+                        },
+                        "groupnum": 1,
+                        "groupversion": {
+                            "0": 39
+                        },
+                        "version": 39
+                    },
+                    "3": {
+                        "group": {
+                            "0": 13
+                        },
+                        "groupcontent": {
+                            "0": {
+                                "groupnum": 0,
+                                "version": 39
+                            }
+                        },
+                        "groupnum": 1,
+                        "groupversion": {
+                            "0": 39
+                        },
+                        "version": 39
+                    }
+                },
+                "groupnum": 4,
+                "groupversion": {
+                    "0": 39,
+                    "1": 39,
+                    "2": 39,
+                    "3": 39
+                },
+                "version": 39
+            },
+            "4": {
+                "group": {
+                    "0": 37,
+                    "1": 38,
+                    "2": 39,
+                    "3": 40,
+                    "4": 41,
+                    "5": 42,
+                    "6": 2222
+                },
+                "groupcontent": {
+                    "0": {
+                        "groupnum": 0,
+                        "version": 39
+                    },
+                    "1": {
+                        "groupnum": 0,
+                        "version": 39
+                    },
+                    "2": {
+                        "groupnum": 0,
+                        "version": 39
+                    },
+                    "3": {
+                        "groupnum": 0,
+                        "version": 39
+                    },
+                    "4": {
+                        "groupnum": 0,
+                        "version": 39
+                    },
+                    "5": {
+                        "groupnum": 0,
+                        "version": 39
+                    },
+                    "6": {
+                        "groupnum": 0,
+                        "version": 39
+                    }
+                },
+                "groupnum": 7,
+                "groupversion": {
+                    "0": 39,
+                    "1": 39,
+                    "2": 39,
+                    "3": 39,
+                    "4": 39,
+                    "5": 39,
+                    "6": 39
+                },
+                "version": 39
+            }
+        },
+        "groupnum": 5,
+        "groupversion": {
+            "0": 39,
+            "1": 39,
+            "2": 39,
+            "3": 39,
+            "4": 39
+        },
+        "version": 39
+    },
+    "version": 39
+}
+RFD35  RFTDDLGM   DLSC   «‡„ÛÊÂÌËÂ 0                         ƒw§πOqLè¶HΩØŒ‰œ        x»¥                      à”@
+        ˘A                                         à”@
+        ˘A            RLRG      x»¥    —ÎÓÈ 0    &   {6D337217-DD14-4DB4-B688-339D9A693958}                      &   {9AFD31BD-183F-4497-8C0B-B8E7E7F03C1C}NMDN    IPPP    ORES    NMDR    ONOF    PE00    IMAM                        SUSC    CBBT    XERP    NMLS    LSDL    NMDS    NWDL    NSDL    WSDL    PSUS    DOUS    NISD    CLOC    TJAM    ETDL    TRDL    DSRP    ETPM    DCMC    ÓÏ·ËÌ‡ˆËˇ Á‡„ÛÊÂÌËÈ                         ï!;¨$"±A¨uV¨«E                              333333Û?                   AMRT    CAIL    CAAR    CAEC    EREL    TJSD    LEKL    YSNO    PTLC   NCNZ    SURV    OSBO                                                        333333Î?      
+   HTOL    SEOL    SMOL    DEDE    LSDE    FHOL    LFOL    OMDE                    RCTM    RCTSˇˇˇˇUSLE    ˛ˇˇˇ    RFNM    BREF    DDEF    IFNC    NWML    NSML    RPER    FNML    MNML    TNML    SBML    PEML    LSML    TSML    RBML    SHML    TTML    LPTC    RTTP    LESF    LCRG    SLCT        SLTR    SLSE    NIER    MTML    ATML    USML    AFAM      ø      ø       NEFDSOAD333333”?         ?
+   ¸©Ò“MbP?                                                                 2                                        ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇ                   ˇˇˇˇ•\√Ò)c=»•\√Ò)c=Hˇˇˇˇ•\√Ò)c=»•\√Ò)c=Hˇˇˇˇ•\√Ò)c=»•\√Ò)c=H•\√Ò)c=»•\√Ò)c=HNSRM               RFNEERDR                    
