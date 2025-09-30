@@ -2,7 +2,7 @@ services:
   tinker_docker:
     build:
       context: ..
-      dockerfile: Tinker_docker/Dockerfile
+      dockerfile: docker_rl/Dockerfile
     container_name: tinker_docker
     network_mode: "host"
     privileged: true
@@ -14,4 +14,5 @@ services:
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
+      - ~/docker_rl/Tinker_sber_RL:/home
     runtime: nvidia

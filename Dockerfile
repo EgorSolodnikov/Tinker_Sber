@@ -78,11 +78,5 @@ RUN wget https://developer.nvidia.com/isaac-gym-preview-4 -O isaac-gym.tar.gz &&
 WORKDIR /isaacgym/python
 RUN pip install -e .
 
-#Cloning Tinker repository
-WORKDIR /
-RUN git clone https://github.com/Romlose/Tinker_sber.git
-CMD tail -f /dev/null
-WORKDIR /Tinker_sber
-
 #Download missing packages
 RUN apt-get update && apt-get install -y python3-tk
