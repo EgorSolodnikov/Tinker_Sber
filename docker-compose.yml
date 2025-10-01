@@ -16,3 +16,6 @@ services:
       - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
       - ~/docker_rl/Tinker_sber_RL:/home
     runtime: nvidia
+    tty: true
+    stdin_open: true
+    command: tail -f /dev/null

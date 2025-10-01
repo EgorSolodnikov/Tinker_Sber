@@ -79,4 +79,7 @@ WORKDIR /isaacgym/python
 RUN pip install -e .
 
 #Download missing packages
-RUN apt-get update && apt-get install -y python3-tk
+RUN apt-get update && apt-get install -y python3-tk psutil
+
+WORKDIR /home
+
