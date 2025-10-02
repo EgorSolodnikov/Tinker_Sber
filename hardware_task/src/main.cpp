@@ -24,12 +24,9 @@
 #include "spi.h"
 #include "sys_time.h"
 #include <pthread.h>
-#include <yaml-cpp/yaml.h>
-#include <yaml-cpp/node/parse.h>
 #include <signal.h>
 #include <errno.h>
 
-YAML::Node config_hardware=YAML::LoadFile("/home/odroid/Tinker/Param/param_hardware.yaml");
 
 // ps -ef | grep hardware_task
 // kill －9 324
