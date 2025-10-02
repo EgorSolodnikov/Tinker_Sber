@@ -23,8 +23,6 @@ ADD_EXECUTABLE(${PROJECT_NAME} ${DIR_SRCS})
 add_subdirectory(library/serial output EXCLUDE_FROM_ALL)
 target_link_libraries(${PROJECT_NAME} serial)
 
-add_subdirectory(library/yaml-cpp lib/ EXCLUDE_FROM_ALL)
-target_link_libraries(${PROJECT_NAME} yaml-cpp)
 
 
 
