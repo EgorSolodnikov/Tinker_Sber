@@ -526,16 +526,14 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
 
 /* USER CODE BEGIN 1 */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
-  sscanf("%i,%i");
-}
-{
+
   if(huart->Instance==USART3)
   {
     // Handle the received data in rx_buffer
     // For example, you can process or store the data here
 
     // Restart the UART DMA reception
-    HAL_UART_Receive_DMA(&huart3, rx_buffer, sizeof(rx_buffer));
+    //HAL_UART_Receive_DMA(&huart3, rx_buffer, sizeof(rx_buffer));
   }
 }
 /* USER CODE END 1 */

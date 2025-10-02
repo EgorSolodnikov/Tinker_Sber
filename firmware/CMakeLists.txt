@@ -34,7 +34,15 @@ enable_language(C ASM)
 # Create an executable object type
 add_executable(${CMAKE_PROJECT_NAME}
         Core/Src/CAN_Messages.c
-        Core/Inc/CAN_Messages.h)
+        Core/Inc/CAN_Messages.h
+        Core/Src/can.c
+        Core/Src/mit_link.c
+        Core/Src/time.c
+        Core/Src/time.h
+        Core/Src/time.c
+        Core/Src/filter.c
+        Core/Src/filter.h
+)
 
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)

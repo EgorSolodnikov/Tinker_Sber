@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "can.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -92,7 +93,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  CAN_motor_init();
   /* USER CODE END Init */
 
   /* Configure the system clock */

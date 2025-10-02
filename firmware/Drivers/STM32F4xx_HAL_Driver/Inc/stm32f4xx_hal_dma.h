@@ -19,6 +19,7 @@
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STM32F4xx_HAL_DMA_H
 #define __STM32F4xx_HAL_DMA_H
+#include "stm32f4xx_hal_def.h"
 
 #ifdef __cplusplus
  extern "C" {
