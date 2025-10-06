@@ -14,6 +14,7 @@ from PyQt5.QtWidgets import (
     QSpinBox,
     QDoubleSpinBox,
     QCheckBox,
+    QPushButton,
 )
 from PyQt5.QtCore import Qt, QTimer
 import rclpy
@@ -26,7 +27,7 @@ from ament_index_python.packages import get_package_share_directory
 import os
 import xml.etree.ElementTree as ET
 
-MOTOR_COUNT = 10
+MOTOR_COUNT = 12
 JOINT_NAMES_10 = [
     'joint_l_yaw',
     'joint_l_roll',
@@ -183,7 +184,8 @@ class SliderWindow(QWidget):
         self.display_timer.timeout.connect(self._on_timer)
         self.display_timer.start(100)
 
-        self._publish_all(force=True)
+        # Не публикуем автоматически
+        self._publish_all()
 
     def _load_limits_from_urdf(self) -> List[Tuple[float, float]]:
         limits: List[Tuple[float, float]] = []
@@ -249,6 +251,10 @@ class SliderWindow(QWidget):
             cmd_data_labels.append(data_lbl)
         self.motor_cmd_spinboxes.append(cmd_spinboxes)
         self.motor_cmd_data_labels.append(cmd_data_labels)
+        # Кнопка SEND для публикации JointState один раз
+        send_btn = QPushButton('SEND')
+        send_btn.clicked.connect(lambda _, m=motor_index: self._send_cmd_clicked_for_motor(m))
+        cmd_grid.addWidget(send_btn, len(cmd_names), 0, 1, 3)
         group_layout.addWidget(cmd_box)
 
         # Блок параметров (10 полей) + статусы
@@ -329,13 +335,13 @@ class SliderWindow(QWidget):
             label.setText(f'{name}: {pos:.3f}')
         else:
             label.setText(f'{name}: {value:.3f}')
-        self._publish_all()
+        # Не публикуем автоматически, публикация по кнопке SEND
 
     def _on_param_change(self, motor_index: int, label: QLabel, field: str, value: float):
         label.setText(f'{field}: {value:.3f}')
         if field == 'enable':
             self._handle_enable_edge(motor_index)
-        self._publish_all()
+        # Не публикуем автоматически
 
     def _on_enable_checkbox_change(self, motor_index: int, state: int):
         # Обрабатываем изменение галочки enable
@@ -346,6 +352,7 @@ class SliderWindow(QWidget):
         if current == self.last_enable_state[motor_index]:
             return
         if not current:
+            # Не публикуем в /motors/commands при выключении
             self._publish_motor_zero_once(motor_index)
             for spinbox in self.motor_cmd_spinboxes[motor_index]:
                 spinbox.setValue(0.0)
@@ -358,15 +365,13 @@ class SliderWindow(QWidget):
                     continue
                 checkbox.setChecked(False)
         else:
-            self._publish_all(force=True)
+            # При включении опубликовать только параметры этого мотора один раз
+            params = self._collect_motor_params(motor_index)
+            self.ros_node.publish_motor_params(motor_index, params)
         self.last_enable_state[motor_index] = current
 
     def _publish_motor_zero_once(self, motor_index: int):
-        pos_list, vel_list, trq_list = self._collect_joint_arrays()
-        pos_list[motor_index] = 0.0
-        vel_list[motor_index] = 0.0
-        trq_list[motor_index] = 0.0
-        self.ros_node.publish_joint_commands(pos_list, vel_list, trq_list)
+        # Не публиковать в /motors/commands при выключении
         zero_params = [0.0] * len(MOTOR_PARAM_FIELDS)
         zero_params[0] = float(motor_index + 1)
         self.ros_node.publish_motor_params(motor_index, zero_params)
@@ -401,8 +406,7 @@ class SliderWindow(QWidget):
         return result
 
     def _publish_all(self, force: bool = False):
-        pos_list, vel_list, trq_list = self._collect_joint_arrays()
-        self.ros_node.publish_joint_commands(pos_list, vel_list, trq_list)
+        # Публиковать по требованию (SEND) или при включении мотора, не по таймеру
         for m in range(MOTOR_COUNT):
             enabled = self._get_enable_state(m)
             if enabled or force:
@@ -429,7 +433,7 @@ class SliderWindow(QWidget):
         self.imu_labels['yaw'].setText(f'yaw: {self.ros_node.imu_pry[2]:.3f}')
 
     def _on_timer(self):
-        self._publish_all()
+        # Не публикуем /motors/commands по таймеру
         self._update_state_labels()
 
         # Публикация IMU/Control Board команд по таймеру
@@ -447,6 +451,11 @@ class SliderWindow(QWidget):
         cb_msg = Float32()
         cb_msg.data = float(self.beep_state_spin.value())
         self.ros_node.cb_cmd_pub.publish(cb_msg)
+
+    def _send_cmd_clicked_for_motor(self, motor_index: int):
+        # Публикуем один JointState при нажатии SEND (один раз)
+        pos_list, vel_list, trq_list = self._collect_joint_arrays()
+        self.ros_node.publish_joint_commands(pos_list, vel_list, trq_list)
 
 
 def main(args=None):
