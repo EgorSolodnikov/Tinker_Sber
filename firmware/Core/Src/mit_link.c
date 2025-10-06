@@ -1,7 +1,7 @@
-#include "can.h"
-#include "filter.h"
+#include "../Inc/can.h"
+#include "../Inc/filter.h"
 #include "math.h"
-#include "time.h"
+#include "../Inc/time.h"
 extern CAN_HandleTypeDef hcan1;
 extern CAN_HandleTypeDef hcan2;
 
@@ -506,7 +506,7 @@ void mit_bldc_thread(char en_all, float dt) {
         }
     }
     //��������
-    if (can_write_flash == 1) {
+    /*if (can_write_flash == 1) {
         //stop motor
         for (i = 0; i < 10; i++) {
             motor_chassis[i].en_cmd = 0;
@@ -518,7 +518,7 @@ void mit_bldc_thread(char en_all, float dt) {
         can_write_flash = 0;
         en_all = 0;
         //   WRITE_PARM();
-    }
+    }TODO Надо потом разобраться с отключением двигателей*/
 
     //���Ϳ���ָ��
     for (i = 0; i < 10; i++) {
@@ -579,4 +579,404 @@ void mit_bldc_thread(char en_all, float dt) {
 
     for (i = 0; i < 4; i++)
         state_reg[i] = state_mit[i];
+}
+
+
+int float_to_uint_rv(float x, float x_min, float x_max, int bits){
+	/// Converts a float to an unsigned int, given range and number of bits ///
+	float span = x_max - x_min;
+	float offset = x_min;
+	return (int) ((x-offset)*((float)((1<<bits)-1))/span);
+}
+
+
+
+// This function use in ask communication mode.
+/*
+motor_id:1~0x7FE
+kp:0~500
+kd:0~50
+pos:-12.5rad~12.5rad
+spd:-18rad/s~18rad/s
+tor:-30Nm~30Nm
+*/
+HAL_StatusTypeDef send_motor_ctrl_cmd(uint16_t motor_id, float kp, float kd, float pos, float spd, float tor)
+{
+	u8 mbox;
+  uint16_t i=0;
+	int kp_int;
+	int kd_int;
+	int pos_int;
+	int spd_int;
+	int tor_int;
+
+	CAN_TxHeaderTypeDef TxMessage;
+	TxMessage.IDE = CAN_ID_STD;
+	if(motor_id<7)
+		TxMessage.StdId=0x00+motor_id+1;	 // ?????????0
+	else
+		TxMessage.StdId=0x00+motor_id+1-7;
+
+	TxMessage.RTR = CAN_RTR_DATA;
+	TxMessage.DLC = 8;
+	TxMessage.ExtId=0x00;//0x200;	 // ??????????????29???
+  TxMessage.IDE=0;		  // '??????????
+  TxMessage.RTR=0;		  // ???????????????h?8?
+	if(kp>KP_MAX) kp=KP_MAX;
+		else if(kp<KP_MIN) kp=KP_MIN;
+	if(kd>KD_MAX ) kd=KD_MAX;
+		else if(kd<KD_MIN) kd=KD_MIN;
+	if(pos>POS_MAX)	pos=POS_MAX;
+		else if(pos<POS_MIN) pos=POS_MIN;
+	if(spd>SPD_MAX)	spd=SPD_MAX;
+		else if(spd<SPD_MIN) spd=SPD_MIN;
+	if(tor>T_MAX)	tor=T_MAX;
+		else if(tor<T_MIN) tor=T_MIN;
+
+  kp_int = float_to_uint_rv(kp, KP_MIN, KP_MAX, 12);
+  kd_int = float_to_uint_rv(kd, KD_MIN, KD_MAX, 9);
+	pos_int = float_to_uint_rv(pos, POS_MIN, POS_MAX, 16);
+  spd_int = float_to_uint_rv(spd, SPD_MIN, SPD_MAX, 12);
+  tor_int = float_to_uint_rv(tor, T_MIN, T_MAX, 12);
+	uint8_t Data[8]={};
+	Data[0]=0x00|(kp_int>>7);//kp5
+	Data[1]=((kp_int&0x7F)<<1)|((kd_int&0x100)>>8);//kp7+kd1
+	Data[2]=kd_int&0xFF;
+	Data[3]=pos_int>>8;
+	Data[4]=pos_int&0xFF;
+	Data[5]=spd_int>>4;
+	Data[6]=(spd_int&0x0F)<<4|(tor_int>>8);
+	Data[7]=tor_int&0xff;
+
+	if(motor_id<7) // 0-6
+	{
+		while (!HAL_CAN_GetTxMailboxesFreeLevel(&hcan1));
+		return HAL_CAN_AddTxMessage(&hcan1, &TxMessage, Data, &mbox); //�ȴ����ͽ���
+	}
+	else // motor_id ?? 7   7-13
+	{
+		while (!HAL_CAN_GetTxMailboxesFreeLevel(&hcan2));
+		return HAL_CAN_AddTxMessage(&hcan2, &TxMessage, Data, &mbox); //TODO Вечный цикл должно быть услвие выхода
+	}
+
+//	//for test,data unpack;
+//	kp_int=kd_int=pos_int=spd_int=cur_int=0;
+//
+//	kp_int=(TxMessage.Data[0]&0x1F)<<7|(TxMessage.Data[1]&0xFE)>>1;
+//	kd_int=(TxMessage.Data[1]&0x01)<<8|TxMessage.Data[2];
+//	pos_int=TxMessage.Data[3]<<8|TxMessage.Data[4];
+//	spd_int=TxMessage.Data[5]<<4|(TxMessage.Data[6]&0xF0)>>4;
+//	cur_int=(TxMessage.Data[6]&0x0F)<<8|TxMessage.Data[7];
+//
+//	kp 	= uint_to_float(kp_int, KP_MIN, KP_MAX, 12);
+//  kd	= uint_to_float(kd_int, KD_MIN, KD_MAX, 9);
+//	pos = uint_to_float(pos_int, POS_MIN, POS_MAX, 16);
+//  spd = uint_to_float(spd_int, SPD_MIN, SPD_MAX, 12);
+//  cur = uint_to_float(cur_int, I_MIN, I_MAX, 12);
+}
+
+
+
+extern CAN_HandleTypeDef hcan1;
+extern 		CAN_HandleTypeDef hcan2;
+u8 mit_rv_pos_zero( char id)
+{
+	u8 mbox;
+	uint8_t Data[8]={};
+	CAN_TxHeaderTypeDef TxMessage;
+	TxMessage.StdId=0x7ff;	 // ?????????0
+	TxMessage.ExtId=0x00;//0x200;	 // ??????????????29???
+	TxMessage.IDE=0;		  // '??????????
+	TxMessage.RTR=0;		  // ???????????????h?8?
+	TxMessage.DLC=4;							 // ??????????
+	Data[0] = 0x00;//300??
+	if(id<7)
+		Data[1] = 0x00+id+1;	 // ?????????0
+	else
+		Data[1] = 0x00+id+1-7;
+	//Data[1] = id;
+	Data[2] = 0x00;
+	Data[3] = 0x03;
+
+	if(id<7) {
+
+		HAL_CAN_AddTxMessage(&hcan1,&TxMessage,Data,&mbox);
+	} else
+		HAL_CAN_AddTxMessage(&hcan2,&TxMessage,Data,&mbox);
+	return 0;		
+}	
+
+
+
+u8 rv_motor_mode_en( char id,char en)
+{
+	float kp=0;
+	float kd=0;
+	float pos=0;
+	float spd=0;
+	float tor=0;
+	if(en)
+		send_motor_ctrl_cmd(id, kp, kd, pos, spd, 0.1);
+	else
+		send_motor_ctrl_cmd(id, kp, kd, pos, spd, 0.0);
+	return 0;
+}
+
+char data_can_sample_only_rv(motor_measure_t *ptr)//?????????
+{
+	u8 canbuft1[8];
+	/// limit data to be within bounds ///
+	int q_flag=1;
+	if(ptr->param.q_flag)
+		q_flag=1;
+	else
+		q_flag=-1;
+	float set_q=q_flag*To_180_degrees(ptr->set_q-To_180_degrees(ptr->param.q_reset_angle));
+	ptr->param.set_q=set_q;
+	send_motor_ctrl_cmd(ptr->param.id, 0, 0, 0, 0, 0);
+	return 0;
+}
+
+
+char data_can_rv_send(motor_measure_t *ptr)
+{
+	u8 canbuft1[8]={0};
+/// limit data to be within bounds ///
+	int q_flag=1;
+	if(ptr->param.q_flag)
+		q_flag = 1;
+	else
+		q_flag = -1;
+	float set_q;//q_flag*To_180_degrees(ptr->set_q-To_180_degrees(ptr->param.q_reset_angle));
+	#if EN_MIT_PID_INNER
+	float temp=0;
+	//ptr->set_q=test_set_q;
+	if(ptr->cmd_mode==2)
+		ptr->set_q=LIMIT(ptr->set_q_test+ptr->set_q_test_bias,-180,180);
+
+	if(ptr->param.q_reset_angle==180)
+	{
+		if(ptr->set_q>=-180&&ptr->set_q<=-0)
+		{
+			if(ptr->param.q_flag)
+				temp= 180-fabs(ptr->set_q);
+			else
+				temp= -(180-fabs(ptr->set_q));
+		}
+		else if(ptr->set_q<=180&&ptr->set_q>=0)
+		{
+			if(!ptr->param.q_flag)
+				temp= 180-fabs(ptr->set_q);
+			else
+				temp= -(180-fabs(ptr->set_q));
+		}
+	}
+	else
+	{
+		if(ptr->set_q>=-180&&ptr->set_q<=-0){
+			if(!ptr->param.q_flag)
+				temp= fabs(ptr->set_q);
+			else
+				temp= -(fabs(ptr->set_q));
+		}else if(ptr->set_q<=180&&ptr->set_q>=0){
+			if(ptr->param.q_flag)
+				temp= fabs(ptr->set_q);
+			else
+				temp= -(fabs(ptr->set_q));
+		}
+	}
+
+	set_q=temp;
+	#endif
+	ptr->param.set_q=set_q;//for record
+
+	float set_dq=q_flag*ptr->set_qd;
+	float set_t=q_flag*ptr->set_t;
+
+	float p_des = set_q/57.3;
+	float v_des =  set_dq/57.3;
+	float kp = ptr->stiff*ptr->kp*EN_MIT_PID_INNER;
+	float kd = ptr->stiff*ptr->kd*EN_MIT_PID_INNER;
+	float t_ff = LIMIT(set_t,-ptr->max_t,ptr->max_t); //????????????j??
+
+	if(EN_MIT_PID_INNER==0||ptr->param.usb_cmd_mode==2)//??????j????????g?
+	   kp=kd=v_des=0;
+
+	if(ptr->param.control_mode==1)//???g?
+	{
+		kp=0;
+	}
+  //send_motor_ctrl_cmd(uint16_t motor_id,float kp,float kd,float pos,float spd,float tor)
+	send_motor_ctrl_cmd(ptr->param.id, kp, kd, p_des, v_des, t_ff*10);
+
+  return 0;
+}
+
+
+extern float k_t_i[10];
+char en_test_rv=0;
+char en_rv_out=0;
+int rv_delay=150;//doghome
+float test_cmd_rv[2]={0.4,90};
+int rv_connect_cnt=0;
+float auto_off_t_rv=99;
+float dt_rt=0;
+void mit_bldc_thread_rv(char en_all,float dt)
+{
+	char i=0;
+	static char state_reg[4]={0};
+	static float timer_sin=0;
+	static int reg_cmd_mode;
+
+	for(i=0;i<14;i++)
+	{
+		motor_chassis[i].param.id=i;
+	  //?????????�???
+		switch(motor_chassis[i].motor.type)
+		{
+			case EC_1 ://?????6 ???
+				k_t_i[i]=0.68;
+			break;
+			case EC_2 ://?????6 ???
+				k_t_i[i]=0.68;
+			break;
+			case EC_3 ://?????6 ???
+				k_t_i[i]=0.68;
+			break;
+		}
+	}
+	#if 1
+	for(i=0;i<14;i++)
+	{
+		if(en_rv_out==2)//'????????? MIT????g?
+		{
+			data_can_rv_send(&motor_chassis[i]);
+			Delay_us(rv_delay);// 300us = 0.3ms
+		}
+		else//???????????  ???T????0
+		{
+			data_can_sample_only_rv(&motor_chassis[i]);
+			Delay_us(rv_delay);
+		}
+	}
+	#endif
+	//test
+	timer_sin+=dt*test_cmd_rv[0];
+	rv_connect_cnt=0;
+	for(i=0;i<14;i++)
+	{
+		if(motor_chassis[i].param.connect)
+			rv_connect_cnt++;
+		if(reg_cmd_mode!=motor_chassis[0].cmd_mode||!en_all)
+		{
+			motor_chassis[i].set_q_test_bias=motor_chassis[i].q_now_flt;
+			timer_sin=0;
+		}
+		if(motor_chassis[i].cmd_mode==2)
+		{
+			motor_chassis[i].set_q_test=sin(timer_sin)*test_cmd_rv[1];
+		}
+	}
+	reg_cmd_mode=motor_chassis[0].cmd_mode;
+	//??
+	for(i=0;i<14;i++)
+	{
+		if((motor_chassis[i].reset_q==1||motor_chassis[i].cal_div==1)&&motor_chassis[i].reset_q_lock==0)
+		{
+			mit_rv_pos_zero(i);
+			Delay_us(rv_delay);
+			motor_chassis[i].reset_q_lock=1;
+			motor_chassis[i].reset_q_cnt=0;
+			motor_chassis[i].reset_q=0;
+		}
+		if(motor_chassis[i].reset_q_lock==1)
+		{
+				mit_rv_pos_zero(i);
+				Delay_us(rv_delay);
+        motor_chassis[i].reset_q_cnt++;
+				if(motor_chassis[i].reset_q_cnt>3)
+				{
+					motor_chassis[i].reset_q_cnt=0;
+					motor_chassis[i].reset_q_lock=2;
+				}
+		}
+		if(motor_chassis[i].reset_q_lock==2)
+		{
+			 motor_chassis[i].reset_q_delay_timer+=dt;
+			 if(motor_chassis[i].reset_q_delay_timer>3.5)
+			 {
+				 motor_chassis[i].reset_q_delay_timer=0;
+				 motor_chassis[i].reset_q_lock=0;
+				 motor_chassis[i].reset_q=0;
+				 motor_chassis[i].reset_q_cnt=0;
+			 }
+		}
+	}
+
+	//????????
+	/*if(can_write_flash==1)
+	{
+		//stop motor
+		for(i=0;i<14;i++)
+		{
+			motor_chassis[i].en_cmd=0;
+			motor_chassis[i].param.given_current=0;
+			motor_chassis[i].given_current_cmd=0;
+			motor_chassis[i].set_t=0;
+			motor_chassis[i].motor.ready=0;
+		}
+		can_write_flash=0;
+		en_all=0;
+	}*/
+	dt_rt=dt;
+	switch(en_rv_out)//----------------'???zw?????
+	{
+		case 0://?????
+			auto_off_t_rv+=dt;
+			if(auto_off_t_rv>0.5&&1)//?????????????
+			{
+				auto_off_t_rv=0;
+				for(i=0;i<14;i++)
+				{
+					rv_motor_mode_en(i,0);
+					Delay_us(rv_delay);
+				}
+			}
+			else if(en_test_rv||en_all)
+			{
+				for(i=0;i<14;i++)
+				{
+					rv_motor_mode_en(i,1);
+					Delay_us(rv_delay);
+				}
+				en_rv_out++;
+				auto_off_t_rv=0;
+			}
+		break;
+		case 1://???????0.1s
+			auto_off_t_rv+=dt;
+			if(auto_off_t_rv>0.5&&1)//
+			{
+				auto_off_t_rv=0;
+				en_rv_out++;
+			}
+			for(i=0;i<14;i++){
+				rv_motor_mode_en(i,1);// ????can?????
+				Delay_us(rv_delay);   // �?????0.3ms
+			}
+		break;
+		case 2://'???
+			if(!en_test_rv&&!en_all)//????????
+			{
+				for(i=0;i<14;i++){
+					rv_motor_mode_en(i,0);
+					Delay_us(rv_delay);
+				}
+				en_rv_out=0;
+			}
+		break;
+		default:
+			auto_off_t_rv=0;
+		break;
+	}
 }

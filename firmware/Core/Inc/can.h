@@ -102,6 +102,7 @@
 
 
 float To_180_degrees(float x);
+
 extern int can_rx_over[5];
 extern int can_rx_cnt[5];
 u8 CAN1_Mode_Init(u8 tsjw,u8 tbs2,u8 tbs1, float brp,u8 mode); //CAN��ʼ��
@@ -283,41 +284,44 @@ char data_can_sample_only(motor_measure_t *ptr);
 
 u8 mit_set_pos_zero(char id);
 
-extern int can_write_flash, can_cmd_usb_disable;
-typedef struct
-{
-	uint16_t motor_id;
-	uint8_t INS_code;		//instruction code.
-	uint8_t motor_fbd;	//motor CAN communication feedback.
-}MotorCommFbd;
+//extern int can_write_flash, can_cmd_usb_disable;
 
-typedef struct
-{
-	uint16_t angle_actual_int;
-	uint16_t angle_desired_int;
-	int16_t speed_actual_int;
-	int16_t speed_desired_int;
-	int16_t current_actual_int;
-	int16_t current_desired_int;
-	float 	speed_actual_rad;
-	float 	speed_desired_rad;
-	float 	angle_actual_rad;
-	float   angle_desired_rad;
-	uint16_t	motor_id;
-	uint8_t 	temperature;
-	uint8_t		error;
-	float     angle_actual_float;
-	float 		speed_actual_float;
-	float 		current_actual_float;
-	float     angle_desired_float;
-	float 		speed_desired_float;
-	float 		current_desired_float;
-	float			power;
-	uint16_t	acceleration;
-	uint16_t	linkage_KP;
-	uint16_t 	speed_KI;
-	uint16_t	feedback_KP;
-	uint16_t	feedback_KD;
-}OD_Motor_Msg;
+typedef struct {
+    uint16_t motor_id;
+    uint8_t INS_code; //instruction code.
+    uint8_t motor_fbd; //motor CAN communication feedback.
+} MotorCommFbd;
+
+typedef struct {
+    uint16_t angle_actual_int;
+    uint16_t angle_desired_int;
+    int16_t speed_actual_int;
+    int16_t speed_desired_int;
+    int16_t current_actual_int;
+    int16_t current_desired_int;
+    float speed_actual_rad;
+    float speed_desired_rad;
+    float angle_actual_rad;
+    float angle_desired_rad;
+    uint16_t motor_id;
+    uint8_t temperature;
+    uint8_t error;
+    float angle_actual_float;
+    float speed_actual_float;
+    float current_actual_float;
+    float angle_desired_float;
+    float speed_desired_float;
+    float current_desired_float;
+    float power;
+    uint16_t acceleration;
+    uint16_t linkage_KP;
+    uint16_t speed_KI;
+    uint16_t feedback_KP;
+    uint16_t feedback_KD;
+} OD_Motor_Msg;
+
+void CAN1_Handler();
+
+void CAN2_Handler();
 
 #endif

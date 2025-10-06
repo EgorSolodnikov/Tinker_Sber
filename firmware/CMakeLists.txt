@@ -38,10 +38,11 @@ add_executable(${CMAKE_PROJECT_NAME}
         Core/Src/can.c
         Core/Src/mit_link.c
         Core/Src/time.c
-        Core/Src/time.h
+        Core/Inc/time.h
         Core/Src/time.c
         Core/Src/filter.c
-        Core/Src/filter.h
+        Core/Inc/filter.h
+        Core/Inc/mit_link.h
 )
 
 # Add STM32CubeMX generated sources

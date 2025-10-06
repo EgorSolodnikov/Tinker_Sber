@@ -2,7 +2,7 @@
 // Created by Степан on 24.09.2025.
 //
 
-#include "time.h"
+#include "../Inc/time.h"
 volatile float Cycle_T[(100)][4];
 
 enum

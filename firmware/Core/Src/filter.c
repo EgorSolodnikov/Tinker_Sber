@@ -2,7 +2,7 @@
 // Created by Степан on 02.10.2025.
 //
 
-#include "filter.h"
+#include "../Inc/filter.h"
 
 
 float med_filter_tmp[MED_FIL_ITEM][MED_WIDTH_NUM ];

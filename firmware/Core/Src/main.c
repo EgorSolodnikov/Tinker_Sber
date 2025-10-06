@@ -18,7 +18,8 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "can.h"
+#include "../Inc/can.h"
+#include "../Inc/time.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -67,7 +68,7 @@ static void MX_SPI2_Init(void);
 static void MX_SPI3_Init(void);
 static void MX_USART3_UART_Init(void);
 /* USER CODE BEGIN PFP */
-uint8_t rx_buffer[200];
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -114,17 +115,31 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_UART_MspInit(&huart3);
   __HAL_UART_ENABLE_IT(&huart3, UART_IT_IDLE);
-  HAL_UART_Receive_IT(&huart3, rx_buffer, 200);
   /* USER CODE END 2 */
-
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  typedef struct
+  {
+    float can_task;
+    float posforce_task;
+    float robot_est_task;
+    float ahrs_task;
+    float vmc_task;
+    float link_task;
+    float nav_task;
+    float system_task;
+  }_SYSTEM_DT;
+  float leg_dt[100];
+  _SYSTEM_DT system_dt;
   while (1)
   {
     /* USER CODE END WHILE */
-
     /* USER CODE BEGIN 3 */
+    system_dt.can_task = leg_dt[0] = Get_Cycle_T(0);
+    if(leg_dt[0]>0.00225)
+      can_rx_over[4]++;
 
+    CAN_motor_sm(leg_dt[0]);
   }
   /* USER CODE END 3 */
 }
