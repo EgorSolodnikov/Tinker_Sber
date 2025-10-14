@@ -1,2 +1,0 @@
-Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg': /usr/bin/cmake /home/pi/Tinker_Sber/Chellenge-Tinker/hardware_msg -DCMAKE_INSTALL_PREFIX=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg
-Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg' returned '1': /usr/bin/cmake /home/pi/Tinker_Sber/Chellenge-Tinker/hardware_msg -DCMAKE_INSTALL_PREFIX=/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg

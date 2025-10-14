@@ -2,6 +2,13 @@
 # with input from hardware_msg:msg/MotorParameters.idl
 # generated code does not contain a copyright notice
 
+# This is being done at the module level and not on the instance level to avoid looking
+# for the same variable multiple times on each instance. This variable is not supposed to
+# change during runtime so it makes sense to only look for it once.
+from os import getenv
+
+ros_python_check_fields = getenv('ROS_PYTHON_CHECK_FIELDS', default='')
+
 
 # Import statements for member types
 
@@ -62,6 +69,7 @@ class MotorParameters(metaclass=Metaclass_MotorParameters):
         '_reset_error',
         '_kp',
         '_kd',
+        '_check_fields',
     ]
 
     _fields_and_field_types = {
@@ -72,6 +80,8 @@ class MotorParameters(metaclass=Metaclass_MotorParameters):
         'kd': 'float',
     }
 
+    # This attribute is used to store an rosidl_parser.definition variable
+    # related to the data type of each of the components the message.
     SLOT_TYPES = (
         rosidl_parser.definition.BasicType('boolean'),  # noqa: E501
         rosidl_parser.definition.BasicType('boolean'),  # noqa: E501
@@ -81,9 +91,14 @@ class MotorParameters(metaclass=Metaclass_MotorParameters):
     )
 
     def __init__(self, **kwargs):
-        assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
-            'Invalid arguments passed to constructor: %s' % \
-            ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
+        if 'check_fields' in kwargs:
+            self._check_fields = kwargs['check_fields']
+        else:
+            self._check_fields = ros_python_check_fields == '1'
+        if self._check_fields:
+            assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
+                'Invalid arguments passed to constructor: %s' % \
+                ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         self.enable = kwargs.get('enable', bool())
         self.reset_zero = kwargs.get('reset_zero', bool())
         self.reset_error = kwargs.get('reset_error', bool())
@@ -95,7 +110,7 @@ class MotorParameters(metaclass=Metaclass_MotorParameters):
         typename.pop()
         typename.append(self.__class__.__name__)
         args = []
-        for s, t in zip(self.__slots__, self.SLOT_TYPES):
+        for s, t in zip(self.get_fields_and_field_types().keys(), self.SLOT_TYPES):
             field = getattr(self, s)
             fieldstr = repr(field)
             # We use Python array type for fields that can be directly stored
@@ -109,11 +124,12 @@ class MotorParameters(metaclass=Metaclass_MotorParameters):
                 if len(field) == 0:
                     fieldstr = '[]'
                 else:
-                    assert fieldstr.startswith('array(')
+                    if self._check_fields:
+                        assert fieldstr.startswith('array(')
                     prefix = "array('X', "
                     suffix = ')'
                     fieldstr = fieldstr[len(prefix):-len(suffix)]
-            args.append(s[1:] + '=' + fieldstr)
+            args.append(s + '=' + fieldstr)
         return '%s(%s)' % ('.'.join(typename), ', '.join(args))
 
     def __eq__(self, other):
@@ -143,7 +159,7 @@ class MotorParameters(metaclass=Metaclass_MotorParameters):
 
     @enable.setter
     def enable(self, value):
-        if __debug__:
+        if self._check_fields:
             assert \
                 isinstance(value, bool), \
                 "The 'enable' field must be of type 'bool'"
@@ -156,7 +172,7 @@ class MotorParameters(metaclass=Metaclass_MotorParameters):
 
     @reset_zero.setter
     def reset_zero(self, value):
-        if __debug__:
+        if self._check_fields:
             assert \
                 isinstance(value, bool), \
                 "The 'reset_zero' field must be of type 'bool'"
@@ -169,7 +185,7 @@ class MotorParameters(metaclass=Metaclass_MotorParameters):
 
     @reset_error.setter
     def reset_error(self, value):
-        if __debug__:
+        if self._check_fields:
             assert \
                 isinstance(value, bool), \
                 "The 'reset_error' field must be of type 'bool'"
@@ -182,7 +198,7 @@ class MotorParameters(metaclass=Metaclass_MotorParameters):
 
     @kp.setter
     def kp(self, value):
-        if __debug__:
+        if self._check_fields:
             assert \
                 isinstance(value, float), \
                 "The 'kp' field must be of type 'float'"
@@ -197,7 +213,7 @@ class MotorParameters(metaclass=Metaclass_MotorParameters):
 
     @kd.setter
     def kd(self, value):
-        if __debug__:
+        if self._check_fields:
             assert \
                 isinstance(value, float), \
                 "The 'kd' field must be of type 'float'"

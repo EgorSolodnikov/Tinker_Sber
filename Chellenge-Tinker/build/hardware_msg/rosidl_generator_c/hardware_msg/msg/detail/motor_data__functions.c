@@ -81,7 +81,7 @@ hardware_msg__msg__MotorData__copy(
 }
 
 hardware_msg__msg__MotorData *
-hardware_msg__msg__MotorData__create()
+hardware_msg__msg__MotorData__create(void)
 {
   rcutils_allocator_t allocator = rcutils_get_default_allocator();
   hardware_msg__msg__MotorData * msg = (hardware_msg__msg__MotorData *)allocator.allocate(sizeof(hardware_msg__msg__MotorData), allocator.state);

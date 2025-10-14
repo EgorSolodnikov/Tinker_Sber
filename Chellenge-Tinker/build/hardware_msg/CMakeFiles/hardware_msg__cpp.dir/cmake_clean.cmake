@@ -35,6 +35,7 @@ file(REMOVE_RECURSE
   "rosidl_generator_cpp/hardware_msg/msg/motor_parameters.hpp"
   "rosidl_generator_cpp/hardware_msg/msg/motors_commands.hpp"
   "rosidl_generator_cpp/hardware_msg/msg/motors_states.hpp"
+  "rosidl_generator_cpp/hardware_msg/msg/rosidl_generator_cpp__visibility_control.hpp"
 )
 
 # Per-language clean rules from dependency scanning.

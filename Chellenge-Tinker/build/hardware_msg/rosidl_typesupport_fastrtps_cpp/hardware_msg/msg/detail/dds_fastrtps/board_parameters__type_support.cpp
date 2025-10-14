@@ -2,8 +2,10 @@
 // with input from hardware_msg:msg/BoardParameters.idl
 // generated code does not contain a copyright notice
 #include "hardware_msg/msg/detail/board_parameters__rosidl_typesupport_fastrtps_cpp.hpp"
+#include "hardware_msg/msg/detail/board_parameters__functions.h"
 #include "hardware_msg/msg/detail/board_parameters__struct.hpp"
 
+#include <cstddef>
 #include <limits>
 #include <stdexcept>
 #include <string>
@@ -11,6 +13,7 @@
 #include "rosidl_typesupport_fastrtps_cpp/identifier.hpp"
 #include "rosidl_typesupport_fastrtps_cpp/message_type_support.h"
 #include "rosidl_typesupport_fastrtps_cpp/message_type_support_decl.hpp"
+#include "rosidl_typesupport_fastrtps_cpp/serialization_helpers.hpp"
 #include "rosidl_typesupport_fastrtps_cpp/wstring_conversion.hpp"
 #include "fastcdr/Cdr.h"
 
@@ -26,6 +29,7 @@ namespace msg
 namespace typesupport_fastrtps_cpp
 {
 
+
 bool
 ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_hardware_msg
 cdr_serialize(
@@ -34,6 +38,7 @@ cdr_serialize(
 {
   // Member: beep_state
   cdr << ros_message.beep_state;
+
   return true;
 }
 
@@ -48,6 +53,7 @@ cdr_deserialize(
 
   return true;
 }
+
 
 size_t
 ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_hardware_msg
@@ -72,6 +78,7 @@ get_serialized_size(
   return current_alignment - initial_alignment;
 }
 
+
 size_t
 ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_hardware_msg
 max_serialized_size_BoardParameters(
@@ -91,11 +98,9 @@ max_serialized_size_BoardParameters(
   full_bounded = true;
   is_plain = true;
 
-
   // Member: beep_state
   {
     size_t array_size = 1;
-
     last_member_size = array_size * sizeof(uint32_t);
     current_alignment += array_size * sizeof(uint32_t) +
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
@@ -116,6 +121,85 @@ max_serialized_size_BoardParameters(
 
   return ret_val;
 }
+
+bool
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_hardware_msg
+cdr_serialize_key(
+  const hardware_msg::msg::BoardParameters & ros_message,
+  eprosima::fastcdr::Cdr & cdr)
+{
+  // Member: beep_state
+  cdr << ros_message.beep_state;
+
+  return true;
+}
+
+size_t
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_hardware_msg
+get_serialized_size_key(
+  const hardware_msg::msg::BoardParameters & ros_message,
+  size_t current_alignment)
+{
+  size_t initial_alignment = current_alignment;
+
+  const size_t padding = 4;
+  const size_t wchar_size = 4;
+  (void)padding;
+  (void)wchar_size;
+
+  // Member: beep_state
+  {
+    size_t item_size = sizeof(ros_message.beep_state);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+
+  return current_alignment - initial_alignment;
+}
+
+size_t
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_hardware_msg
+max_serialized_size_key_BoardParameters(
+  bool & full_bounded,
+  bool & is_plain,
+  size_t current_alignment)
+{
+  size_t initial_alignment = current_alignment;
+
+  const size_t padding = 4;
+  const size_t wchar_size = 4;
+  size_t last_member_size = 0;
+  (void)last_member_size;
+  (void)padding;
+  (void)wchar_size;
+
+  full_bounded = true;
+  is_plain = true;
+
+  // Member: beep_state
+  {
+    size_t array_size = 1;
+    last_member_size = array_size * sizeof(uint32_t);
+    current_alignment += array_size * sizeof(uint32_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
+  }
+
+  size_t ret_val = current_alignment - initial_alignment;
+  if (is_plain) {
+    // All members are plain, and type is not empty.
+    // We still need to check that the in-memory alignment
+    // is the same as the CDR mandated alignment.
+    using DataType = hardware_msg::msg::BoardParameters;
+    is_plain =
+      (
+      offsetof(DataType, beep_state) +
+      last_member_size
+      ) == ret_val;
+  }
+
+  return ret_val;
+}
+
 
 static bool _BoardParameters__cdr_serialize(
   const void * untyped_ros_message,
@@ -166,13 +250,17 @@ static message_type_support_callbacks_t _BoardParameters__callbacks = {
   _BoardParameters__cdr_serialize,
   _BoardParameters__cdr_deserialize,
   _BoardParameters__get_serialized_size,
-  _BoardParameters__max_serialized_size
+  _BoardParameters__max_serialized_size,
+  nullptr
 };
 
 static rosidl_message_type_support_t _BoardParameters__handle = {
   rosidl_typesupport_fastrtps_cpp::typesupport_identifier,
   &_BoardParameters__callbacks,
   get_message_typesupport_handle_function,
+  &hardware_msg__msg__BoardParameters__get_type_hash,
+  &hardware_msg__msg__BoardParameters__get_type_description,
+  &hardware_msg__msg__BoardParameters__get_type_description_sources,
 };
 
 }  // namespace typesupport_fastrtps_cpp

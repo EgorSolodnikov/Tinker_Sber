@@ -57,7 +57,7 @@ hardware_msg__msg__BoardParameters__copy(
 }
 
 hardware_msg__msg__BoardParameters *
-hardware_msg__msg__BoardParameters__create()
+hardware_msg__msg__BoardParameters__create(void)
 {
   rcutils_allocator_t allocator = rcutils_get_default_allocator();
   hardware_msg__msg__BoardParameters * msg = (hardware_msg__msg__BoardParameters *)allocator.allocate(sizeof(hardware_msg__msg__BoardParameters), allocator.state);

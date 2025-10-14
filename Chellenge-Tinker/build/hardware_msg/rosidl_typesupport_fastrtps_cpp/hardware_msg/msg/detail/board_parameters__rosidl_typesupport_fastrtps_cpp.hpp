@@ -5,6 +5,7 @@
 #ifndef HARDWARE_MSG__MSG__DETAIL__BOARD_PARAMETERS__ROSIDL_TYPESUPPORT_FASTRTPS_CPP_HPP_
 #define HARDWARE_MSG__MSG__DETAIL__BOARD_PARAMETERS__ROSIDL_TYPESUPPORT_FASTRTPS_CPP_HPP_
 
+#include <cstddef>
 #include "rosidl_runtime_c/message_type_support_struct.h"
 #include "rosidl_typesupport_interface/macros.h"
 #include "hardware_msg/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h"
@@ -54,6 +55,25 @@ get_serialized_size(
 size_t
 ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_hardware_msg
 max_serialized_size_BoardParameters(
+  bool & full_bounded,
+  bool & is_plain,
+  size_t current_alignment);
+
+bool
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_hardware_msg
+cdr_serialize_key(
+  const hardware_msg::msg::BoardParameters & ros_message,
+  eprosima::fastcdr::Cdr &);
+
+size_t
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_hardware_msg
+get_serialized_size_key(
+  const hardware_msg::msg::BoardParameters & ros_message,
+  size_t current_alignment);
+
+size_t
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_hardware_msg
+max_serialized_size_key_BoardParameters(
   bool & full_bounded,
   bool & is_plain,
   size_t current_alignment);

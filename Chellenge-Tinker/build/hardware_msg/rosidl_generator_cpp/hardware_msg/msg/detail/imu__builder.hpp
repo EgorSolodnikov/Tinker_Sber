@@ -2,6 +2,9 @@
 // with input from hardware_msg:msg/Imu.idl
 // generated code does not contain a copyright notice
 
+// IWYU pragma: private, include "hardware_msg/msg/imu.hpp"
+
+
 #ifndef HARDWARE_MSG__MSG__DETAIL__IMU__BUILDER_HPP_
 #define HARDWARE_MSG__MSG__DETAIL__IMU__BUILDER_HPP_
 

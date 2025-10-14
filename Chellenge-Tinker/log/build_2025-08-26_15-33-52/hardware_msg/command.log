@@ -1,4 +1,0 @@
-Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg -- -j4 -l4
-Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg -- -j4 -l4
-Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg
-Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg

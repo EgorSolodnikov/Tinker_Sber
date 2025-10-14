@@ -13,8 +13,8 @@ set_target_properties(hardware_msg::hardware_msg__rosidl_typesupport_c PROPERTIE
   IMPORTED_SONAME_NOCONFIG "libhardware_msg__rosidl_typesupport_c.so"
   )
 
-list(APPEND _IMPORT_CHECK_TARGETS hardware_msg::hardware_msg__rosidl_typesupport_c )
-list(APPEND _IMPORT_CHECK_FILES_FOR_hardware_msg::hardware_msg__rosidl_typesupport_c "${_IMPORT_PREFIX}/lib/libhardware_msg__rosidl_typesupport_c.so" )
+list(APPEND _cmake_import_check_targets hardware_msg::hardware_msg__rosidl_typesupport_c )
+list(APPEND _cmake_import_check_files_for_hardware_msg::hardware_msg__rosidl_typesupport_c "${_IMPORT_PREFIX}/lib/libhardware_msg__rosidl_typesupport_c.so" )
 
 # Commands beyond this point should not need to know the version.
 set(CMAKE_IMPORT_FILE_VERSION)

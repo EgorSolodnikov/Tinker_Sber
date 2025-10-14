@@ -1,9 +1,0 @@
-/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/CMakeFiles/uninstall.dir
-/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/CMakeFiles/motor_commander_uninstall.dir
-/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/CMakeFiles/test.dir
-/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/CMakeFiles/edit_cache.dir
-/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/CMakeFiles/rebuild_cache.dir
-/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/CMakeFiles/list_install_components.dir
-/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/CMakeFiles/install.dir
-/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/CMakeFiles/install/local.dir
-/home/pi/Tinker_Sber/Chellenge-Tinker/build/motor_commander/CMakeFiles/install/strip.dir

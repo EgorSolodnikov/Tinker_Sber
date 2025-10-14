@@ -2,6 +2,9 @@
 // with input from hardware_msg:msg/MotorsStates.idl
 // generated code does not contain a copyright notice
 
+// IWYU pragma: private, include "hardware_msg/msg/motors_states.h"
+
+
 #ifndef HARDWARE_MSG__MSG__DETAIL__MOTORS_STATES__STRUCT_H_
 #define HARDWARE_MSG__MSG__DETAIL__MOTORS_STATES__STRUCT_H_
 
@@ -13,7 +16,6 @@ extern "C"
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
-
 
 // Constants defined in the message
 

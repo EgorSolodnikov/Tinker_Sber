@@ -1,2 +1,0 @@
-Invoking command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/tinker_description': /usr/bin/cmake /home/pi/Tinker_Sber/Chellenge-Tinker/tinker_description -DCMAKE_INSTALL_PREFIX=/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description
-Invoked command in '/home/pi/Tinker_Sber/Chellenge-Tinker/build/tinker_description' returned '1': /usr/bin/cmake /home/pi/Tinker_Sber/Chellenge-Tinker/tinker_description -DCMAKE_INSTALL_PREFIX=/home/pi/Tinker_Sber/Chellenge-Tinker/install/tinker_description

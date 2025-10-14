@@ -2,6 +2,9 @@
 // with input from hardware_msg:msg/Imu.idl
 // generated code does not contain a copyright notice
 
+// IWYU pragma: private, include "hardware_msg/msg/imu.h"
+
+
 #ifndef HARDWARE_MSG__MSG__DETAIL__IMU__TYPE_SUPPORT_H_
 #define HARDWARE_MSG__MSG__DETAIL__IMU__TYPE_SUPPORT_H_
 
@@ -24,7 +27,7 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
   hardware_msg,
   msg,
   Imu
-)();
+)(void);
 
 #ifdef __cplusplus
 }

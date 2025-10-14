@@ -4,6 +4,7 @@
 
 #include "cstddef"
 #include "rosidl_runtime_c/message_type_support_struct.h"
+#include "hardware_msg/msg/detail/board_parameters__functions.h"
 #include "hardware_msg/msg/detail/board_parameters__struct.hpp"
 #include "rosidl_typesupport_cpp/identifier.hpp"
 #include "rosidl_typesupport_cpp/message_type_support.hpp"
@@ -72,6 +73,9 @@ static const rosidl_message_type_support_t BoardParameters_message_type_support_
   ::rosidl_typesupport_cpp::typesupport_identifier,
   reinterpret_cast<const type_support_map_t *>(&_BoardParameters_message_typesupport_map),
   ::rosidl_typesupport_cpp::get_message_typesupport_handle_function,
+  &hardware_msg__msg__BoardParameters__get_type_hash,
+  &hardware_msg__msg__BoardParameters__get_type_description,
+  &hardware_msg__msg__BoardParameters__get_type_description_sources,
 };
 
 }  // namespace rosidl_typesupport_cpp

@@ -2,6 +2,9 @@
 // with input from hardware_msg:msg/MotorsCommands.idl
 // generated code does not contain a copyright notice
 
+// IWYU pragma: private, include "hardware_msg/msg/motors_commands.hpp"
+
+
 #ifndef HARDWARE_MSG__MSG__DETAIL__MOTORS_COMMANDS__STRUCT_HPP_
 #define HARDWARE_MSG__MSG__DETAIL__MOTORS_COMMANDS__STRUCT_HPP_
 

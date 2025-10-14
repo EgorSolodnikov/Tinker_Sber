@@ -2,8 +2,10 @@
 // with input from hardware_msg:msg/ImuParameters.idl
 // generated code does not contain a copyright notice
 #include "hardware_msg/msg/detail/imu_parameters__rosidl_typesupport_fastrtps_cpp.hpp"
+#include "hardware_msg/msg/detail/imu_parameters__functions.h"
 #include "hardware_msg/msg/detail/imu_parameters__struct.hpp"
 
+#include <cstddef>
 #include <limits>
 #include <stdexcept>
 #include <string>
@@ -11,6 +13,7 @@
 #include "rosidl_typesupport_fastrtps_cpp/identifier.hpp"
 #include "rosidl_typesupport_fastrtps_cpp/message_type_support.h"
 #include "rosidl_typesupport_fastrtps_cpp/message_type_support_decl.hpp"
+#include "rosidl_typesupport_fastrtps_cpp/serialization_helpers.hpp"
 #include "rosidl_typesupport_fastrtps_cpp/wstring_conversion.hpp"
 #include "fastcdr/Cdr.h"
 
@@ -26,6 +29,7 @@ namespace msg
 namespace typesupport_fastrtps_cpp
 {
 
+
 bool
 ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_hardware_msg
 cdr_serialize(
@@ -34,10 +38,13 @@ cdr_serialize(
 {
   // Member: acc_calibrate
   cdr << (ros_message.acc_calibrate ? true : false);
+
   // Member: msg_calibrate
   cdr << (ros_message.msg_calibrate ? true : false);
+
   // Member: gyro_calibrate
   cdr << (ros_message.gyro_calibrate ? true : false);
+
   return true;
 }
 
@@ -71,6 +78,7 @@ cdr_deserialize(
   return true;
 }
 
+
 size_t
 ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_hardware_msg
 get_serialized_size(
@@ -90,12 +98,14 @@ get_serialized_size(
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
+
   // Member: msg_calibrate
   {
     size_t item_size = sizeof(ros_message.msg_calibrate);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
+
   // Member: gyro_calibrate
   {
     size_t item_size = sizeof(ros_message.gyro_calibrate);
@@ -105,6 +115,7 @@ get_serialized_size(
 
   return current_alignment - initial_alignment;
 }
+
 
 size_t
 ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_hardware_msg
@@ -125,27 +136,21 @@ max_serialized_size_ImuParameters(
   full_bounded = true;
   is_plain = true;
 
-
   // Member: acc_calibrate
   {
     size_t array_size = 1;
-
     last_member_size = array_size * sizeof(uint8_t);
     current_alignment += array_size * sizeof(uint8_t);
   }
-
   // Member: msg_calibrate
   {
     size_t array_size = 1;
-
     last_member_size = array_size * sizeof(uint8_t);
     current_alignment += array_size * sizeof(uint8_t);
   }
-
   // Member: gyro_calibrate
   {
     size_t array_size = 1;
-
     last_member_size = array_size * sizeof(uint8_t);
     current_alignment += array_size * sizeof(uint8_t);
   }
@@ -165,6 +170,118 @@ max_serialized_size_ImuParameters(
 
   return ret_val;
 }
+
+bool
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_hardware_msg
+cdr_serialize_key(
+  const hardware_msg::msg::ImuParameters & ros_message,
+  eprosima::fastcdr::Cdr & cdr)
+{
+  // Member: acc_calibrate
+  cdr << (ros_message.acc_calibrate ? true : false);
+
+  // Member: msg_calibrate
+  cdr << (ros_message.msg_calibrate ? true : false);
+
+  // Member: gyro_calibrate
+  cdr << (ros_message.gyro_calibrate ? true : false);
+
+  return true;
+}
+
+size_t
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_hardware_msg
+get_serialized_size_key(
+  const hardware_msg::msg::ImuParameters & ros_message,
+  size_t current_alignment)
+{
+  size_t initial_alignment = current_alignment;
+
+  const size_t padding = 4;
+  const size_t wchar_size = 4;
+  (void)padding;
+  (void)wchar_size;
+
+  // Member: acc_calibrate
+  {
+    size_t item_size = sizeof(ros_message.acc_calibrate);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+
+  // Member: msg_calibrate
+  {
+    size_t item_size = sizeof(ros_message.msg_calibrate);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+
+  // Member: gyro_calibrate
+  {
+    size_t item_size = sizeof(ros_message.gyro_calibrate);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+
+  return current_alignment - initial_alignment;
+}
+
+size_t
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_hardware_msg
+max_serialized_size_key_ImuParameters(
+  bool & full_bounded,
+  bool & is_plain,
+  size_t current_alignment)
+{
+  size_t initial_alignment = current_alignment;
+
+  const size_t padding = 4;
+  const size_t wchar_size = 4;
+  size_t last_member_size = 0;
+  (void)last_member_size;
+  (void)padding;
+  (void)wchar_size;
+
+  full_bounded = true;
+  is_plain = true;
+
+  // Member: acc_calibrate
+  {
+    size_t array_size = 1;
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Member: msg_calibrate
+  {
+    size_t array_size = 1;
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Member: gyro_calibrate
+  {
+    size_t array_size = 1;
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  size_t ret_val = current_alignment - initial_alignment;
+  if (is_plain) {
+    // All members are plain, and type is not empty.
+    // We still need to check that the in-memory alignment
+    // is the same as the CDR mandated alignment.
+    using DataType = hardware_msg::msg::ImuParameters;
+    is_plain =
+      (
+      offsetof(DataType, gyro_calibrate) +
+      last_member_size
+      ) == ret_val;
+  }
+
+  return ret_val;
+}
+
 
 static bool _ImuParameters__cdr_serialize(
   const void * untyped_ros_message,
@@ -215,13 +332,17 @@ static message_type_support_callbacks_t _ImuParameters__callbacks = {
   _ImuParameters__cdr_serialize,
   _ImuParameters__cdr_deserialize,
   _ImuParameters__get_serialized_size,
-  _ImuParameters__max_serialized_size
+  _ImuParameters__max_serialized_size,
+  nullptr
 };
 
 static rosidl_message_type_support_t _ImuParameters__handle = {
   rosidl_typesupport_fastrtps_cpp::typesupport_identifier,
   &_ImuParameters__callbacks,
   get_message_typesupport_handle_function,
+  &hardware_msg__msg__ImuParameters__get_type_hash,
+  &hardware_msg__msg__ImuParameters__get_type_description,
+  &hardware_msg__msg__ImuParameters__get_type_description_sources,
 };
 
 }  // namespace typesupport_fastrtps_cpp

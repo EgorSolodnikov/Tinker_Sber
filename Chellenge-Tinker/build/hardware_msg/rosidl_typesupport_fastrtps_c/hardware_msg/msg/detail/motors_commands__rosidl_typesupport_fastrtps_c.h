@@ -9,11 +9,23 @@
 #include "rosidl_runtime_c/message_type_support_struct.h"
 #include "rosidl_typesupport_interface/macros.h"
 #include "hardware_msg/msg/rosidl_typesupport_fastrtps_c__visibility_control.h"
+#include "hardware_msg/msg/detail/motors_commands__struct.h"
+#include "fastcdr/Cdr.h"
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_hardware_msg
+bool cdr_serialize_hardware_msg__msg__MotorsCommands(
+  const hardware_msg__msg__MotorsCommands * ros_message,
+  eprosima::fastcdr::Cdr & cdr);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_hardware_msg
+bool cdr_deserialize_hardware_msg__msg__MotorsCommands(
+  eprosima::fastcdr::Cdr &,
+  hardware_msg__msg__MotorsCommands * ros_message);
 
 ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_hardware_msg
 size_t get_serialized_size_hardware_msg__msg__MotorsCommands(
@@ -22,6 +34,22 @@ size_t get_serialized_size_hardware_msg__msg__MotorsCommands(
 
 ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_hardware_msg
 size_t max_serialized_size_hardware_msg__msg__MotorsCommands(
+  bool & full_bounded,
+  bool & is_plain,
+  size_t current_alignment);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_hardware_msg
+bool cdr_serialize_key_hardware_msg__msg__MotorsCommands(
+  const hardware_msg__msg__MotorsCommands * ros_message,
+  eprosima::fastcdr::Cdr & cdr);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_hardware_msg
+size_t get_serialized_size_key_hardware_msg__msg__MotorsCommands(
+  const void * untyped_ros_message,
+  size_t current_alignment);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_hardware_msg
+size_t max_serialized_size_key_hardware_msg__msg__MotorsCommands(
   bool & full_bounded,
   bool & is_plain,
   size_t current_alignment);

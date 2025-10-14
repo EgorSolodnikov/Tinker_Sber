@@ -1,8 +1,8 @@
-# Install script for directory: /home/pi/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/hardware_msg__py
+# Install script for directory: /mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/build/hardware_msg/hardware_msg__py
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/pi/Tinker_Sber/Chellenge-Tinker/install/hardware_msg")
+  set(CMAKE_INSTALL_PREFIX "/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/install/hardware_msg")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

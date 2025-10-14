@@ -2,6 +2,9 @@
 // with input from hardware_msg:msg/MotorsStates.idl
 // generated code does not contain a copyright notice
 
+// IWYU pragma: private, include "hardware_msg/msg/motors_states.h"
+
+
 #ifndef HARDWARE_MSG__MSG__DETAIL__MOTORS_STATES__FUNCTIONS_H_
 #define HARDWARE_MSG__MSG__DETAIL__MOTORS_STATES__FUNCTIONS_H_
 
@@ -13,6 +16,12 @@ extern "C"
 #include <stdbool.h>
 #include <stdlib.h>
 
+#include "rosidl_runtime_c/action_type_support_struct.h"
+#include "rosidl_runtime_c/message_type_support_struct.h"
+#include "rosidl_runtime_c/service_type_support_struct.h"
+#include "rosidl_runtime_c/type_description/type_description__struct.h"
+#include "rosidl_runtime_c/type_description/type_source__struct.h"
+#include "rosidl_runtime_c/type_hash.h"
 #include "rosidl_runtime_c/visibility_control.h"
 #include "hardware_msg/msg/rosidl_generator_c__visibility_control.h"
 
@@ -53,7 +62,7 @@ hardware_msg__msg__MotorsStates__fini(hardware_msg__msg__MotorsStates * msg);
  */
 ROSIDL_GENERATOR_C_PUBLIC_hardware_msg
 hardware_msg__msg__MotorsStates *
-hardware_msg__msg__MotorsStates__create();
+hardware_msg__msg__MotorsStates__create(void);
 
 /// Destroy msg/MotorsStates message.
 /**
@@ -92,6 +101,30 @@ bool
 hardware_msg__msg__MotorsStates__copy(
   const hardware_msg__msg__MotorsStates * input,
   hardware_msg__msg__MotorsStates * output);
+
+/// Retrieve pointer to the hash of the description of this type.
+ROSIDL_GENERATOR_C_PUBLIC_hardware_msg
+const rosidl_type_hash_t *
+hardware_msg__msg__MotorsStates__get_type_hash(
+  const rosidl_message_type_support_t * type_support);
+
+/// Retrieve pointer to the description of this type.
+ROSIDL_GENERATOR_C_PUBLIC_hardware_msg
+const rosidl_runtime_c__type_description__TypeDescription *
+hardware_msg__msg__MotorsStates__get_type_description(
+  const rosidl_message_type_support_t * type_support);
+
+/// Retrieve pointer to the single raw source text that defined this type.
+ROSIDL_GENERATOR_C_PUBLIC_hardware_msg
+const rosidl_runtime_c__type_description__TypeSource *
+hardware_msg__msg__MotorsStates__get_individual_type_description_source(
+  const rosidl_message_type_support_t * type_support);
+
+/// Retrieve pointer to the recursive raw sources that defined the description of this type.
+ROSIDL_GENERATOR_C_PUBLIC_hardware_msg
+const rosidl_runtime_c__type_description__TypeSource__Sequence *
+hardware_msg__msg__MotorsStates__get_type_description_sources(
+  const rosidl_message_type_support_t * type_support);
 
 /// Initialize array of msg/MotorsStates messages.
 /**

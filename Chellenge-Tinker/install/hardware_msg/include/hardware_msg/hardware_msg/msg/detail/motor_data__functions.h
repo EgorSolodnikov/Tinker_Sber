@@ -2,6 +2,9 @@
 // with input from hardware_msg:msg/MotorData.idl
 // generated code does not contain a copyright notice
 
+// IWYU pragma: private, include "hardware_msg/msg/motor_data.h"
+
+
 #ifndef HARDWARE_MSG__MSG__DETAIL__MOTOR_DATA__FUNCTIONS_H_
 #define HARDWARE_MSG__MSG__DETAIL__MOTOR_DATA__FUNCTIONS_H_
 
@@ -13,6 +16,12 @@ extern "C"
 #include <stdbool.h>
 #include <stdlib.h>
 
+#include "rosidl_runtime_c/action_type_support_struct.h"
+#include "rosidl_runtime_c/message_type_support_struct.h"
+#include "rosidl_runtime_c/service_type_support_struct.h"
+#include "rosidl_runtime_c/type_description/type_description__struct.h"
+#include "rosidl_runtime_c/type_description/type_source__struct.h"
+#include "rosidl_runtime_c/type_hash.h"
 #include "rosidl_runtime_c/visibility_control.h"
 #include "hardware_msg/msg/rosidl_generator_c__visibility_control.h"
 
@@ -53,7 +62,7 @@ hardware_msg__msg__MotorData__fini(hardware_msg__msg__MotorData * msg);
  */
 ROSIDL_GENERATOR_C_PUBLIC_hardware_msg
 hardware_msg__msg__MotorData *
-hardware_msg__msg__MotorData__create();
+hardware_msg__msg__MotorData__create(void);
 
 /// Destroy msg/MotorData message.
 /**
@@ -92,6 +101,30 @@ bool
 hardware_msg__msg__MotorData__copy(
   const hardware_msg__msg__MotorData * input,
   hardware_msg__msg__MotorData * output);
+
+/// Retrieve pointer to the hash of the description of this type.
+ROSIDL_GENERATOR_C_PUBLIC_hardware_msg
+const rosidl_type_hash_t *
+hardware_msg__msg__MotorData__get_type_hash(
+  const rosidl_message_type_support_t * type_support);
+
+/// Retrieve pointer to the description of this type.
+ROSIDL_GENERATOR_C_PUBLIC_hardware_msg
+const rosidl_runtime_c__type_description__TypeDescription *
+hardware_msg__msg__MotorData__get_type_description(
+  const rosidl_message_type_support_t * type_support);
+
+/// Retrieve pointer to the single raw source text that defined this type.
+ROSIDL_GENERATOR_C_PUBLIC_hardware_msg
+const rosidl_runtime_c__type_description__TypeSource *
+hardware_msg__msg__MotorData__get_individual_type_description_source(
+  const rosidl_message_type_support_t * type_support);
+
+/// Retrieve pointer to the recursive raw sources that defined the description of this type.
+ROSIDL_GENERATOR_C_PUBLIC_hardware_msg
+const rosidl_runtime_c__type_description__TypeSource__Sequence *
+hardware_msg__msg__MotorData__get_type_description_sources(
+  const rosidl_message_type_support_t * type_support);
 
 /// Initialize array of msg/MotorData messages.
 /**

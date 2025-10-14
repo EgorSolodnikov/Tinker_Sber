@@ -73,7 +73,7 @@ hardware_msg__msg__Imu__copy(
 }
 
 hardware_msg__msg__Imu *
-hardware_msg__msg__Imu__create()
+hardware_msg__msg__Imu__create(void)
 {
   rcutils_allocator_t allocator = rcutils_get_default_allocator();
   hardware_msg__msg__Imu * msg = (hardware_msg__msg__Imu *)allocator.allocate(sizeof(hardware_msg__msg__Imu), allocator.state);

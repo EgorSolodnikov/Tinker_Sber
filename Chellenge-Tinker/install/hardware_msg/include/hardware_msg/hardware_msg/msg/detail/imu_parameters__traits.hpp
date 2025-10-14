@@ -2,6 +2,9 @@
 // with input from hardware_msg:msg/ImuParameters.idl
 // generated code does not contain a copyright notice
 
+// IWYU pragma: private, include "hardware_msg/msg/imu_parameters.hpp"
+
+
 #ifndef HARDWARE_MSG__MSG__DETAIL__IMU_PARAMETERS__TRAITS_HPP_
 #define HARDWARE_MSG__MSG__DETAIL__IMU_PARAMETERS__TRAITS_HPP_
 
