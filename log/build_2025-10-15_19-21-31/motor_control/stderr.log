@@ -1,0 +1,80 @@
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:[m[K In function ‘[01m[Kint[01;32m[K open_port[m[K(int)[m[K’:
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:19:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   19 |     char *pDev[]={[01;35m[K"/dev/ttyACM0"[m[K,"/dev/ttyS1","/dev/ttyS2","/dev/ttyS3",
+      |                   [01;35m[K^~~~~~~~~~~~~~[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:34:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   19 |     char *pDev[]={"/dev/ttyACM0",[01;35m[K"/dev/ttyS1"[m[K,"/dev/ttyS2","/dev/ttyS3",
+      |                                  [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:47:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   19 |     char *pDev[]={"/dev/ttyACM0","/dev/ttyS1",[01;35m[K"/dev/ttyS2"[m[K,"/dev/ttyS3",
+      |                                               [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:19:60:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   19 |     char *pDev[]={"/dev/ttyACM0","/dev/ttyS1","/dev/ttyS2",[01;35m[K"/dev/ttyS3"[m[K,
+      |                                                            [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:21:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   20 |                     [01;35m[K"/dev/ttyS4"[m[K,"/dev/ttyS5","/dev/ttyS6","/dev/ttyS7",
+      |                     [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:34:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   20 |                     "/dev/ttyS4",[01;35m[K"/dev/ttyS5"[m[K,"/dev/ttyS6","/dev/ttyS7",
+      |                                  [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:47:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   20 |                     "/dev/ttyS4","/dev/ttyS5",[01;35m[K"/dev/ttyS6"[m[K,"/dev/ttyS7",
+      |                                               [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:20:60:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   20 |                     "/dev/ttyS4","/dev/ttyS5","/dev/ttyS6",[01;35m[K"/dev/ttyS7"[m[K,
+      |                                                            [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:21:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   21 |                     [01;35m[K"/dev/ttyS8"[m[K,"/dev/ttyS9","/dev/ttyS10","/dev/ttyS11"};
+      |                     [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:34:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   21 |                     "/dev/ttyS8",[01;35m[K"/dev/ttyS9"[m[K,"/dev/ttyS10","/dev/ttyS11"};
+      |                                  [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:47:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   21 |                     "/dev/ttyS8","/dev/ttyS9",[01;35m[K"/dev/ttyS10"[m[K,"/dev/ttyS11"};
+      |                                               [01;35m[K^~~~~~~~~~~~~[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/serial.cpp:21:61:[m[K [01;35m[Kwarning: [m[KISO C++ forbids converting a string constant to ‘[01m[Kchar*[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wwrite-strings-Wwrite-strings]8;;[m[K]
+   21 |                     "/dev/ttyS8","/dev/ttyS9","/dev/ttyS10",[01;35m[K"/dev/ttyS11"[m[K};
+      |                                                             [01;35m[K^~~~~~~~~~~~~[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/spi.cpp:[m[K In function ‘[01m[Kint[01;32m[K SPIDataRW[m[K(int, uint8_t*, uint8_t*, int)[m[K’:
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/spi.cpp:59:13:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ki[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+   59 |         int [01;35m[Ki[m[K = 0;
+      |             [01;35m[K^[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/sys_timer.cpp:[m[K In function ‘[01m[Kuint32_t[01;32m[K GetSysTime_us[m[K()[m[K’:
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/sys_timer.cpp:38:27:[m[K [01;35m[Kwarning: [m[KISO C++17 does not allow ‘[01m[Kregister[m[K’ storage class specifier [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wregister-Wregister]8;;[m[K]
+   38 |         register uint32_t [01;35m[Kms[m[K;
+      |                           [01;35m[K^~[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:[m[K In function ‘[01m[Kint[01;32m[K slave_rx[m[K(uint8_t*, int)[m[K’:
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:268:13:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kid[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  268 |     uint8_t [01;35m[Kid[m[K;
+      |             [01;35m[K^~[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:[m[K In function ‘[01m[Kvoid[01;32m[K can_board_send[m[K(char)[m[K’:
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:364:18:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kt_temp[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  364 |     static float [01;35m[Kt_temp[m[K = 0;
+      |                  [01;35m[K^~~~~~[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:365:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kid[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  365 |     char [01;35m[Kid[m[K = 0;
+      |          [01;35m[K^~[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:366:21:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[K_cnt[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  366 |     char sum_t = 0, [01;35m[K_cnt[m[K = 0;
+      |                     [01;35m[K^~~~[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:367:17:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kbldc_id_sel[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  367 |     static char [01;35m[Kbldc_id_sel[m[K = 0;
+      |                 [01;35m[K^~~~~~~~~~~[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:[m[K In function ‘[01m[Kvoid[01;32m[K transfer[m[K(int, int)[m[K’:
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:433:27:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Krx_cnt[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  433 |     static uint8_t state, [01;35m[Krx_cnt[m[K;
+      |                           [01;35m[K^~~~~~[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:431:19:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kfd[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  431 | void transfer([01;35m[Kint fd[m[K, int sel)
+      |               [01;35m[K~~~~^~[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:[m[K In constructor ‘[01m[KMotor_control::[01;32m[KMotor_control[m[K()[m[K’:
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:559:14:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kbuf_mem[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  559 |         char [01;35m[Kbuf_mem[m[K[MEM_SIZE] = {1, 2};
+      |              [01;35m[K^~~~~~~[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:[m[K At global scope:
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:229:12:[m[K [01;35m[Kwarning: [m[K‘[01m[Kint[01;32m[K intFromData_spi[m[K(unsigned char*, int*)[m[K’ defined but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-function-Wunused-function]8;;[m[K]
+  229 | static int [01;35m[KintFromData_spi[m[K(unsigned char *data, int *anal_cnt)
+      |            [01;35m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_control/src/Motor_control.cpp:130:13:[m[K [01;35m[Kwarning: [m[K‘[01m[Kvoid[01;32m[K setDataInt_spi[m[K(int)[m[K’ defined but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-function-Wunused-function]8;;[m[K]
+  130 | static void [01;35m[KsetDataInt_spi[m[K(int i)
+      |             [01;35m[K^~~~~~~~~~~~~~[m[K

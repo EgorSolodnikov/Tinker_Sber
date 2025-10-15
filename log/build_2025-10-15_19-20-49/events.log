@@ -1,0 +1,6 @@
+[0.000000] (-) TimerEvent: {}
+[0.000280] (-) JobUnselected: {'identifier': 'hardware_msg'}
+[0.000479] (-) JobUnselected: {'identifier': 'motor_commander'}
+[0.000628] (-) JobUnselected: {'identifier': 'motor_control'}
+[0.000780] (-) JobUnselected: {'identifier': 'tinker_description'}
+[0.000913] (-) EventReactorShutdown: {}

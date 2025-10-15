@@ -1,0 +1,29 @@
+{
+  "package_name": "hardware_msg",
+  "output_dir": "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_typesupport_c/hardware_msg",
+  "template_dir": "/opt/ros/jazzy/share/rosidl_typesupport_c/resource",
+  "idl_tuples": [
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg:msg/BoardParameters.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg:msg/ImuParameters.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg:msg/MotorParameters.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg:msg/MotorsStates.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg:msg/Imu.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg:msg/MotorData.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg:msg/MotorsCommands.idl"
+  ],
+  "target_dependencies": [
+    "/opt/ros/jazzy/lib/rosidl_typesupport_c/rosidl_typesupport_c",
+    "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_typesupport_c/__init__.py",
+    "/opt/ros/jazzy/share/rosidl_typesupport_c/resource/action__type_support.c.em",
+    "/opt/ros/jazzy/share/rosidl_typesupport_c/resource/idl__type_support.cpp.em",
+    "/opt/ros/jazzy/share/rosidl_typesupport_c/resource/msg__type_support.cpp.em",
+    "/opt/ros/jazzy/share/rosidl_typesupport_c/resource/srv__type_support.cpp.em",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg/msg/BoardParameters.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg/msg/ImuParameters.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg/msg/MotorParameters.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg/msg/MotorsStates.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg/msg/Imu.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg/msg/MotorData.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg/msg/MotorsCommands.idl"
+  ]
+}

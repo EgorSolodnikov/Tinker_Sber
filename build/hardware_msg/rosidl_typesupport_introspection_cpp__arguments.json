@@ -1,0 +1,31 @@
+{
+  "package_name": "hardware_msg",
+  "output_dir": "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_typesupport_introspection_cpp/hardware_msg",
+  "template_dir": "/opt/ros/jazzy/share/rosidl_typesupport_introspection_cpp/resource",
+  "idl_tuples": [
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg:msg/BoardParameters.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg:msg/ImuParameters.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg:msg/MotorParameters.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg:msg/MotorsStates.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg:msg/Imu.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg:msg/MotorData.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg:msg/MotorsCommands.idl"
+  ],
+  "target_dependencies": [
+    "/opt/ros/jazzy/lib/rosidl_typesupport_introspection_cpp/rosidl_typesupport_introspection_cpp",
+    "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_typesupport_introspection_cpp/__init__.py",
+    "/opt/ros/jazzy/share/rosidl_typesupport_introspection_cpp/resource/idl__rosidl_typesupport_introspection_cpp.hpp.em",
+    "/opt/ros/jazzy/share/rosidl_typesupport_introspection_cpp/resource/idl__type_support.cpp.em",
+    "/opt/ros/jazzy/share/rosidl_typesupport_introspection_cpp/resource/msg__rosidl_typesupport_introspection_cpp.hpp.em",
+    "/opt/ros/jazzy/share/rosidl_typesupport_introspection_cpp/resource/msg__type_support.cpp.em",
+    "/opt/ros/jazzy/share/rosidl_typesupport_introspection_cpp/resource/srv__rosidl_typesupport_introspection_cpp.hpp.em",
+    "/opt/ros/jazzy/share/rosidl_typesupport_introspection_cpp/resource/srv__type_support.cpp.em",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg/msg/BoardParameters.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg/msg/ImuParameters.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg/msg/MotorParameters.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg/msg/MotorsStates.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg/msg/Imu.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg/msg/MotorData.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg/msg/MotorsCommands.idl"
+  ]
+}

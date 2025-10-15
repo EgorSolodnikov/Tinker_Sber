@@ -436,7 +436,7 @@ void transfer(int fd, int sel)
     int ret;
     uint8_t data = 0;
 
-    // Формирование команды
+    // Формирование команды- заполняет spi_tx_buf данными из spi_tx структуры
     can_board_send(sel);
 
     // Отправка данных через SPI
@@ -700,7 +700,7 @@ private:
         static int counter = 0;
         static auto last_time = this->now();
 
-        // Обмен данными через SPI
+        // Обмен данными через SPI, отправка spi_tx, а прием spi_rx
         transfer(1, 45);
 
         counter++;

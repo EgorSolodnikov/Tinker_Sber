@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "hardware_msg__py",
+		"source" : "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/hardware_msg__py"
+	}
+}

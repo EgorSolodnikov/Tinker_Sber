@@ -1,0 +1,9 @@
+/mnt/c/tinker/Tinker_Sber/build/tinker_gui/CMakeFiles/uninstall.dir
+/mnt/c/tinker/Tinker_Sber/build/tinker_gui/CMakeFiles/tinker_gui_uninstall.dir
+/mnt/c/tinker/Tinker_Sber/build/tinker_gui/CMakeFiles/test.dir
+/mnt/c/tinker/Tinker_Sber/build/tinker_gui/CMakeFiles/edit_cache.dir
+/mnt/c/tinker/Tinker_Sber/build/tinker_gui/CMakeFiles/rebuild_cache.dir
+/mnt/c/tinker/Tinker_Sber/build/tinker_gui/CMakeFiles/list_install_components.dir
+/mnt/c/tinker/Tinker_Sber/build/tinker_gui/CMakeFiles/install.dir
+/mnt/c/tinker/Tinker_Sber/build/tinker_gui/CMakeFiles/install/local.dir
+/mnt/c/tinker/Tinker_Sber/build/tinker_gui/CMakeFiles/install/strip.dir

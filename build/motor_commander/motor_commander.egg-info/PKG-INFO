@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: motor-commander
+Version: 0.0.0
+Summary: Motor commander node for Tinker robot
+Maintainer: pi
+Maintainer-email: pi@todo.todo
+License: Apache License 2.0

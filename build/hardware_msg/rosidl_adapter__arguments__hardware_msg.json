@@ -1,0 +1,12 @@
+{
+  "package_name": "hardware_msg",
+  "non_idl_tuples": [
+    "/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/hardware_msg:msg/BoardParameters.msg",
+    "/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/hardware_msg:msg/ImuParameters.msg",
+    "/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/hardware_msg:msg/MotorParameters.msg",
+    "/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/hardware_msg:msg/MotorsStates.msg",
+    "/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/hardware_msg:msg/Imu.msg",
+    "/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/hardware_msg:msg/MotorData.msg",
+    "/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/hardware_msg:msg/MotorsCommands.msg"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "package_name": "hardware_msg",
+  "output_dir": "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_generator_py/hardware_msg",
+  "template_dir": "/opt/ros/jazzy/share/rosidl_generator_py/cmake/../resource",
+  "idl_tuples": [
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg:msg/BoardParameters.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg:msg/ImuParameters.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg:msg/MotorParameters.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg:msg/MotorsStates.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg:msg/Imu.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg:msg/MotorData.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg:msg/MotorsCommands.idl"
+  ],
+  "target_dependencies": [
+    "/opt/ros/jazzy/share/rosidl_generator_py/cmake/../../../lib/rosidl_generator_py/rosidl_generator_py",
+    "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_generator_py/__init__.py",
+    "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_generator_py/generate_py_impl.py",
+    "/opt/ros/jazzy/share/rosidl_generator_py/cmake/../resource/_action_pkg_typesupport_entry_point.c.em",
+    "/opt/ros/jazzy/share/rosidl_generator_py/cmake/../resource/_action.py.em",
+    "/opt/ros/jazzy/share/rosidl_generator_py/cmake/../resource/_idl_pkg_typesupport_entry_point.c.em",
+    "/opt/ros/jazzy/share/rosidl_generator_py/cmake/../resource/_idl_support.c.em",
+    "/opt/ros/jazzy/share/rosidl_generator_py/cmake/../resource/_idl.py.em",
+    "/opt/ros/jazzy/share/rosidl_generator_py/cmake/../resource/_msg_pkg_typesupport_entry_point.c.em",
+    "/opt/ros/jazzy/share/rosidl_generator_py/cmake/../resource/_msg_support.c.em",
+    "/opt/ros/jazzy/share/rosidl_generator_py/cmake/../resource/_msg.py.em",
+    "/opt/ros/jazzy/share/rosidl_generator_py/cmake/../resource/_srv_pkg_typesupport_entry_point.c.em",
+    "/opt/ros/jazzy/share/rosidl_generator_py/cmake/../resource/_srv.py.em",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg/msg/BoardParameters.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg/msg/ImuParameters.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg/msg/MotorParameters.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg/msg/MotorsStates.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg/msg/Imu.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg/msg/MotorData.idl",
+    "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_adapter/hardware_msg/msg/MotorsCommands.idl"
+  ]
+}

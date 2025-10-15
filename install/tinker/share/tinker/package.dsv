@@ -1,0 +1,5 @@
+source;share/tinker/local_setup.bash
+source;share/tinker/local_setup.dsv
+source;share/tinker/local_setup.ps1
+source;share/tinker/local_setup.sh
+source;share/tinker/local_setup.zsh

@@ -1,0 +1,6 @@
+Invoking command in '/mnt/c/tinker/Tinker_Sber/build/tinker': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /mnt/c/tinker/Tinker_Sber/src/tinker -DCMAKE_INSTALL_PREFIX=/mnt/c/tinker/Tinker_Sber/install/tinker
+Invoked command in '/mnt/c/tinker/Tinker_Sber/build/tinker' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /mnt/c/tinker/Tinker_Sber/src/tinker -DCMAKE_INSTALL_PREFIX=/mnt/c/tinker/Tinker_Sber/install/tinker
+Invoking command in '/mnt/c/tinker/Tinker_Sber/build/tinker': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /mnt/c/tinker/Tinker_Sber/build/tinker -- -j12 -l12
+Invoked command in '/mnt/c/tinker/Tinker_Sber/build/tinker' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /mnt/c/tinker/Tinker_Sber/build/tinker -- -j12 -l12
+Invoking command in '/mnt/c/tinker/Tinker_Sber/build/tinker': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /mnt/c/tinker/Tinker_Sber/build/tinker
+Invoked command in '/mnt/c/tinker/Tinker_Sber/build/tinker' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /mnt/c/tinker/Tinker_Sber/build/tinker

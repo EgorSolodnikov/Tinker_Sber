@@ -1,0 +1,729 @@
+[0.193s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'tinker_gui']
+[0.193s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=12, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['tinker_gui'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7fa722263080>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7fa722262de0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7fa722262de0>>)
+[0.227s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.227s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.228s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.228s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.228s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.228s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.228s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/mnt/c/tinker/Tinker_Sber'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.252s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker) by extensions ['ignore', 'ignore_ament_install']
+[0.252s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker) by extension 'ignore'
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker) by extension 'ignore_ament_install'
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker) by extensions ['colcon_pkg']
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker) by extension 'colcon_pkg'
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker) by extensions ['colcon_meta']
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker) by extension 'colcon_meta'
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker) by extensions ['ros']
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker) by extension 'ros'
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker) by extensions ['cmake', 'python']
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker) by extension 'cmake'
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker) by extension 'python'
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker) by extensions ['python_setup_py']
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker) by extension 'python_setup_py'
+[0.261s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build) by extensions ['ignore', 'ignore_ament_install']
+[0.261s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build) by extension 'ignore'
+[0.262s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build) by extension 'ignore_ament_install'
+[0.264s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build) by extensions ['colcon_pkg']
+[0.264s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build) by extension 'colcon_pkg'
+[0.265s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build) by extensions ['colcon_meta']
+[0.265s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build) by extension 'colcon_meta'
+[0.266s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build) by extensions ['ros']
+[0.266s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build) by extension 'ros'
+[0.269s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build) by extensions ['cmake', 'python']
+[0.269s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build) by extension 'cmake'
+[0.270s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build) by extension 'python'
+[0.271s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build) by extensions ['python_setup_py']
+[0.271s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build) by extension 'python_setup_py'
+[0.275s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/hardware_msg) by extensions ['ignore', 'ignore_ament_install']
+[0.276s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/hardware_msg) by extension 'ignore'
+[0.277s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/hardware_msg) by extension 'ignore_ament_install'
+[0.279s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/hardware_msg) by extensions ['colcon_pkg']
+[0.279s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/hardware_msg) by extension 'colcon_pkg'
+[0.280s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/hardware_msg) by extensions ['colcon_meta']
+[0.280s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/hardware_msg) by extension 'colcon_meta'
+[0.282s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/hardware_msg) by extensions ['ros']
+[0.282s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/hardware_msg) by extension 'ros'
+[0.285s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/hardware_msg) ignored
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander) by extensions ['ignore', 'ignore_ament_install']
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander) by extension 'ignore'
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander) by extension 'ignore_ament_install'
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander) by extensions ['colcon_pkg']
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander) by extension 'colcon_pkg'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander) by extensions ['colcon_meta']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander) by extension 'colcon_meta'
+[0.295s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander) by extensions ['ros']
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander) by extension 'ros'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander) by extensions ['cmake', 'python']
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander) by extension 'cmake'
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander) by extension 'python'
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander) by extensions ['python_setup_py']
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander) by extension 'python_setup_py'
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override) by extensions ['ignore', 'ignore_ament_install']
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override) by extension 'ignore'
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override) by extension 'ignore_ament_install'
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override) by extensions ['colcon_pkg']
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override) by extension 'colcon_pkg'
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override) by extensions ['colcon_meta']
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override) by extension 'colcon_meta'
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override) by extensions ['ros']
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override) by extension 'ros'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override) by extensions ['cmake', 'python']
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override) by extension 'cmake'
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override) by extension 'python'
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override) by extensions ['python_setup_py']
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override) by extension 'python_setup_py'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override/__pycache__) by extension 'ignore'
+[0.337s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override/__pycache__) by extension 'ignore_ament_install'
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override/__pycache__) by extensions ['colcon_pkg']
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override/__pycache__) by extension 'colcon_pkg'
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override/__pycache__) by extensions ['colcon_meta']
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override/__pycache__) by extension 'colcon_meta'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override/__pycache__) by extensions ['ros']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override/__pycache__) by extension 'ros'
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override/__pycache__) by extensions ['cmake', 'python']
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override/__pycache__) by extension 'cmake'
+[0.355s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override/__pycache__) by extension 'python'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override/__pycache__) by extensions ['python_setup_py']
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_commander/prefix_override/__pycache__) by extension 'python_setup_py'
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_control) by extensions ['ignore', 'ignore_ament_install']
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_control) by extension 'ignore'
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_control) by extension 'ignore_ament_install'
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_control) by extensions ['colcon_pkg']
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_control) by extension 'colcon_pkg'
+[0.367s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_control) by extensions ['colcon_meta']
+[0.367s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_control) by extension 'colcon_meta'
+[0.369s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_control) by extensions ['ros']
+[0.369s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_control) by extension 'ros'
+[0.371s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/motor_control) ignored
+[0.375s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/tinker_description) by extensions ['ignore', 'ignore_ament_install']
+[0.375s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/tinker_description) by extension 'ignore'
+[0.376s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/tinker_description) by extension 'ignore_ament_install'
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/tinker_description) by extensions ['colcon_pkg']
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/tinker_description) by extension 'colcon_pkg'
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/tinker_description) by extensions ['colcon_meta']
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/tinker_description) by extension 'colcon_meta'
+[0.382s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/tinker_description) by extensions ['ros']
+[0.382s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/tinker_description) by extension 'ros'
+[0.384s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/build/tinker_description) ignored
+[0.386s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install) by extensions ['ignore', 'ignore_ament_install']
+[0.386s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install) by extension 'ignore'
+[0.387s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install) by extension 'ignore_ament_install'
+[0.389s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install) by extensions ['colcon_pkg']
+[0.389s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install) by extension 'colcon_pkg'
+[0.390s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install) by extensions ['colcon_meta']
+[0.390s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install) by extension 'colcon_meta'
+[0.391s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install) by extensions ['ros']
+[0.391s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install) by extension 'ros'
+[0.394s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install) by extensions ['cmake', 'python']
+[0.394s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install) by extension 'cmake'
+[0.395s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install) by extension 'python'
+[0.396s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install) by extensions ['python_setup_py']
+[0.396s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install) by extension 'python_setup_py'
+[0.400s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg) by extensions ['ignore', 'ignore_ament_install']
+[0.400s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg) by extension 'ignore'
+[0.401s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg) by extension 'ignore_ament_install'
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg) by extensions ['colcon_pkg']
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg) by extension 'colcon_pkg'
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg) by extensions ['colcon_meta']
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg) by extension 'colcon_meta'
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg) by extensions ['ros']
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg) by extension 'ros'
+[0.412s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg) by extensions ['cmake', 'python']
+[0.412s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg) by extension 'cmake'
+[0.413s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg) by extension 'python'
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg) by extensions ['python_setup_py']
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg) by extension 'python_setup_py'
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include) by extensions ['ignore', 'ignore_ament_install']
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include) by extension 'ignore'
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include) by extension 'ignore_ament_install'
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include) by extensions ['colcon_pkg']
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include) by extension 'colcon_pkg'
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include) by extensions ['colcon_meta']
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include) by extension 'colcon_meta'
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include) by extensions ['ros']
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include) by extension 'ros'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include) by extensions ['cmake', 'python']
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include) by extension 'cmake'
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include) by extension 'python'
+[0.437s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include) by extensions ['python_setup_py']
+[0.437s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include) by extension 'python_setup_py'
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg) by extensions ['ignore', 'ignore_ament_install']
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg) by extension 'ignore'
+[0.447s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg) by extension 'ignore_ament_install'
+[0.450s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg) by extensions ['colcon_pkg']
+[0.450s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg) by extension 'colcon_pkg'
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg) by extensions ['colcon_meta']
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg) by extension 'colcon_meta'
+[0.457s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg) by extensions ['ros']
+[0.457s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg) by extension 'ros'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg) by extensions ['cmake', 'python']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg) by extension 'cmake'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg) by extension 'python'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg) by extensions ['python_setup_py']
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg) by extension 'python_setup_py'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg) by extensions ['ignore', 'ignore_ament_install']
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg) by extension 'ignore'
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg) by extension 'ignore_ament_install'
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg) by extensions ['colcon_pkg']
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg) by extension 'colcon_pkg'
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg) by extensions ['colcon_meta']
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg) by extension 'colcon_meta'
+[0.492s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg) by extensions ['ros']
+[0.492s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg) by extension 'ros'
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg) by extensions ['cmake', 'python']
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg) by extension 'cmake'
+[0.502s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg) by extension 'python'
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg) by extensions ['python_setup_py']
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg) by extension 'python_setup_py'
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg) by extensions ['ignore', 'ignore_ament_install']
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg) by extension 'ignore'
+[0.519s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg) by extension 'ignore_ament_install'
+[0.523s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg) by extensions ['colcon_pkg']
+[0.523s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg) by extension 'colcon_pkg'
+[0.525s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg) by extensions ['colcon_meta']
+[0.525s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg) by extension 'colcon_meta'
+[0.534s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg) by extensions ['ros']
+[0.534s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg) by extension 'ros'
+[0.544s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg) by extensions ['cmake', 'python']
+[0.544s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg) by extension 'cmake'
+[0.546s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg) by extension 'python'
+[0.548s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg) by extensions ['python_setup_py']
+[0.548s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg) by extension 'python_setup_py'
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail) by extensions ['ignore', 'ignore_ament_install']
+[0.563s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail) by extension 'ignore'
+[0.566s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail) by extension 'ignore_ament_install'
+[0.571s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail) by extensions ['colcon_pkg']
+[0.571s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail) by extension 'colcon_pkg'
+[0.573s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail) by extensions ['colcon_meta']
+[0.573s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail) by extension 'colcon_meta'
+[0.584s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail) by extensions ['ros']
+[0.584s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail) by extension 'ros'
+[0.595s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail) by extensions ['cmake', 'python']
+[0.595s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail) by extension 'cmake'
+[0.598s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail) by extension 'python'
+[0.600s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail) by extensions ['python_setup_py']
+[0.600s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail) by extension 'python_setup_py'
+[0.619s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/dds_fastrtps) by extensions ['ignore', 'ignore_ament_install']
+[0.619s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/dds_fastrtps) by extension 'ignore'
+[0.621s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/dds_fastrtps) by extension 'ignore_ament_install'
+[0.626s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/dds_fastrtps) by extensions ['colcon_pkg']
+[0.627s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/dds_fastrtps) by extension 'colcon_pkg'
+[0.629s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/dds_fastrtps) by extensions ['colcon_meta']
+[0.629s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/dds_fastrtps) by extension 'colcon_meta'
+[0.642s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/dds_fastrtps) by extensions ['ros']
+[0.642s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/dds_fastrtps) by extension 'ros'
+[0.655s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/dds_fastrtps) by extensions ['cmake', 'python']
+[0.655s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/dds_fastrtps) by extension 'cmake'
+[0.658s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/dds_fastrtps) by extension 'python'
+[0.661s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/dds_fastrtps) by extensions ['python_setup_py']
+[0.661s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/dds_fastrtps) by extension 'python_setup_py'
+[0.668s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib) by extensions ['ignore', 'ignore_ament_install']
+[0.669s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib) by extension 'ignore'
+[0.670s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib) by extension 'ignore_ament_install'
+[0.673s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib) by extensions ['colcon_pkg']
+[0.673s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib) by extension 'colcon_pkg'
+[0.674s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib) by extensions ['colcon_meta']
+[0.674s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib) by extension 'colcon_meta'
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib) by extensions ['ros']
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib) by extension 'ros'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib) by extensions ['cmake', 'python']
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib) by extension 'cmake'
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib) by extension 'python'
+[0.688s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib) by extensions ['python_setup_py']
+[0.688s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib) by extension 'python_setup_py'
+[0.695s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12) by extensions ['ignore', 'ignore_ament_install']
+[0.696s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12) by extension 'ignore'
+[0.697s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12) by extension 'ignore_ament_install'
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12) by extensions ['colcon_pkg']
+[0.701s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12) by extension 'colcon_pkg'
+[0.702s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12) by extensions ['colcon_meta']
+[0.702s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12) by extension 'colcon_meta'
+[0.708s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12) by extensions ['ros']
+[0.708s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12) by extension 'ros'
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12) by extensions ['cmake', 'python']
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12) by extension 'cmake'
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12) by extension 'python'
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12) by extensions ['python_setup_py']
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12) by extension 'python_setup_py'
+[0.739s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages) by extensions ['ignore', 'ignore_ament_install']
+[0.739s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages) by extension 'ignore'
+[0.742s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages) by extension 'ignore_ament_install'
+[0.747s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages) by extensions ['colcon_pkg']
+[0.747s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages) by extension 'colcon_pkg'
+[0.750s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages) by extensions ['colcon_meta']
+[0.750s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages) by extension 'colcon_meta'
+[0.757s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages) by extensions ['ros']
+[0.757s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages) by extension 'ros'
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages) by extensions ['cmake', 'python']
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages) by extension 'cmake'
+[0.771s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages) by extension 'python'
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages) by extensions ['python_setup_py']
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages) by extension 'python_setup_py'
+[0.785s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg) by extensions ['ignore', 'ignore_ament_install']
+[0.786s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg) by extension 'ignore'
+[0.788s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg) by extension 'ignore_ament_install'
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg) by extensions ['colcon_pkg']
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg) by extension 'colcon_pkg'
+[0.795s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg) by extensions ['colcon_meta']
+[0.795s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg) by extension 'colcon_meta'
+[0.803s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg) by extensions ['ros']
+[0.803s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg) by extension 'ros'
+[0.812s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg) by extensions ['cmake', 'python']
+[0.813s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg) by extension 'cmake'
+[0.815s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg) by extension 'python'
+[0.817s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg) by extensions ['python_setup_py']
+[0.817s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg) by extension 'python_setup_py'
+[0.832s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[0.832s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/__pycache__) by extension 'ignore'
+[0.835s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/__pycache__) by extension 'ignore_ament_install'
+[0.840s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/__pycache__) by extensions ['colcon_pkg']
+[0.840s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/__pycache__) by extension 'colcon_pkg'
+[0.842s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/__pycache__) by extensions ['colcon_meta']
+[0.843s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/__pycache__) by extension 'colcon_meta'
+[0.854s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/__pycache__) by extensions ['ros']
+[0.854s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/__pycache__) by extension 'ros'
+[0.867s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/__pycache__) by extensions ['cmake', 'python']
+[0.867s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/__pycache__) by extension 'cmake'
+[0.869s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/__pycache__) by extension 'python'
+[0.872s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/__pycache__) by extensions ['python_setup_py']
+[0.872s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/__pycache__) by extension 'python_setup_py'
+[0.888s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg) by extensions ['ignore', 'ignore_ament_install']
+[0.888s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg) by extension 'ignore'
+[0.890s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg) by extension 'ignore_ament_install'
+[0.895s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg) by extensions ['colcon_pkg']
+[0.895s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg) by extension 'colcon_pkg'
+[0.897s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg) by extensions ['colcon_meta']
+[0.897s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg) by extension 'colcon_meta'
+[0.908s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg) by extensions ['ros']
+[0.908s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg) by extension 'ros'
+[0.919s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg) by extensions ['cmake', 'python']
+[0.919s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg) by extension 'cmake'
+[0.921s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg) by extension 'python'
+[0.923s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg) by extensions ['python_setup_py']
+[0.924s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg) by extension 'python_setup_py'
+[0.942s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[0.942s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/__pycache__) by extension 'ignore'
+[0.945s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/__pycache__) by extension 'ignore_ament_install'
+[0.950s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/__pycache__) by extensions ['colcon_pkg']
+[0.950s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/__pycache__) by extension 'colcon_pkg'
+[0.953s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/__pycache__) by extensions ['colcon_meta']
+[0.953s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/__pycache__) by extension 'colcon_meta'
+[0.966s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/__pycache__) by extensions ['ros']
+[0.966s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/__pycache__) by extension 'ros'
+[0.979s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/__pycache__) by extensions ['cmake', 'python']
+[0.980s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/__pycache__) by extension 'cmake'
+[0.982s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/__pycache__) by extension 'python'
+[0.985s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/__pycache__) by extensions ['python_setup_py']
+[0.985s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/__pycache__) by extension 'python_setup_py'
+[0.998s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg-0.0.0-py3.12.egg-info) by extensions ['ignore', 'ignore_ament_install']
+[0.998s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg-0.0.0-py3.12.egg-info) by extension 'ignore'
+[1.000s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg-0.0.0-py3.12.egg-info) by extension 'ignore_ament_install'
+[1.005s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg-0.0.0-py3.12.egg-info) by extensions ['colcon_pkg']
+[1.005s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg-0.0.0-py3.12.egg-info) by extension 'colcon_pkg'
+[1.007s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg-0.0.0-py3.12.egg-info) by extensions ['colcon_meta']
+[1.007s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg-0.0.0-py3.12.egg-info) by extension 'colcon_meta'
+[1.015s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg-0.0.0-py3.12.egg-info) by extensions ['ros']
+[1.015s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg-0.0.0-py3.12.egg-info) by extension 'ros'
+[1.025s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg-0.0.0-py3.12.egg-info) by extensions ['cmake', 'python']
+[1.025s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg-0.0.0-py3.12.egg-info) by extension 'cmake'
+[1.028s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg-0.0.0-py3.12.egg-info) by extension 'python'
+[1.030s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg-0.0.0-py3.12.egg-info) by extensions ['python_setup_py']
+[1.030s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/lib/python3.12/site-packages/hardware_msg-0.0.0-py3.12.egg-info) by extension 'python_setup_py'
+[1.037s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share) by extensions ['ignore', 'ignore_ament_install']
+[1.037s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share) by extension 'ignore'
+[1.038s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share) by extension 'ignore_ament_install'
+[1.041s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share) by extensions ['colcon_pkg']
+[1.041s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share) by extension 'colcon_pkg'
+[1.043s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share) by extensions ['colcon_meta']
+[1.043s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share) by extension 'colcon_meta'
+[1.046s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share) by extensions ['ros']
+[1.046s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share) by extension 'ros'
+[1.053s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share) by extensions ['cmake', 'python']
+[1.053s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share) by extension 'cmake'
+[1.054s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share) by extension 'python'
+[1.055s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share) by extensions ['python_setup_py']
+[1.056s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share) by extension 'python_setup_py'
+[1.063s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg) by extensions ['ignore', 'ignore_ament_install']
+[1.063s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg) by extension 'ignore'
+[1.065s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg) by extension 'ignore_ament_install'
+[1.068s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg) by extensions ['colcon_pkg']
+[1.068s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg) by extension 'colcon_pkg'
+[1.070s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg) by extensions ['colcon_meta']
+[1.070s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg) by extension 'colcon_meta'
+[1.075s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg) by extensions ['ros']
+[1.075s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg) by extension 'ros'
+[1.083s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg) by extensions ['cmake', 'python']
+[1.083s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg) by extension 'cmake'
+[1.085s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg) by extension 'python'
+[1.087s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg) by extensions ['python_setup_py']
+[1.087s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg) by extension 'python_setup_py'
+[1.097s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook) by extensions ['ignore', 'ignore_ament_install']
+[1.097s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook) by extension 'ignore'
+[1.099s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook) by extension 'ignore_ament_install'
+[1.103s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook) by extensions ['colcon_pkg']
+[1.103s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook) by extension 'colcon_pkg'
+[1.105s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook) by extensions ['colcon_meta']
+[1.105s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook) by extension 'colcon_meta'
+[1.111s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook) by extensions ['ros']
+[1.111s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook) by extension 'ros'
+[1.120s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook) by extensions ['cmake', 'python']
+[1.120s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook) by extension 'cmake'
+[1.122s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook) by extension 'python'
+[1.124s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook) by extensions ['python_setup_py']
+[1.124s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/hook) by extension 'python_setup_py'
+[1.135s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg) by extensions ['ignore', 'ignore_ament_install']
+[1.135s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg) by extension 'ignore'
+[1.137s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg) by extension 'ignore_ament_install'
+[1.141s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg) by extensions ['colcon_pkg']
+[1.141s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg) by extension 'colcon_pkg'
+[1.143s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg) by extensions ['colcon_meta']
+[1.143s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg) by extension 'colcon_meta'
+[1.149s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg) by extensions ['ros']
+[1.149s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg) by extension 'ros'
+[1.158s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg) by extensions ['cmake', 'python']
+[1.159s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg) by extension 'cmake'
+[1.161s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg) by extension 'python'
+[1.163s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg) by extensions ['python_setup_py']
+[1.163s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/hardware_msg/share/hardware_msg/msg) by extension 'python_setup_py'
+[1.168s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander) by extensions ['ignore', 'ignore_ament_install']
+[1.168s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander) by extension 'ignore'
+[1.169s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander) by extension 'ignore_ament_install'
+[1.172s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander) by extensions ['colcon_pkg']
+[1.172s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander) by extension 'colcon_pkg'
+[1.173s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander) by extensions ['colcon_meta']
+[1.173s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander) by extension 'colcon_meta'
+[1.175s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander) by extensions ['ros']
+[1.175s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander) by extension 'ros'
+[1.180s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander) by extensions ['cmake', 'python']
+[1.180s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander) by extension 'cmake'
+[1.181s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander) by extension 'python'
+[1.182s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander) by extensions ['python_setup_py']
+[1.182s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander) by extension 'python_setup_py'
+[1.188s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib) by extensions ['ignore', 'ignore_ament_install']
+[1.188s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib) by extension 'ignore'
+[1.190s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib) by extension 'ignore_ament_install'
+[1.193s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib) by extensions ['colcon_pkg']
+[1.193s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib) by extension 'colcon_pkg'
+[1.194s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib) by extensions ['colcon_meta']
+[1.194s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib) by extension 'colcon_meta'
+[1.198s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib) by extensions ['ros']
+[1.198s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib) by extension 'ros'
+[1.205s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib) by extensions ['cmake', 'python']
+[1.205s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib) by extension 'cmake'
+[1.206s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib) by extension 'python'
+[1.207s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib) by extensions ['python_setup_py']
+[1.208s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib) by extension 'python_setup_py'
+[1.215s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12) by extensions ['ignore', 'ignore_ament_install']
+[1.215s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12) by extension 'ignore'
+[1.217s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12) by extension 'ignore_ament_install'
+[1.220s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12) by extensions ['colcon_pkg']
+[1.220s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12) by extension 'colcon_pkg'
+[1.222s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12) by extensions ['colcon_meta']
+[1.222s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12) by extension 'colcon_meta'
+[1.227s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12) by extensions ['ros']
+[1.227s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12) by extension 'ros'
+[1.234s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12) by extensions ['cmake', 'python']
+[1.234s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12) by extension 'cmake'
+[1.236s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12) by extension 'python'
+[1.237s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12) by extensions ['python_setup_py']
+[1.237s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12) by extension 'python_setup_py'
+[1.248s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages) by extensions ['ignore', 'ignore_ament_install']
+[1.248s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages) by extension 'ignore'
+[1.250s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages) by extension 'ignore_ament_install'
+[1.254s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages) by extensions ['colcon_pkg']
+[1.254s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages) by extension 'colcon_pkg'
+[1.256s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages) by extensions ['colcon_meta']
+[1.256s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages) by extension 'colcon_meta'
+[1.262s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages) by extensions ['ros']
+[1.262s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages) by extension 'ros'
+[1.270s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages) by extensions ['cmake', 'python']
+[1.270s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages) by extension 'cmake'
+[1.272s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages) by extension 'python'
+[1.274s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages) by extensions ['python_setup_py']
+[1.274s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages) by extension 'python_setup_py'
+[1.287s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander) by extensions ['ignore', 'ignore_ament_install']
+[1.287s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander) by extension 'ignore'
+[1.289s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander) by extension 'ignore_ament_install'
+[1.293s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander) by extensions ['colcon_pkg']
+[1.294s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander) by extension 'colcon_pkg'
+[1.296s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander) by extensions ['colcon_meta']
+[1.296s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander) by extension 'colcon_meta'
+[1.304s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander) by extensions ['ros']
+[1.305s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander) by extension 'ros'
+[1.315s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander) by extensions ['cmake', 'python']
+[1.315s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander) by extension 'cmake'
+[1.317s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander) by extension 'python'
+[1.319s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander) by extensions ['python_setup_py']
+[1.319s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander) by extension 'python_setup_py'
+[1.334s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[1.335s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander/__pycache__) by extension 'ignore'
+[1.337s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander/__pycache__) by extension 'ignore_ament_install'
+[1.342s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander/__pycache__) by extensions ['colcon_pkg']
+[1.342s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander/__pycache__) by extension 'colcon_pkg'
+[1.345s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander/__pycache__) by extensions ['colcon_meta']
+[1.345s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander/__pycache__) by extension 'colcon_meta'
+[1.356s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander/__pycache__) by extensions ['ros']
+[1.356s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander/__pycache__) by extension 'ros'
+[1.367s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander/__pycache__) by extensions ['cmake', 'python']
+[1.367s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander/__pycache__) by extension 'cmake'
+[1.369s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander/__pycache__) by extension 'python'
+[1.372s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander/__pycache__) by extensions ['python_setup_py']
+[1.372s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander/__pycache__) by extension 'python_setup_py'
+[1.385s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander-0.0.0-py3.12.egg-info) by extensions ['ignore', 'ignore_ament_install']
+[1.385s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander-0.0.0-py3.12.egg-info) by extension 'ignore'
+[1.387s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander-0.0.0-py3.12.egg-info) by extension 'ignore_ament_install'
+[1.392s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander-0.0.0-py3.12.egg-info) by extensions ['colcon_pkg']
+[1.392s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander-0.0.0-py3.12.egg-info) by extension 'colcon_pkg'
+[1.394s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander-0.0.0-py3.12.egg-info) by extensions ['colcon_meta']
+[1.394s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander-0.0.0-py3.12.egg-info) by extension 'colcon_meta'
+[1.402s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander-0.0.0-py3.12.egg-info) by extensions ['ros']
+[1.402s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander-0.0.0-py3.12.egg-info) by extension 'ros'
+[1.412s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander-0.0.0-py3.12.egg-info) by extensions ['cmake', 'python']
+[1.413s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander-0.0.0-py3.12.egg-info) by extension 'cmake'
+[1.415s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander-0.0.0-py3.12.egg-info) by extension 'python'
+[1.417s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander-0.0.0-py3.12.egg-info) by extensions ['python_setup_py']
+[1.417s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/install/motor_commander/lib/python3.12/site-packages/motor_commander-0.0.0-py3.12.egg-info) by extension 'python_setup_py'
+[1.421s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log) by extensions ['ignore', 'ignore_ament_install']
+[1.421s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log) by extension 'ignore'
+[1.422s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log) by extension 'ignore_ament_install'
+[1.424s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log) by extensions ['colcon_pkg']
+[1.424s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log) by extension 'colcon_pkg'
+[1.425s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log) by extensions ['colcon_meta']
+[1.425s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log) by extension 'colcon_meta'
+[1.426s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log) by extensions ['ros']
+[1.426s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log) by extension 'ros'
+[1.429s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log) by extensions ['cmake', 'python']
+[1.429s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log) by extension 'cmake'
+[1.430s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log) by extension 'python'
+[1.431s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log) by extensions ['python_setup_py']
+[1.431s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log) by extension 'python_setup_py'
+[1.435s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18) by extensions ['ignore', 'ignore_ament_install']
+[1.435s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18) by extension 'ignore'
+[1.436s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18) by extension 'ignore_ament_install'
+[1.438s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18) by extensions ['colcon_pkg']
+[1.439s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18) by extension 'colcon_pkg'
+[1.440s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18) by extensions ['colcon_meta']
+[1.440s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18) by extension 'colcon_meta'
+[1.442s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18) by extensions ['ros']
+[1.442s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18) by extension 'ros'
+[1.447s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18) by extensions ['cmake', 'python']
+[1.447s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18) by extension 'cmake'
+[1.449s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18) by extension 'python'
+[1.450s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18) by extensions ['python_setup_py']
+[1.450s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18) by extension 'python_setup_py'
+[1.456s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/hardware_msg) by extensions ['ignore', 'ignore_ament_install']
+[1.456s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/hardware_msg) by extension 'ignore'
+[1.457s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/hardware_msg) by extension 'ignore_ament_install'
+[1.460s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/hardware_msg) by extensions ['colcon_pkg']
+[1.460s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/hardware_msg) by extension 'colcon_pkg'
+[1.462s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/hardware_msg) by extensions ['colcon_meta']
+[1.462s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/hardware_msg) by extension 'colcon_meta'
+[1.465s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/hardware_msg) by extensions ['ros']
+[1.465s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/hardware_msg) by extension 'ros'
+[1.471s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/hardware_msg) by extensions ['cmake', 'python']
+[1.472s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/hardware_msg) by extension 'cmake'
+[1.473s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/hardware_msg) by extension 'python'
+[1.474s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/hardware_msg) by extensions ['python_setup_py']
+[1.474s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/hardware_msg) by extension 'python_setup_py'
+[1.481s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_commander) by extensions ['ignore', 'ignore_ament_install']
+[1.481s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_commander) by extension 'ignore'
+[1.482s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_commander) by extension 'ignore_ament_install'
+[1.485s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_commander) by extensions ['colcon_pkg']
+[1.485s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_commander) by extension 'colcon_pkg'
+[1.486s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_commander) by extensions ['colcon_meta']
+[1.486s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_commander) by extension 'colcon_meta'
+[1.489s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_commander) by extensions ['ros']
+[1.489s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_commander) by extension 'ros'
+[1.496s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_commander) by extensions ['cmake', 'python']
+[1.496s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_commander) by extension 'cmake'
+[1.497s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_commander) by extension 'python'
+[1.499s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_commander) by extensions ['python_setup_py']
+[1.499s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_commander) by extension 'python_setup_py'
+[1.505s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_control) by extensions ['ignore', 'ignore_ament_install']
+[1.505s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_control) by extension 'ignore'
+[1.507s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_control) by extension 'ignore_ament_install'
+[1.509s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_control) by extensions ['colcon_pkg']
+[1.509s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_control) by extension 'colcon_pkg'
+[1.510s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_control) by extensions ['colcon_meta']
+[1.510s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_control) by extension 'colcon_meta'
+[1.514s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_control) by extensions ['ros']
+[1.514s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_control) by extension 'ros'
+[1.520s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_control) by extensions ['cmake', 'python']
+[1.520s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_control) by extension 'cmake'
+[1.521s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_control) by extension 'python'
+[1.523s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_control) by extensions ['python_setup_py']
+[1.523s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/motor_control) by extension 'python_setup_py'
+[1.529s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/tinker_description) by extensions ['ignore', 'ignore_ament_install']
+[1.529s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/tinker_description) by extension 'ignore'
+[1.531s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/tinker_description) by extension 'ignore_ament_install'
+[1.533s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/tinker_description) by extensions ['colcon_pkg']
+[1.533s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/tinker_description) by extension 'colcon_pkg'
+[1.535s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/tinker_description) by extensions ['colcon_meta']
+[1.535s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/tinker_description) by extension 'colcon_meta'
+[1.538s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/tinker_description) by extensions ['ros']
+[1.538s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/tinker_description) by extension 'ros'
+[1.544s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/tinker_description) by extensions ['cmake', 'python']
+[1.544s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/tinker_description) by extension 'cmake'
+[1.545s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/tinker_description) by extension 'python'
+[1.547s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/tinker_description) by extensions ['python_setup_py']
+[1.547s] Level 1:colcon.colcon_core.package_identification:_identify(Chellenge-Tinker/log/build_2025-10-15_01-42-18/tinker_description) by extension 'python_setup_py'
+[1.549s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[1.549s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[1.550s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[1.552s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extensions ['ignore', 'ignore_ament_install']
+[1.552s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extension 'ignore'
+[1.552s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extension 'ignore_ament_install'
+[1.553s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extensions ['colcon_pkg']
+[1.553s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extension 'colcon_pkg'
+[1.554s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extensions ['colcon_meta']
+[1.554s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extension 'colcon_meta'
+[1.555s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extensions ['ros']
+[1.555s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extension 'ros'
+[1.557s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extensions ['cmake', 'python']
+[1.557s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extension 'cmake'
+[1.557s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extension 'python'
+[1.558s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extensions ['python_setup_py']
+[1.558s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extension 'python_setup_py'
+[1.560s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[1.560s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[1.561s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[1.563s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[1.563s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[1.564s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[1.565s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[1.566s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[1.566s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[1.567s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[1.567s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[1.568s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[1.568s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[1.568s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[1.568s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[1.570s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[1.571s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[1.571s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[1.572s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[1.572s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[1.574s] Level 1:colcon.colcon_core.package_identification:_identify(src/tinker) by extensions ['ignore', 'ignore_ament_install']
+[1.575s] Level 1:colcon.colcon_core.package_identification:_identify(src/tinker) by extension 'ignore'
+[1.575s] Level 1:colcon.colcon_core.package_identification:_identify(src/tinker) by extension 'ignore_ament_install'
+[1.577s] Level 1:colcon.colcon_core.package_identification:_identify(src/tinker) by extensions ['colcon_pkg']
+[1.577s] Level 1:colcon.colcon_core.package_identification:_identify(src/tinker) by extension 'colcon_pkg'
+[1.578s] Level 1:colcon.colcon_core.package_identification:_identify(src/tinker) by extensions ['colcon_meta']
+[1.578s] Level 1:colcon.colcon_core.package_identification:_identify(src/tinker) by extension 'colcon_meta'
+[1.579s] Level 1:colcon.colcon_core.package_identification:_identify(src/tinker) by extensions ['ros']
+[1.579s] Level 1:colcon.colcon_core.package_identification:_identify(src/tinker) by extension 'ros'
+[1.589s] DEBUG:colcon.colcon_core.package_identification:Package 'src/tinker' with type 'ros.ament_cmake' and name 'tinker'
+[1.592s] Level 1:colcon.colcon_core.package_identification:_identify(src/tinker_gui) by extensions ['ignore', 'ignore_ament_install']
+[1.592s] Level 1:colcon.colcon_core.package_identification:_identify(src/tinker_gui) by extension 'ignore'
+[1.593s] Level 1:colcon.colcon_core.package_identification:_identify(src/tinker_gui) by extension 'ignore_ament_install'
+[1.594s] Level 1:colcon.colcon_core.package_identification:_identify(src/tinker_gui) by extensions ['colcon_pkg']
+[1.594s] Level 1:colcon.colcon_core.package_identification:_identify(src/tinker_gui) by extension 'colcon_pkg'
+[1.595s] Level 1:colcon.colcon_core.package_identification:_identify(src/tinker_gui) by extensions ['colcon_meta']
+[1.595s] Level 1:colcon.colcon_core.package_identification:_identify(src/tinker_gui) by extension 'colcon_meta'
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(src/tinker_gui) by extensions ['ros']
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(src/tinker_gui) by extension 'ros'
+[1.605s] DEBUG:colcon.colcon_core.package_identification:Package 'src/tinker_gui' with type 'ros.ament_cmake' and name 'tinker_gui'
+[1.605s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[1.605s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[1.605s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[1.605s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[1.605s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.621s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'tinker' in 'src/tinker'
+[1.621s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[1.622s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[1.624s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 308 installed packages in /opt/ros/jazzy
+[1.624s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[1.657s] Level 5:colcon.colcon_core.verb:set package 'tinker_gui' build argument 'cmake_args' from command line to 'None'
+[1.657s] Level 5:colcon.colcon_core.verb:set package 'tinker_gui' build argument 'cmake_target' from command line to 'None'
+[1.657s] Level 5:colcon.colcon_core.verb:set package 'tinker_gui' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.658s] Level 5:colcon.colcon_core.verb:set package 'tinker_gui' build argument 'cmake_clean_cache' from command line to 'False'
+[1.658s] Level 5:colcon.colcon_core.verb:set package 'tinker_gui' build argument 'cmake_clean_first' from command line to 'False'
+[1.658s] Level 5:colcon.colcon_core.verb:set package 'tinker_gui' build argument 'cmake_force_configure' from command line to 'False'
+[1.658s] Level 5:colcon.colcon_core.verb:set package 'tinker_gui' build argument 'ament_cmake_args' from command line to 'None'
+[1.658s] Level 5:colcon.colcon_core.verb:set package 'tinker_gui' build argument 'catkin_cmake_args' from command line to 'None'
+[1.658s] Level 5:colcon.colcon_core.verb:set package 'tinker_gui' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.659s] DEBUG:colcon.colcon_core.verb:Building package 'tinker_gui' with the following arguments: {'ament_cmake_args': None, 'build_base': '/mnt/c/tinker/Tinker_Sber/build/tinker_gui', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/mnt/c/tinker/Tinker_Sber/install/tinker_gui', 'merge_install': False, 'path': '/mnt/c/tinker/Tinker_Sber/src/tinker_gui', 'symlink_install': False, 'test_result_base': None}
+[1.659s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[1.659s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[1.660s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/mnt/c/tinker/Tinker_Sber/src/tinker_gui' with build type 'ament_cmake'
+[1.660s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/mnt/c/tinker/Tinker_Sber/src/tinker_gui'
+[1.662s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.662s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.662s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.704s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/mnt/c/tinker/Tinker_Sber/build/tinker_gui': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /mnt/c/tinker/Tinker_Sber/build/tinker_gui -- -j12 -l12
+[1.776s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/mnt/c/tinker/Tinker_Sber/build/tinker_gui' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /mnt/c/tinker/Tinker_Sber/build/tinker_gui -- -j12 -l12
+[1.796s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/mnt/c/tinker/Tinker_Sber/build/tinker_gui': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /mnt/c/tinker/Tinker_Sber/build/tinker_gui
+[2.092s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(tinker_gui)
+[2.093s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/mnt/c/tinker/Tinker_Sber/build/tinker_gui' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /mnt/c/tinker/Tinker_Sber/build/tinker_gui
+[2.094s] Level 1:colcon.colcon_core.environment:checking '/mnt/c/tinker/Tinker_Sber/install/tinker_gui' for CMake module files
+[2.145s] Level 1:colcon.colcon_core.environment:checking '/mnt/c/tinker/Tinker_Sber/install/tinker_gui' for CMake config files
+[2.183s] Level 1:colcon.colcon_core.shell:create_environment_hook('tinker_gui', 'cmake_prefix_path')
+[2.184s] INFO:colcon.colcon_core.shell:Creating environment hook '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/share/tinker_gui/hook/cmake_prefix_path.ps1'
+[2.192s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/share/tinker_gui/hook/cmake_prefix_path.dsv'
+[2.202s] INFO:colcon.colcon_core.shell:Creating environment hook '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/share/tinker_gui/hook/cmake_prefix_path.sh'
+[2.214s] Level 1:colcon.colcon_core.environment:checking '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/lib'
+[2.217s] Level 1:colcon.colcon_core.environment:checking '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/bin'
+[2.218s] Level 1:colcon.colcon_core.environment:checking '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/lib/pkgconfig/tinker_gui.pc'
+[2.219s] Level 1:colcon.colcon_core.environment:checking '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/lib/python3.12/site-packages'
+[2.220s] Level 1:colcon.colcon_core.environment:checking '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/bin'
+[2.221s] INFO:colcon.colcon_core.shell:Creating package script '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/share/tinker_gui/package.ps1'
+[2.229s] INFO:colcon.colcon_core.shell:Creating package descriptor '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/share/tinker_gui/package.dsv'
+[2.236s] INFO:colcon.colcon_core.shell:Creating package script '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/share/tinker_gui/package.sh'
+[2.244s] INFO:colcon.colcon_core.shell:Creating package script '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/share/tinker_gui/package.bash'
+[2.252s] INFO:colcon.colcon_core.shell:Creating package script '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/share/tinker_gui/package.zsh'
+[2.259s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/mnt/c/tinker/Tinker_Sber/install/tinker_gui/share/colcon-core/packages/tinker_gui)
+[2.276s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(tinker_gui)
+[2.276s] Level 1:colcon.colcon_core.environment:checking '/mnt/c/tinker/Tinker_Sber/install/tinker_gui' for CMake module files
+[2.337s] Level 1:colcon.colcon_core.environment:checking '/mnt/c/tinker/Tinker_Sber/install/tinker_gui' for CMake config files
+[2.383s] Level 1:colcon.colcon_core.shell:create_environment_hook('tinker_gui', 'cmake_prefix_path')
+[2.383s] INFO:colcon.colcon_core.shell:Creating environment hook '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/share/tinker_gui/hook/cmake_prefix_path.ps1'
+[2.392s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/share/tinker_gui/hook/cmake_prefix_path.dsv'
+[2.400s] INFO:colcon.colcon_core.shell:Creating environment hook '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/share/tinker_gui/hook/cmake_prefix_path.sh'
+[2.411s] Level 1:colcon.colcon_core.environment:checking '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/lib'
+[2.414s] Level 1:colcon.colcon_core.environment:checking '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/bin'
+[2.415s] Level 1:colcon.colcon_core.environment:checking '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/lib/pkgconfig/tinker_gui.pc'
+[2.416s] Level 1:colcon.colcon_core.environment:checking '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/lib/python3.12/site-packages'
+[2.417s] Level 1:colcon.colcon_core.environment:checking '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/bin'
+[2.418s] INFO:colcon.colcon_core.shell:Creating package script '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/share/tinker_gui/package.ps1'
+[2.426s] INFO:colcon.colcon_core.shell:Creating package descriptor '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/share/tinker_gui/package.dsv'
+[2.434s] INFO:colcon.colcon_core.shell:Creating package script '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/share/tinker_gui/package.sh'
+[2.441s] INFO:colcon.colcon_core.shell:Creating package script '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/share/tinker_gui/package.bash'
+[2.449s] INFO:colcon.colcon_core.shell:Creating package script '/mnt/c/tinker/Tinker_Sber/install/tinker_gui/share/tinker_gui/package.zsh'
+[2.456s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/mnt/c/tinker/Tinker_Sber/install/tinker_gui/share/colcon-core/packages/tinker_gui)
+[2.462s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[2.463s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[2.463s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[2.463s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[2.524s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[2.525s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[2.525s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[2.525s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[2.526s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.Notifications was not provided by any .service files
+[2.526s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[2.526s] INFO:colcon.colcon_core.shell:Creating prefix script '/mnt/c/tinker/Tinker_Sber/install/local_setup.ps1'
+[2.530s] INFO:colcon.colcon_core.shell:Creating prefix util module '/mnt/c/tinker/Tinker_Sber/install/_local_setup_util_ps1.py'
+[2.534s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/mnt/c/tinker/Tinker_Sber/install/setup.ps1'
+[2.538s] INFO:colcon.colcon_core.shell:Creating prefix script '/mnt/c/tinker/Tinker_Sber/install/local_setup.sh'
+[2.541s] INFO:colcon.colcon_core.shell:Creating prefix util module '/mnt/c/tinker/Tinker_Sber/install/_local_setup_util_sh.py'
+[2.545s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/mnt/c/tinker/Tinker_Sber/install/setup.sh'
+[2.548s] INFO:colcon.colcon_core.shell:Creating prefix script '/mnt/c/tinker/Tinker_Sber/install/local_setup.bash'
+[2.552s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/mnt/c/tinker/Tinker_Sber/install/setup.bash'
+[2.556s] INFO:colcon.colcon_core.shell:Creating prefix script '/mnt/c/tinker/Tinker_Sber/install/local_setup.zsh'
+[2.559s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/mnt/c/tinker/Tinker_Sber/install/setup.zsh'

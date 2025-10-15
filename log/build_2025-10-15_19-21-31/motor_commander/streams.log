@@ -1,0 +1,37 @@
+[2.283s] Invoking command in '/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_commander': AMENT_PREFIX_PATH=/mnt/c/tinker/Tinker_Sber/install/hardware_msg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/mnt/c/tinker/Tinker_Sber/install/hardware_msg:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib:${LD_LIBRARY_PATH} PYTHONPATH=/mnt/c/tinker/Tinker_Sber/build/motor_commander/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/mnt/c/tinker/Tinker_Sber/install/motor_commander/lib/python3.12/site-packages:/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/motor_commander build --build-base /mnt/c/tinker/Tinker_Sber/build/motor_commander/build install --record /mnt/c/tinker/Tinker_Sber/build/motor_commander/install.log --single-version-externally-managed install_data
+[2.983s] running egg_info
+[2.984s] creating ../../build/motor_commander/motor_commander.egg-info
+[3.008s] writing ../../build/motor_commander/motor_commander.egg-info/PKG-INFO
+[3.014s] writing dependency_links to ../../build/motor_commander/motor_commander.egg-info/dependency_links.txt
+[3.017s] writing entry points to ../../build/motor_commander/motor_commander.egg-info/entry_points.txt
+[3.021s] writing requirements to ../../build/motor_commander/motor_commander.egg-info/requires.txt
+[3.023s] writing top-level names to ../../build/motor_commander/motor_commander.egg-info/top_level.txt
+[3.027s] writing manifest file '../../build/motor_commander/motor_commander.egg-info/SOURCES.txt'
+[3.100s] reading manifest file '../../build/motor_commander/motor_commander.egg-info/SOURCES.txt'
+[3.138s] writing manifest file '../../build/motor_commander/motor_commander.egg-info/SOURCES.txt'
+[3.140s] running build
+[3.141s] running build_py
+[3.145s] creating /mnt/c/tinker/Tinker_Sber/build/motor_commander/build
+[3.146s] creating /mnt/c/tinker/Tinker_Sber/build/motor_commander/build/lib
+[3.147s] creating /mnt/c/tinker/Tinker_Sber/build/motor_commander/build/lib/motor_commander
+[3.153s] copying motor_commander/motor_commander.py -> /mnt/c/tinker/Tinker_Sber/build/motor_commander/build/lib/motor_commander
+[3.168s] copying motor_commander/__init__.py -> /mnt/c/tinker/Tinker_Sber/build/motor_commander/build/lib/motor_commander
+[3.179s] running install
+[3.189s] running install_lib
+[3.225s] creating /mnt/c/tinker/Tinker_Sber/install/motor_commander/lib/python3.12/site-packages/motor_commander
+[3.236s] copying /mnt/c/tinker/Tinker_Sber/build/motor_commander/build/lib/motor_commander/motor_commander.py -> /mnt/c/tinker/Tinker_Sber/install/motor_commander/lib/python3.12/site-packages/motor_commander
+[3.259s] copying /mnt/c/tinker/Tinker_Sber/build/motor_commander/build/lib/motor_commander/__init__.py -> /mnt/c/tinker/Tinker_Sber/install/motor_commander/lib/python3.12/site-packages/motor_commander
+[3.284s] byte-compiling /mnt/c/tinker/Tinker_Sber/install/motor_commander/lib/python3.12/site-packages/motor_commander/motor_commander.py to motor_commander.cpython-312.pyc
+[3.314s] byte-compiling /mnt/c/tinker/Tinker_Sber/install/motor_commander/lib/python3.12/site-packages/motor_commander/__init__.py to __init__.cpython-312.pyc
+[3.336s] running install_data
+[3.341s] creating /mnt/c/tinker/Tinker_Sber/install/motor_commander/share/ament_index
+[3.343s] creating /mnt/c/tinker/Tinker_Sber/install/motor_commander/share/ament_index/resource_index
+[3.345s] creating /mnt/c/tinker/Tinker_Sber/install/motor_commander/share/ament_index/resource_index/packages
+[3.353s] copying resource/motor_commander -> /mnt/c/tinker/Tinker_Sber/install/motor_commander/share/ament_index/resource_index/packages
+[3.369s] copying package.xml -> /mnt/c/tinker/Tinker_Sber/install/motor_commander/share/motor_commander
+[3.380s] running install_egg_info
+[3.420s] Copying ../../build/motor_commander/motor_commander.egg-info to /mnt/c/tinker/Tinker_Sber/install/motor_commander/lib/python3.12/site-packages/motor_commander-0.0.0-py3.12.egg-info
+[3.600s] running install_scripts
+[3.889s] Installing motor_commander script to /mnt/c/tinker/Tinker_Sber/install/motor_commander/lib/motor_commander
+[3.899s] writing list of installed files to '/mnt/c/tinker/Tinker_Sber/build/motor_commander/install.log'
+[3.935s] Invoked command in '/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/motor_commander' returned '0': AMENT_PREFIX_PATH=/mnt/c/tinker/Tinker_Sber/install/hardware_msg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/mnt/c/tinker/Tinker_Sber/install/hardware_msg:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib:${LD_LIBRARY_PATH} PYTHONPATH=/mnt/c/tinker/Tinker_Sber/build/motor_commander/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/mnt/c/tinker/Tinker_Sber/install/motor_commander/lib/python3.12/site-packages:/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/motor_commander build --build-base /mnt/c/tinker/Tinker_Sber/build/motor_commander/build install --record /mnt/c/tinker/Tinker_Sber/build/motor_commander/install.log --single-version-externally-managed install_data

@@ -1,0 +1,4 @@
+source;share/tinker_gui/local_setup.bash
+source;share/tinker_gui/local_setup.dsv
+source;share/tinker_gui/local_setup.sh
+source;share/tinker_gui/local_setup.zsh

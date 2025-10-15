@@ -1,0 +1,664 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "libhardware_msg__rosidl_typesupport_fastrtps_cpp.so"
+		}
+	],
+	"backtrace" : 5,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"include",
+			"ament_execute_extensions",
+			"rosidl_generate_interfaces",
+			"install",
+			"target_link_libraries",
+			"set_target_properties",
+			"find_package",
+			"add_dependencies",
+			"target_compile_options",
+			"add_definitions",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"/opt/ros/jazzy/share/rosidl_typesupport_fastrtps_cpp/cmake/rosidl_typesupport_fastrtps_cpp_generate_interfaces.cmake",
+			"/opt/ros/jazzy/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake",
+			"/opt/ros/jazzy/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake",
+			"CMakeLists.txt",
+			"/opt/ros/jazzy/share/rmw/cmake/rmwExport.cmake",
+			"/opt/ros/jazzy/share/rmw/cmake/ament_cmake_export_targets-extras.cmake",
+			"/opt/ros/jazzy/share/rmw/cmake/rmwConfig.cmake",
+			"/opt/ros/jazzy/share/rosidl_typesupport_fastrtps_cpp/cmake/ament_cmake_export_dependencies-extras.cmake",
+			"/opt/ros/jazzy/share/rosidl_typesupport_fastrtps_cpp/cmake/rosidl_typesupport_fastrtps_cppConfig.cmake",
+			"/opt/ros/jazzy/share/builtin_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake",
+			"/opt/ros/jazzy/share/builtin_interfaces/cmake/builtin_interfacesConfig.cmake",
+			"/opt/ros/jazzy/share/rclcpp/cmake/ament_cmake_export_dependencies-extras.cmake",
+			"/opt/ros/jazzy/share/rclcpp/cmake/rclcppConfig.cmake",
+			"/opt/ros/jazzy/share/rcutils/cmake/rcutilsExport.cmake",
+			"/opt/ros/jazzy/share/rcutils/cmake/ament_cmake_export_targets-extras.cmake",
+			"/opt/ros/jazzy/share/rcutils/cmake/rcutilsConfig.cmake",
+			"/opt/ros/jazzy/share/rosidl_runtime_c/cmake/ament_cmake_export_dependencies-extras.cmake",
+			"/opt/ros/jazzy/share/rosidl_runtime_c/cmake/rosidl_runtime_cConfig.cmake",
+			"/opt/ros/jazzy/share/rosidl_generator_cpp/cmake/rosidl_generator_cpp_generate_interfaces.cmake",
+			"/opt/ros/jazzy/share/ament_cmake_ros/cmake/ament_cmake_ros-extras.cmake",
+			"/opt/ros/jazzy/share/ament_cmake_ros/cmake/ament_cmake_rosConfig.cmake",
+			"/opt/ros/jazzy/share/rosidl_typesupport_fastrtps_c/cmake/rosidl_typesupport_fastrtps_c_generate_interfaces.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 3,
+				"line" : 8,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 280,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 48,
+				"parent" : 2
+			},
+			{
+				"file" : 0,
+				"parent" : 3
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 132,
+				"parent" : 4
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 202,
+				"parent" : 4
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 160,
+				"parent" : 4
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 175,
+				"parent" : 4
+			},
+			{
+				"command" : 7,
+				"file" : 3,
+				"line" : 5,
+				"parent" : 0
+			},
+			{
+				"file" : 12,
+				"parent" : 9
+			},
+			{
+				"command" : 1,
+				"file" : 12,
+				"line" : 41,
+				"parent" : 10
+			},
+			{
+				"file" : 11,
+				"parent" : 11
+			},
+			{
+				"command" : 7,
+				"file" : 11,
+				"line" : 21,
+				"parent" : 12
+			},
+			{
+				"file" : 10,
+				"parent" : 13
+			},
+			{
+				"command" : 1,
+				"file" : 10,
+				"line" : 41,
+				"parent" : 14
+			},
+			{
+				"file" : 9,
+				"parent" : 15
+			},
+			{
+				"command" : 7,
+				"file" : 9,
+				"line" : 21,
+				"parent" : 16
+			},
+			{
+				"file" : 8,
+				"parent" : 17
+			},
+			{
+				"command" : 1,
+				"file" : 8,
+				"line" : 41,
+				"parent" : 18
+			},
+			{
+				"file" : 7,
+				"parent" : 19
+			},
+			{
+				"command" : 7,
+				"file" : 7,
+				"line" : 21,
+				"parent" : 20
+			},
+			{
+				"file" : 6,
+				"parent" : 21
+			},
+			{
+				"command" : 1,
+				"file" : 6,
+				"line" : 41,
+				"parent" : 22
+			},
+			{
+				"file" : 5,
+				"parent" : 23
+			},
+			{
+				"command" : 1,
+				"file" : 5,
+				"line" : 9,
+				"parent" : 24
+			},
+			{
+				"file" : 4,
+				"parent" : 25
+			},
+			{
+				"command" : 6,
+				"file" : 4,
+				"line" : 61,
+				"parent" : 26
+			},
+			{
+				"command" : 7,
+				"file" : 9,
+				"line" : 21,
+				"parent" : 16
+			},
+			{
+				"file" : 17,
+				"parent" : 28
+			},
+			{
+				"command" : 1,
+				"file" : 17,
+				"line" : 41,
+				"parent" : 29
+			},
+			{
+				"file" : 16,
+				"parent" : 30
+			},
+			{
+				"command" : 7,
+				"file" : 16,
+				"line" : 21,
+				"parent" : 31
+			},
+			{
+				"file" : 15,
+				"parent" : 32
+			},
+			{
+				"command" : 1,
+				"file" : 15,
+				"line" : 41,
+				"parent" : 33
+			},
+			{
+				"file" : 14,
+				"parent" : 34
+			},
+			{
+				"command" : 1,
+				"file" : 14,
+				"line" : 9,
+				"parent" : 35
+			},
+			{
+				"file" : 13,
+				"parent" : 36
+			},
+			{
+				"command" : 6,
+				"file" : 13,
+				"line" : 61,
+				"parent" : 37
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 48,
+				"parent" : 2
+			},
+			{
+				"file" : 18,
+				"parent" : 39
+			},
+			{
+				"command" : 8,
+				"file" : 18,
+				"line" : 164,
+				"parent" : 40
+			},
+			{
+				"command" : 9,
+				"file" : 0,
+				"line" : 152,
+				"parent" : 4
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 48,
+				"parent" : 2
+			},
+			{
+				"file" : 21,
+				"parent" : 43
+			},
+			{
+				"command" : 7,
+				"file" : 21,
+				"line" : 21,
+				"parent" : 44
+			},
+			{
+				"file" : 20,
+				"parent" : 45
+			},
+			{
+				"command" : 1,
+				"file" : 20,
+				"line" : 41,
+				"parent" : 46
+			},
+			{
+				"file" : 19,
+				"parent" : 47
+			},
+			{
+				"command" : 10,
+				"file" : 19,
+				"line" : 25,
+				"parent" : 48
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 154,
+				"parent" : 4
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-std=gnu++17 -fPIC"
+				},
+				{
+					"backtrace" : 42,
+					"fragment" : "-Wall"
+				},
+				{
+					"backtrace" : 42,
+					"fragment" : "-Wextra"
+				},
+				{
+					"backtrace" : 42,
+					"fragment" : "-Wpedantic"
+				},
+				{
+					"backtrace" : 42,
+					"fragment" : "-Wredundant-decls"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 7,
+					"define" : "FASTCDR_DYN_LINK"
+				},
+				{
+					"define" : "ROSIDL_TYPESUPPORT_FASTRTPS_CPP_BUILDING_DLL_hardware_msg"
+				},
+				{
+					"backtrace" : 49,
+					"define" : "ROS_PACKAGE_NAME=\"hardware_msg\""
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 50,
+					"path" : "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_typesupport_fastrtps_cpp"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_generator_c"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_generator_cpp"
+				},
+				{
+					"backtrace" : 7,
+					"isSystem" : true,
+					"path" : "/opt/ros/jazzy/include/fastcdr"
+				},
+				{
+					"backtrace" : 7,
+					"isSystem" : true,
+					"path" : "/opt/ros/jazzy/include/rmw"
+				},
+				{
+					"backtrace" : 7,
+					"isSystem" : true,
+					"path" : "/opt/ros/jazzy/include/rcutils"
+				},
+				{
+					"backtrace" : 7,
+					"isSystem" : true,
+					"path" : "/opt/ros/jazzy/include/rosidl_dynamic_typesupport"
+				},
+				{
+					"backtrace" : 7,
+					"isSystem" : true,
+					"path" : "/opt/ros/jazzy/include/rosidl_runtime_c"
+				},
+				{
+					"backtrace" : 7,
+					"isSystem" : true,
+					"path" : "/opt/ros/jazzy/include/rosidl_typesupport_interface"
+				},
+				{
+					"backtrace" : 7,
+					"isSystem" : true,
+					"path" : "/opt/ros/jazzy/include/rosidl_runtime_cpp"
+				},
+				{
+					"backtrace" : 7,
+					"isSystem" : true,
+					"path" : "/opt/ros/jazzy/include/rosidl_typesupport_fastrtps_cpp"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					8
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				2,
+				4,
+				6,
+				8,
+				10,
+				12
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 8,
+			"id" : "hardware_msg__rosidl_generator_c::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 41,
+			"id" : "hardware_msg__cpp::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "hardware_msg__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 6,
+				"path" : "lib"
+			},
+			{
+				"backtrace" : 6,
+				"path" : "lib"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "/mnt/c/tinker/Tinker_Sber/install/hardware_msg"
+		}
+	},
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/opt/ros/jazzy/lib:/mnt/c/tinker/Tinker_Sber/build/hardware_msg:",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "/opt/ros/jazzy/lib/librosidl_typesupport_fastrtps_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 8,
+				"fragment" : "libhardware_msg__rosidl_generator_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "/opt/ros/jazzy/lib/libfastcdr.so.2.2.5",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "/opt/ros/jazzy/lib/librmw.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 27,
+				"fragment" : "/opt/ros/jazzy/lib/librosidl_dynamic_typesupport.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "/opt/ros/jazzy/lib/librosidl_runtime_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 27,
+				"fragment" : "/opt/ros/jazzy/lib/librcutils.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 38,
+				"fragment" : "-ldl",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "hardware_msg__rosidl_typesupport_fastrtps_cpp",
+	"nameOnDisk" : "libhardware_msg__rosidl_typesupport_fastrtps_cpp.so",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				2,
+				4,
+				6,
+				8,
+				10,
+				12
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				1,
+				3,
+				5,
+				7,
+				9,
+				11,
+				13
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				14
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/board_parameters__type_support.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/board_parameters__rosidl_typesupport_fastrtps_cpp.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/imu_parameters__type_support.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/imu_parameters__rosidl_typesupport_fastrtps_cpp.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/motor_parameters__type_support.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/motor_parameters__rosidl_typesupport_fastrtps_cpp.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/motors_states__type_support.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/motors_states__rosidl_typesupport_fastrtps_cpp.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/imu__type_support.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/imu__rosidl_typesupport_fastrtps_cpp.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/motor_data__type_support.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/motor_data__rosidl_typesupport_fastrtps_cpp.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/motors_commands__type_support.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/motors_commands__rosidl_typesupport_fastrtps_cpp.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/board_parameters__type_support.cpp.rule",
+			"sourceGroupIndex" : 2
+		}
+	],
+	"type" : "SHARED_LIBRARY"
+}

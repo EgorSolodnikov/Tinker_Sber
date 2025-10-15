@@ -1,0 +1,3 @@
+float32 current_pos
+float32 current_vel
+float32 current_trq
