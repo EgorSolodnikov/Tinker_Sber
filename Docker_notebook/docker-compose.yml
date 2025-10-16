@@ -1,0 +1,21 @@
+services:
+  tinker_docker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tinker_docker
+    network_mode: "host"
+    privileged: true
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
+      - ./Tinker_sber_RL:/workspace  
+    runtime: nvidia
+    tty: true
+    stdin_open: true
+    command: tail -f /dev/null
