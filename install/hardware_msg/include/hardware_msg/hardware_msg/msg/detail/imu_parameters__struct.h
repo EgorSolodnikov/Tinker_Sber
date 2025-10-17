@@ -23,7 +23,7 @@ extern "C"
 typedef struct hardware_msg__msg__ImuParameters
 {
   bool acc_calibrate;
-  bool msg_calibrate;
+  bool mag_calibrate;
   bool gyro_calibrate;
 } hardware_msg__msg__ImuParameters;
 

@@ -42,7 +42,7 @@ struct ImuParameters_
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
       this->acc_calibrate = false;
-      this->msg_calibrate = false;
+      this->mag_calibrate = false;
       this->gyro_calibrate = false;
     }
   }
@@ -54,7 +54,7 @@ struct ImuParameters_
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
       this->acc_calibrate = false;
-      this->msg_calibrate = false;
+      this->mag_calibrate = false;
       this->gyro_calibrate = false;
     }
   }
@@ -63,9 +63,9 @@ struct ImuParameters_
   using _acc_calibrate_type =
     bool;
   _acc_calibrate_type acc_calibrate;
-  using _msg_calibrate_type =
+  using _mag_calibrate_type =
     bool;
-  _msg_calibrate_type msg_calibrate;
+  _mag_calibrate_type mag_calibrate;
   using _gyro_calibrate_type =
     bool;
   _gyro_calibrate_type gyro_calibrate;
@@ -77,10 +77,10 @@ struct ImuParameters_
     this->acc_calibrate = _arg;
     return *this;
   }
-  Type & set__msg_calibrate(
+  Type & set__mag_calibrate(
     const bool & _arg)
   {
-    this->msg_calibrate = _arg;
+    this->mag_calibrate = _arg;
     return *this;
   }
   Type & set__gyro_calibrate(
@@ -135,7 +135,7 @@ struct ImuParameters_
     if (this->acc_calibrate != other.acc_calibrate) {
       return false;
     }
-    if (this->msg_calibrate != other.msg_calibrate) {
+    if (this->mag_calibrate != other.mag_calibrate) {
       return false;
     }
     if (this->gyro_calibrate != other.gyro_calibrate) {

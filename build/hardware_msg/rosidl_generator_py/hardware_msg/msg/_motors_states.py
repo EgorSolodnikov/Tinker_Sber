@@ -16,6 +16,11 @@ import builtins  # noqa: E402, I100
 
 import math  # noqa: E402, I100
 
+# Member 'current_pos'
+# Member 'current_vel'
+# Member 'current_trq'
+import numpy  # noqa: E402, I100
+
 import rosidl_parser.definition  # noqa: E402, I100
 
 
@@ -71,17 +76,17 @@ class MotorsStates(metaclass=Metaclass_MotorsStates):
     ]
 
     _fields_and_field_types = {
-        'current_pos': 'float',
-        'current_vel': 'float',
-        'current_trq': 'float',
+        'current_pos': 'float[10]',
+        'current_vel': 'float[10]',
+        'current_trq': 'float[10]',
     }
 
     # This attribute is used to store an rosidl_parser.definition variable
     # related to the data type of each of the components the message.
     SLOT_TYPES = (
-        rosidl_parser.definition.BasicType('float'),  # noqa: E501
-        rosidl_parser.definition.BasicType('float'),  # noqa: E501
-        rosidl_parser.definition.BasicType('float'),  # noqa: E501
+        rosidl_parser.definition.Array(rosidl_parser.definition.BasicType('float'), 10),  # noqa: E501
+        rosidl_parser.definition.Array(rosidl_parser.definition.BasicType('float'), 10),  # noqa: E501
+        rosidl_parser.definition.Array(rosidl_parser.definition.BasicType('float'), 10),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
@@ -93,9 +98,21 @@ class MotorsStates(metaclass=Metaclass_MotorsStates):
             assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
                 'Invalid arguments passed to constructor: %s' % \
                 ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
-        self.current_pos = kwargs.get('current_pos', float())
-        self.current_vel = kwargs.get('current_vel', float())
-        self.current_trq = kwargs.get('current_trq', float())
+        if 'current_pos' not in kwargs:
+            self.current_pos = numpy.zeros(10, dtype=numpy.float32)
+        else:
+            self.current_pos = numpy.array(kwargs.get('current_pos'), dtype=numpy.float32)
+            assert self.current_pos.shape == (10, )
+        if 'current_vel' not in kwargs:
+            self.current_vel = numpy.zeros(10, dtype=numpy.float32)
+        else:
+            self.current_vel = numpy.array(kwargs.get('current_vel'), dtype=numpy.float32)
+            assert self.current_vel.shape == (10, )
+        if 'current_trq' not in kwargs:
+            self.current_trq = numpy.zeros(10, dtype=numpy.float32)
+        else:
+            self.current_trq = numpy.array(kwargs.get('current_trq'), dtype=numpy.float32)
+            assert self.current_trq.shape == (10, )
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -127,11 +144,11 @@ class MotorsStates(metaclass=Metaclass_MotorsStates):
     def __eq__(self, other):
         if not isinstance(other, self.__class__):
             return False
-        if self.current_pos != other.current_pos:
+        if all(self.current_pos != other.current_pos):
             return False
-        if self.current_vel != other.current_vel:
+        if all(self.current_vel != other.current_vel):
             return False
-        if self.current_trq != other.current_trq:
+        if all(self.current_trq != other.current_trq):
             return False
         return True
 
@@ -148,12 +165,28 @@ class MotorsStates(metaclass=Metaclass_MotorsStates):
     @current_pos.setter
     def current_pos(self, value):
         if self._check_fields:
+            if isinstance(value, numpy.ndarray):
+                assert value.dtype == numpy.float32, \
+                    "The 'current_pos' numpy.ndarray() must have the dtype of 'numpy.float32'"
+                assert value.size == 10, \
+                    "The 'current_pos' numpy.ndarray() must have a size of 10"
+                self._current_pos = value
+                return
+            from collections.abc import Sequence
+            from collections.abc import Set
+            from collections import UserList
+            from collections import UserString
             assert \
-                isinstance(value, float), \
-                "The 'current_pos' field must be of type 'float'"
-            assert not (value < -3.402823466e+38 or value > 3.402823466e+38) or math.isinf(value), \
-                "The 'current_pos' field must be a float in [-3.402823466e+38, 3.402823466e+38]"
-        self._current_pos = value
+                ((isinstance(value, Sequence) or
+                  isinstance(value, Set) or
+                  isinstance(value, UserList)) and
+                 not isinstance(value, str) and
+                 not isinstance(value, UserString) and
+                 len(value) == 10 and
+                 all(isinstance(v, float) for v in value) and
+                 all(not (val < -3.402823466e+38 or val > 3.402823466e+38) or math.isinf(val) for val in value)), \
+                "The 'current_pos' field must be a set or sequence with length 10 and each value of type 'float' and each float in [-340282346600000016151267322115014000640.000000, 340282346600000016151267322115014000640.000000]"
+        self._current_pos = numpy.array(value, dtype=numpy.float32)
 
     @builtins.property
     def current_vel(self):
@@ -163,12 +196,28 @@ class MotorsStates(metaclass=Metaclass_MotorsStates):
     @current_vel.setter
     def current_vel(self, value):
         if self._check_fields:
+            if isinstance(value, numpy.ndarray):
+                assert value.dtype == numpy.float32, \
+                    "The 'current_vel' numpy.ndarray() must have the dtype of 'numpy.float32'"
+                assert value.size == 10, \
+                    "The 'current_vel' numpy.ndarray() must have a size of 10"
+                self._current_vel = value
+                return
+            from collections.abc import Sequence
+            from collections.abc import Set
+            from collections import UserList
+            from collections import UserString
             assert \
-                isinstance(value, float), \
-                "The 'current_vel' field must be of type 'float'"
-            assert not (value < -3.402823466e+38 or value > 3.402823466e+38) or math.isinf(value), \
-                "The 'current_vel' field must be a float in [-3.402823466e+38, 3.402823466e+38]"
-        self._current_vel = value
+                ((isinstance(value, Sequence) or
+                  isinstance(value, Set) or
+                  isinstance(value, UserList)) and
+                 not isinstance(value, str) and
+                 not isinstance(value, UserString) and
+                 len(value) == 10 and
+                 all(isinstance(v, float) for v in value) and
+                 all(not (val < -3.402823466e+38 or val > 3.402823466e+38) or math.isinf(val) for val in value)), \
+                "The 'current_vel' field must be a set or sequence with length 10 and each value of type 'float' and each float in [-340282346600000016151267322115014000640.000000, 340282346600000016151267322115014000640.000000]"
+        self._current_vel = numpy.array(value, dtype=numpy.float32)
 
     @builtins.property
     def current_trq(self):
@@ -178,9 +227,25 @@ class MotorsStates(metaclass=Metaclass_MotorsStates):
     @current_trq.setter
     def current_trq(self, value):
         if self._check_fields:
+            if isinstance(value, numpy.ndarray):
+                assert value.dtype == numpy.float32, \
+                    "The 'current_trq' numpy.ndarray() must have the dtype of 'numpy.float32'"
+                assert value.size == 10, \
+                    "The 'current_trq' numpy.ndarray() must have a size of 10"
+                self._current_trq = value
+                return
+            from collections.abc import Sequence
+            from collections.abc import Set
+            from collections import UserList
+            from collections import UserString
             assert \
-                isinstance(value, float), \
-                "The 'current_trq' field must be of type 'float'"
-            assert not (value < -3.402823466e+38 or value > 3.402823466e+38) or math.isinf(value), \
-                "The 'current_trq' field must be a float in [-3.402823466e+38, 3.402823466e+38]"
-        self._current_trq = value
+                ((isinstance(value, Sequence) or
+                  isinstance(value, Set) or
+                  isinstance(value, UserList)) and
+                 not isinstance(value, str) and
+                 not isinstance(value, UserString) and
+                 len(value) == 10 and
+                 all(isinstance(v, float) for v in value) and
+                 all(not (val < -3.402823466e+38 or val > 3.402823466e+38) or math.isinf(val) for val in value)), \
+                "The 'current_trq' field must be a set or sequence with length 10 and each value of type 'float' and each float in [-340282346600000016151267322115014000640.000000, 340282346600000016151267322115014000640.000000]"
+        self._current_trq = numpy.array(value, dtype=numpy.float32)

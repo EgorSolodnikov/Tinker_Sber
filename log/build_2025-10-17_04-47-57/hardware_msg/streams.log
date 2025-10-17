@@ -1,0 +1,438 @@
+[0.090s] Invoking command in '/mnt/c/tinker/Tinker_Sber/build/hardware_msg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/mnt/c/tinker/Tinker_Sber/install/motor_commander:/opt/ros/jazzy /usr/bin/cmake /mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/hardware_msg -DCMAKE_INSTALL_PREFIX=/mnt/c/tinker/Tinker_Sber/install/hardware_msg
+[0.475s] -- The C compiler identification is GNU 13.3.0
+[1.330s] -- The CXX compiler identification is GNU 13.3.0
+[2.078s] -- Detecting C compiler ABI info
+[2.754s] -- Detecting C compiler ABI info - done
+[2.779s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.781s] -- Detecting C compile features
+[2.782s] -- Detecting C compile features - done
+[2.900s] -- Detecting CXX compiler ABI info
+[3.577s] -- Detecting CXX compiler ABI info - done
+[3.604s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[3.606s] -- Detecting CXX compile features
+[3.607s] -- Detecting CXX compile features - done
+[3.666s] -- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[4.253s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[4.659s] -- Found rclcpp: 28.1.6 (/opt/ros/jazzy/share/rclcpp/cmake)
+[5.030s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[5.104s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[5.189s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[5.275s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[5.553s] -- Found rmw_implementation_cmake: 7.3.1 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[5.577s] -- Found rmw_fastrtps_cpp: 8.4.1 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[5.950s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[6.311s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[6.498s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[6.925s] -- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[7.041s] -- Found rosidl_adapter: 4.6.5 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+[8.510s] -- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+[9.836s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[10.280s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[10.316s] -- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+[10.474s] -- Found PythonExtra: /usr/bin/python3  
+[11.096s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+[11.736s] -- Configuring done (11.6s)
+[12.982s] -- Generating done (1.1s)
+[13.506s] -- Build files have been written to: /mnt/c/tinker/Tinker_Sber/build/hardware_msg
+[13.517s] Invoked command in '/mnt/c/tinker/Tinker_Sber/build/hardware_msg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/mnt/c/tinker/Tinker_Sber/install/motor_commander:/opt/ros/jazzy /usr/bin/cmake /mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/hardware_msg -DCMAKE_INSTALL_PREFIX=/mnt/c/tinker/Tinker_Sber/install/hardware_msg
+[13.523s] Invoking command in '/mnt/c/tinker/Tinker_Sber/build/hardware_msg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/mnt/c/tinker/Tinker_Sber/install/motor_commander:/opt/ros/jazzy /usr/bin/cmake --build /mnt/c/tinker/Tinker_Sber/build/hardware_msg -- -j12 -l12
+[13.720s] [  1%] [34m[1mGenerating type hashes for ROS interfaces[0m
+[13.738s] [  1%] Built target ament_cmake_python_copy_hardware_msg
+[13.992s] [  1%] Built target hardware_msg__rosidl_generator_type_description
+[13.998s] running egg_info
+[13.999s] creating hardware_msg.egg-info
+[14.025s] writing hardware_msg.egg-info/PKG-INFO
+[14.028s] writing dependency_links to hardware_msg.egg-info/dependency_links.txt
+[14.032s] writing top-level names to hardware_msg.egg-info/top_level.txt
+[14.036s] writing manifest file 'hardware_msg.egg-info/SOURCES.txt'
+[14.043s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[14.097s] [  3%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[14.108s] reading manifest file 'hardware_msg.egg-info/SOURCES.txt'
+[14.123s] writing manifest file 'hardware_msg.egg-info/SOURCES.txt'
+[14.163s] [  3%] Built target ament_cmake_python_build_hardware_msg_egg
+[14.831s] [  3%] Built target hardware_msg__cpp
+[15.236s] [  4%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/board_parameters__description.c.o[0m
+[15.241s] [  6%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/board_parameters__type_support.c.o[0m
+[15.242s] [  6%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/board_parameters__functions.c.o[0m
+[15.247s] [  7%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/imu_parameters__description.c.o[0m
+[15.252s] [  8%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/imu_parameters__functions.c.o[0m
+[15.258s] [  9%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/imu_parameters__type_support.c.o[0m
+[15.266s] [ 10%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/motor_parameters__description.c.o[0m
+[15.271s] [ 11%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/motor_parameters__functions.c.o[0m
+[15.276s] [ 12%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/motor_parameters__type_support.c.o[0m
+[15.282s] [ 13%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/motors_states__description.c.o[0m
+[15.288s] [ 15%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/motors_states__functions.c.o[0m
+[15.291s] [ 15%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/motors_states__type_support.c.o[0m
+[15.388s] [ 17%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/imu__description.c.o[0m
+[15.395s] [ 18%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/imu__functions.c.o[0m
+[15.405s] [ 19%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/imu__type_support.c.o[0m
+[15.413s] [ 21%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/motor_data__description.c.o[0m
+[15.415s] [ 21%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/motor_data__functions.c.o[0m
+[15.432s] [ 24%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/motor_data__type_support.c.o[0m
+[15.433s] [ 24%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/motors_commands__functions.c.o[0m
+[15.434s] [ 24%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/motors_commands__description.c.o[0m
+[15.440s] [ 25%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/msg/detail/motors_commands__type_support.c.o[0m
+[15.616s] [ 26%] [32m[1mLinking C shared library libhardware_msg__rosidl_generator_c.so[0m
+[16.090s] [ 26%] Built target hardware_msg__rosidl_generator_c
+[16.135s] [ 30%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[16.138s] [ 32%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[16.139s] [ 32%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[16.140s] [ 32%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[16.141s] [ 32%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[16.142s] [ 32%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[16.727s] [ 34%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/hardware_msg/msg/imu_parameters__type_support.cpp.o[0m
+[16.732s] [ 35%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/hardware_msg/msg/board_parameters__type_support.cpp.o[0m
+[16.741s] [ 36%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/hardware_msg/msg/motor_parameters__type_support.cpp.o[0m
+[16.765s] [ 37%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/hardware_msg/msg/motors_states__type_support.cpp.o[0m
+[16.789s] [ 39%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hardware_msg/msg/imu_parameters__type_support.cpp.o[0m
+[16.791s] [ 39%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hardware_msg/msg/board_parameters__type_support.cpp.o[0m
+[16.820s] [ 40%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hardware_msg/msg/motor_parameters__type_support.cpp.o[0m
+[16.841s] [ 41%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hardware_msg/msg/motors_states__type_support.cpp.o[0m
+[17.004s] [ 42%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/hardware_msg/msg/imu__type_support.cpp.o[0m
+[17.027s] [ 43%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/hardware_msg/msg/motors_commands__type_support.cpp.o[0m
+[17.039s] [ 44%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/hardware_msg/msg/motor_data__type_support.cpp.o[0m
+[17.067s] [ 45%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hardware_msg/msg/detail/board_parameters__type_support.cpp.o[0m
+[17.088s] [ 46%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hardware_msg/msg/detail/imu_parameters__type_support.cpp.o[0m
+[17.221s] [ 47%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hardware_msg/msg/detail/motor_parameters__type_support.cpp.o[0m
+[17.229s] [ 48%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hardware_msg/msg/imu__type_support.cpp.o[0m
+[17.239s] [ 50%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hardware_msg/msg/detail/board_parameters__type_support.c.o[0m
+[17.245s] [ 51%] [32m[1mLinking CXX shared library libhardware_msg__rosidl_typesupport_c.so[0m
+[17.384s] [ 52%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hardware_msg/msg/detail/board_parameters__type_support_c.cpp.o[0m
+[17.398s] [ 53%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/board_parameters__type_support.cpp.o[0m
+[17.600s] [ 54%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hardware_msg/msg/detail/imu_parameters__type_support.c.o[0m
+[17.630s] [ 56%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hardware_msg/msg/detail/imu_parameters__type_support_c.cpp.o[0m
+[17.631s] [ 56%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/imu_parameters__type_support.cpp.o[0m
+[17.697s] [ 57%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hardware_msg/msg/detail/motor_parameters__type_support.c.o[0m
+[17.718s] [ 58%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hardware_msg/msg/detail/motor_parameters__type_support_c.cpp.o[0m
+[17.899s] [ 58%] Built target hardware_msg__rosidl_typesupport_c
+[17.928s] [ 59%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hardware_msg/msg/detail/motors_states__type_support.c.o[0m
+[17.937s] [ 60%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hardware_msg/msg/motor_data__type_support.cpp.o[0m
+[18.032s] [ 61%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hardware_msg/msg/motors_commands__type_support.cpp.o[0m
+[18.163s] [ 62%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/motor_parameters__type_support.cpp.o[0m
+[18.174s] [ 64%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hardware_msg/msg/detail/motors_states__type_support.cpp.o[0m
+[18.179s] [ 64%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/motors_states__type_support.cpp.o[0m
+[18.300s] [ 65%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hardware_msg/msg/detail/imu__type_support.c.o[0m
+[18.338s] [ 67%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hardware_msg/msg/detail/motor_data__type_support.c.o[0m
+[18.562s] [ 68%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hardware_msg/msg/detail/imu__type_support.cpp.o[0m
+[18.611s] [ 69%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hardware_msg/msg/detail/motors_states__type_support_c.cpp.o[0m
+[18.701s] [ 70%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hardware_msg/msg/detail/motors_commands__type_support.c.o[0m
+[18.788s] [ 71%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hardware_msg/msg/detail/motor_data__type_support.cpp.o[0m
+[18.836s] [ 72%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/imu__type_support.cpp.o[0m
+[18.847s] [ 73%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/motor_data__type_support.cpp.o[0m
+[18.918s] [ 74%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hardware_msg/msg/detail/dds_fastrtps/motors_commands__type_support.cpp.o[0m
+[18.959s] [ 75%] [32m[1mLinking CXX shared library libhardware_msg__rosidl_typesupport_cpp.so[0m
+[19.086s] [ 76%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hardware_msg/msg/detail/imu__type_support_c.cpp.o[0m
+[19.124s] [ 77%] [32m[1mLinking C shared library libhardware_msg__rosidl_typesupport_introspection_c.so[0m
+[19.348s] [ 78%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hardware_msg/msg/detail/motors_commands__type_support.cpp.o[0m
+[19.513s] [ 79%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hardware_msg/msg/detail/motor_data__type_support_c.cpp.o[0m
+[19.526s] [ 80%] [32mBuilding CXX object CMakeFiles/hardware_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hardware_msg/msg/detail/motors_commands__type_support_c.cpp.o[0m
+[19.590s] [ 80%] Built target hardware_msg__rosidl_typesupport_cpp
+[19.764s] [ 80%] Built target hardware_msg__rosidl_typesupport_introspection_c
+[20.205s] [ 81%] [32m[1mLinking CXX shared library libhardware_msg__rosidl_typesupport_fastrtps_cpp.so[0m
+[20.289s] [ 82%] [32m[1mLinking CXX shared library libhardware_msg__rosidl_typesupport_introspection_cpp.so[0m
+[20.374s] [ 84%] [32m[1mLinking CXX shared library libhardware_msg__rosidl_typesupport_fastrtps_c.so[0m
+[20.608s] [ 84%] Built target hardware_msg__rosidl_typesupport_fastrtps_cpp
+[20.643s] [ 84%] Built target hardware_msg__rosidl_typesupport_introspection_cpp
+[20.712s] [ 84%] Built target hardware_msg__rosidl_typesupport_fastrtps_c
+[20.771s] [ 84%] Built target hardware_msg
+[20.849s] [ 85%] [34m[1mGenerating Python code for ROS interfaces[0m
+[21.490s] [ 85%] Built target hardware_msg__py
+[21.571s] [ 87%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_py.dir/rosidl_generator_py/hardware_msg/msg/_board_parameters_s.c.o[0m
+[21.572s] [ 87%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_py.dir/rosidl_generator_py/hardware_msg/msg/_imu_parameters_s.c.o[0m
+[21.575s] [ 88%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_py.dir/rosidl_generator_py/hardware_msg/msg/_motor_parameters_s.c.o[0m
+[21.581s] [ 89%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_py.dir/rosidl_generator_py/hardware_msg/msg/_motors_states_s.c.o[0m
+[21.587s] [ 91%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_py.dir/rosidl_generator_py/hardware_msg/msg/_imu_s.c.o[0m
+[21.589s] [ 92%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_py.dir/rosidl_generator_py/hardware_msg/msg/_motor_data_s.c.o[0m
+[21.591s] [ 92%] [32mBuilding C object CMakeFiles/hardware_msg__rosidl_generator_py.dir/rosidl_generator_py/hardware_msg/msg/_motors_commands_s.c.o[0m
+[21.923s] [ 93%] [32m[1mLinking C shared library libhardware_msg__rosidl_generator_py.so[0m
+[22.197s] [ 93%] Built target hardware_msg__rosidl_generator_py
+[22.260s] [ 94%] [32mBuilding C object CMakeFiles/hardware_msg_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/hardware_msg/_hardware_msg_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[22.263s] [ 95%] [32mBuilding C object CMakeFiles/hardware_msg_s__rosidl_typesupport_c.dir/rosidl_generator_py/hardware_msg/_hardware_msg_s.ep.rosidl_typesupport_c.c.o[0m
+[22.270s] [ 96%] [32mBuilding C object CMakeFiles/hardware_msg_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/hardware_msg/_hardware_msg_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[22.607s] [ 97%] [32m[1mLinking C shared module rosidl_generator_py/hardware_msg/hardware_msg_s__rosidl_typesupport_c.so[0m
+[22.657s] [ 98%] [32m[1mLinking C shared module rosidl_generator_py/hardware_msg/hardware_msg_s__rosidl_typesupport_fastrtps_c.so[0m
+[22.664s] [100%] [32m[1mLinking C shared module rosidl_generator_py/hardware_msg/hardware_msg_s__rosidl_typesupport_introspection_c.so[0m
+[22.825s] [100%] Built target hardware_msg_s__rosidl_typesupport_c
+[22.826s] [100%] Built target hardware_msg_s__rosidl_typesupport_introspection_c
+[22.834s] [100%] Built target hardware_msg_s__rosidl_typesupport_fastrtps_c
+[23.042s] Invoked command in '/mnt/c/tinker/Tinker_Sber/build/hardware_msg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/mnt/c/tinker/Tinker_Sber/install/motor_commander:/opt/ros/jazzy /usr/bin/cmake --build /mnt/c/tinker/Tinker_Sber/build/hardware_msg -- -j12 -l12
+[23.055s] Invoking command in '/mnt/c/tinker/Tinker_Sber/build/hardware_msg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/mnt/c/tinker/Tinker_Sber/install/motor_commander:/opt/ros/jazzy /usr/bin/cmake --install /mnt/c/tinker/Tinker_Sber/build/hardware_msg
+[23.068s] -- Install configuration: ""
+[23.091s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/ament_index/resource_index/rosidl_interfaces/hardware_msg
+[23.154s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/msg/BoardParameters.json
+[23.203s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/msg/ImuParameters.json
+[23.253s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/msg/MotorParameters.json
+[23.302s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/msg/MotorsStates.json
+[23.351s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/msg/Imu.json
+[23.401s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/msg/MotorData.json
+[23.449s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/msg/MotorsCommands.json
+[23.491s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg
+[23.508s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg
+[23.531s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/board_parameters.h
+[23.578s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail
+[23.606s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__description.c
+[23.663s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__functions.c
+[23.725s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__functions.h
+[23.785s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__struct.h
+[23.843s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__type_support.c
+[23.902s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__type_support.h
+[23.961s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__description.c
+[24.019s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__functions.c
+[24.078s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__functions.h
+[24.137s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__struct.h
+[24.196s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__type_support.c
+[24.256s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__type_support.h
+[24.313s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__description.c
+[24.371s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__functions.c
+[24.428s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__functions.h
+[24.489s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__struct.h
+[24.547s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__type_support.c
+[24.605s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__type_support.h
+[24.665s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__description.c
+[24.727s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__functions.c
+[24.786s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__functions.h
+[24.847s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__struct.h
+[24.907s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__type_support.c
+[24.963s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__type_support.h
+[25.023s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__description.c
+[25.081s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__functions.c
+[25.143s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__functions.h
+[25.201s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__struct.h
+[25.258s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__type_support.c
+[25.315s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__type_support.h
+[25.376s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__description.c
+[25.434s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__functions.c
+[25.491s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__functions.h
+[25.549s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__struct.h
+[25.608s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__type_support.c
+[25.668s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__type_support.h
+[25.727s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__description.c
+[25.786s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__functions.c
+[25.856s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__functions.h
+[25.916s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__struct.h
+[25.972s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__type_support.c
+[26.031s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__type_support.h
+[26.088s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/imu.h
+[26.144s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/imu_parameters.h
+[26.194s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motors_commands.h
+[26.245s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motors_states.h
+[26.294s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motor_data.h
+[26.344s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motor_parameters.h
+[26.397s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/rosidl_generator_c__visibility_control.h
+[26.449s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/environment/library_path.sh
+[26.486s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/environment/library_path.dsv
+[26.530s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/libhardware_msg__rosidl_generator_c.so
+[26.585s] -- Set non-toolchain portion of runtime path of "/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/libhardware_msg__rosidl_generator_c.so" to ""
+[26.594s] -- Up-to-date: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg
+[26.610s] -- Up-to-date: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg
+[26.629s] -- Up-to-date: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail
+[26.649s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__rosidl_typesupport_fastrtps_c.h
+[26.708s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__rosidl_typesupport_fastrtps_c.h
+[26.765s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__rosidl_typesupport_fastrtps_c.h
+[26.824s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__rosidl_typesupport_fastrtps_c.h
+[26.881s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__rosidl_typesupport_fastrtps_c.h
+[26.940s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__rosidl_typesupport_fastrtps_c.h
+[26.998s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__rosidl_typesupport_fastrtps_c.h
+[27.054s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[27.102s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_fastrtps_c.so
+[27.153s] -- Set non-toolchain portion of runtime path of "/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_fastrtps_c.so" to ""
+[27.160s] -- Up-to-date: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg
+[27.176s] -- Up-to-date: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg
+[27.195s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/board_parameters.hpp
+[27.248s] -- Up-to-date: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail
+[27.270s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__builder.hpp
+[27.329s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__struct.hpp
+[27.386s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__traits.hpp
+[27.448s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__type_support.hpp
+[27.505s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__builder.hpp
+[27.563s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__struct.hpp
+[27.624s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__traits.hpp
+[27.683s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__type_support.hpp
+[27.742s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__builder.hpp
+[27.802s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__struct.hpp
+[27.861s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__traits.hpp
+[27.922s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__type_support.hpp
+[27.982s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__builder.hpp
+[28.043s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__struct.hpp
+[28.104s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__traits.hpp
+[28.161s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__type_support.hpp
+[28.221s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__builder.hpp
+[28.278s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__struct.hpp
+[28.337s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__traits.hpp
+[28.400s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__type_support.hpp
+[28.460s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__builder.hpp
+[28.522s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__struct.hpp
+[28.583s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__traits.hpp
+[28.641s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__type_support.hpp
+[28.702s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__builder.hpp
+[28.759s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__struct.hpp
+[28.820s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__traits.hpp
+[28.884s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__type_support.hpp
+[28.951s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/imu.hpp
+[29.005s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/imu_parameters.hpp
+[29.057s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motors_commands.hpp
+[29.108s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motors_states.hpp
+[29.160s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motor_data.hpp
+[29.209s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/motor_parameters.hpp
+[29.259s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/rosidl_generator_cpp__visibility_control.hpp
+[29.311s] -- Up-to-date: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg
+[29.326s] -- Up-to-date: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg
+[29.345s] -- Up-to-date: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail
+[29.367s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__rosidl_typesupport_fastrtps_cpp.hpp
+[29.427s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/dds_fastrtps
+[29.458s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__rosidl_typesupport_fastrtps_cpp.hpp
+[29.519s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__rosidl_typesupport_fastrtps_cpp.hpp
+[29.578s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__rosidl_typesupport_fastrtps_cpp.hpp
+[29.639s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__rosidl_typesupport_fastrtps_cpp.hpp
+[29.698s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__rosidl_typesupport_fastrtps_cpp.hpp
+[29.757s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__rosidl_typesupport_fastrtps_cpp.hpp
+[29.815s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[29.862s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_fastrtps_cpp.so
+[29.918s] -- Set non-toolchain portion of runtime path of "/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_fastrtps_cpp.so" to ""
+[29.927s] -- Up-to-date: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg
+[29.943s] -- Up-to-date: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg
+[29.961s] -- Up-to-date: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail
+[29.982s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__rosidl_typesupport_introspection_c.h
+[30.045s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__type_support.c
+[30.106s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__rosidl_typesupport_introspection_c.h
+[30.167s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__type_support.c
+[30.227s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__rosidl_typesupport_introspection_c.h
+[30.286s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__type_support.c
+[30.348s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__rosidl_typesupport_introspection_c.h
+[30.408s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__type_support.c
+[30.467s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__rosidl_typesupport_introspection_c.h
+[30.529s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__type_support.c
+[30.591s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__rosidl_typesupport_introspection_c.h
+[30.650s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__type_support.c
+[30.710s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__rosidl_typesupport_introspection_c.h
+[30.769s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__type_support.c
+[30.827s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[30.873s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_introspection_c.so
+[30.925s] -- Set non-toolchain portion of runtime path of "/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_introspection_c.so" to ""
+[30.934s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_c.so
+[30.984s] -- Set non-toolchain portion of runtime path of "/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_c.so" to ""
+[30.991s] -- Up-to-date: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg
+[31.007s] -- Up-to-date: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg
+[31.026s] -- Up-to-date: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail
+[31.047s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__rosidl_typesupport_introspection_cpp.hpp
+[31.104s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/board_parameters__type_support.cpp
+[31.166s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__rosidl_typesupport_introspection_cpp.hpp
+[31.230s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu_parameters__type_support.cpp
+[31.289s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__rosidl_typesupport_introspection_cpp.hpp
+[31.349s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/imu__type_support.cpp
+[31.408s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__rosidl_typesupport_introspection_cpp.hpp
+[31.468s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_commands__type_support.cpp
+[31.530s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__rosidl_typesupport_introspection_cpp.hpp
+[31.593s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motors_states__type_support.cpp
+[31.656s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__rosidl_typesupport_introspection_cpp.hpp
+[31.718s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_data__type_support.cpp
+[31.777s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__rosidl_typesupport_introspection_cpp.hpp
+[31.839s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/include/hardware_msg/hardware_msg/msg/detail/motor_parameters__type_support.cpp
+[31.898s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_introspection_cpp.so
+[31.955s] -- Set non-toolchain portion of runtime path of "/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_introspection_cpp.so" to ""
+[31.963s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_cpp.so
+[32.030s] -- Set non-toolchain portion of runtime path of "/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/libhardware_msg__rosidl_typesupport_cpp.so" to ""
+[32.045s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/environment/pythonpath.sh
+[32.087s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/environment/pythonpath.dsv
+[32.128s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg-0.0.0-py3.12.egg-info
+[32.151s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg-0.0.0-py3.12.egg-info/dependency_links.txt
+[32.202s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg-0.0.0-py3.12.egg-info/PKG-INFO
+[32.251s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg-0.0.0-py3.12.egg-info/SOURCES.txt
+[32.301s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg-0.0.0-py3.12.egg-info/top_level.txt
+[32.349s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg
+[32.370s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_c.so
+[32.422s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_fastrtps_c.so
+[32.473s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_introspection_c.so
+[32.522s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg
+[32.548s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/_board_parameters.py
+[32.604s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/_board_parameters_s.c
+[32.659s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/_imu.py
+[32.714s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/_imu_parameters.py
+[32.769s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/_imu_parameters_s.c
+[32.825s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/_imu_s.c
+[32.879s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/_motors_commands.py
+[32.934s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/_motors_commands_s.c
+[32.990s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/_motors_states.py
+[33.050s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/_motors_states_s.c
+[33.109s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/_motor_data.py
+[33.166s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/_motor_data_s.c
+[33.225s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/_motor_parameters.py
+[33.282s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/_motor_parameters_s.c
+[33.340s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/__init__.py
+[33.395s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/_hardware_msg_s.ep.rosidl_typesupport_c.c
+[33.446s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/_hardware_msg_s.ep.rosidl_typesupport_fastrtps_c.c
+[33.496s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/_hardware_msg_s.ep.rosidl_typesupport_introspection_c.c
+[33.546s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/__init__.py
+[34.108s] Listing '/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg'...
+[34.109s] Compiling '/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/__init__.py'...
+[34.109s] Listing '/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg'...
+[34.110s] Compiling '/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/__init__.py'...
+[34.110s] Compiling '/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/_board_parameters.py'...
+[34.111s] Compiling '/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/_imu.py'...
+[34.111s] Compiling '/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/_imu_parameters.py'...
+[34.112s] Compiling '/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/_motor_data.py'...
+[34.112s] Compiling '/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/_motor_parameters.py'...
+[34.113s] Compiling '/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/_motors_commands.py'...
+[34.113s] Compiling '/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/msg/_motors_states.py'...
+[34.147s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_fastrtps_c.so
+[34.224s] -- Set non-toolchain portion of runtime path of "/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_fastrtps_c.so" to ""
+[34.262s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_introspection_c.so
+[34.337s] -- Set non-toolchain portion of runtime path of "/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_introspection_c.so" to ""
+[34.374s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_c.so
+[34.448s] -- Set non-toolchain portion of runtime path of "/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/python3.12/site-packages/hardware_msg/hardware_msg_s__rosidl_typesupport_c.so" to ""
+[34.459s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/libhardware_msg__rosidl_generator_py.so
+[34.511s] -- Set non-toolchain portion of runtime path of "/mnt/c/tinker/Tinker_Sber/install/hardware_msg/lib/libhardware_msg__rosidl_generator_py.so" to ""
+[34.524s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/msg/BoardParameters.idl
+[34.571s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/msg/ImuParameters.idl
+[34.620s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/msg/MotorParameters.idl
+[34.668s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/msg/MotorsStates.idl
+[34.716s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/msg/Imu.idl
+[34.765s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/msg/MotorData.idl
+[34.816s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/msg/MotorsCommands.idl
+[34.867s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/msg/BoardParameters.msg
+[34.918s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/msg/ImuParameters.msg
+[34.966s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/msg/MotorParameters.msg
+[35.015s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/msg/MotorsStates.msg
+[35.062s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/msg/Imu.msg
+[35.111s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/msg/MotorData.msg
+[35.160s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/msg/MotorsCommands.msg
+[35.218s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/ament_index/resource_index/package_run_dependencies/hardware_msg
+[35.287s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/ament_index/resource_index/parent_prefix_path/hardware_msg
+[35.338s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/environment/ament_prefix_path.sh
+[35.375s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/environment/ament_prefix_path.dsv
+[35.414s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/environment/path.sh
+[35.452s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/environment/path.dsv
+[35.492s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/local_setup.bash
+[35.529s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/local_setup.sh
+[35.564s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/local_setup.zsh
+[35.599s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/local_setup.dsv
+[35.636s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/package.dsv
+[35.687s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/ament_index/resource_index/packages/hardware_msg
+[35.751s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_generator_cExport.cmake
+[35.799s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_generator_cExport-noconfig.cmake
+[35.850s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_typesupport_fastrtps_cExport.cmake
+[35.898s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[35.948s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_generator_cppExport.cmake
+[35.997s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_typesupport_fastrtps_cppExport.cmake
+[36.046s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[36.096s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_introspection_cExport.cmake
+[36.144s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[36.195s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_cExport.cmake
+[36.245s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_cExport-noconfig.cmake
+[36.294s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_introspection_cppExport.cmake
+[36.343s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[36.395s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_cppExport.cmake
+[36.444s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/hardware_msg__rosidl_typesupport_cppExport-noconfig.cmake
+[36.494s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_generator_pyExport.cmake
+[36.541s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/export_hardware_msg__rosidl_generator_pyExport-noconfig.cmake
+[36.585s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/rosidl_cmake-extras.cmake
+[36.627s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/ament_cmake_export_include_directories-extras.cmake
+[36.669s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/ament_cmake_export_libraries-extras.cmake
+[36.711s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/ament_cmake_export_targets-extras.cmake
+[36.754s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[36.795s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/ament_cmake_export_dependencies-extras.cmake
+[36.838s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[36.879s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/hardware_msgConfig.cmake
+[36.918s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake/hardware_msgConfig-version.cmake
+[36.960s] -- Installing: /mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/package.xml
+[36.999s] Invoked command in '/mnt/c/tinker/Tinker_Sber/build/hardware_msg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/mnt/c/tinker/Tinker_Sber/install/motor_commander:/opt/ros/jazzy /usr/bin/cmake --install /mnt/c/tinker/Tinker_Sber/build/hardware_msg

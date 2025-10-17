@@ -1,0 +1,59 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Found rclcpp: 28.1.6 (/opt/ros/jazzy/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.3.1 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 8.4.1 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found std_msgs: 5.3.5 (/opt/ros/jazzy/share/std_msgs/cmake)
+-- Found sensor_msgs: 5.3.5 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+-- Found hardware_msg: 0.0.0 (/mnt/c/tinker/Tinker_Sber/install/hardware_msg/share/hardware_msg/cmake)
+-- Configuring done (13.5s)
+-- Generating done (0.3s)
+-- Build files have been written to: /mnt/c/tinker/Tinker_Sber/build/motor_control
+[ 50%] [32mBuilding CXX object CMakeFiles/Motor_control.dir/src/Motor_control.cpp.o[0m
+[ 50%] [32mBuilding C object CMakeFiles/Motor_control.dir/src/comm.c.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/Motor_control.dir/src/serial.cpp.o[0m
+[ 83%] [32mBuilding CXX object CMakeFiles/Motor_control.dir/src/spi.cpp.o[0m
+[ 83%] [32mBuilding CXX object CMakeFiles/Motor_control.dir/src/sys_timer.cpp.o[0m
+[100%] [32m[1mLinking CXX executable Motor_control[0m
+[100%] Built target Motor_control
+-- Install configuration: ""
+-- Installing: /mnt/c/tinker/Tinker_Sber/install/motor_control/lib/motor_control/Motor_control
+-- Set non-toolchain portion of runtime path of "/mnt/c/tinker/Tinker_Sber/install/motor_control/lib/motor_control/Motor_control" to ""
+-- Installing: /mnt/c/tinker/Tinker_Sber/install/motor_control/share/motor_control/launch
+-- Installing: /mnt/c/tinker/Tinker_Sber/install/motor_control/share/motor_control/launch/display.launch.py
+-- Installing: /mnt/c/tinker/Tinker_Sber/install/motor_control/share/motor_control/urdf
+-- Installing: /mnt/c/tinker/Tinker_Sber/install/motor_control/share/motor_control/urdf/robot.urdf
+-- Installing: /mnt/c/tinker/Tinker_Sber/install/motor_control/share/ament_index/resource_index/package_run_dependencies/motor_control
+-- Installing: /mnt/c/tinker/Tinker_Sber/install/motor_control/share/ament_index/resource_index/parent_prefix_path/motor_control
+-- Installing: /mnt/c/tinker/Tinker_Sber/install/motor_control/share/motor_control/environment/ament_prefix_path.sh
+-- Installing: /mnt/c/tinker/Tinker_Sber/install/motor_control/share/motor_control/environment/ament_prefix_path.dsv
+-- Installing: /mnt/c/tinker/Tinker_Sber/install/motor_control/share/motor_control/environment/path.sh
+-- Installing: /mnt/c/tinker/Tinker_Sber/install/motor_control/share/motor_control/environment/path.dsv
+-- Installing: /mnt/c/tinker/Tinker_Sber/install/motor_control/share/motor_control/local_setup.bash
+-- Installing: /mnt/c/tinker/Tinker_Sber/install/motor_control/share/motor_control/local_setup.sh
+-- Installing: /mnt/c/tinker/Tinker_Sber/install/motor_control/share/motor_control/local_setup.zsh
+-- Installing: /mnt/c/tinker/Tinker_Sber/install/motor_control/share/motor_control/local_setup.dsv
+-- Installing: /mnt/c/tinker/Tinker_Sber/install/motor_control/share/motor_control/package.dsv
+-- Installing: /mnt/c/tinker/Tinker_Sber/install/motor_control/share/ament_index/resource_index/packages/motor_control
+-- Installing: /mnt/c/tinker/Tinker_Sber/install/motor_control/share/motor_control/cmake/motor_controlConfig.cmake
+-- Installing: /mnt/c/tinker/Tinker_Sber/install/motor_control/share/motor_control/cmake/motor_controlConfig-version.cmake
+-- Installing: /mnt/c/tinker/Tinker_Sber/install/motor_control/share/motor_control/package.xml

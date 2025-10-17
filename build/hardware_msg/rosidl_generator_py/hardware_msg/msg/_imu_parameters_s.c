@@ -59,13 +59,13 @@ bool hardware_msg__msg__imu_parameters__convert_from_py(PyObject * _pymsg, void 
     ros_message->acc_calibrate = (Py_True == field);
     Py_DECREF(field);
   }
-  {  // msg_calibrate
-    PyObject * field = PyObject_GetAttrString(_pymsg, "msg_calibrate");
+  {  // mag_calibrate
+    PyObject * field = PyObject_GetAttrString(_pymsg, "mag_calibrate");
     if (!field) {
       return false;
     }
     assert(PyBool_Check(field));
-    ros_message->msg_calibrate = (Py_True == field);
+    ros_message->mag_calibrate = (Py_True == field);
     Py_DECREF(field);
   }
   {  // gyro_calibrate
@@ -110,11 +110,11 @@ PyObject * hardware_msg__msg__imu_parameters__convert_to_py(void * raw_ros_messa
       }
     }
   }
-  {  // msg_calibrate
+  {  // mag_calibrate
     PyObject * field = NULL;
-    field = PyBool_FromLong(ros_message->msg_calibrate ? 1 : 0);
+    field = PyBool_FromLong(ros_message->mag_calibrate ? 1 : 0);
     {
-      int rc = PyObject_SetAttrString(_pymessage, "msg_calibrate", field);
+      int rc = PyObject_SetAttrString(_pymessage, "mag_calibrate", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

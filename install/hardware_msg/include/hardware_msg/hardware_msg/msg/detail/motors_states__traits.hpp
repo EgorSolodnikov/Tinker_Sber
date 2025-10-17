@@ -30,22 +30,55 @@ inline void to_flow_style_yaml(
   out << "{";
   // member: current_pos
   {
-    out << "current_pos: ";
-    rosidl_generator_traits::value_to_yaml(msg.current_pos, out);
+    if (msg.current_pos.size() == 0) {
+      out << "current_pos: []";
+    } else {
+      out << "current_pos: [";
+      size_t pending_items = msg.current_pos.size();
+      for (auto item : msg.current_pos) {
+        rosidl_generator_traits::value_to_yaml(item, out);
+        if (--pending_items > 0) {
+          out << ", ";
+        }
+      }
+      out << "]";
+    }
     out << ", ";
   }
 
   // member: current_vel
   {
-    out << "current_vel: ";
-    rosidl_generator_traits::value_to_yaml(msg.current_vel, out);
+    if (msg.current_vel.size() == 0) {
+      out << "current_vel: []";
+    } else {
+      out << "current_vel: [";
+      size_t pending_items = msg.current_vel.size();
+      for (auto item : msg.current_vel) {
+        rosidl_generator_traits::value_to_yaml(item, out);
+        if (--pending_items > 0) {
+          out << ", ";
+        }
+      }
+      out << "]";
+    }
     out << ", ";
   }
 
   // member: current_trq
   {
-    out << "current_trq: ";
-    rosidl_generator_traits::value_to_yaml(msg.current_trq, out);
+    if (msg.current_trq.size() == 0) {
+      out << "current_trq: []";
+    } else {
+      out << "current_trq: [";
+      size_t pending_items = msg.current_trq.size();
+      for (auto item : msg.current_trq) {
+        rosidl_generator_traits::value_to_yaml(item, out);
+        if (--pending_items > 0) {
+          out << ", ";
+        }
+      }
+      out << "]";
+    }
   }
   out << "}";
 }  // NOLINT(readability/fn_size)
@@ -59,9 +92,19 @@ inline void to_block_style_yaml(
     if (indentation > 0) {
       out << std::string(indentation, ' ');
     }
-    out << "current_pos: ";
-    rosidl_generator_traits::value_to_yaml(msg.current_pos, out);
-    out << "\n";
+    if (msg.current_pos.size() == 0) {
+      out << "current_pos: []\n";
+    } else {
+      out << "current_pos:\n";
+      for (auto item : msg.current_pos) {
+        if (indentation > 0) {
+          out << std::string(indentation, ' ');
+        }
+        out << "- ";
+        rosidl_generator_traits::value_to_yaml(item, out);
+        out << "\n";
+      }
+    }
   }
 
   // member: current_vel
@@ -69,9 +112,19 @@ inline void to_block_style_yaml(
     if (indentation > 0) {
       out << std::string(indentation, ' ');
     }
-    out << "current_vel: ";
-    rosidl_generator_traits::value_to_yaml(msg.current_vel, out);
-    out << "\n";
+    if (msg.current_vel.size() == 0) {
+      out << "current_vel: []\n";
+    } else {
+      out << "current_vel:\n";
+      for (auto item : msg.current_vel) {
+        if (indentation > 0) {
+          out << std::string(indentation, ' ');
+        }
+        out << "- ";
+        rosidl_generator_traits::value_to_yaml(item, out);
+        out << "\n";
+      }
+    }
   }
 
   // member: current_trq
@@ -79,9 +132,19 @@ inline void to_block_style_yaml(
     if (indentation > 0) {
       out << std::string(indentation, ' ');
     }
-    out << "current_trq: ";
-    rosidl_generator_traits::value_to_yaml(msg.current_trq, out);
-    out << "\n";
+    if (msg.current_trq.size() == 0) {
+      out << "current_trq: []\n";
+    } else {
+      out << "current_trq:\n";
+      for (auto item : msg.current_trq) {
+        if (indentation > 0) {
+          out << std::string(indentation, ' ');
+        }
+        out << "- ";
+        rosidl_generator_traits::value_to_yaml(item, out);
+        out << "\n";
+      }
+    }
   }
 }  // NOLINT(readability/fn_size)
 

@@ -1,3 +1,3 @@
 bool acc_calibrate
-bool msg_calibrate
+bool mag_calibrate
 bool gyro_calibrate

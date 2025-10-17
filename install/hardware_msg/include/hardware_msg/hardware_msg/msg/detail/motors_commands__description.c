@@ -11,10 +11,10 @@ hardware_msg__msg__MotorsCommands__get_type_hash(
 {
   (void)type_support;
   static rosidl_type_hash_t hash = {1, {
-      0x51, 0x22, 0xf4, 0x82, 0x9e, 0x9b, 0x54, 0x48,
-      0xbe, 0x0b, 0x5a, 0x0c, 0xa9, 0x5a, 0x49, 0xee,
-      0xeb, 0xb3, 0x24, 0x59, 0x1c, 0x35, 0xae, 0x4e,
-      0x3b, 0xdd, 0xbb, 0x17, 0x33, 0xce, 0x06, 0xf2,
+      0xb3, 0xea, 0xb2, 0xe0, 0xad, 0xf0, 0xab, 0x17,
+      0xb6, 0x1b, 0x10, 0x65, 0x31, 0xd6, 0xc2, 0xc3,
+      0xee, 0x83, 0x78, 0x17, 0x77, 0x16, 0xb1, 0xff,
+      0xf7, 0xfe, 0x6d, 0x4b, 0x77, 0xa8, 0xc0, 0xd5,
     }};
   return &hash;
 }
@@ -39,8 +39,8 @@ static rosidl_runtime_c__type_description__Field hardware_msg__msg__MotorsComman
   {
     {hardware_msg__msg__MotorsCommands__FIELD_NAME__target_pos, 10, 10},
     {
-      rosidl_runtime_c__type_description__FieldType__FIELD_TYPE_FLOAT,
-      0,
+      rosidl_runtime_c__type_description__FieldType__FIELD_TYPE_FLOAT_ARRAY,
+      10,
       0,
       {NULL, 0, 0},
     },
@@ -49,8 +49,8 @@ static rosidl_runtime_c__type_description__Field hardware_msg__msg__MotorsComman
   {
     {hardware_msg__msg__MotorsCommands__FIELD_NAME__target_vel, 10, 10},
     {
-      rosidl_runtime_c__type_description__FieldType__FIELD_TYPE_FLOAT,
-      0,
+      rosidl_runtime_c__type_description__FieldType__FIELD_TYPE_FLOAT_ARRAY,
+      10,
       0,
       {NULL, 0, 0},
     },
@@ -59,8 +59,8 @@ static rosidl_runtime_c__type_description__Field hardware_msg__msg__MotorsComman
   {
     {hardware_msg__msg__MotorsCommands__FIELD_NAME__target_trq, 10, 10},
     {
-      rosidl_runtime_c__type_description__FieldType__FIELD_TYPE_FLOAT,
-      0,
+      rosidl_runtime_c__type_description__FieldType__FIELD_TYPE_FLOAT_ARRAY,
+      10,
       0,
       {NULL, 0, 0},
     },
@@ -88,9 +88,9 @@ hardware_msg__msg__MotorsCommands__get_type_description(
 }
 
 static char toplevel_type_raw_source[] =
-  "float32 target_pos\n"
-  "float32 target_vel\n"
-  "float32 target_trq";
+  "float32[10] target_pos\n"
+  "float32[10] target_vel\n"
+  "float32[10] target_trq";
 
 static char msg_encoding[] = "msg";
 
@@ -104,7 +104,7 @@ hardware_msg__msg__MotorsCommands__get_individual_type_description_source(
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {hardware_msg__msg__MotorsCommands__TYPE_NAME, 31, 31},
     {msg_encoding, 3, 3},
-    {toplevel_type_raw_source, 57, 57},
+    {toplevel_type_raw_source, 68, 68},
   };
   return &source;
 }

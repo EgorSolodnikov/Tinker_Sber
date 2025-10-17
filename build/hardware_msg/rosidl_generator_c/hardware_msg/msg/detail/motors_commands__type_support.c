@@ -4,8 +4,8 @@
 
 #include <string.h>
 
-#include "hardware_msg/msg/detail/motors_commands__type_support.h"
 #include "hardware_msg/msg/detail/motors_commands__struct.h"
+#include "hardware_msg/msg/detail/motors_commands__type_support.h"
 #include "rosidl_typesupport_interface/macros.h"
 #include "hardware_msg/msg/detail/motors_commands__functions.h"
 

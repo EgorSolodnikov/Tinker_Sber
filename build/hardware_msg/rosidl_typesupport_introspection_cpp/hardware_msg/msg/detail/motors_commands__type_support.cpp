@@ -38,6 +38,120 @@ void MotorsCommands_fini_function(void * message_memory)
   typed_message->~MotorsCommands();
 }
 
+size_t size_function__MotorsCommands__target_pos(const void * untyped_member)
+{
+  (void)untyped_member;
+  return 10;
+}
+
+const void * get_const_function__MotorsCommands__target_pos(const void * untyped_member, size_t index)
+{
+  const auto & member =
+    *reinterpret_cast<const std::array<float, 10> *>(untyped_member);
+  return &member[index];
+}
+
+void * get_function__MotorsCommands__target_pos(void * untyped_member, size_t index)
+{
+  auto & member =
+    *reinterpret_cast<std::array<float, 10> *>(untyped_member);
+  return &member[index];
+}
+
+void fetch_function__MotorsCommands__target_pos(
+  const void * untyped_member, size_t index, void * untyped_value)
+{
+  const auto & item = *reinterpret_cast<const float *>(
+    get_const_function__MotorsCommands__target_pos(untyped_member, index));
+  auto & value = *reinterpret_cast<float *>(untyped_value);
+  value = item;
+}
+
+void assign_function__MotorsCommands__target_pos(
+  void * untyped_member, size_t index, const void * untyped_value)
+{
+  auto & item = *reinterpret_cast<float *>(
+    get_function__MotorsCommands__target_pos(untyped_member, index));
+  const auto & value = *reinterpret_cast<const float *>(untyped_value);
+  item = value;
+}
+
+size_t size_function__MotorsCommands__target_vel(const void * untyped_member)
+{
+  (void)untyped_member;
+  return 10;
+}
+
+const void * get_const_function__MotorsCommands__target_vel(const void * untyped_member, size_t index)
+{
+  const auto & member =
+    *reinterpret_cast<const std::array<float, 10> *>(untyped_member);
+  return &member[index];
+}
+
+void * get_function__MotorsCommands__target_vel(void * untyped_member, size_t index)
+{
+  auto & member =
+    *reinterpret_cast<std::array<float, 10> *>(untyped_member);
+  return &member[index];
+}
+
+void fetch_function__MotorsCommands__target_vel(
+  const void * untyped_member, size_t index, void * untyped_value)
+{
+  const auto & item = *reinterpret_cast<const float *>(
+    get_const_function__MotorsCommands__target_vel(untyped_member, index));
+  auto & value = *reinterpret_cast<float *>(untyped_value);
+  value = item;
+}
+
+void assign_function__MotorsCommands__target_vel(
+  void * untyped_member, size_t index, const void * untyped_value)
+{
+  auto & item = *reinterpret_cast<float *>(
+    get_function__MotorsCommands__target_vel(untyped_member, index));
+  const auto & value = *reinterpret_cast<const float *>(untyped_value);
+  item = value;
+}
+
+size_t size_function__MotorsCommands__target_trq(const void * untyped_member)
+{
+  (void)untyped_member;
+  return 10;
+}
+
+const void * get_const_function__MotorsCommands__target_trq(const void * untyped_member, size_t index)
+{
+  const auto & member =
+    *reinterpret_cast<const std::array<float, 10> *>(untyped_member);
+  return &member[index];
+}
+
+void * get_function__MotorsCommands__target_trq(void * untyped_member, size_t index)
+{
+  auto & member =
+    *reinterpret_cast<std::array<float, 10> *>(untyped_member);
+  return &member[index];
+}
+
+void fetch_function__MotorsCommands__target_trq(
+  const void * untyped_member, size_t index, void * untyped_value)
+{
+  const auto & item = *reinterpret_cast<const float *>(
+    get_const_function__MotorsCommands__target_trq(untyped_member, index));
+  auto & value = *reinterpret_cast<float *>(untyped_value);
+  value = item;
+}
+
+void assign_function__MotorsCommands__target_trq(
+  void * untyped_member, size_t index, const void * untyped_value)
+{
+  auto & item = *reinterpret_cast<float *>(
+    get_function__MotorsCommands__target_trq(untyped_member, index));
+  const auto & value = *reinterpret_cast<const float *>(untyped_value);
+  item = value;
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember MotorsCommands_message_member_array[3] = {
   {
     "target_pos",  // name
@@ -45,16 +159,16 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember MotorsCommand
     0,  // upper bound of string
     nullptr,  // members of sub message
     false,  // is key
-    false,  // is array
-    0,  // array size
+    true,  // is array
+    10,  // array size
     false,  // is upper bound
     offsetof(hardware_msg::msg::MotorsCommands, target_pos),  // bytes offset in struct
     nullptr,  // default value
-    nullptr,  // size() function pointer
-    nullptr,  // get_const(index) function pointer
-    nullptr,  // get(index) function pointer
-    nullptr,  // fetch(index, &value) function pointer
-    nullptr,  // assign(index, value) function pointer
+    size_function__MotorsCommands__target_pos,  // size() function pointer
+    get_const_function__MotorsCommands__target_pos,  // get_const(index) function pointer
+    get_function__MotorsCommands__target_pos,  // get(index) function pointer
+    fetch_function__MotorsCommands__target_pos,  // fetch(index, &value) function pointer
+    assign_function__MotorsCommands__target_pos,  // assign(index, value) function pointer
     nullptr  // resize(index) function pointer
   },
   {
@@ -63,16 +177,16 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember MotorsCommand
     0,  // upper bound of string
     nullptr,  // members of sub message
     false,  // is key
-    false,  // is array
-    0,  // array size
+    true,  // is array
+    10,  // array size
     false,  // is upper bound
     offsetof(hardware_msg::msg::MotorsCommands, target_vel),  // bytes offset in struct
     nullptr,  // default value
-    nullptr,  // size() function pointer
-    nullptr,  // get_const(index) function pointer
-    nullptr,  // get(index) function pointer
-    nullptr,  // fetch(index, &value) function pointer
-    nullptr,  // assign(index, value) function pointer
+    size_function__MotorsCommands__target_vel,  // size() function pointer
+    get_const_function__MotorsCommands__target_vel,  // get_const(index) function pointer
+    get_function__MotorsCommands__target_vel,  // get(index) function pointer
+    fetch_function__MotorsCommands__target_vel,  // fetch(index, &value) function pointer
+    assign_function__MotorsCommands__target_vel,  // assign(index, value) function pointer
     nullptr  // resize(index) function pointer
   },
   {
@@ -81,16 +195,16 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember MotorsCommand
     0,  // upper bound of string
     nullptr,  // members of sub message
     false,  // is key
-    false,  // is array
-    0,  // array size
+    true,  // is array
+    10,  // array size
     false,  // is upper bound
     offsetof(hardware_msg::msg::MotorsCommands, target_trq),  // bytes offset in struct
     nullptr,  // default value
-    nullptr,  // size() function pointer
-    nullptr,  // get_const(index) function pointer
-    nullptr,  // get(index) function pointer
-    nullptr,  // fetch(index, &value) function pointer
-    nullptr,  // assign(index, value) function pointer
+    size_function__MotorsCommands__target_trq,  // size() function pointer
+    get_const_function__MotorsCommands__target_trq,  // get_const(index) function pointer
+    get_function__MotorsCommands__target_trq,  // get(index) function pointer
+    fetch_function__MotorsCommands__target_trq,  // fetch(index, &value) function pointer
+    assign_function__MotorsCommands__target_trq,  // assign(index, value) function pointer
     nullptr  // resize(index) function pointer
   }
 };

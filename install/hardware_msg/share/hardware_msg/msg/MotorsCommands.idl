@@ -5,12 +5,13 @@
 
 module hardware_msg {
   module msg {
+    typedef float float__10[10];
     struct MotorsCommands {
-      float target_pos;
+      float__10 target_pos;
 
-      float target_vel;
+      float__10 target_vel;
 
-      float target_trq;
+      float__10 target_trq;
     };
   };
 };

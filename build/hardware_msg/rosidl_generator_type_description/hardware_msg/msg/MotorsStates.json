@@ -6,8 +6,8 @@
         {
           "name": "current_pos",
           "type": {
-            "type_id": 10,
-            "capacity": 0,
+            "type_id": 58,
+            "capacity": 10,
             "string_capacity": 0,
             "nested_type_name": ""
           },
@@ -16,8 +16,8 @@
         {
           "name": "current_vel",
           "type": {
-            "type_id": 10,
-            "capacity": 0,
+            "type_id": 58,
+            "capacity": 10,
             "string_capacity": 0,
             "nested_type_name": ""
           },
@@ -26,8 +26,8 @@
         {
           "name": "current_trq",
           "type": {
-            "type_id": 10,
-            "capacity": 0,
+            "type_id": 58,
+            "capacity": 10,
             "string_capacity": 0,
             "nested_type_name": ""
           },
@@ -40,7 +40,7 @@
   "type_hashes": [
     {
       "type_name": "hardware_msg/msg/MotorsStates",
-      "hash_string": "RIHS01_ca3c7f13121f1d5e238018d204b38315671a36ad63333ba4eda1b3ceacda9630"
+      "hash_string": "RIHS01_2ce665ca88b8a6a8a34c6fa4ea60eec3873abed41cf60f46af08697d45e8da7e"
     }
   ]
 }

@@ -53,9 +53,9 @@ bool cdr_serialize_hardware_msg__msg__ImuParameters(
     cdr << (ros_message->acc_calibrate ? true : false);
   }
 
-  // Field name: msg_calibrate
+  // Field name: mag_calibrate
   {
-    cdr << (ros_message->msg_calibrate ? true : false);
+    cdr << (ros_message->mag_calibrate ? true : false);
   }
 
   // Field name: gyro_calibrate
@@ -78,11 +78,11 @@ bool cdr_deserialize_hardware_msg__msg__ImuParameters(
     ros_message->acc_calibrate = tmp ? true : false;
   }
 
-  // Field name: msg_calibrate
+  // Field name: mag_calibrate
   {
     uint8_t tmp;
     cdr >> tmp;
-    ros_message->msg_calibrate = tmp ? true : false;
+    ros_message->mag_calibrate = tmp ? true : false;
   }
 
   // Field name: gyro_calibrate
@@ -117,9 +117,9 @@ size_t get_serialized_size_hardware_msg__msg__ImuParameters(
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
 
-  // Field name: msg_calibrate
+  // Field name: mag_calibrate
   {
-    size_t item_size = sizeof(ros_message->msg_calibrate);
+    size_t item_size = sizeof(ros_message->mag_calibrate);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -160,7 +160,7 @@ size_t max_serialized_size_hardware_msg__msg__ImuParameters(
     current_alignment += array_size * sizeof(uint8_t);
   }
 
-  // Field name: msg_calibrate
+  // Field name: mag_calibrate
   {
     size_t array_size = 1;
     last_member_size = array_size * sizeof(uint8_t);
@@ -200,9 +200,9 @@ bool cdr_serialize_key_hardware_msg__msg__ImuParameters(
     cdr << (ros_message->acc_calibrate ? true : false);
   }
 
-  // Field name: msg_calibrate
+  // Field name: mag_calibrate
   {
-    cdr << (ros_message->msg_calibrate ? true : false);
+    cdr << (ros_message->mag_calibrate ? true : false);
   }
 
   // Field name: gyro_calibrate
@@ -235,9 +235,9 @@ size_t get_serialized_size_key_hardware_msg__msg__ImuParameters(
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
 
-  // Field name: msg_calibrate
+  // Field name: mag_calibrate
   {
-    size_t item_size = sizeof(ros_message->msg_calibrate);
+    size_t item_size = sizeof(ros_message->mag_calibrate);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -276,7 +276,7 @@ size_t max_serialized_size_key_hardware_msg__msg__ImuParameters(
     current_alignment += array_size * sizeof(uint8_t);
   }
 
-  // Field name: msg_calibrate
+  // Field name: mag_calibrate
   {
     size_t array_size = 1;
     last_member_size = array_size * sizeof(uint8_t);

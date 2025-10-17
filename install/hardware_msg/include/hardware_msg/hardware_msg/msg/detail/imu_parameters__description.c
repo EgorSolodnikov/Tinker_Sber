@@ -11,10 +11,10 @@ hardware_msg__msg__ImuParameters__get_type_hash(
 {
   (void)type_support;
   static rosidl_type_hash_t hash = {1, {
-      0xd7, 0x89, 0x3e, 0x46, 0x5b, 0x13, 0xf0, 0x7c,
-      0x62, 0xd9, 0xc4, 0x20, 0x42, 0xe3, 0xc2, 0x3d,
-      0x33, 0x97, 0xe2, 0x74, 0x25, 0x8d, 0x24, 0xd3,
-      0x83, 0x50, 0x65, 0x1a, 0x19, 0x53, 0x3e, 0x9a,
+      0xcb, 0xec, 0xb0, 0x57, 0xb4, 0x75, 0xe5, 0x3b,
+      0xed, 0x2b, 0x75, 0x77, 0x41, 0x77, 0x03, 0xb7,
+      0xc5, 0x73, 0xcd, 0x05, 0x72, 0x38, 0x70, 0xce,
+      0x2a, 0x7e, 0x90, 0x7d, 0x02, 0x26, 0x1e, 0x6d,
     }};
   return &hash;
 }
@@ -32,7 +32,7 @@ static char hardware_msg__msg__ImuParameters__TYPE_NAME[] = "hardware_msg/msg/Im
 
 // Define type names, field names, and default values
 static char hardware_msg__msg__ImuParameters__FIELD_NAME__acc_calibrate[] = "acc_calibrate";
-static char hardware_msg__msg__ImuParameters__FIELD_NAME__msg_calibrate[] = "msg_calibrate";
+static char hardware_msg__msg__ImuParameters__FIELD_NAME__mag_calibrate[] = "mag_calibrate";
 static char hardware_msg__msg__ImuParameters__FIELD_NAME__gyro_calibrate[] = "gyro_calibrate";
 
 static rosidl_runtime_c__type_description__Field hardware_msg__msg__ImuParameters__FIELDS[] = {
@@ -47,7 +47,7 @@ static rosidl_runtime_c__type_description__Field hardware_msg__msg__ImuParameter
     {NULL, 0, 0},
   },
   {
-    {hardware_msg__msg__ImuParameters__FIELD_NAME__msg_calibrate, 13, 13},
+    {hardware_msg__msg__ImuParameters__FIELD_NAME__mag_calibrate, 13, 13},
     {
       rosidl_runtime_c__type_description__FieldType__FIELD_TYPE_BOOLEAN,
       0,
@@ -89,7 +89,7 @@ hardware_msg__msg__ImuParameters__get_type_description(
 
 static char toplevel_type_raw_source[] =
   "bool acc_calibrate\n"
-  "bool msg_calibrate\n"
+  "bool mag_calibrate\n"
   "bool gyro_calibrate";
 
 static char msg_encoding[] = "msg";
@@ -104,7 +104,7 @@ hardware_msg__msg__ImuParameters__get_individual_type_description_source(
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {hardware_msg__msg__ImuParameters__TYPE_NAME, 30, 30},
     {msg_encoding, 3, 3},
-    {toplevel_type_raw_source, 58, 58},
+    {toplevel_type_raw_source, 57, 57},
   };
   return &source;
 }

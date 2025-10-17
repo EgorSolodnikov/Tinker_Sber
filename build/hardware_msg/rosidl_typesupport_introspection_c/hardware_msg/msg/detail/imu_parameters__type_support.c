@@ -51,7 +51,7 @@ static rosidl_typesupport_introspection_c__MessageMember hardware_msg__msg__ImuP
     NULL  // resize(index) function pointer
   },
   {
-    "msg_calibrate",  // name
+    "mag_calibrate",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_BOOLEAN,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
@@ -59,7 +59,7 @@ static rosidl_typesupport_introspection_c__MessageMember hardware_msg__msg__ImuP
     false,  // is array
     0,  // array size
     false,  // is upper bound
-    offsetof(hardware_msg__msg__ImuParameters, msg_calibrate),  // bytes offset in struct
+    offsetof(hardware_msg__msg__ImuParameters, mag_calibrate),  // bytes offset in struct
     NULL,  // default value
     NULL,  // size() function pointer
     NULL,  // get_const(index) function pointer

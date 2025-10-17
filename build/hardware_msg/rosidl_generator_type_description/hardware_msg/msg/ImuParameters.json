@@ -14,7 +14,7 @@
           "default_value": ""
         },
         {
-          "name": "msg_calibrate",
+          "name": "mag_calibrate",
           "type": {
             "type_id": 15,
             "capacity": 0,
@@ -40,7 +40,7 @@
   "type_hashes": [
     {
       "type_name": "hardware_msg/msg/ImuParameters",
-      "hash_string": "RIHS01_d7893e465b13f07c62d9c42042e3c23d3397e274258d24d38350651a19533e9a"
+      "hash_string": "RIHS01_cbecb057b475e53bed2b7577417703b7c573cd05723870ce2a7e907d02261e6d"
     }
   ]
 }

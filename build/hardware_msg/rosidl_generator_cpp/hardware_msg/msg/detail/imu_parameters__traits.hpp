@@ -35,10 +35,10 @@ inline void to_flow_style_yaml(
     out << ", ";
   }
 
-  // member: msg_calibrate
+  // member: mag_calibrate
   {
-    out << "msg_calibrate: ";
-    rosidl_generator_traits::value_to_yaml(msg.msg_calibrate, out);
+    out << "mag_calibrate: ";
+    rosidl_generator_traits::value_to_yaml(msg.mag_calibrate, out);
     out << ", ";
   }
 
@@ -64,13 +64,13 @@ inline void to_block_style_yaml(
     out << "\n";
   }
 
-  // member: msg_calibrate
+  // member: mag_calibrate
   {
     if (indentation > 0) {
       out << std::string(indentation, ' ');
     }
-    out << "msg_calibrate: ";
-    rosidl_generator_traits::value_to_yaml(msg.msg_calibrate, out);
+    out << "mag_calibrate: ";
+    rosidl_generator_traits::value_to_yaml(msg.mag_calibrate, out);
     out << "\n";
   }
 

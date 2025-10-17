@@ -8,7 +8,7 @@ module hardware_msg {
     struct ImuParameters {
       boolean acc_calibrate;
 
-      boolean msg_calibrate;
+      boolean mag_calibrate;
 
       boolean gyro_calibrate;
     };

@@ -41,50 +41,52 @@ struct MotorsCommands_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->target_pos = 0.0f;
-      this->target_vel = 0.0f;
-      this->target_trq = 0.0f;
+      std::fill<typename std::array<float, 10>::iterator, float>(this->target_pos.begin(), this->target_pos.end(), 0.0f);
+      std::fill<typename std::array<float, 10>::iterator, float>(this->target_vel.begin(), this->target_vel.end(), 0.0f);
+      std::fill<typename std::array<float, 10>::iterator, float>(this->target_trq.begin(), this->target_trq.end(), 0.0f);
     }
   }
 
   explicit MotorsCommands_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
+  : target_pos(_alloc),
+    target_vel(_alloc),
+    target_trq(_alloc)
   {
-    (void)_alloc;
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->target_pos = 0.0f;
-      this->target_vel = 0.0f;
-      this->target_trq = 0.0f;
+      std::fill<typename std::array<float, 10>::iterator, float>(this->target_pos.begin(), this->target_pos.end(), 0.0f);
+      std::fill<typename std::array<float, 10>::iterator, float>(this->target_vel.begin(), this->target_vel.end(), 0.0f);
+      std::fill<typename std::array<float, 10>::iterator, float>(this->target_trq.begin(), this->target_trq.end(), 0.0f);
     }
   }
 
   // field types and members
   using _target_pos_type =
-    float;
+    std::array<float, 10>;
   _target_pos_type target_pos;
   using _target_vel_type =
-    float;
+    std::array<float, 10>;
   _target_vel_type target_vel;
   using _target_trq_type =
-    float;
+    std::array<float, 10>;
   _target_trq_type target_trq;
 
   // setters for named parameter idiom
   Type & set__target_pos(
-    const float & _arg)
+    const std::array<float, 10> & _arg)
   {
     this->target_pos = _arg;
     return *this;
   }
   Type & set__target_vel(
-    const float & _arg)
+    const std::array<float, 10> & _arg)
   {
     this->target_vel = _arg;
     return *this;
   }
   Type & set__target_trq(
-    const float & _arg)
+    const std::array<float, 10> & _arg)
   {
     this->target_trq = _arg;
     return *this;

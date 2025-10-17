@@ -41,7 +41,6 @@ CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/
  /opt/ros/jazzy/include/rcutils/rcutils/visibility_control_macros.h \
  /opt/ros/jazzy/include/rcutils/rcutils/sha256.h \
  /opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/visibility_control.h \
- /mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_generator_c/hardware_msg/msg/detail/board_parameters__struct.h \
  /mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_generator_c/hardware_msg/msg/detail/board_parameters__functions.h \
  /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
@@ -70,4 +69,5 @@ CMakeFiles/hardware_msg__rosidl_generator_c.dir/rosidl_generator_c/hardware_msg/
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/action_type_support_struct.h \
- /opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/service_type_support_struct.h
+ /opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/service_type_support_struct.h \
+ /mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_generator_c/hardware_msg/msg/detail/board_parameters__struct.h

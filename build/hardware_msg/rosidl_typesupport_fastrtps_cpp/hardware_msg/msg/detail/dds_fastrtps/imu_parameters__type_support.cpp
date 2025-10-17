@@ -39,8 +39,8 @@ cdr_serialize(
   // Member: acc_calibrate
   cdr << (ros_message.acc_calibrate ? true : false);
 
-  // Member: msg_calibrate
-  cdr << (ros_message.msg_calibrate ? true : false);
+  // Member: mag_calibrate
+  cdr << (ros_message.mag_calibrate ? true : false);
 
   // Member: gyro_calibrate
   cdr << (ros_message.gyro_calibrate ? true : false);
@@ -61,11 +61,11 @@ cdr_deserialize(
     ros_message.acc_calibrate = tmp ? true : false;
   }
 
-  // Member: msg_calibrate
+  // Member: mag_calibrate
   {
     uint8_t tmp;
     cdr >> tmp;
-    ros_message.msg_calibrate = tmp ? true : false;
+    ros_message.mag_calibrate = tmp ? true : false;
   }
 
   // Member: gyro_calibrate
@@ -99,9 +99,9 @@ get_serialized_size(
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
 
-  // Member: msg_calibrate
+  // Member: mag_calibrate
   {
-    size_t item_size = sizeof(ros_message.msg_calibrate);
+    size_t item_size = sizeof(ros_message.mag_calibrate);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -142,7 +142,7 @@ max_serialized_size_ImuParameters(
     last_member_size = array_size * sizeof(uint8_t);
     current_alignment += array_size * sizeof(uint8_t);
   }
-  // Member: msg_calibrate
+  // Member: mag_calibrate
   {
     size_t array_size = 1;
     last_member_size = array_size * sizeof(uint8_t);
@@ -180,8 +180,8 @@ cdr_serialize_key(
   // Member: acc_calibrate
   cdr << (ros_message.acc_calibrate ? true : false);
 
-  // Member: msg_calibrate
-  cdr << (ros_message.msg_calibrate ? true : false);
+  // Member: mag_calibrate
+  cdr << (ros_message.mag_calibrate ? true : false);
 
   // Member: gyro_calibrate
   cdr << (ros_message.gyro_calibrate ? true : false);
@@ -209,9 +209,9 @@ get_serialized_size_key(
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
 
-  // Member: msg_calibrate
+  // Member: mag_calibrate
   {
-    size_t item_size = sizeof(ros_message.msg_calibrate);
+    size_t item_size = sizeof(ros_message.mag_calibrate);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -252,7 +252,7 @@ max_serialized_size_key_ImuParameters(
     current_alignment += array_size * sizeof(uint8_t);
   }
 
-  // Member: msg_calibrate
+  // Member: mag_calibrate
   {
     size_t array_size = 1;
     last_member_size = array_size * sizeof(uint8_t);

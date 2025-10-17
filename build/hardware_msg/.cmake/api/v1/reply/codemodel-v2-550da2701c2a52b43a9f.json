@@ -1,0 +1,242 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-567b148024489a3a9d9b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18
+					]
+				},
+				{
+					"build" : "hardware_msg__py",
+					"jsonFile" : "directory-hardware_msg__py-9ec62e8418395237ab70.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/mnt/c/tinker/Tinker_Sber/build/hardware_msg/hardware_msg__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "hardware_msg",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_hardware_msg_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_hardware_msg_egg-d2e9b9100817837a8eda.json",
+					"name" : "ament_cmake_python_build_hardware_msg_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_hardware_msg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_hardware_msg-daade1e8d45d0e3d8682.json",
+					"name" : "ament_cmake_python_copy_hardware_msg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hardware_msg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hardware_msg-9a46ec76638d8766d43f.json",
+					"name" : "hardware_msg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hardware_msg__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hardware_msg__cpp-46cb5bc7df164d844ea6.json",
+					"name" : "hardware_msg__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "hardware_msg__py::@ae3b46f9d58e40145646",
+					"jsonFile" : "target-hardware_msg__py-8411dfa0f7a39b3b0625.json",
+					"name" : "hardware_msg__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hardware_msg__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hardware_msg__rosidl_generator_c-bc457e41986e87b5812b.json",
+					"name" : "hardware_msg__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hardware_msg__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hardware_msg__rosidl_generator_py-be9379f8a4a38ede093a.json",
+					"name" : "hardware_msg__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hardware_msg__rosidl_generator_type_description::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hardware_msg__rosidl_generator_type_description-017da5d30363382d0b4f.json",
+					"name" : "hardware_msg__rosidl_generator_type_description",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hardware_msg__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hardware_msg__rosidl_typesupport_c-8b93150d97023765f97f.json",
+					"name" : "hardware_msg__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hardware_msg__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hardware_msg__rosidl_typesupport_cpp-0eaa69a0844fadf03a3c.json",
+					"name" : "hardware_msg__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hardware_msg__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hardware_msg__rosidl_typesupport_fastrtps_c-8078027c6950bcf14268.json",
+					"name" : "hardware_msg__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hardware_msg__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hardware_msg__rosidl_typesupport_fastrtps_cpp-63d3aadb37adafe55958.json",
+					"name" : "hardware_msg__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hardware_msg__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hardware_msg__rosidl_typesupport_introspection_c-a8826a7d50e5bb5644c3.json",
+					"name" : "hardware_msg__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hardware_msg__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hardware_msg__rosidl_typesupport_introspection_cpp-913a94b42388ab780dcd.json",
+					"name" : "hardware_msg__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hardware_msg_s__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hardware_msg_s__rosidl_typesupport_c-f61c70a9296b08bbd382.json",
+					"name" : "hardware_msg_s__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hardware_msg_s__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hardware_msg_s__rosidl_typesupport_fastrtps_c-3a57cbbd53e8e9a70332.json",
+					"name" : "hardware_msg_s__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hardware_msg_s__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hardware_msg_s__rosidl_typesupport_introspection_c-3c9b3f281d7af16b1402.json",
+					"name" : "hardware_msg_s__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hardware_msg_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hardware_msg_uninstall-852d733637bf257113f9.json",
+					"name" : "hardware_msg_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-f0dbe6a3bd1bcfaafb43.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/mnt/c/tinker/Tinker_Sber/build/hardware_msg",
+		"source" : "/mnt/c/tinker/Tinker_Sber/Chellenge-Tinker/hardware_msg"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

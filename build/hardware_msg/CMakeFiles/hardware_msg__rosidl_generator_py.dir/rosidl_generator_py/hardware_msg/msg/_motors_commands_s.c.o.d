@@ -241,4 +241,5 @@ CMakeFiles/hardware_msg__rosidl_generator_py.dir/rosidl_generator_py/hardware_ms
  /opt/ros/jazzy/include/rcutils/rcutils/sha256.h \
  /opt/ros/jazzy/include/rosidl_typesupport_interface/rosidl_typesupport_interface/macros.h \
  /opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/service_type_support_struct.h \
- /mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_generator_c/hardware_msg/msg/rosidl_generator_c__visibility_control.h
+ /mnt/c/tinker/Tinker_Sber/build/hardware_msg/rosidl_generator_c/hardware_msg/msg/rosidl_generator_c__visibility_control.h \
+ /opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/primitives_sequence_functions.h

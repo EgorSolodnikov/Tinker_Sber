@@ -1,3 +1,3 @@
-float32 target_pos
-float32 target_vel
-float32 target_trq
+float32[10] target_pos
+float32[10] target_vel
+float32[10] target_trq

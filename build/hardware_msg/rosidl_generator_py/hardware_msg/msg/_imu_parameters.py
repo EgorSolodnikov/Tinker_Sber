@@ -63,14 +63,14 @@ class ImuParameters(metaclass=Metaclass_ImuParameters):
 
     __slots__ = [
         '_acc_calibrate',
-        '_msg_calibrate',
+        '_mag_calibrate',
         '_gyro_calibrate',
         '_check_fields',
     ]
 
     _fields_and_field_types = {
         'acc_calibrate': 'boolean',
-        'msg_calibrate': 'boolean',
+        'mag_calibrate': 'boolean',
         'gyro_calibrate': 'boolean',
     }
 
@@ -92,7 +92,7 @@ class ImuParameters(metaclass=Metaclass_ImuParameters):
                 'Invalid arguments passed to constructor: %s' % \
                 ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         self.acc_calibrate = kwargs.get('acc_calibrate', bool())
-        self.msg_calibrate = kwargs.get('msg_calibrate', bool())
+        self.mag_calibrate = kwargs.get('mag_calibrate', bool())
         self.gyro_calibrate = kwargs.get('gyro_calibrate', bool())
 
     def __repr__(self):
@@ -127,7 +127,7 @@ class ImuParameters(metaclass=Metaclass_ImuParameters):
             return False
         if self.acc_calibrate != other.acc_calibrate:
             return False
-        if self.msg_calibrate != other.msg_calibrate:
+        if self.mag_calibrate != other.mag_calibrate:
             return False
         if self.gyro_calibrate != other.gyro_calibrate:
             return False
@@ -152,17 +152,17 @@ class ImuParameters(metaclass=Metaclass_ImuParameters):
         self._acc_calibrate = value
 
     @builtins.property
-    def msg_calibrate(self):
-        """Message field 'msg_calibrate'."""
-        return self._msg_calibrate
+    def mag_calibrate(self):
+        """Message field 'mag_calibrate'."""
+        return self._mag_calibrate
 
-    @msg_calibrate.setter
-    def msg_calibrate(self, value):
+    @mag_calibrate.setter
+    def mag_calibrate(self, value):
         if self._check_fields:
             assert \
                 isinstance(value, bool), \
-                "The 'msg_calibrate' field must be of type 'bool'"
-        self._msg_calibrate = value
+                "The 'mag_calibrate' field must be of type 'bool'"
+        self._mag_calibrate = value
 
     @builtins.property
     def gyro_calibrate(self):

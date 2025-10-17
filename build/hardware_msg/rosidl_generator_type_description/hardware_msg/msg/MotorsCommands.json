@@ -6,8 +6,8 @@
         {
           "name": "target_pos",
           "type": {
-            "type_id": 10,
-            "capacity": 0,
+            "type_id": 58,
+            "capacity": 10,
             "string_capacity": 0,
             "nested_type_name": ""
           },
@@ -16,8 +16,8 @@
         {
           "name": "target_vel",
           "type": {
-            "type_id": 10,
-            "capacity": 0,
+            "type_id": 58,
+            "capacity": 10,
             "string_capacity": 0,
             "nested_type_name": ""
           },
@@ -26,8 +26,8 @@
         {
           "name": "target_trq",
           "type": {
-            "type_id": 10,
-            "capacity": 0,
+            "type_id": 58,
+            "capacity": 10,
             "string_capacity": 0,
             "nested_type_name": ""
           },
@@ -40,7 +40,7 @@
   "type_hashes": [
     {
       "type_name": "hardware_msg/msg/MotorsCommands",
-      "hash_string": "RIHS01_5122f4829e9b5448be0b5a0ca95a49eeebb324591c35ae4e3bddbb1733ce06f2"
+      "hash_string": "RIHS01_b3eab2e0adf0ab17b61b106531d6c2c3ee8378177716b1fff7fe6d4b77a8c0d5"
     }
   ]
 }

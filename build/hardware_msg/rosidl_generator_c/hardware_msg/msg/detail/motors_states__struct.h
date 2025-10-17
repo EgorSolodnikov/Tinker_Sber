@@ -22,9 +22,9 @@ extern "C"
 /// Struct defined in msg/MotorsStates in the package hardware_msg.
 typedef struct hardware_msg__msg__MotorsStates
 {
-  float current_pos;
-  float current_vel;
-  float current_trq;
+  float current_pos[10];
+  float current_vel[10];
+  float current_trq[10];
 } hardware_msg__msg__MotorsStates;
 
 // Struct for a sequence of hardware_msg__msg__MotorsStates.

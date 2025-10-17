@@ -50,17 +50,23 @@ bool cdr_serialize_hardware_msg__msg__MotorsStates(
 {
   // Field name: current_pos
   {
-    cdr << ros_message->current_pos;
+    size_t size = 10;
+    auto array_ptr = ros_message->current_pos;
+    cdr.serialize_array(array_ptr, size);
   }
 
   // Field name: current_vel
   {
-    cdr << ros_message->current_vel;
+    size_t size = 10;
+    auto array_ptr = ros_message->current_vel;
+    cdr.serialize_array(array_ptr, size);
   }
 
   // Field name: current_trq
   {
-    cdr << ros_message->current_trq;
+    size_t size = 10;
+    auto array_ptr = ros_message->current_trq;
+    cdr.serialize_array(array_ptr, size);
   }
 
   return true;
@@ -73,17 +79,23 @@ bool cdr_deserialize_hardware_msg__msg__MotorsStates(
 {
   // Field name: current_pos
   {
-    cdr >> ros_message->current_pos;
+    size_t size = 10;
+    auto array_ptr = ros_message->current_pos;
+    cdr.deserialize_array(array_ptr, size);
   }
 
   // Field name: current_vel
   {
-    cdr >> ros_message->current_vel;
+    size_t size = 10;
+    auto array_ptr = ros_message->current_vel;
+    cdr.deserialize_array(array_ptr, size);
   }
 
   // Field name: current_trq
   {
-    cdr >> ros_message->current_trq;
+    size_t size = 10;
+    auto array_ptr = ros_message->current_trq;
+    cdr.deserialize_array(array_ptr, size);
   }
 
   return true;
@@ -106,22 +118,31 @@ size_t get_serialized_size_hardware_msg__msg__MotorsStates(
 
   // Field name: current_pos
   {
-    size_t item_size = sizeof(ros_message->current_pos);
-    current_alignment += item_size +
+    size_t array_size = 10;
+    auto array_ptr = ros_message->current_pos;
+    (void)array_ptr;
+    size_t item_size = sizeof(array_ptr[0]);
+    current_alignment += array_size * item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
 
   // Field name: current_vel
   {
-    size_t item_size = sizeof(ros_message->current_vel);
-    current_alignment += item_size +
+    size_t array_size = 10;
+    auto array_ptr = ros_message->current_vel;
+    (void)array_ptr;
+    size_t item_size = sizeof(array_ptr[0]);
+    current_alignment += array_size * item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
 
   // Field name: current_trq
   {
-    size_t item_size = sizeof(ros_message->current_trq);
-    current_alignment += item_size +
+    size_t array_size = 10;
+    auto array_ptr = ros_message->current_trq;
+    (void)array_ptr;
+    size_t item_size = sizeof(array_ptr[0]);
+    current_alignment += array_size * item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
 
@@ -149,7 +170,7 @@ size_t max_serialized_size_hardware_msg__msg__MotorsStates(
 
   // Field name: current_pos
   {
-    size_t array_size = 1;
+    size_t array_size = 10;
     last_member_size = array_size * sizeof(uint32_t);
     current_alignment += array_size * sizeof(uint32_t) +
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
@@ -157,7 +178,7 @@ size_t max_serialized_size_hardware_msg__msg__MotorsStates(
 
   // Field name: current_vel
   {
-    size_t array_size = 1;
+    size_t array_size = 10;
     last_member_size = array_size * sizeof(uint32_t);
     current_alignment += array_size * sizeof(uint32_t) +
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
@@ -165,7 +186,7 @@ size_t max_serialized_size_hardware_msg__msg__MotorsStates(
 
   // Field name: current_trq
   {
-    size_t array_size = 1;
+    size_t array_size = 10;
     last_member_size = array_size * sizeof(uint32_t);
     current_alignment += array_size * sizeof(uint32_t) +
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
@@ -194,17 +215,23 @@ bool cdr_serialize_key_hardware_msg__msg__MotorsStates(
 {
   // Field name: current_pos
   {
-    cdr << ros_message->current_pos;
+    size_t size = 10;
+    auto array_ptr = ros_message->current_pos;
+    cdr.serialize_array(array_ptr, size);
   }
 
   // Field name: current_vel
   {
-    cdr << ros_message->current_vel;
+    size_t size = 10;
+    auto array_ptr = ros_message->current_vel;
+    cdr.serialize_array(array_ptr, size);
   }
 
   // Field name: current_trq
   {
-    cdr << ros_message->current_trq;
+    size_t size = 10;
+    auto array_ptr = ros_message->current_trq;
+    cdr.serialize_array(array_ptr, size);
   }
 
   return true;
@@ -227,22 +254,31 @@ size_t get_serialized_size_key_hardware_msg__msg__MotorsStates(
 
   // Field name: current_pos
   {
-    size_t item_size = sizeof(ros_message->current_pos);
-    current_alignment += item_size +
+    size_t array_size = 10;
+    auto array_ptr = ros_message->current_pos;
+    (void)array_ptr;
+    size_t item_size = sizeof(array_ptr[0]);
+    current_alignment += array_size * item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
 
   // Field name: current_vel
   {
-    size_t item_size = sizeof(ros_message->current_vel);
-    current_alignment += item_size +
+    size_t array_size = 10;
+    auto array_ptr = ros_message->current_vel;
+    (void)array_ptr;
+    size_t item_size = sizeof(array_ptr[0]);
+    current_alignment += array_size * item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
 
   // Field name: current_trq
   {
-    size_t item_size = sizeof(ros_message->current_trq);
-    current_alignment += item_size +
+    size_t array_size = 10;
+    auto array_ptr = ros_message->current_trq;
+    (void)array_ptr;
+    size_t item_size = sizeof(array_ptr[0]);
+    current_alignment += array_size * item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
 
@@ -268,7 +304,7 @@ size_t max_serialized_size_key_hardware_msg__msg__MotorsStates(
   is_plain = true;
   // Field name: current_pos
   {
-    size_t array_size = 1;
+    size_t array_size = 10;
     last_member_size = array_size * sizeof(uint32_t);
     current_alignment += array_size * sizeof(uint32_t) +
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
@@ -276,7 +312,7 @@ size_t max_serialized_size_key_hardware_msg__msg__MotorsStates(
 
   // Field name: current_vel
   {
-    size_t array_size = 1;
+    size_t array_size = 10;
     last_member_size = array_size * sizeof(uint32_t);
     current_alignment += array_size * sizeof(uint32_t) +
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
@@ -284,7 +320,7 @@ size_t max_serialized_size_key_hardware_msg__msg__MotorsStates(
 
   // Field name: current_trq
   {
-    size_t array_size = 1;
+    size_t array_size = 10;
     last_member_size = array_size * sizeof(uint32_t);
     current_alignment += array_size * sizeof(uint32_t) +
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));

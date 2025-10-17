@@ -5,12 +5,13 @@
 
 module hardware_msg {
   module msg {
+    typedef float float__10[10];
     struct MotorsStates {
-      float current_pos;
+      float__10 current_pos;
 
-      float current_vel;
+      float__10 current_vel;
 
-      float current_trq;
+      float__10 current_trq;
     };
   };
 };

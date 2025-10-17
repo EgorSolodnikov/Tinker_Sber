@@ -18,7 +18,7 @@ hardware_msg__msg__ImuParameters__init(hardware_msg__msg__ImuParameters * msg)
     return false;
   }
   // acc_calibrate
-  // msg_calibrate
+  // mag_calibrate
   // gyro_calibrate
   return true;
 }
@@ -30,7 +30,7 @@ hardware_msg__msg__ImuParameters__fini(hardware_msg__msg__ImuParameters * msg)
     return;
   }
   // acc_calibrate
-  // msg_calibrate
+  // mag_calibrate
   // gyro_calibrate
 }
 
@@ -44,8 +44,8 @@ hardware_msg__msg__ImuParameters__are_equal(const hardware_msg__msg__ImuParamete
   if (lhs->acc_calibrate != rhs->acc_calibrate) {
     return false;
   }
-  // msg_calibrate
-  if (lhs->msg_calibrate != rhs->msg_calibrate) {
+  // mag_calibrate
+  if (lhs->mag_calibrate != rhs->mag_calibrate) {
     return false;
   }
   // gyro_calibrate
@@ -65,8 +65,8 @@ hardware_msg__msg__ImuParameters__copy(
   }
   // acc_calibrate
   output->acc_calibrate = input->acc_calibrate;
-  // msg_calibrate
-  output->msg_calibrate = input->msg_calibrate;
+  // mag_calibrate
+  output->mag_calibrate = input->mag_calibrate;
   // gyro_calibrate
   output->gyro_calibrate = input->gyro_calibrate;
   return true;

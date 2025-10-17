@@ -41,16 +41,22 @@ hardware_msg__msg__MotorsCommands__are_equal(const hardware_msg__msg__MotorsComm
     return false;
   }
   // target_pos
-  if (lhs->target_pos != rhs->target_pos) {
-    return false;
+  for (size_t i = 0; i < 10; ++i) {
+    if (lhs->target_pos[i] != rhs->target_pos[i]) {
+      return false;
+    }
   }
   // target_vel
-  if (lhs->target_vel != rhs->target_vel) {
-    return false;
+  for (size_t i = 0; i < 10; ++i) {
+    if (lhs->target_vel[i] != rhs->target_vel[i]) {
+      return false;
+    }
   }
   // target_trq
-  if (lhs->target_trq != rhs->target_trq) {
-    return false;
+  for (size_t i = 0; i < 10; ++i) {
+    if (lhs->target_trq[i] != rhs->target_trq[i]) {
+      return false;
+    }
   }
   return true;
 }
@@ -64,11 +70,17 @@ hardware_msg__msg__MotorsCommands__copy(
     return false;
   }
   // target_pos
-  output->target_pos = input->target_pos;
+  for (size_t i = 0; i < 10; ++i) {
+    output->target_pos[i] = input->target_pos[i];
+  }
   // target_vel
-  output->target_vel = input->target_vel;
+  for (size_t i = 0; i < 10; ++i) {
+    output->target_vel[i] = input->target_vel[i];
+  }
   // target_trq
-  output->target_trq = input->target_trq;
+  for (size_t i = 0; i < 10; ++i) {
+    output->target_trq[i] = input->target_trq[i];
+  }
   return true;
 }
 

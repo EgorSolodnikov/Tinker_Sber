@@ -40,15 +40,15 @@ private:
   ::hardware_msg::msg::ImuParameters msg_;
 };
 
-class Init_ImuParameters_msg_calibrate
+class Init_ImuParameters_mag_calibrate
 {
 public:
-  explicit Init_ImuParameters_msg_calibrate(::hardware_msg::msg::ImuParameters & msg)
+  explicit Init_ImuParameters_mag_calibrate(::hardware_msg::msg::ImuParameters & msg)
   : msg_(msg)
   {}
-  Init_ImuParameters_gyro_calibrate msg_calibrate(::hardware_msg::msg::ImuParameters::_msg_calibrate_type arg)
+  Init_ImuParameters_gyro_calibrate mag_calibrate(::hardware_msg::msg::ImuParameters::_mag_calibrate_type arg)
   {
-    msg_.msg_calibrate = std::move(arg);
+    msg_.mag_calibrate = std::move(arg);
     return Init_ImuParameters_gyro_calibrate(msg_);
   }
 
@@ -62,10 +62,10 @@ public:
   Init_ImuParameters_acc_calibrate()
   : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
   {}
-  Init_ImuParameters_msg_calibrate acc_calibrate(::hardware_msg::msg::ImuParameters::_acc_calibrate_type arg)
+  Init_ImuParameters_mag_calibrate acc_calibrate(::hardware_msg::msg::ImuParameters::_acc_calibrate_type arg)
   {
     msg_.acc_calibrate = std::move(arg);
-    return Init_ImuParameters_msg_calibrate(msg_);
+    return Init_ImuParameters_mag_calibrate(msg_);
   }
 
 private:

@@ -41,50 +41,52 @@ struct MotorsStates_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->current_pos = 0.0f;
-      this->current_vel = 0.0f;
-      this->current_trq = 0.0f;
+      std::fill<typename std::array<float, 10>::iterator, float>(this->current_pos.begin(), this->current_pos.end(), 0.0f);
+      std::fill<typename std::array<float, 10>::iterator, float>(this->current_vel.begin(), this->current_vel.end(), 0.0f);
+      std::fill<typename std::array<float, 10>::iterator, float>(this->current_trq.begin(), this->current_trq.end(), 0.0f);
     }
   }
 
   explicit MotorsStates_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
+  : current_pos(_alloc),
+    current_vel(_alloc),
+    current_trq(_alloc)
   {
-    (void)_alloc;
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->current_pos = 0.0f;
-      this->current_vel = 0.0f;
-      this->current_trq = 0.0f;
+      std::fill<typename std::array<float, 10>::iterator, float>(this->current_pos.begin(), this->current_pos.end(), 0.0f);
+      std::fill<typename std::array<float, 10>::iterator, float>(this->current_vel.begin(), this->current_vel.end(), 0.0f);
+      std::fill<typename std::array<float, 10>::iterator, float>(this->current_trq.begin(), this->current_trq.end(), 0.0f);
     }
   }
 
   // field types and members
   using _current_pos_type =
-    float;
+    std::array<float, 10>;
   _current_pos_type current_pos;
   using _current_vel_type =
-    float;
+    std::array<float, 10>;
   _current_vel_type current_vel;
   using _current_trq_type =
-    float;
+    std::array<float, 10>;
   _current_trq_type current_trq;
 
   // setters for named parameter idiom
   Type & set__current_pos(
-    const float & _arg)
+    const std::array<float, 10> & _arg)
   {
     this->current_pos = _arg;
     return *this;
   }
   Type & set__current_vel(
-    const float & _arg)
+    const std::array<float, 10> & _arg)
   {
     this->current_vel = _arg;
     return *this;
   }
   Type & set__current_trq(
-    const float & _arg)
+    const std::array<float, 10> & _arg)
   {
     this->current_trq = _arg;
     return *this;

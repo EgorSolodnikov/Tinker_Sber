@@ -31,6 +31,141 @@ void hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__Moto
   hardware_msg__msg__MotorsCommands__fini(message_memory);
 }
 
+size_t hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__size_function__MotorsCommands__target_pos(
+  const void * untyped_member)
+{
+  (void)untyped_member;
+  return 10;
+}
+
+const void * hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__get_const_function__MotorsCommands__target_pos(
+  const void * untyped_member, size_t index)
+{
+  const float * member =
+    (const float *)(untyped_member);
+  return &member[index];
+}
+
+void * hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__get_function__MotorsCommands__target_pos(
+  void * untyped_member, size_t index)
+{
+  float * member =
+    (float *)(untyped_member);
+  return &member[index];
+}
+
+void hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__fetch_function__MotorsCommands__target_pos(
+  const void * untyped_member, size_t index, void * untyped_value)
+{
+  const float * item =
+    ((const float *)
+    hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__get_const_function__MotorsCommands__target_pos(untyped_member, index));
+  float * value =
+    (float *)(untyped_value);
+  *value = *item;
+}
+
+void hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__assign_function__MotorsCommands__target_pos(
+  void * untyped_member, size_t index, const void * untyped_value)
+{
+  float * item =
+    ((float *)
+    hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__get_function__MotorsCommands__target_pos(untyped_member, index));
+  const float * value =
+    (const float *)(untyped_value);
+  *item = *value;
+}
+
+size_t hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__size_function__MotorsCommands__target_vel(
+  const void * untyped_member)
+{
+  (void)untyped_member;
+  return 10;
+}
+
+const void * hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__get_const_function__MotorsCommands__target_vel(
+  const void * untyped_member, size_t index)
+{
+  const float * member =
+    (const float *)(untyped_member);
+  return &member[index];
+}
+
+void * hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__get_function__MotorsCommands__target_vel(
+  void * untyped_member, size_t index)
+{
+  float * member =
+    (float *)(untyped_member);
+  return &member[index];
+}
+
+void hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__fetch_function__MotorsCommands__target_vel(
+  const void * untyped_member, size_t index, void * untyped_value)
+{
+  const float * item =
+    ((const float *)
+    hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__get_const_function__MotorsCommands__target_vel(untyped_member, index));
+  float * value =
+    (float *)(untyped_value);
+  *value = *item;
+}
+
+void hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__assign_function__MotorsCommands__target_vel(
+  void * untyped_member, size_t index, const void * untyped_value)
+{
+  float * item =
+    ((float *)
+    hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__get_function__MotorsCommands__target_vel(untyped_member, index));
+  const float * value =
+    (const float *)(untyped_value);
+  *item = *value;
+}
+
+size_t hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__size_function__MotorsCommands__target_trq(
+  const void * untyped_member)
+{
+  (void)untyped_member;
+  return 10;
+}
+
+const void * hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__get_const_function__MotorsCommands__target_trq(
+  const void * untyped_member, size_t index)
+{
+  const float * member =
+    (const float *)(untyped_member);
+  return &member[index];
+}
+
+void * hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__get_function__MotorsCommands__target_trq(
+  void * untyped_member, size_t index)
+{
+  float * member =
+    (float *)(untyped_member);
+  return &member[index];
+}
+
+void hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__fetch_function__MotorsCommands__target_trq(
+  const void * untyped_member, size_t index, void * untyped_value)
+{
+  const float * item =
+    ((const float *)
+    hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__get_const_function__MotorsCommands__target_trq(untyped_member, index));
+  float * value =
+    (float *)(untyped_value);
+  *value = *item;
+}
+
+void hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__assign_function__MotorsCommands__target_trq(
+  void * untyped_member, size_t index, const void * untyped_value)
+{
+  float * item =
+    ((float *)
+    hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__get_function__MotorsCommands__target_trq(untyped_member, index));
+  const float * value =
+    (const float *)(untyped_value);
+  *item = *value;
+}
+
 static rosidl_typesupport_introspection_c__MessageMember hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__MotorsCommands_message_member_array[3] = {
   {
     "target_pos",  // name
@@ -38,16 +173,16 @@ static rosidl_typesupport_introspection_c__MessageMember hardware_msg__msg__Moto
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is key
-    false,  // is array
-    0,  // array size
+    true,  // is array
+    10,  // array size
     false,  // is upper bound
     offsetof(hardware_msg__msg__MotorsCommands, target_pos),  // bytes offset in struct
     NULL,  // default value
-    NULL,  // size() function pointer
-    NULL,  // get_const(index) function pointer
-    NULL,  // get(index) function pointer
-    NULL,  // fetch(index, &value) function pointer
-    NULL,  // assign(index, value) function pointer
+    hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__size_function__MotorsCommands__target_pos,  // size() function pointer
+    hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__get_const_function__MotorsCommands__target_pos,  // get_const(index) function pointer
+    hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__get_function__MotorsCommands__target_pos,  // get(index) function pointer
+    hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__fetch_function__MotorsCommands__target_pos,  // fetch(index, &value) function pointer
+    hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__assign_function__MotorsCommands__target_pos,  // assign(index, value) function pointer
     NULL  // resize(index) function pointer
   },
   {
@@ -56,16 +191,16 @@ static rosidl_typesupport_introspection_c__MessageMember hardware_msg__msg__Moto
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is key
-    false,  // is array
-    0,  // array size
+    true,  // is array
+    10,  // array size
     false,  // is upper bound
     offsetof(hardware_msg__msg__MotorsCommands, target_vel),  // bytes offset in struct
     NULL,  // default value
-    NULL,  // size() function pointer
-    NULL,  // get_const(index) function pointer
-    NULL,  // get(index) function pointer
-    NULL,  // fetch(index, &value) function pointer
-    NULL,  // assign(index, value) function pointer
+    hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__size_function__MotorsCommands__target_vel,  // size() function pointer
+    hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__get_const_function__MotorsCommands__target_vel,  // get_const(index) function pointer
+    hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__get_function__MotorsCommands__target_vel,  // get(index) function pointer
+    hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__fetch_function__MotorsCommands__target_vel,  // fetch(index, &value) function pointer
+    hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__assign_function__MotorsCommands__target_vel,  // assign(index, value) function pointer
     NULL  // resize(index) function pointer
   },
   {
@@ -74,16 +209,16 @@ static rosidl_typesupport_introspection_c__MessageMember hardware_msg__msg__Moto
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is key
-    false,  // is array
-    0,  // array size
+    true,  // is array
+    10,  // array size
     false,  // is upper bound
     offsetof(hardware_msg__msg__MotorsCommands, target_trq),  // bytes offset in struct
     NULL,  // default value
-    NULL,  // size() function pointer
-    NULL,  // get_const(index) function pointer
-    NULL,  // get(index) function pointer
-    NULL,  // fetch(index, &value) function pointer
-    NULL,  // assign(index, value) function pointer
+    hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__size_function__MotorsCommands__target_trq,  // size() function pointer
+    hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__get_const_function__MotorsCommands__target_trq,  // get_const(index) function pointer
+    hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__get_function__MotorsCommands__target_trq,  // get(index) function pointer
+    hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__fetch_function__MotorsCommands__target_trq,  // fetch(index, &value) function pointer
+    hardware_msg__msg__MotorsCommands__rosidl_typesupport_introspection_c__assign_function__MotorsCommands__target_trq,  // assign(index, value) function pointer
     NULL  // resize(index) function pointer
   }
 };
