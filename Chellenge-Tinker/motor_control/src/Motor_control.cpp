@@ -367,6 +367,7 @@ private:
     _SPI_RX spi_rx_;
     _MEMS mems_;
 
+    // Обьявлыяемые общие переменные, которые необходимо защищать
     std::mutex motor_cmd_mutex_;
     std::mutex motor_params_mutex_;
     std::mutex board_params_mutex_;
@@ -375,7 +376,7 @@ private:
     int fd = 0;
     rclcpp::TimerBase::SharedPtr timer_;
 
-    void on_motors_commands(const hardware_msg::msg::MotorsCommands::SharedPtr msg)
+    void on_motors_commands(const hardware_msg::msg::MotorsCommands::SharedPtr msg) // записываем сообщение в соответвующую mutex переменную
     {
         if (msg->target_pos.size() != 10 || msg->target_vel.size() != 10 || msg->target_trq.size() != 10)
         {
@@ -383,6 +384,8 @@ private:
             return;
         }
 
+        // Защита от одновременного доступа из колбэков и таймера
+        // блоикруем одновременный доступ, к переменный и все остальные потоки, которые будут хотетить записать в него данные, приостановятся и будут ждать пока переменная запишется.
         std::lock_guard<std::mutex> lock(motor_cmd_mutex_);
         for (int i = 0; i < 10; ++i)
         {
@@ -394,195 +397,200 @@ private:
         RCLCPP_DEBUG(this->get_logger(), "Updated motor commands for 10 motors");
     }
 
-    void on_board_parameters(const hardware_msg::msg::BoardParameters::SharedPtr msg)
-    {
-        std::lock_guard<std::mutex> lock(board_params_mutex_);
-        spi_tx_.beep_state = msg->beep_state;
-    }
-
-    void on_imu_parameters(const hardware_msg::msg::ImuParameters::SharedPtr msg)
-    {
-        std::lock_guard<std::mutex> lock(imu_params_mutex_);
-        mems_.Acc_CALIBRATE = msg->acc_calibrate;
-        mems_.Gyro_CALIBRATE = msg->gyro_calibrate;
-        mems_.Mag_CALIBRATE = msg->mag_calibrate;
-    }
-
-    void on_motor_parameters(const hardware_msg::msg::MotorParameters::SharedPtr msg)
-    {
-        std::lock_guard<std::mutex> lock(motor_params_mutex_);
-        spi_tx_.kp = msg->kp;
-        spi_tx_.kd = msg->kd;
-        spi_tx_.en_motor = msg->enable;
-        spi_tx_.reset_q = msg->reset_zero;
-        spi_tx_.reset_err = msg->reset_error;
-    }
-
-    void transfer_with_tx(int sel, const _SPI_TX &tx_data, const _MEMS &mems_data)
-    {
-        static uint8_t state = 0;
-        static uint8_t _data_len2 = 0, _data_cnt2 = 0;
-        static int parser_timeout = 0;
-        int ret;
-        uint8_t data = 0;
-
-        can_board_send(sel, tx_data, mems_data);
-
-        ret = SPIDataRW(0, spi_tx_buf, rx, SPI_SEND_MAX);
-
-        if (ret < 1)
+    void on_board_parameters(const hardware_msg::msg::BoardParameters::SharedPtr msg) // записываем сообщение в соответвующую mutex переменную
         {
-            RCLCPP_ERROR(this->get_logger(), "SPI ERROR: Reopen! ret=%d", ret);
-            SPISetup(0, speed);
-        }
-        else
+            {std::lock_guard<std::mutex> lock(board_params_mutex_);
+    // Блокируем данные, которые поддвержены гонке потоков
+    spi_tx_.beep_state = msg->beep_state;
+}
+
+void
+on_imu_parameters(const hardware_msg::msg::ImuParameters::SharedPtr msg) // записываем сообщение в соответвующую mutex переменную
+{
+    std::lock_guard<std::mutex> lock(imu_params_mutex_);
+    // Блокируем данные, которые поддвержены гонке потоков
+    mems_.Acc_CALIBRATE = msg->acc_calibrate;
+    mems_.Gyro_CALIBRATE = msg->gyro_calibrate;
+    mems_.Mag_CALIBRATE = msg->mag_calibrate;
+}
+
+void on_motor_parameters(const hardware_msg::msg::MotorParameters::SharedPtr msg) // записываем сообщение в соответвующую mutex переменную
+{
+    std::lock_guard<std::mutex> lock(motor_params_mutex_);
+    // Блокируем данные, которые поддвержены гонке потоков
+    spi_tx_.kp = msg->kp;
+    spi_tx_.kd = msg->kd;
+    spi_tx_.en_motor = msg->enable;
+    spi_tx_.reset_q = msg->reset_zero;
+    spi_tx_.reset_err = msg->reset_error;
+}
+
+void transfer_with_tx(int sel, const _SPI_TX &tx_data, const _MEMS &mems_data)
+{
+    static uint8_t state = 0;
+    static uint8_t _data_len2 = 0, _data_cnt2 = 0;
+    static int parser_timeout = 0;
+    int ret;
+    uint8_t data = 0;
+
+    can_board_send(sel, tx_data, mems_data);
+
+    ret = SPIDataRW(0, spi_tx_buf, rx, SPI_SEND_MAX);
+
+    if (ret < 1)
+    {
+        RCLCPP_ERROR(this->get_logger(), "SPI ERROR: Reopen! ret=%d", ret);
+        SPISetup(0, speed);
+    }
+    else
+    {
+        for (int i = 0; i < SPI_SEND_MAX; i++)
         {
-            for (int i = 0; i < SPI_SEND_MAX; i++)
+            data = rx[i];
+            parser_timeout++;
+
+            if (parser_timeout > 1000)
             {
-                data = rx[i];
-                parser_timeout++;
+                state = 0;
+                parser_timeout = 0;
+            }
 
-                if (parser_timeout > 1000)
+            if (state == 0 && data == 0xFF)
+            {
+                state = 1;
+                spi_rx_buf[0] = data;
+                parser_timeout = 0;
+            }
+            else if (state == 1 && data == 0xFB)
+            {
+                state = 2;
+                spi_rx_buf[1] = data;
+                parser_timeout = 0;
+            }
+            else if (state == 1 && data == 0xFF)
+            {
+                spi_rx_buf[0] = data;
+                parser_timeout = 0;
+            }
+            else if (state == 2 && data > 0 && data < 0xF1)
+            {
+                state = 3;
+                spi_rx_buf[2] = data;
+                parser_timeout = 0;
+            }
+            else if (state == 3 && data < SPI_BUF_SIZE)
+            {
+                if (data < 50 || data > 150)
                 {
                     state = 0;
                     parser_timeout = 0;
+                    continue;
                 }
+                state = 4;
+                spi_rx_buf[3] = data;
+                _data_len2 = data;
+                _data_cnt2 = 0;
+                parser_timeout = 0;
+            }
+            else if (state == 4 && _data_len2 > 0)
+            {
+                _data_len2--;
+                spi_rx_buf[4 + _data_cnt2++] = data;
+                if (_data_len2 == 0)
+                {
+                    state = 5;
+                    parser_timeout = 0;
+                }
+            }
+            else if (state == 5)
+            {
+                state = 0;
+                spi_rx_buf[4 + _data_cnt2] = data;
+                parser_timeout = 0;
 
-                if (state == 0 && data == 0xFF)
+                // Парсим в локальную структуру
+                _SPI_RX temp_rx;
+                if (slave_rx(spi_rx_buf, _data_cnt2 + 5, temp_rx))
+                {
+                    spi_rx_ = temp_rx; // обновляем состояние
+                }
+            }
+            else
+            {
+                if (data == 0xFF)
                 {
                     state = 1;
                     spi_rx_buf[0] = data;
-                    parser_timeout = 0;
-                }
-                else if (state == 1 && data == 0xFB)
-                {
-                    state = 2;
-                    spi_rx_buf[1] = data;
-                    parser_timeout = 0;
-                }
-                else if (state == 1 && data == 0xFF)
-                {
-                    spi_rx_buf[0] = data;
-                    parser_timeout = 0;
-                }
-                else if (state == 2 && data > 0 && data < 0xF1)
-                {
-                    state = 3;
-                    spi_rx_buf[2] = data;
-                    parser_timeout = 0;
-                }
-                else if (state == 3 && data < SPI_BUF_SIZE)
-                {
-                    if (data < 50 || data > 150)
-                    {
-                        state = 0;
-                        parser_timeout = 0;
-                        continue;
-                    }
-                    state = 4;
-                    spi_rx_buf[3] = data;
-                    _data_len2 = data;
-                    _data_cnt2 = 0;
-                    parser_timeout = 0;
-                }
-                else if (state == 4 && _data_len2 > 0)
-                {
-                    _data_len2--;
-                    spi_rx_buf[4 + _data_cnt2++] = data;
-                    if (_data_len2 == 0)
-                    {
-                        state = 5;
-                        parser_timeout = 0;
-                    }
-                }
-                else if (state == 5)
-                {
-                    state = 0;
-                    spi_rx_buf[4 + _data_cnt2] = data;
-                    parser_timeout = 0;
-
-                    // Парсим в локальную структуру
-                    _SPI_RX temp_rx;
-                    if (slave_rx(spi_rx_buf, _data_cnt2 + 5, temp_rx))
-                    {
-                        spi_rx_ = temp_rx; // обновляем состояние
-                    }
                 }
                 else
                 {
-                    if (data == 0xFF)
-                    {
-                        state = 1;
-                        spi_rx_buf[0] = data;
-                    }
-                    else
-                    {
-                        state = 0;
-                    }
+                    state = 0;
                 }
             }
         }
     }
+}
 
-    void on_timer()
+void on_timer()
+{
+    static int counter = 0;
+    static auto last_time = this->now();
+
+    _SPI_TX local_tx;
+    _MEMS local_mems;
     {
-        static int counter = 0;
-        static auto last_time = this->now();
-
-        _SPI_TX local_tx;
-        _MEMS local_mems;
-        {
-            std::lock_guard<std::mutex> lock1(motor_cmd_mutex_);
-            std::lock_guard<std::mutex> lock2(motor_params_mutex_);
-            std::lock_guard<std::mutex> lock3(board_params_mutex_);
-            std::lock_guard<std::mutex> lock4(imu_params_mutex_);
-            local_tx = spi_tx_;
-            local_mems = mems_;
-        }
-
-        transfer_with_tx(45, local_tx, local_mems);
-
-        counter++;
-        if (counter % 1000 == 0)
-        {
-            auto now = this->now();
-            auto dt = (now - last_time).seconds();
-            RCLCPP_INFO(this->get_logger(), "SPI frequency: %.1f Hz", 1000.0 / dt);
-            last_time = now;
-
-            RCLCPP_INFO(this->get_logger(), "Motor 0 command: pos=%.3f, vel=%.3f, trq=%.3f",
-                        local_tx.q_set[0], local_tx.dq_set[0], local_tx.tau_ff[0]);
-        }
-
-        // Публикация IMU
-        hardware_msg::msg::Imu imu_msg;
-        imu_msg.roll = spi_rx_.att[0];
-        imu_msg.pitch = spi_rx_.att[1];
-        imu_msg.yaw = spi_rx_.att[2];
-        imu_pub_->publish(imu_msg);
-
-        // ✅ ПУБЛИКАЦИЯ ВСЕХ 10 МОТОРОВ
-        hardware_msg::msg::MotorsStates motors_states_msg;
-        for (int i = 0; i < 10; ++i)
-        {
-            motors_states_msg.current_pos[i] = spi_rx_.q[i];
-            motors_states_msg.current_vel[i] = spi_rx_.dq[i];
-            motors_states_msg.current_trq[i] = spi_rx_.tau[i];
-        }
-        motors_states_pub_->publish(motors_states_msg);
-
-        // JointState
-        sensor_msgs::msg::JointState js;
-        js.header.stamp = this->get_clock()->now();
-        js.name = joint_names_;
-        js.position.resize(10);
-        for (int i = 0; i < 10; ++i)
-        {
-            js.position[i] = spi_rx_.q[i];
-        }
-        joint_state_pub_->publish(js);
+        std::lock_guard<std::mutex> lock1(motor_cmd_mutex_);
+        std::lock_guard<std::mutex> lock2(motor_params_mutex_);
+        std::lock_guard<std::mutex> lock3(board_params_mutex_);
+        std::lock_guard<std::mutex> lock4(imu_params_mutex_);
+        local_tx = spi_tx_;
+        local_mems = mems_;
     }
-};
+
+    transfer_with_tx(45, local_tx, local_mems);
+
+    counter++;
+    if (counter % 1000 == 0)
+    {
+        auto now = this->now();
+        auto dt = (now - last_time).seconds();
+        RCLCPP_INFO(this->get_logger(), "SPI frequency: %.1f Hz", 1000.0 / dt);
+        last_time = now;
+
+        RCLCPP_INFO(this->get_logger(), "Motor 0 command: pos=%.3f, vel=%.3f, trq=%.3f",
+                    local_tx.q_set[0], local_tx.dq_set[0], local_tx.tau_ff[0]);
+    }
+
+    // Публикация IMU
+    hardware_msg::msg::Imu imu_msg;
+    imu_msg.roll = spi_rx_.att[0];
+    imu_msg.pitch = spi_rx_.att[1];
+    imu_msg.yaw = spi_rx_.att[2];
+    imu_pub_->publish(imu_msg);
+
+    // ПУБЛИКАЦИЯ ВСЕХ 10 МОТОРОВ
+    hardware_msg::msg::MotorsStates motors_states_msg;
+    for (int i = 0; i < 10; ++i)
+    {
+        motors_states_msg.current_pos[i] = spi_rx_.q[i];
+        motors_states_msg.current_vel[i] = spi_rx_.dq[i];
+        motors_states_msg.current_trq[i] = spi_rx_.tau[i];
+    }
+    motors_states_pub_->publish(motors_states_msg);
+
+    // JointState
+    sensor_msgs::msg::JointState js;
+    js.header.stamp = this->get_clock()->now();
+    js.name = joint_names_;
+    js.position.resize(10);
+    for (int i = 0; i < 10; ++i)
+    {
+        js.position[i] = spi_rx_.q[i];
+    }
+    joint_state_pub_->publish(js);
+}
+}
+;
 
 int main(int argc, char **argv)
 {
