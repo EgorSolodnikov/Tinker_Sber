@@ -320,6 +320,7 @@ public:
         motors_states_pub_ = this->create_publisher<hardware_msg::msg::MotorsStates>("motors/states", 10);
         motor_data_pub_ = this->create_publisher<hardware_msg::msg::MotorData>("motor/data", 10);
         joint_state_pub_ = this->create_publisher<sensor_msgs::msg::JointState>("/robot_joints", 10);
+        motors_cmd_pub_ = this->create_publisher<hardware_msg::msg::BoardParameters>("motors/commands", 10);
 
         joint_names_ = {
             "joint_l_yaw", "joint_l_roll", "joint_l_pitch", "joint_l_knee", "joint_l_ankle",
@@ -360,6 +361,7 @@ private:
     rclcpp::Publisher<hardware_msg::msg::MotorsStates>::SharedPtr motors_states_pub_;
     rclcpp::Publisher<hardware_msg::msg::MotorData>::SharedPtr motor_data_pub_;
     rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr joint_state_pub_;
+    rclcpp::Publisher<hardware_msg::msg::MotorsCommands>::SharedPtr motors_cmd_pub_;
     std::vector<std::string> joint_names_;
 
     // Защищённые данные — теперь ВСЕ внутри класса
@@ -410,6 +412,15 @@ private:
 
     void on_motor_parameters(const hardware_msg::msg::MotorParameters::SharedPtr msg)
     {
+        if (msg->reset_zero) // Если обнуление - то обунляем моторы в нулевые позиции
+        {
+            hardware_msg::msg::MotorsCommands zero_commands;
+            zero_commands.target_pos = [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ];
+            zero_commands.target_vel = [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ];
+            zero_commands.target_trq = [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ];
+            motors_cmd_pub_->publish(zero_commands);
+        }
+
         std::lock_guard<std::mutex> lock(motor_params_mutex_);
         spi_tx_.kp = msg->kp;
         spi_tx_.kd = msg->kd;
@@ -561,7 +572,6 @@ private:
         imu_msg.yaw = spi_rx_.att[2];
         imu_pub_->publish(imu_msg);
 
-       
         hardware_msg::msg::MotorsStates motors_states_msg;
         for (int i = 0; i < 10; ++i)
         {
