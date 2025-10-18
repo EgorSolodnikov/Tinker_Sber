@@ -8,6 +8,7 @@
 		"xhash": "cpp",
 		"xstring": "cpp",
 		"xutility": "cpp",
-		"functional": "cpp"
+		"functional": "cpp",
+		"mutex": "cpp"
 	}
 }

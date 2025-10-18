@@ -412,13 +412,9 @@ private:
 
     void on_motor_parameters(const hardware_msg::msg::MotorParameters::SharedPtr msg)
     {
-        if (msg->reset_zero) // Если обнуление - то обунляем моторы в нулевые позиции
+        if (msg->reset_zero)
         {
-            hardware_msg::msg::MotorsCommands zero_commands;
-            zero_commands.target_pos = [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ];
-            zero_commands.target_vel = [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ];
-            zero_commands.target_trq = [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ];
-            motors_cmd_pub_->publish(zero_commands);
+            send_zero_commands()
         }
 
         std::lock_guard<std::mutex> lock(motor_params_mutex_);
@@ -427,6 +423,17 @@ private:
         spi_tx_.en_motor = msg->enable;
         spi_tx_.reset_q = msg->reset_zero;
         spi_tx_.reset_err = msg->reset_error;
+    }
+
+    void send_zero_commands()
+    {
+        auto zero_commands = std::make_shared<hardware_msg::msg::MotorsCommands>();
+        zero_commands->target_pos.assign(10, 0.0f);
+        zero_commands->target_vel.assign(10, 0.0f);
+        zero_commands->target_trq.assign(10, 0.0f);
+        motors_cmd_pub_->publish(*zero_commands);
+
+        RCLCPP_INFO(this->get_logger(), "Motor zero position command sent");
     }
 
     void transfer_with_tx(int sel, const _SPI_TX &tx_data, const _MEMS &mems_data)
