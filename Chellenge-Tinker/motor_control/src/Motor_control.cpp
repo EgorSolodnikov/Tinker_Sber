@@ -320,7 +320,7 @@ public:
         motors_states_pub_ = this->create_publisher<hardware_msg::msg::MotorsStates>("motors/states", 10);
         motor_data_pub_ = this->create_publisher<hardware_msg::msg::MotorData>("motor/data", 10);
         joint_state_pub_ = this->create_publisher<sensor_msgs::msg::JointState>("/robot_joints", 10);
-        motors_cmd_pub_ = this->create_publisher<hardware_msg::msg::BoardParameters>("motors/commands", 10);
+        motors_cmd_pub_ = this->create_publisher<hardware_msg::msg::MotorsCommands>("motors/commands", 10);
 
         joint_names_ = {
             "joint_l_yaw", "joint_l_roll", "joint_l_pitch", "joint_l_knee", "joint_l_ankle",
@@ -414,7 +414,7 @@ private:
     {
         if (msg->reset_zero)
         {
-            send_zero_commands()
+            send_zero_commands();
         }
 
         std::lock_guard<std::mutex> lock(motor_params_mutex_);
@@ -427,10 +427,11 @@ private:
 
     void send_zero_commands()
     {
+
         auto zero_commands = std::make_shared<hardware_msg::msg::MotorsCommands>();
-        zero_commands->target_pos.assign(10, 0.0f);
-        zero_commands->target_vel.assign(10, 0.0f);
-        zero_commands->target_trq.assign(10, 0.0f);
+        std::fill(zero_commands->target_pos.begin(), zero_commands->target_pos.end(), 0.0f);
+        std::fill(zero_commands->target_vel.begin(), zero_commands->target_vel.end(), 0.0f);
+        std::fill(zero_commands->target_trq.begin(), zero_commands->target_trq.end(), 0.0f);
         motors_cmd_pub_->publish(*zero_commands);
 
         RCLCPP_INFO(this->get_logger(), "Motor zero position command sent");
