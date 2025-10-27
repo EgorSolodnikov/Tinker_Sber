@@ -4,24 +4,20 @@ from launch.actions import SetEnvironmentVariable
 
 
 def generate_launch_description():
-    return LaunchDescription([
-        SetEnvironmentVariable('QT_QPA_PLATFORM', 'xcb'),
-        Node(
-            package='tinker_gui',
-            executable='gui_slider_node.py',
-            name='gui_slider_node',
-            output='screen',
-        ),
-        Node(
-            package='tinker_gui',
-            executable='commands_to_states_bridge.py',
-            name='commands_to_states_bridge',
-            output='screen',
-        ),
-        Node(
-            package='tinker_gui',
-            executable='states_to_joint_states.py',
-            name='states_to_joint_states',
-            output='screen',
-        ),
-    ])
+    return LaunchDescription(
+        [
+            SetEnvironmentVariable("QT_QPA_PLATFORM", "xcb"),
+            Node(
+                package="tinker_gui",
+                executable="gui_slider_node.py",
+                name="gui_slider_node",
+                output="screen",
+            ),
+            Node(
+                package="tinker_gui",
+                executable="states_to_joint_states.py",
+                name="states_to_joint_states",
+                output="screen",
+            ),
+        ]
+    )
