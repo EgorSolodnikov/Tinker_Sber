@@ -3,13 +3,13 @@ motors_number: 12
 motors:
   motor_1:
     position_limits:
-      min: -1.57 # rad
-      max: 1.57 # rad
+      min: -1.00 # rad
+      max: 1.00 # rad
 
   motor_2:
     position_limits:
-      min: -1.57 # rad
-      max: 1.57 # rad
+      min: -1.50 # rad
+      max: 1.50 # rad
 
   motor_3:
     position_limits:

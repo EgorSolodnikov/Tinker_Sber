@@ -26,7 +26,11 @@ from std_msgs.msg import UInt8MultiArray, Float32
 from ament_index_python.packages import get_package_share_directory
 import os
 import xml.etree.ElementTree as ET
+import yaml
+import signal
+import sys
 
+# Будет загружено из конфига
 MOTOR_COUNT = 12
 JOINT_NAMES_10 = [
     "joint_l_yaw",
@@ -46,29 +50,31 @@ MOTOR_PARAM_FIELDS = ["id", "enable", "reset_zero", "reset_error", "kp", "kd"]
 
 
 class MotorSliderNode(Node):
-    def __init__(self):
+    def __init__(self, motor_count: int):
         super().__init__("tinker_rqt")
+        self.motor_count = motor_count
+        
         # /motors/commands (общий JointState)
         self.commands_publisher = self.create_publisher(
             JointState, "/motors/commands", 10
         )
         # /motors/commands/motor_i (индивидуальные настройки каждого мотора)
         self.motor_publishers: List = []
-        for i in range(MOTOR_COUNT):
+        for i in range(self.motor_count):
             topic = f"/motors/commands/motor_{i+1}"
             self.motor_publishers.append(
                 self.create_publisher(Float32MultiArray, topic, 10)
             )
 
         # Подписки на состояния моторов (агрегированные и по каждому мотору)
-        self.current_pos: List[float] = [0.0] * MOTOR_COUNT
-        self.current_vel: List[float] = [0.0] * MOTOR_COUNT
-        self.current_trq: List[float] = [0.0] * MOTOR_COUNT
+        self.current_pos: List[float] = [0.0] * self.motor_count
+        self.current_vel: List[float] = [0.0] * self.motor_count
+        self.current_trq: List[float] = [0.0] * self.motor_count
         self.motor_status: List[List[float]] = [
-            [float(i + 1), 0.0, 0.0, 0.0] for i in range(MOTOR_COUNT)
+            [float(i + 1), 0.0, 0.0, 0.0] for i in range(self.motor_count)
         ]
         self.create_subscription(JointState, "/motors/states", self._states_cb, 10)
-        for i in range(MOTOR_COUNT):
+        for i in range(self.motor_count):
             self.create_subscription(
                 Float32MultiArray,
                 f"/motors/states/motor_{i+1}",
@@ -85,7 +91,7 @@ class MotorSliderNode(Node):
         self.cb_cmd_pub = self.create_publisher(Float32, "/control_board/commands", 10)
 
     def _states_cb(self, msg: JointState) -> None:
-        n = min(MOTOR_COUNT, len(msg.position), len(msg.velocity), len(msg.effort))
+        n = min(self.motor_count, len(msg.position), len(msg.velocity), len(msg.effort))
         for i in range(n):
             self.current_pos[i] = float(msg.position[i])
             self.current_vel[i] = float(msg.velocity[i])
@@ -126,10 +132,12 @@ class SliderWindow(QWidget):
         self.setWindowTitle("Tinker RQT")
         self.resize(1200, 800)
 
-        # Загружаем лимиты суставов из URDF
-        self.pos_limits: List[Tuple[float, float]] = self._load_limits_from_urdf()
-        if len(self.pos_limits) != MOTOR_COUNT:
-            self.pos_limits = [(-1.57, 1.57) for _ in range(MOTOR_COUNT)]
+        # Загружаем конфигурацию из YAML файла
+        self.config = self._load_config()
+        self.motor_count = self.config.get('motors_number', 12)
+        
+        # Загружаем лимиты позиций из конфига
+        self.pos_limits: List[Tuple[float, float]] = self._load_limits_from_config()
 
         # Контейнер со скроллом
         outer_layout = QVBoxLayout()
@@ -155,7 +163,7 @@ class SliderWindow(QWidget):
         self.motor_cmd_data_labels: List[List[QLabel]] = []
         self.motor_param_spinboxes: List[List[QDoubleSpinBox]] = []
         self.motor_param_checkboxes: List[List[QCheckBox]] = []
-        self.last_enable_state: List[bool] = [False] * MOTOR_COUNT
+        self.last_enable_state: List[bool] = [False] * self.motor_count
         # Отдельные элементы UI для IMU команд и beep_state
         self.chk_acc_cal = QCheckBox("acc_calibrate")
         self.chk_mag_cal = QCheckBox("mag_calibrate")
@@ -190,7 +198,7 @@ class SliderWindow(QWidget):
 
         # Создаём группы моторов и раскладываем по колонкам, начиная со 2-й строки
         columns = 2
-        for motor_idx in range(MOTOR_COUNT):
+        for motor_idx in range(self.motor_count):
             group = self._build_motor_group(motor_idx)
             row = (motor_idx // columns) + 1
             col = motor_idx % columns
@@ -204,6 +212,34 @@ class SliderWindow(QWidget):
 
         # Не публикуем автоматически
         self._publish_all()
+
+    def _load_config(self) -> dict:
+        """Загрузить конфигурацию из YAML файла"""
+        try:
+            pkg_share = get_package_share_directory("tinker_gui")
+            config_path = os.path.join(pkg_share, "config", "gui_node.yaml")
+            with open(config_path, 'r') as file:
+                config = yaml.safe_load(file)
+            return config
+        except Exception as e:
+            print(f"Ошибка загрузки конфига: {e}")
+            return {"motors_number": 12, "motors": {}}
+
+    def _load_limits_from_config(self) -> List[Tuple[float, float]]:
+        """Загрузить лимиты позиций из конфига"""
+        limits = []
+        motors_config = self.config.get('motors', {})
+        
+        for i in range(self.motor_count):
+            motor_key = f"motor_{i+1}"
+            motor_config = motors_config.get(motor_key, {})
+            pos_limits = motor_config.get('position_limits', {})
+            
+            min_pos = pos_limits.get('min', -1.57)
+            max_pos = pos_limits.get('max', 1.57)
+            limits.append((float(min_pos), float(max_pos)))
+        
+        return limits
 
     def _load_limits_from_urdf(self) -> List[Tuple[float, float]]:
         limits: List[Tuple[float, float]] = []
@@ -419,11 +455,11 @@ class SliderWindow(QWidget):
         self.ros_node.publish_motor_params(motor_index, zero_params)
 
     def _collect_joint_arrays(self):
-        pos_list = [0.0] * MOTOR_COUNT
-        vel_list = [0.0] * MOTOR_COUNT
-        trq_list = [0.0] * MOTOR_COUNT
+        pos_list = [0.0] * self.motor_count
+        vel_list = [0.0] * self.motor_count
+        trq_list = [0.0] * self.motor_count
 
-        for m in range(MOTOR_COUNT):
+        for m in range(self.motor_count):
             if not self._get_enable_state(m):
                 continue
             cmd_spinboxes = self.motor_cmd_spinboxes[m]
@@ -452,7 +488,7 @@ class SliderWindow(QWidget):
 
     def _publish_all(self, force: bool = False):
         # Публиковать по требованию (SEND) или при включении мотора, не по таймеру
-        for m in range(MOTOR_COUNT):
+        for m in range(self.motor_count):
             enabled = self._get_enable_state(m)
             if enabled or force:
                 params = self._collect_motor_params(m)
@@ -461,7 +497,7 @@ class SliderWindow(QWidget):
                 )
 
     def _update_state_labels(self):
-        for m in range(MOTOR_COUNT):
+        for m in range(self.motor_count):
             if m < len(self.motor_cmd_data_labels):
                 labels = self.motor_cmd_data_labels[m]
                 if len(labels) >= 3:
@@ -500,7 +536,7 @@ class SliderWindow(QWidget):
 
     def _emergency_stop(self):
         # Отправить команды остановки во все топики моторов и обновить UI
-        for motor_index in range(MOTOR_COUNT):
+        for motor_index in range(self.motor_count):
             stop_params = [0.0] * len(MOTOR_PARAM_FIELDS)
             stop_params[0] = float(motor_index + 1)  # id остается
             # enable=0, reset_zero=0, reset_error=0, kp=0, kd=0
@@ -533,21 +569,57 @@ class SliderWindow(QWidget):
 
 def main(args=None):
     rclpy.init(args=args)
-    ros_node = MotorSliderNode()
+    
+    # Загружаем конфиг перед созданием нод
+    try:
+        pkg_share = get_package_share_directory("tinker_gui")
+        config_path = os.path.join(pkg_share, "config", "gui_node.yaml")
+        with open(config_path, 'r') as file:
+            config = yaml.safe_load(file)
+        motor_count = config.get('motors_number', 12)
+    except Exception as e:
+        print(f"Ошибка загрузки конфига: {e}")
+        motor_count = 12
+    
+    ros_node = MotorSliderNode(motor_count)
     app = QApplication(sys.argv)
     window = SliderWindow(ros_node)
     window.show()
 
     def spin_ros():
-        rclpy.spin_once(ros_node, timeout_sec=0)
+        try:
+            rclpy.spin_once(ros_node, timeout_sec=0)
+        except Exception:
+            # Игнорируем ошибки при завершении
+            pass
 
     ros_timer = QTimer()
     ros_timer.timeout.connect(spin_ros)
     ros_timer.start(10)
 
-    app.exec_()
-    ros_node.destroy_node()
-    rclpy.shutdown()
+    def signal_handler(sig, frame):
+        print("Получен сигнал завершения, закрываем приложение...")
+        ros_timer.stop()
+        app.quit()
+        ros_node.destroy_node()
+        rclpy.shutdown()
+        sys.exit(0)
+
+    # Обработка сигналов завершения
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
+
+    try:
+        exit_code = app.exec_()
+    except KeyboardInterrupt:
+        print("Прерывание с клавиатуры")
+        exit_code = 0
+    finally:
+        ros_timer.stop()
+        ros_node.destroy_node()
+        rclpy.shutdown()
+    
+    sys.exit(exit_code)
 
 
 if __name__ == "__main__":
