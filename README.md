@@ -30,7 +30,7 @@ conda activate Alpha_Human_gym
 2. Install Python Dependencies
 ```bash
 pip install numpy==1.23.5 mujoco==2.3.7 mujoco-py mujoco-python-viewer
-pip install dm_control==1.0.14 opencv-python matplotlib einops tqdm packaging h5py ipython getkey wandb chardet h5py_cache tensorboard pyquaternion pyyaml rospkg pexpect
+pip install dm_control==1.0.14 opencv-python matplotlib einops tqdm packaging h5py ipython getkey wandb chardet h5py_cache tensorboard pyquaternion pyyaml rospkg pexpect pynput
 ```
 3. Install PyTorch with CUDA 12.1
 ```bash
