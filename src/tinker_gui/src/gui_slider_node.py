@@ -53,7 +53,7 @@ class MotorSliderNode(Node):
     def __init__(self, motor_count: int):
         super().__init__("tinker_rqt")
         self.motor_count = motor_count
-        
+
         # /motors/commands (общий JointState)
         self.commands_publisher = self.create_publisher(
             JointState, "/motors/commands", 10
@@ -134,20 +134,22 @@ class SliderWindow(QWidget):
 
         # Загружаем конфигурацию из YAML файла
         self.config = self._load_config()
-        self.motor_count = self.config.get('motors_number', 12)
-        
+        self.motor_count = self.config.get("motors_number", 12)
+
         # Загружаем лимиты позиций из конфига
         self.pos_limits: List[Tuple[float, float]] = self._load_limits_from_config()
 
         # Контейнер со скроллом
         outer_layout = QVBoxLayout()
-        
+
         # Красная кнопка СТОП в верхней части
         stop_button = QPushButton("СТОП")
-        stop_button.setStyleSheet("QPushButton { background-color: red; color: white; font-weight: bold; font-size: 16px; padding: 10px; }")
+        stop_button.setStyleSheet(
+            "QPushButton { background-color: red; color: white; font-weight: bold; font-size: 16px; padding: 10px; }"
+        )
         stop_button.clicked.connect(self._emergency_stop)
         outer_layout.addWidget(stop_button)
-        
+
         scroll = QScrollArea(self)
         scroll.setWidgetResizable(True)
         content = QWidget()
@@ -218,7 +220,7 @@ class SliderWindow(QWidget):
         try:
             pkg_share = get_package_share_directory("tinker_gui")
             config_path = os.path.join(pkg_share, "config", "gui_node.yaml")
-            with open(config_path, 'r') as file:
+            with open(config_path, "r") as file:
                 config = yaml.safe_load(file)
             return config
         except Exception as e:
@@ -228,17 +230,17 @@ class SliderWindow(QWidget):
     def _load_limits_from_config(self) -> List[Tuple[float, float]]:
         """Загрузить лимиты позиций из конфига"""
         limits = []
-        motors_config = self.config.get('motors', {})
-        
+        motors_config = self.config.get("motors", {})
+
         for i in range(self.motor_count):
             motor_key = f"motor_{i+1}"
             motor_config = motors_config.get(motor_key, {})
-            pos_limits = motor_config.get('position_limits', {})
-            
-            min_pos = pos_limits.get('min', -1.57)
-            max_pos = pos_limits.get('max', 1.57)
+            pos_limits = motor_config.get("position_limits", {})
+
+            min_pos = pos_limits.get("min", -1.57)
+            max_pos = pos_limits.get("max", 1.57)
             limits.append((float(min_pos), float(max_pos)))
-        
+
         return limits
 
     def _load_limits_from_urdf(self) -> List[Tuple[float, float]]:
@@ -385,12 +387,14 @@ class SliderWindow(QWidget):
                 )  # Пустая галочка для числовых полей
         self.motor_param_spinboxes.append(param_spinboxes)
         self.motor_param_checkboxes.append(param_checkboxes)
-        
+
         # Кнопка RESET ZERO отдельно
         reset_zero_btn = QPushButton("RESET ZERO")
-        reset_zero_btn.clicked.connect(lambda _, m=motor_index: self._reset_zero_clicked(m))
+        reset_zero_btn.clicked.connect(
+            lambda _, m=motor_index: self._reset_zero_clicked(m)
+        )
         param_grid.addWidget(reset_zero_btn, len(MOTOR_PARAM_FIELDS), 0, 1, 2)
-        
+
         group_layout.addWidget(param_box)
 
         return group
@@ -541,11 +545,11 @@ class SliderWindow(QWidget):
             stop_params[0] = float(motor_index + 1)  # id остается
             # enable=0, reset_zero=0, reset_error=0, kp=0, kd=0
             self.ros_node.publish_motor_params(motor_index, stop_params)
-            
+
             # Обновить UI для этого мотора
             checkboxes = self.motor_param_checkboxes[motor_index]
             spinboxes = self.motor_param_spinboxes[motor_index]
-            
+
             for idx, field in enumerate(MOTOR_PARAM_FIELDS):
                 if field == "enable":
                     checkboxes[idx].setChecked(False)
@@ -557,30 +561,30 @@ class SliderWindow(QWidget):
     def _reset_zero_clicked(self, motor_index: int):
         # Собрать текущие параметры мотора
         current_params = self._collect_motor_params(motor_index)
-        
+
         # Установить reset_zero=1 в текущих параметрах
         # MOTOR_PARAM_FIELDS = ["id", "enable", "reset_zero", "reset_error", "kp", "kd"]
         reset_params = current_params.copy()
         reset_params[2] = 1.0  # reset_zero на индексе 2
-        
+
         # Отправить сообщение
         self.ros_node.publish_motor_params(motor_index, reset_params)
 
 
 def main(args=None):
     rclpy.init(args=args)
-    
+
     # Загружаем конфиг перед созданием нод
     try:
         pkg_share = get_package_share_directory("tinker_gui")
         config_path = os.path.join(pkg_share, "config", "gui_node.yaml")
-        with open(config_path, 'r') as file:
+        with open(config_path, "r") as file:
             config = yaml.safe_load(file)
-        motor_count = config.get('motors_number', 12)
+        motor_count = config.get("motors_number", 12)
     except Exception as e:
         print(f"Ошибка загрузки конфига: {e}")
         motor_count = 12
-    
+
     ros_node = MotorSliderNode(motor_count)
     app = QApplication(sys.argv)
     window = SliderWindow(ros_node)
@@ -618,7 +622,7 @@ def main(args=None):
         ros_timer.stop()
         ros_node.destroy_node()
         rclpy.shutdown()
-    
+
     sys.exit(exit_code)
 
 
