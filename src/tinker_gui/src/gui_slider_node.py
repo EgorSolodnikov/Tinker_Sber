@@ -48,6 +48,19 @@ JOINT_NAMES_10 = [
 # Порядок полей для /motors/commands/motor_N
 MOTOR_PARAM_FIELDS = ["id", "enable", "reset_zero", "reset_error", "kp", "kd"]
 
+# Коды ошибок
+ERROR_CODES = {
+    0: "DISABLING",
+    1: "ENABLE",
+    8: "OVERVOLTAGE",
+    9: "LOWVOLTAGE",
+    10: "OVERCURRENT",
+    11: "OVERTEMPERATURE_MOSFET",
+    12: "OVERTEMPERATURE_ROTOR",
+    13: "LOSS_CONNECTION",
+    14: "OVERLOAD",
+}
+
 
 class MotorSliderNode(Node):
     def __init__(self, motor_count: int):
@@ -73,14 +86,18 @@ class MotorSliderNode(Node):
         self.motor_status: List[List[float]] = [
             [float(i + 1), 0.0, 0.0, 0.0] for i in range(self.motor_count)
         ]
+        # Коды ошибок для каждого мотора
+        self.motor_errors: List[int] = [0] * self.motor_count
         self.create_subscription(JointState, "/motors/states", self._states_cb, 10)
         for i in range(self.motor_count):
+            topic = f"/motors/states/motor_{i+1}"
             self.create_subscription(
                 Float32MultiArray,
-                f"/motors/states/motor_{i+1}",
+                topic,
                 lambda msg, idx=i: self._motor_state_cb(idx, msg),
                 10,
             )
+            self.get_logger().info(f"Subscribed to {topic}")
 
         # Подписка на IMU data (pitch, roll, yaw)
         self.imu_pry = [0.0, 0.0, 0.0]
@@ -99,6 +116,9 @@ class MotorSliderNode(Node):
 
     def _motor_state_cb(self, idx: int, msg: Float32MultiArray) -> None:
         data = list(msg.data)
+        self.get_logger().debug(f"Motor {idx+1} received data: {data}, length: {len(data)}")
+        
+        # Обработка старого формата (4+ элемента)
         if len(data) >= 4:
             self.motor_status[idx] = [
                 float(data[0]),
@@ -106,6 +126,14 @@ class MotorSliderNode(Node):
                 float(data[2]),
                 float(data[3]),
             ]
+        # Если есть 5-й элемент - это код ошибки (старый формат)
+        if len(data) >= 5:
+            self.motor_errors[idx] = int(data[4])
+            self.get_logger().debug(f"Motor {idx+1} error code from index 4: {self.motor_errors[idx]}")
+        # Если в массиве только одно значение - это код ошибки (новый формат)
+        elif len(data) == 1:
+            self.motor_errors[idx] = int(data[0])
+            self.get_logger().debug(f"Motor {idx+1} error code from single value: {self.motor_errors[idx]}")
 
     def _imu_cb(self, msg: Vector3) -> None:
         self.imu_pry = [float(msg.x), float(msg.y), float(msg.z)]
@@ -165,6 +193,7 @@ class SliderWindow(QWidget):
         self.motor_cmd_data_labels: List[List[QLabel]] = []
         self.motor_param_spinboxes: List[List[QDoubleSpinBox]] = []
         self.motor_param_checkboxes: List[List[QCheckBox]] = []
+        self.motor_error_labels: List[QLabel] = []  # Метки для отображения ошибок
         self.last_enable_state: List[bool] = [False] * self.motor_count
         # Отдельные элементы UI для IMU команд и beep_state
         self.chk_acc_cal = QCheckBox("acc_calibrate")
@@ -344,23 +373,23 @@ class SliderWindow(QWidget):
                 param_spinboxes.append(spinbox)
                 param_checkboxes.append(QCheckBox())  # Пустая галочка для ID
             elif field == "reset_zero":
-                # reset_zero - скрытое поле, управляется кнопкой
+                # reset_zero - управляется отдельной кнопкой
                 param_spinboxes.append(QDoubleSpinBox())  # Пустой spinbox
                 param_checkboxes.append(QCheckBox())  # Пустая галочка
-            elif field in {"enable", "reset_error"}:
-                # Булевые поля - используем галочки
+            elif field == "reset_error":
+                # reset_error тоже управляется кнопкой
+                param_spinboxes.append(QDoubleSpinBox())
+                param_checkboxes.append(QCheckBox())
+            elif field == "enable":
                 checkbox = QCheckBox(field)
                 checkbox.setChecked(False)
-                if field == "enable":
-                    checkbox.stateChanged.connect(
-                        lambda state, m=motor_index: self._on_enable_checkbox_change(
-                            m, state
-                        )
+                checkbox.stateChanged.connect(
+                    lambda state, m=motor_index: self._on_enable_checkbox_change(
+                        m, state
                     )
-                param_grid.addWidget(checkbox, row, col, 1, 2)  # Занимаем 2 колонки
-                param_spinboxes.append(
-                    QDoubleSpinBox()
-                )  # Пустой spinbox для булевых полей
+                )
+                param_grid.addWidget(checkbox, row, col, 1, 2)
+                param_spinboxes.append(QDoubleSpinBox())
                 param_checkboxes.append(checkbox)
             else:
                 # Числовые поля - используем spinbox
@@ -382,9 +411,7 @@ class SliderWindow(QWidget):
                 param_grid.addWidget(label, row, col)
                 param_grid.addWidget(spinbox, row, col + 1)
                 param_spinboxes.append(spinbox)
-                param_checkboxes.append(
-                    QCheckBox()
-                )  # Пустая галочка для числовых полей
+                param_checkboxes.append(QCheckBox())
         self.motor_param_spinboxes.append(param_spinboxes)
         self.motor_param_checkboxes.append(param_checkboxes)
 
@@ -394,6 +421,18 @@ class SliderWindow(QWidget):
             lambda _, m=motor_index: self._reset_zero_clicked(m)
         )
         param_grid.addWidget(reset_zero_btn, len(MOTOR_PARAM_FIELDS), 0, 1, 2)
+
+        reset_error_btn = QPushButton("RESET ERROR")
+        reset_error_btn.clicked.connect(
+            lambda _, m=motor_index: self._reset_error_clicked(m)
+        )
+        param_grid.addWidget(reset_error_btn, len(MOTOR_PARAM_FIELDS) + 1, 0, 1, 2)
+
+        # Метка для отображения кода ошибки
+        error_label = QLabel("ERR: 0x00 OFF")
+        error_label.setStyleSheet("QLabel { color: yellow; font-weight: bold; }")
+        param_grid.addWidget(error_label, len(MOTOR_PARAM_FIELDS) + 2, 0, 1, 2)
+        self.motor_error_labels.append(error_label)
 
         group_layout.addWidget(param_box)
 
@@ -481,7 +520,10 @@ class SliderWindow(QWidget):
             if field == "reset_zero":
                 # reset_zero всегда 0 в обычном сборе, устанавливается в 1 только кнопкой
                 result.append(0.0)
-            elif field in {"enable", "reset_error"}:
+            elif field == "reset_error":
+                # reset_error тоже всегда 0 в обычном сборе, устанавливается в 1 только кнопкой
+                result.append(0.0)
+            elif field == "enable":
                 # Для булевых полей используем галочки
                 result.append(1.0 if checkboxes[i].isChecked() else 0.0)
             else:
@@ -500,6 +542,14 @@ class SliderWindow(QWidget):
                     m, params if enabled else [0.0] * len(params)
                 )
 
+    def _format_error_code(self, error_code: int) -> str:
+        """Форматирует код ошибки в строку вида 'ERR: 0x09 LOWVOLTAGE'"""
+        if error_code == 0:
+            return "ERR: 0x00 OFF"
+        error_hex = f"0x{error_code:02X}"
+        error_name = ERROR_CODES.get(error_code, "UNKNOWN")
+        return f"ERR: {error_hex} {error_name}"
+
     def _update_state_labels(self):
         for m in range(self.motor_count):
             if m < len(self.motor_cmd_data_labels):
@@ -508,6 +558,21 @@ class SliderWindow(QWidget):
                     labels[0].setText(f"state: {self.ros_node.current_pos[m]:.2f}")
                     labels[1].setText(f"state: {self.ros_node.current_vel[m]:.2f}")
                     labels[2].setText(f"state: {self.ros_node.current_trq[m]:.2f}")
+            # Обновить метку ошибки
+            if m < len(self.motor_error_labels):
+                error_code = self.ros_node.motor_errors[m]
+                error_text = self._format_error_code(error_code)
+                self.motor_error_labels[m].setText(error_text)
+                # Изменить цвет в зависимости от кода ошибки
+                if error_code == 0:
+                    # ERR 0x00 OFF - желтый
+                    self.motor_error_labels[m].setStyleSheet("QLabel { color: orange; font-weight: bold; }")
+                elif error_code == 1:
+                    # ERR 0x01 ENABLE - зеленый
+                    self.motor_error_labels[m].setStyleSheet("QLabel { color: green; font-weight: bold; }")
+                else:
+                    # Остальные ошибки - красный
+                    self.motor_error_labels[m].setStyleSheet("QLabel { color: red; font-weight: bold; }")
         # Обновить IMU PRY
         self.imu_labels["pitch"].setText(f"pitch: {self.ros_node.imu_pry[0]:.3f}")
         self.imu_labels["roll"].setText(f"roll: {self.ros_node.imu_pry[1]:.3f}")
@@ -566,6 +631,18 @@ class SliderWindow(QWidget):
         # MOTOR_PARAM_FIELDS = ["id", "enable", "reset_zero", "reset_error", "kp", "kd"]
         reset_params = current_params.copy()
         reset_params[2] = 1.0  # reset_zero на индексе 2
+
+        # Отправить сообщение
+        self.ros_node.publish_motor_params(motor_index, reset_params)
+
+    def _reset_error_clicked(self, motor_index: int):
+        # Собрать текущие параметры мотора
+        current_params = self._collect_motor_params(motor_index)
+
+        # Установить reset_error=1 в текущих параметрах
+        # MOTOR_PARAM_FIELDS = ["id", "enable", "reset_zero", "reset_error", "kp", "kd"]
+        reset_params = current_params.copy()
+        reset_params[3] = 1.0  # reset_error на индексе 3
 
         # Отправить сообщение
         self.ros_node.publish_motor_params(motor_index, reset_params)
