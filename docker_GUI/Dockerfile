@@ -42,6 +42,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-${ROS_DISTRO}-joint-state-publisher-gui \
     ros-${ROS_DISTRO}-xacro \
     ros-${ROS_DISTRO}-rosidl-default-generators \
+    ros-${ROS_DISTRO}-joy \
+    ros-${ROS_DISTRO}-teleop-twist-joy \
+    joystick \
+    jstest-gtk \
+    evtest \
     && rm -rf /var/lib/apt/lists/*
 
 # Python-пакеты проекта
