@@ -3,6 +3,7 @@
 ## Подготовка образа `gui_and_joy`
 
 ```bash
+sudo rm -rf build/ log/ install/
 cd docker_GUI
 ./build_img.sh
 ```
