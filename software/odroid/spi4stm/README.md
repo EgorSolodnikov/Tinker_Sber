@@ -1,4 +1,4 @@
-# Hardware
+# SPI4STM
 
 Модуль коммуникации через интерфейс SPI с микроконтроллером STM32 для управления приводами робота.
 
@@ -28,7 +28,7 @@
 ## Структура модуля
 
 ```
-hardware/
+spi4stm/
 ├── src/
 │   ├── main.cpp        # Основной иполнительный файл
 │   ├── spi.cpp         # Интерфейс SPI
@@ -132,7 +132,7 @@ sudo apt install build-essential cmake git
 
 ```bash
 # Перейти в директорию проекта
-cd hardware_task
+cd spi4stm
 
 # Создать директорию для сборки
 mkdir -p build
@@ -153,7 +153,7 @@ mkdir -p build
 cd build
 
 # Сконфигурировать и собрать
-cmake ../hardware_task
+cmake ../spi4stm
 make -j$(nproc)
 ```
 
@@ -164,8 +164,8 @@ make -j$(nproc)
 
 ```bash
 # Из директории build
-./hardware_task_log
+./spi4stm_log
 
 # Или с параметрами (если поддерживаются)
-./hardware_task_log [опции]
+./spi4stm_log [опции]
 ```
