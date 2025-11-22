@@ -1,1 +1,20 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypelayout="1.0"?>
+<package format="3">
+  <name>spi_can_bridge</name>
+  <version>1.0.0</version>
+  <description>Bridge between ROS2 topics and SPI2CAN shared memory</description>
+  <maintainer email="drakesparow@mail.ru">Derrick</maintainer>
+  <license>MIT</license>
 
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
