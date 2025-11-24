@@ -19,16 +19,18 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtCore import Qt, QTimer
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Float32MultiArray
-from sensor_msgs.msg import JointState
-from geometry_msgs.msg import Vector3
-from std_msgs.msg import UInt8MultiArray, Float32
+from builtin_interfaces.msg import Time
+
+# Import custom messages from tinker_msgs
+from tinker_msgs.msg import ControlCmd, IMUState, LowCmd, LowState, MotorCmd, MotorState, OneMotorCmd
+
 from ament_index_python.packages import get_package_share_directory
 import os
 import xml.etree.ElementTree as ET
 import yaml
 import signal
 import sys
+import math
 
 # Будет загружено из конфига
 MOTOR_COUNT = 12
@@ -45,124 +47,94 @@ JOINT_NAMES_10 = [
     "joint_r_ankle",
 ]
 
-# Порядок полей для /motors/commands/motor_N
-MOTOR_PARAM_FIELDS = ["id", "enable", "reset_zero", "reset_error", "kp", "kd"]
-
-# Коды ошибок
-ERROR_CODES = {
-    0: "DISABLING",
-    1: "ENABLE",
-    8: "OVERVOLTAGE",
-    9: "LOWVOLTAGE",
-    10: "OVERCURRENT",
-    11: "OVERTEMPERATURE_MOSFET",
-    12: "OVERTEMPERATURE_ROTOR",
-    13: "LOSS_CONNECTION",
-    14: "OVERLOAD",
-}
-
 
 class MotorSliderNode(Node):
     def __init__(self, motor_count: int):
-        super().__init__("tinker_rqt")
+        super().__init__('gui_slider_node')
         self.motor_count = motor_count
 
-        # /motors/commands (общий JointState)
-        self.commands_publisher = self.create_publisher(
-            JointState, "/motors/commands", 10
+        # Publishers for custom messages
+        self.control_cmd_publisher = self.create_publisher(
+            ControlCmd, "/control_command", 10
         )
-        # /motors/commands/motor_i (индивидуальные настройки каждого мотора)
-        self.motor_publishers: List = []
-        for i in range(self.motor_count):
-            topic = f"/motors/commands/motor_{i+1}"
-            self.motor_publishers.append(
-                self.create_publisher(Float32MultiArray, topic, 10)
-            )
+        self.low_cmd_publisher = self.create_publisher(
+            LowCmd, "/low_level_command", 10
+        )
+        self.one_motor_cmd_publisher = self.create_publisher(
+            OneMotorCmd, "/single_motor_command", 10
+        )
 
-        # Подписки на состояния моторов (агрегированные и по каждому мотору)
-        self.current_pos: List[float] = [0.0] * self.motor_count
-        self.current_vel: List[float] = [0.0] * self.motor_count
-        self.current_trq: List[float] = [0.0] * self.motor_count
-        self.motor_status: List[List[float]] = [
-            [float(i + 1), 0.0, 0.0, 0.0] for i in range(self.motor_count)
-        ]
-        # Коды ошибок для каждого мотора
-        self.motor_errors: List[int] = [0] * self.motor_count
-        self.create_subscription(JointState, "/motors/states", self._states_cb, 10)
-        for i in range(self.motor_count):
-            topic = f"/motors/states/motor_{i+1}"
-            self.create_subscription(
-                Float32MultiArray,
-                topic,
-                lambda msg, idx=i: self._motor_state_cb(idx, msg),
-                10,
-            )
-            self.get_logger().info(f"Subscribed to {topic}")
+        # Subscriber for low level state
+        self.low_state_subscriber = self.create_subscription(
+            LowState, "/low_level_state", self.low_state_callback, 10
+        )
 
-        # Подписка на IMU data (pitch, roll, yaw)
-        self.imu_pry = [0.0, 0.0, 0.0]
-        self.create_subscription(Vector3, "/imu/data", self._imu_cb, 10)
+        # Store current state
+        self.current_low_state = LowState()
+        self.motor_states = [MotorState() for _ in range(10)]
 
-        # Паблишеры IMU и Control Board команд
-        self.imu_cmd_pub = self.create_publisher(UInt8MultiArray, "/imu/commands", 10)
-        self.cb_cmd_pub = self.create_publisher(Float32, "/control_board/commands", 10)
+        self.get_logger().info('Tinker GUI started with custom messages')
 
-    def _states_cb(self, msg: JointState) -> None:
-        n = min(self.motor_count, len(msg.position), len(msg.velocity), len(msg.effort))
-        for i in range(n):
-            self.current_pos[i] = float(msg.position[i])
-            self.current_vel[i] = float(msg.velocity[i])
-            self.current_trq[i] = float(msg.effort[i])
+    def low_state_callback(self, msg: LowState):
+        """Callback for LowState messages"""
+        self.current_low_state = msg
+        # Convert the fixed array to a list for easier handling
+        self.motor_states = list(msg.motor_state)
 
-    def _motor_state_cb(self, idx: int, msg: Float32MultiArray) -> None:
-        data = list(msg.data)
-        self.get_logger().debug(f"Motor {idx+1} received data: {data}, length: {len(data)}")
-        
-        # Обработка старого формата (4+ элемента)
-        if len(data) >= 4:
-            self.motor_status[idx] = [
-                float(data[0]),
-                float(data[1]),
-                float(data[2]),
-                float(data[3]),
-            ]
-        # Если есть 5-й элемент - это код ошибки (старый формат)
-        if len(data) >= 5:
-            self.motor_errors[idx] = int(data[4])
-            self.get_logger().debug(f"Motor {idx+1} error code from index 4: {self.motor_errors[idx]}")
-        # Если в массиве только одно значение - это код ошибки (новый формат)
-        elif len(data) == 1:
-            self.motor_errors[idx] = int(data[0])
-            self.get_logger().debug(f"Motor {idx+1} error code from single value: {self.motor_errors[idx]}")
+    def publish_control_command(self, motor_id: int, cmd: int):
+        """Publish ControlCmd message"""
+        msg = ControlCmd()
+        msg.motor_id = motor_id
+        msg.cmd = cmd
+        self.control_cmd_publisher.publish(msg)
 
-    def _imu_cb(self, msg: Vector3) -> None:
-        self.imu_pry = [float(msg.x), float(msg.y), float(msg.z)]
+    def publish_low_command(self, motor_commands: List[MotorCmd]):
+        """Publish LowCmd message for all motors"""
+        msg = LowCmd()
 
-    def publish_joint_commands(
-        self, pos_list: List[float], vel_list: List[float], trq_list: List[float]
-    ):
-        msg = JointState()
-        msg.position = [float(v) for v in pos_list]
-        msg.velocity = [float(v) for v in vel_list]
-        msg.effort = [float(v) for v in trq_list]
-        self.commands_publisher.publish(msg)
+        # Set timestamp
+        now = self.get_clock().now()
+        msg.timestamp_state = Time(sec=now.nanoseconds // 1000000000,
+                                   nanosec=now.nanoseconds % 1000000000)
 
-    def publish_motor_params(self, motor_index: int, values_10_floats: List[float]):
-        msg = Float32MultiArray()
-        msg.data = [float(v) for v in values_10_floats]
-        self.motor_publishers[motor_index].publish(msg)
+        # Convert list to fixed-size array
+        for i, motor_cmd in enumerate(motor_commands):
+            if i < len(msg.motor_cmd):
+                msg.motor_cmd[i] = motor_cmd
+
+        self.low_cmd_publisher.publish(msg)
+
+    def publish_single_motor_command(self, motor_id: int, position: float, velocity: float,
+                                     torque: float, kp: float, kd: float):
+        """Publish OneMotorCmd message"""
+        msg = OneMotorCmd()
+
+        # Set timestamp
+        now = self.get_clock().now()
+        msg.timestamp_state = Time(sec=now.nanoseconds // 1000000000,
+                                   nanosec=now.nanoseconds % 1000000000)
+
+        msg.motor_id = motor_id
+        msg.motor_group = 0  # Default group
+        msg.position = position
+        msg.velocity = velocity
+        msg.torque = torque
+        msg.kp = kp
+        msg.kd = kd
+
+        self.one_motor_cmd_publisher.publish(msg)
 
 
 class SliderWindow(QWidget):
     def __init__(self, ros_node: MotorSliderNode):
         super().__init__()
         self.ros_node = ros_node
-        self.setWindowTitle("Tinker RQT")
+        self.setWindowTitle("Tinker RQT - Custom Messages")
         self.resize(1200, 800)
 
         # Загружаем конфигурацию из YAML файла
         self.config = self._load_config()
-        self.motor_count = self.config.get("motors_number", 12)
+        self.motor_count = self.config.get('motors_number', 12)
 
         # Загружаем лимиты позиций из конфига
         self.pos_limits: List[Tuple[float, float]] = self._load_limits_from_config()
@@ -171,10 +143,9 @@ class SliderWindow(QWidget):
         outer_layout = QVBoxLayout()
 
         # Красная кнопка СТОП в верхней части
-        stop_button = QPushButton("СТОП")
+        stop_button = QPushButton("ПАНЕЛЬ УПРАВЛЕНИЯ")
         stop_button.setStyleSheet(
-            "QPushButton { background-color: red; color: white; font-weight: bold; font-size: 16px; padding: 10px; }"
-        )
+            "QPushButton { background-color: red; color: white; font-weight: bold; font-size: 16px; padding: 10px; }")
         stop_button.clicked.connect(self._emergency_stop)
         outer_layout.addWidget(stop_button)
 
@@ -191,41 +162,34 @@ class SliderWindow(QWidget):
         # Хранилища UI-элементов по моторам
         self.motor_cmd_spinboxes: List[List[QDoubleSpinBox]] = []
         self.motor_cmd_data_labels: List[List[QLabel]] = []
-        self.motor_param_spinboxes: List[List[QDoubleSpinBox]] = []
-        self.motor_param_checkboxes: List[List[QCheckBox]] = []
-        self.motor_error_labels: List[QLabel] = []  # Метки для отображения ошибок
-        self.last_enable_state: List[bool] = [False] * self.motor_count
-        # Отдельные элементы UI для IMU команд и beep_state
-        self.chk_acc_cal = QCheckBox("acc_calibrate")
-        self.chk_mag_cal = QCheckBox("mag_calibrate")
-        self.chk_gyro_cal = QCheckBox("gyro_calibrate")
-        self.beep_state_spin = QDoubleSpinBox()
-        self.beep_state_spin.setRange(0.0, 1000.0)
-        self.beep_state_spin.setDecimals(3)
 
-        # Блок IMU в первой строке
-        imu_group = QGroupBox("IMU")
-        imu_layout = QGridLayout(imu_group)
-        self.imu_labels = {
-            "pitch": QLabel("pitch: 0.000"),
-            "roll": QLabel("roll: 0.000"),
-            "yaw": QLabel("yaw: 0.000"),
-        }
-        imu_layout.addWidget(self.imu_labels["pitch"], 0, 0)
-        imu_layout.addWidget(self.imu_labels["roll"], 0, 1)
-        imu_layout.addWidget(self.imu_labels["yaw"], 0, 2)
-        # Команды IMU (калибровки)
-        imu_layout.addWidget(self.chk_acc_cal, 1, 0)
-        imu_layout.addWidget(self.chk_mag_cal, 1, 1)
-        imu_layout.addWidget(self.chk_gyro_cal, 1, 2)
-        self.grid.addWidget(imu_group, 0, 0)
+        # Блок Control Commands в первой строке
+        control_group = QGroupBox("Control Commands")
+        control_layout = QGridLayout(control_group)
 
-        # Блок Control Board (справа от IMU)
-        cb_group = QGroupBox("Control Board")
-        cb_layout = QGridLayout(cb_group)
-        cb_layout.addWidget(QLabel("beep_state"), 0, 0)
-        cb_layout.addWidget(self.beep_state_spin, 0, 1)
-        self.grid.addWidget(cb_group, 0, 1)
+        # Motor ID selection
+        control_layout.addWidget(QLabel("Motor ID:"), 0, 0)
+        self.control_motor_id = QSpinBox()
+        self.control_motor_id.setRange(0, self.motor_count - 1)
+        control_layout.addWidget(self.control_motor_id, 0, 1)
+
+        # Control command buttons
+        self.enable_btn = QPushButton("ENABLE")
+        self.disable_btn = QPushButton("DISABLE")
+        self.zero_btn = QPushButton("SET ZERO")
+        self.clear_error_btn = QPushButton("CLEAR ERROR")
+
+        self.enable_btn.clicked.connect(lambda: self._send_control_cmd(252))
+        self.disable_btn.clicked.connect(lambda: self._send_control_cmd(253))
+        self.zero_btn.clicked.connect(lambda: self._send_control_cmd(254))
+        self.clear_error_btn.clicked.connect(lambda: self._send_control_cmd(251))
+
+        control_layout.addWidget(self.enable_btn, 1, 0)
+        control_layout.addWidget(self.disable_btn, 1, 1)
+        control_layout.addWidget(self.zero_btn, 1, 2)
+        control_layout.addWidget(self.clear_error_btn, 1, 3)
+
+        self.grid.addWidget(control_group, 0, 0, 1, 2)
 
         # Создаём группы моторов и раскладываем по колонкам, начиная со 2-й строки
         columns = 2
@@ -234,22 +198,38 @@ class SliderWindow(QWidget):
             row = (motor_idx // columns) + 1
             col = motor_idx % columns
             self.grid.addWidget(group, row, col)
-            self.last_enable_state[motor_idx] = False
+
+        # Status display area
+        status_group = QGroupBox("System Status")
+        status_layout = QVBoxLayout(status_group)
+
+        self.imu_status_label = QLabel("IMU: Quaternion=[-, -, -, -] | RPY=[-, -, -]°")
+        self.tick_label = QLabel("Tick: -")
+        self.timestamp_label = QLabel("Last Update: -")
+
+        status_layout.addWidget(self.imu_status_label)
+        status_layout.addWidget(self.tick_label)
+        status_layout.addWidget(self.timestamp_label)
+
+        self.grid.addWidget(status_group, (self.motor_count // columns) + 2, 0, 1, 2)
 
         # Таймер
         self.display_timer = QTimer(self)
         self.display_timer.timeout.connect(self._on_timer)
         self.display_timer.start(100)
 
-        # Не публикуем автоматически
-        self._publish_all()
+        self.init_ui()
+
+    def init_ui(self):
+        """Initialize the UI - this method is called after all widgets are created"""
+        pass
 
     def _load_config(self) -> dict:
         """Загрузить конфигурацию из YAML файла"""
         try:
             pkg_share = get_package_share_directory("tinker_gui")
             config_path = os.path.join(pkg_share, "config", "gui_node.yaml")
-            with open(config_path, "r") as file:
+            with open(config_path, 'r') as file:
                 config = yaml.safe_load(file)
             return config
         except Exception as e:
@@ -259,393 +239,169 @@ class SliderWindow(QWidget):
     def _load_limits_from_config(self) -> List[Tuple[float, float]]:
         """Загрузить лимиты позиций из конфига"""
         limits = []
-        motors_config = self.config.get("motors", {})
+        motors_config = self.config.get('motors', {})
 
         for i in range(self.motor_count):
-            motor_key = f"motor_{i+1}"
+            motor_key = f"motor_{i + 1}"
             motor_config = motors_config.get(motor_key, {})
-            pos_limits = motor_config.get("position_limits", {})
+            pos_limits = motor_config.get('position_limits', {})
 
-            min_pos = pos_limits.get("min", -1.57)
-            max_pos = pos_limits.get("max", 1.57)
+            min_pos = pos_limits.get('min', -1.57)
+            max_pos = pos_limits.get('max', 1.57)
             limits.append((float(min_pos), float(max_pos)))
 
         return limits
 
-    def _load_limits_from_urdf(self) -> List[Tuple[float, float]]:
-        limits: List[Tuple[float, float]] = []
-        try:
-            pkg_share = get_package_share_directory("tinker")
-            urdf_path = os.path.join(pkg_share, "urdf", "tinker_1.urdf.xacro")
-            tree = ET.parse(urdf_path)
-            root = tree.getroot()
-            joints = {j.get("name"): j for j in root.findall(".//joint")}
-            for joint_name in JOINT_NAMES_10:
-                j = joints.get(joint_name)
-                lower, upper = -1.57, 1.57
-                if j is not None:
-                    lim = j.find("limit")
-                    if lim is not None:
-                        try:
-                            lower_attr = lim.get("lower")
-                            upper_attr = lim.get("upper")
-                            if lower_attr is not None:
-                                lower = float(lower_attr)
-                            if upper_attr is not None:
-                                upper = float(upper_attr)
-                        except Exception:
-                            pass
-                limits.append((lower, upper))
-        except Exception:
-            limits = []
-        return limits
-
     def _build_motor_group(self, motor_index: int) -> QGroupBox:
-        group = QGroupBox(f"Motor {motor_index + 1}")
+        group = QGroupBox(f"Motor {motor_index}")
         group_layout = QVBoxLayout(group)
 
-        # Блок команд (pos/vel/trq)
-        cmd_box = QGroupBox("Commands")
+        # Блок команд (pos/vel/trq/kp/kd)
+        cmd_box = QGroupBox("Motor Commands")
         cmd_grid = QGridLayout(cmd_box)
-        cmd_names = ["target_pos", "target_vel", "target_trq"]
+
+        cmd_names = ["Position", "Velocity", "Torque", "KP", "KD"]
         cmd_spinboxes: List[QDoubleSpinBox] = []
         cmd_data_labels: List[QLabel] = []
+
         for i, name in enumerate(cmd_names):
-            label = QLabel(f"{name}: 0")
+            label = QLabel(f"{name}:")
             spinbox = QDoubleSpinBox()
-            if name == "target_pos":
-                # Для target_pos используем пределы из URDF
+
+            if name == "Position":
                 lower, upper = self.pos_limits[motor_index]
                 spinbox.setMinimum(lower)
                 spinbox.setMaximum(upper)
-                spinbox.setValue(0.0)
                 spinbox.setDecimals(3)
-            else:
-                # Для velocity и torque используем разумные пределы
-                spinbox.setMinimum(-100.0)
+            elif name == "Velocity":
+                spinbox.setMinimum(-50.0)
+                spinbox.setMaximum(50.0)
+                spinbox.setDecimals(3)
+            elif name == "Torque":
+                spinbox.setMinimum(-10.0)
+                spinbox.setMaximum(10.0)
+                spinbox.setDecimals(3)
+            else:  # KP, KD
+                spinbox.setMinimum(0.0)
                 spinbox.setMaximum(100.0)
-                spinbox.setValue(0.0)
                 spinbox.setDecimals(3)
-            spinbox.valueChanged.connect(
-                lambda val, m=motor_index, lbl=label, n=name: self._on_cmd_change(
-                    m, lbl, n, val
-                )
-            )
-            data_lbl = QLabel("state: 0.0")
+
+            spinbox.setValue(0.0)
+
+            data_lbl = QLabel("current: 0.0")
             data_lbl.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+
             cmd_grid.addWidget(label, i, 0)
             cmd_grid.addWidget(spinbox, i, 1)
             cmd_grid.addWidget(data_lbl, i, 2)
             cmd_spinboxes.append(spinbox)
             cmd_data_labels.append(data_lbl)
+
+        # Кнопки отправки команд
+        btn_layout = QHBoxLayout()
+        send_single_btn = QPushButton("SEND SINGLE")
+        send_all_btn = QPushButton("SEND ALL MOTORS")
+
+        send_single_btn.clicked.connect(lambda _, m=motor_index: self._send_single_motor_cmd(m))
+        send_all_btn.clicked.connect(self._send_all_motors_cmd)
+
+        btn_layout.addWidget(send_single_btn)
+        btn_layout.addWidget(send_all_btn)
+
+        cmd_grid.addLayout(btn_layout, len(cmd_names), 0, 1, 3)
+
         self.motor_cmd_spinboxes.append(cmd_spinboxes)
         self.motor_cmd_data_labels.append(cmd_data_labels)
-        # Кнопка SEND для публикации JointState один раз
-        send_btn = QPushButton("SEND")
-        send_btn.clicked.connect(
-            lambda _, m=motor_index: self._send_cmd_clicked_for_motor(m)
-        )
-        cmd_grid.addWidget(send_btn, len(cmd_names), 0, 1, 3)
         group_layout.addWidget(cmd_box)
-
-        # Блок параметров
-        param_box = QGroupBox("Parameters")
-        param_grid = QGridLayout(param_box)
-
-        param_spinboxes: List[QDoubleSpinBox] = []
-        param_checkboxes: List[QCheckBox] = []
-        for idx, field in enumerate(MOTOR_PARAM_FIELDS):
-            row = idx
-            col = 0
-            label = QLabel(f"{field}:")
-
-            if field == "id":
-                # ID - неизменяемое поле
-                spinbox = QDoubleSpinBox()
-                fixed_id = float(motor_index + 1)
-                spinbox.setMinimum(int(fixed_id))
-                spinbox.setMaximum(int(fixed_id))
-                spinbox.setValue(int(fixed_id))
-                spinbox.setEnabled(False)
-                label.setText(f"{field}: {int(fixed_id)}")
-                param_grid.addWidget(label, row, col)
-                param_grid.addWidget(spinbox, row, col + 1)
-                param_spinboxes.append(spinbox)
-                param_checkboxes.append(QCheckBox())  # Пустая галочка для ID
-            elif field == "reset_zero":
-                # reset_zero - управляется отдельной кнопкой
-                param_spinboxes.append(QDoubleSpinBox())  # Пустой spinbox
-                param_checkboxes.append(QCheckBox())  # Пустая галочка
-            elif field == "reset_error":
-                # reset_error тоже управляется кнопкой
-                param_spinboxes.append(QDoubleSpinBox())
-                param_checkboxes.append(QCheckBox())
-            elif field == "enable":
-                checkbox = QCheckBox(field)
-                checkbox.setChecked(False)
-                checkbox.stateChanged.connect(
-                    lambda state, m=motor_index: self._on_enable_checkbox_change(
-                        m, state
-                    )
-                )
-                param_grid.addWidget(checkbox, row, col, 1, 2)
-                param_spinboxes.append(QDoubleSpinBox())
-                param_checkboxes.append(checkbox)
-            else:
-                # Числовые поля - используем spinbox
-                spinbox = QDoubleSpinBox()
-                if field in {"kp", "kd"}:
-                    spinbox.setMinimum(0.0)
-                    spinbox.setMaximum(1000.0)
-                    spinbox.setDecimals(3)
-                else:
-                    spinbox.setMinimum(0.0)
-                    spinbox.setMaximum(100.0)
-                    spinbox.setDecimals(3)
-                spinbox.setValue(0.0)
-                spinbox.valueChanged.connect(
-                    lambda val, m=motor_index, lbl=label, f=field: self._on_param_change(
-                        m, lbl, f, val
-                    )
-                )
-                param_grid.addWidget(label, row, col)
-                param_grid.addWidget(spinbox, row, col + 1)
-                param_spinboxes.append(spinbox)
-                param_checkboxes.append(QCheckBox())
-        self.motor_param_spinboxes.append(param_spinboxes)
-        self.motor_param_checkboxes.append(param_checkboxes)
-
-        # Кнопка RESET ZERO отдельно
-        reset_zero_btn = QPushButton("RESET ZERO")
-        reset_zero_btn.clicked.connect(
-            lambda _, m=motor_index: self._reset_zero_clicked(m)
-        )
-        param_grid.addWidget(reset_zero_btn, len(MOTOR_PARAM_FIELDS), 0, 1, 2)
-
-        reset_error_btn = QPushButton("RESET ERROR")
-        reset_error_btn.clicked.connect(
-            lambda _, m=motor_index: self._reset_error_clicked(m)
-        )
-        param_grid.addWidget(reset_error_btn, len(MOTOR_PARAM_FIELDS) + 1, 0, 1, 2)
-
-        # Метка для отображения кода ошибки
-        error_label = QLabel("ERR: 0x00 OFF")
-        error_label.setStyleSheet("QLabel { color: yellow; font-weight: bold; }")
-        param_grid.addWidget(error_label, len(MOTOR_PARAM_FIELDS) + 2, 0, 1, 2)
-        self.motor_error_labels.append(error_label)
-
-        group_layout.addWidget(param_box)
 
         return group
 
-    def _get_enable_state(self, motor_index: int) -> bool:
-        # enable находится на индексе 1 в MOTOR_PARAM_FIELDS (после удаления reset_zero)
-        # MOTOR_PARAM_FIELDS = ["id", "enable", "reset_error", "kp", "kd"]
-        return self.motor_param_checkboxes[motor_index][1].isChecked()
+    def _send_control_cmd(self, cmd_value: int):
+        """Send ControlCmd message"""
+        motor_id = self.control_motor_id.value()
+        self.ros_node.publish_control_command(motor_id, cmd_value)
+        print(f"Sent ControlCmd: motor_id={motor_id}, cmd={cmd_value}")
 
-    def _map_slider_to_pos(self, motor_index: int, value: float) -> float:
-        # Теперь value уже является реальным значением, просто проверяем пределы
-        lower, upper = self.pos_limits[motor_index]
-        return max(lower, min(upper, value))
+    def _send_single_motor_cmd(self, motor_index: int):
+        """Send OneMotorCmd for a single motor"""
+        spinboxes = self.motor_cmd_spinboxes[motor_index]
 
-    def _on_cmd_change(self, motor_index: int, label: QLabel, name: str, value: float):
-        if name == "target_pos":
-            pos = self._map_slider_to_pos(motor_index, value)
-            label.setText(f"{name}: {pos:.3f}")
-        else:
-            label.setText(f"{name}: {value:.3f}")
-        # Не публикуем автоматически, публикация по кнопке SEND
+        position = spinboxes[0].value()
+        velocity = spinboxes[1].value()
+        torque = spinboxes[2].value()
+        kp = spinboxes[3].value()
+        kd = spinboxes[4].value()
 
-    def _on_param_change(
-        self, motor_index: int, label: QLabel, field: str, value: float
-    ):
-        label.setText(f"{field}: {value:.3f}")
-        if field == "enable":
-            self._handle_enable_edge(motor_index)
-        # Не публикуем автоматически
+        self.ros_node.publish_single_motor_command(motor_index, position, velocity, torque, kp, kd)
+        print(f"Sent OneMotorCmd for motor {motor_index}")
 
-    def _on_enable_checkbox_change(self, motor_index: int, state: int):
-        # Обрабатываем изменение галочки enable
-        self._handle_enable_edge(motor_index)
+    def _send_all_motors_cmd(self):
+        """Send LowCmd for all motors"""
+        motor_commands = []
 
-    def _handle_enable_edge(self, motor_index: int):
-        current = self._get_enable_state(motor_index)
-        if current == self.last_enable_state[motor_index]:
-            return
-        if not current:
-            # Не публикуем в /motors/commands при выключении
-            self._publish_motor_zero_once(motor_index)
-            for spinbox in self.motor_cmd_spinboxes[motor_index]:
-                spinbox.setValue(0.0)
-            for idx, spinbox in enumerate(self.motor_param_spinboxes[motor_index]):
-                if MOTOR_PARAM_FIELDS[idx] in {"enable", "id"}:
-                    continue
-                spinbox.setValue(0.0)
-            for idx, checkbox in enumerate(self.motor_param_checkboxes[motor_index]):
-                if MOTOR_PARAM_FIELDS[idx] in {"enable", "id"}:
-                    continue
-                checkbox.setChecked(False)
-        else:
-            # При включении опубликовать только параметры этого мотора один раз
-            params = self._collect_motor_params(motor_index)
-            self.ros_node.publish_motor_params(motor_index, params)
-        self.last_enable_state[motor_index] = current
+        for motor_index in range(self.motor_count):
+            spinboxes = self.motor_cmd_spinboxes[motor_index]
 
-    def _publish_motor_zero_once(self, motor_index: int):
-        # Не публиковать в /motors/commands при выключении
-        zero_params = [0.0] * len(MOTOR_PARAM_FIELDS)
-        zero_params[0] = float(motor_index + 1)
-        self.ros_node.publish_motor_params(motor_index, zero_params)
+            motor_cmd = MotorCmd()
+            motor_cmd.position = spinboxes[0].value()
+            motor_cmd.velocity = spinboxes[1].value()
+            motor_cmd.torque = spinboxes[2].value()
+            motor_cmd.kp = spinboxes[3].value()
+            motor_cmd.kd = spinboxes[4].value()
 
-    def _collect_joint_arrays(self):
-        pos_list = [0.0] * self.motor_count
-        vel_list = [0.0] * self.motor_count
-        trq_list = [0.0] * self.motor_count
+            motor_commands.append(motor_cmd)
 
-        for m in range(self.motor_count):
-            if not self._get_enable_state(m):
-                continue
-            cmd_spinboxes = self.motor_cmd_spinboxes[m]
-            pos_list[m] = self._map_slider_to_pos(m, cmd_spinboxes[0].value())
-            vel_list[m] = float(cmd_spinboxes[1].value())
-            trq_list[m] = float(cmd_spinboxes[2].value())
-        return pos_list, vel_list, trq_list
-
-    def _collect_motor_params(self, motor_index: int) -> List[float]:
-        spinboxes = self.motor_param_spinboxes[motor_index]
-        checkboxes = self.motor_param_checkboxes[motor_index]
-        result = []
-
-        for i, field in enumerate(MOTOR_PARAM_FIELDS):
-            if field == "reset_zero":
-                # reset_zero всегда 0 в обычном сборе, устанавливается в 1 только кнопкой
-                result.append(0.0)
-            elif field == "reset_error":
-                # reset_error тоже всегда 0 в обычном сборе, устанавливается в 1 только кнопкой
-                result.append(0.0)
-            elif field == "enable":
-                # Для булевых полей используем галочки
-                result.append(1.0 if checkboxes[i].isChecked() else 0.0)
-            else:
-                # Для числовых полей используем spinbox
-                result.append(float(spinboxes[i].value()))
-
-        return result
-
-    def _publish_all(self, force: bool = False):
-        # Публиковать по требованию (SEND) или при включении мотора, не по таймеру
-        for m in range(self.motor_count):
-            enabled = self._get_enable_state(m)
-            if enabled or force:
-                params = self._collect_motor_params(m)
-                self.ros_node.publish_motor_params(
-                    m, params if enabled else [0.0] * len(params)
-                )
-
-    def _format_error_code(self, error_code: int) -> str:
-        """Форматирует код ошибки в строку вида 'ERR: 0x09 LOWVOLTAGE'"""
-        if error_code == 0:
-            return "ERR: 0x00 OFF"
-        error_hex = f"0x{error_code:02X}"
-        error_name = ERROR_CODES.get(error_code, "UNKNOWN")
-        return f"ERR: {error_hex} {error_name}"
-
-    def _update_state_labels(self):
-        for m in range(self.motor_count):
-            if m < len(self.motor_cmd_data_labels):
-                labels = self.motor_cmd_data_labels[m]
-                if len(labels) >= 3:
-                    labels[0].setText(f"state: {self.ros_node.current_pos[m]:.2f}")
-                    labels[1].setText(f"state: {self.ros_node.current_vel[m]:.2f}")
-                    labels[2].setText(f"state: {self.ros_node.current_trq[m]:.2f}")
-            # Обновить метку ошибки
-            if m < len(self.motor_error_labels):
-                error_code = self.ros_node.motor_errors[m]
-                error_text = self._format_error_code(error_code)
-                self.motor_error_labels[m].setText(error_text)
-                # Изменить цвет в зависимости от кода ошибки
-                if error_code == 0:
-                    # ERR 0x00 OFF - желтый
-                    self.motor_error_labels[m].setStyleSheet("QLabel { color: orange; font-weight: bold; }")
-                elif error_code == 1:
-                    # ERR 0x01 ENABLE - зеленый
-                    self.motor_error_labels[m].setStyleSheet("QLabel { color: green; font-weight: bold; }")
-                else:
-                    # Остальные ошибки - красный
-                    self.motor_error_labels[m].setStyleSheet("QLabel { color: red; font-weight: bold; }")
-        # Обновить IMU PRY
-        self.imu_labels["pitch"].setText(f"pitch: {self.ros_node.imu_pry[0]:.3f}")
-        self.imu_labels["roll"].setText(f"roll: {self.ros_node.imu_pry[1]:.3f}")
-        self.imu_labels["yaw"].setText(f"yaw: {self.ros_node.imu_pry[2]:.3f}")
-
-    def _on_timer(self):
-        # Не публикуем /motors/commands по таймеру
-        self._update_state_labels()
-
-        # Публикация IMU/Control Board команд по таймеру
-        self._publish_aux_commands()
-
-    def _publish_aux_commands(self):
-        # /imu/commands: три числа 0/1: [acc, mag, gyro]
-        imu_msg = UInt8MultiArray()
-        acc = 1 if self.chk_acc_cal.isChecked() else 0
-        mag = 1 if self.chk_mag_cal.isChecked() else 0
-        gyro = 1 if self.chk_gyro_cal.isChecked() else 0
-        imu_msg.data = [acc, mag, gyro]
-        self.ros_node.imu_cmd_pub.publish(imu_msg)
-        # /control_board/commands: одиночный float
-        cb_msg = Float32()
-        cb_msg.data = float(self.beep_state_spin.value())
-        self.ros_node.cb_cmd_pub.publish(cb_msg)
-
-    def _send_cmd_clicked_for_motor(self, motor_index: int):
-        # Публикуем один JointState при нажатии SEND (один раз)
-        pos_list, vel_list, trq_list = self._collect_joint_arrays()
-        self.ros_node.publish_joint_commands(pos_list, vel_list, trq_list)
+        self.ros_node.publish_low_command(motor_commands)
+        print("Sent LowCmd for all motors")
 
     def _emergency_stop(self):
-        # Отправить команды остановки во все топики моторов и обновить UI
+        """Emergency stop - send disable commands to all motors"""
+        for motor_id in range(self.motor_count):
+            self.ros_node.publish_control_command(motor_id, 253)  # DISABLE
+
+        # Reset all UI controls to zero
         for motor_index in range(self.motor_count):
-            stop_params = [0.0] * len(MOTOR_PARAM_FIELDS)
-            stop_params[0] = float(motor_index + 1)  # id остается
-            # enable=0, reset_zero=0, reset_error=0, kp=0, kd=0
-            self.ros_node.publish_motor_params(motor_index, stop_params)
+            for spinbox in self.motor_cmd_spinboxes[motor_index]:
+                spinbox.setValue(0.0)
 
-            # Обновить UI для этого мотора
-            checkboxes = self.motor_param_checkboxes[motor_index]
-            spinboxes = self.motor_param_spinboxes[motor_index]
+        print("EMERGENCY STOP: All motors disabled")
 
-            for idx, field in enumerate(MOTOR_PARAM_FIELDS):
-                if field == "enable":
-                    checkboxes[idx].setChecked(False)
-                elif field == "reset_error":
-                    checkboxes[idx].setChecked(False)
-                elif field in {"kp", "kd"}:
-                    spinboxes[idx].setValue(0.0)
+    def _on_timer(self):
+        """Update GUI with current state data"""
+        # Update motor state displays
+        for motor_index in range(self.motor_count):
+            if motor_index < len(self.ros_node.motor_states):
+                motor_state = self.ros_node.motor_states[motor_index]
+                labels = self.motor_cmd_data_labels[motor_index]
 
-    def _reset_zero_clicked(self, motor_index: int):
-        # Собрать текущие параметры мотора
-        current_params = self._collect_motor_params(motor_index)
+                if len(labels) >= 5:
+                    labels[0].setText(f"current: {motor_state.position:.3f}")
+                    labels[1].setText(f"current: {motor_state.velocity:.3f}")
+                    labels[2].setText(f"current: {motor_state.torque:.3f}")
+                    # For KP and KD, we don't have feedback, so leave as is
 
-        # Установить reset_zero=1 в текущих параметрах
-        # MOTOR_PARAM_FIELDS = ["id", "enable", "reset_zero", "reset_error", "kp", "kd"]
-        reset_params = current_params.copy()
-        reset_params[2] = 1.0  # reset_zero на индексе 2
+        # Update system status
+        low_state = self.ros_node.current_low_state
+        if hasattr(low_state, 'imu_state') and low_state.imu_state:
+            imu = low_state.imu_state
 
-        # Отправить сообщение
-        self.ros_node.publish_motor_params(motor_index, reset_params)
+            # Quaternion
+            quat_str = "[-, -, -, -]"
+            if len(imu.quaternion) >= 4:
+                quat_str = f"[{imu.quaternion[0]:.3f}, {imu.quaternion[1]:.3f}, {imu.quaternion[2]:.3f}, {imu.quaternion[3]:.3f}]"
 
-    def _reset_error_clicked(self, motor_index: int):
-        # Собрать текущие параметры мотора
-        current_params = self._collect_motor_params(motor_index)
+            # RPY
+            rpy_str = "[-, -, -]°"
+            if len(imu.rpy) >= 3:
+                rpy_str = f"[{math.degrees(imu.rpy[0]):.1f}°, {math.degrees(imu.rpy[1]):.1f}°, {math.degrees(imu.rpy[2]):.1f}°]"
 
-        # Установить reset_error=1 в текущих параметрах
-        # MOTOR_PARAM_FIELDS = ["id", "enable", "reset_zero", "reset_error", "kp", "kd"]
-        reset_params = current_params.copy()
-        reset_params[3] = 1.0  # reset_error на индексе 3
+            self.imu_status_label.setText(f"IMU: Quaternion={quat_str} | RPY={rpy_str}")
 
-        # Отправить сообщение
-        self.ros_node.publish_motor_params(motor_index, reset_params)
+        self.tick_label.setText(f"Tick: {low_state.tick}")
+
+        if low_state.timestamp_state.sec > 0:
+            timestamp = f"{low_state.timestamp_state.sec}.{low_state.timestamp_state.nanosec:09d}"
+            self.timestamp_label.setText(f"Last Update: {timestamp}")
 
 
 def main(args=None):
@@ -655,9 +411,9 @@ def main(args=None):
     try:
         pkg_share = get_package_share_directory("tinker_gui")
         config_path = os.path.join(pkg_share, "config", "gui_node.yaml")
-        with open(config_path, "r") as file:
+        with open(config_path, 'r') as file:
             config = yaml.safe_load(file)
-        motor_count = config.get("motors_number", 12)
+        motor_count = config.get('motors_number', 12)
     except Exception as e:
         print(f"Ошибка загрузки конфига: {e}")
         motor_count = 12

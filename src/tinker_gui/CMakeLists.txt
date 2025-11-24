@@ -7,16 +7,19 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_python REQUIRED)
 find_package(rclpy REQUIRED)
-find_package(sensor_msgs REQUIRED)
-find_package(geometry_msgs REQUIRED)
+find_package(tinker_msgs REQUIRED)
+find_package(builtin_interfaces REQUIRED)
+
+ament_python_install_package(${PROJECT_NAME})
 
 install(
   PROGRAMS
-    src/gui_slider_node.py
-    src/test_data_publisher.py
-    src/commands_to_states_bridge.py
-    src/states_to_joint_states.py
+    tinker_gui/gui_slider_node.py
+    tinker_gui/test_data_publisher.py
+    tinker_gui/commands_to_states_bridge.py
+    tinker_gui/states_to_joint_states.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

@@ -1,46 +1,45 @@
 #!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
-from sensor_msgs.msg import JointState
+from tinker_msgs.msg import LowState, LowCmd
 
-JOINT_NAMES_10 = [
-    'joint_l_yaw',
-    'joint_l_roll',
-    'joint_l_pitch',
-    'joint_l_knee',
-    'joint_l_ankle',
-    'joint_r_yaw',
-    'joint_r_roll',
-    'joint_r_pitch',
-    'joint_r_knee',
-    'joint_r_ankle',
-]
 
-class StatesToJointStates(Node):
+class StatesToCommandsBridge(Node):
     def __init__(self) -> None:
-        super().__init__('states_to_joint_states')
-        self._pub = self.create_publisher(JointState, '/joint_states', 10)
-        self._sub = self.create_subscription(JointState, '/motors/states', self._on_states, 10)
-        self.get_logger().info('Bridge started: /motors/states -> /joint_states (10 joints)')
+        super().__init__('states_to_commands_bridge')
+        self._pub = self.create_publisher(LowCmd, '/low_level_command', 10)
+        self._sub = self.create_subscription(LowState, '/low_level_state', self._on_states, 10)
+        self.get_logger().info('Bridge started: /low_level_state -> /low_level_command')
 
-    def _on_states(self, msg: JointState) -> None:
-        js = JointState()
-        js.name = JOINT_NAMES_10
-        positions = list(msg.position[:10]) if len(msg.position) >= 10 else list(msg.position) + [0.0] * (10 - len(msg.position))
-        js.position = [float(v) for v in positions]
-        js.header.stamp = self.get_clock().now().to_msg()
-        self._pub.publish(js)
+    def _on_states(self, msg: LowState) -> None:
+        # Create LowCmd from LowState (for simulation/echo purposes)
+        cmd_msg = LowCmd()
+        cmd_msg.timestamp_state = msg.timestamp_state
+
+        # Create motor commands from motor states
+        cmd_msg.motor_cmd = []
+        for motor_state in msg.motor_state:
+            motor_cmd = MotorCmd()
+            motor_cmd.position = motor_state.position
+            motor_cmd.velocity = motor_state.velocity
+            motor_cmd.torque = motor_state.torque
+            motor_cmd.kp = 0.0  # Default values
+            motor_cmd.kd = 0.0  # Default values
+            cmd_msg.motor_cmd.append(motor_cmd)
+
+        self._pub.publish(cmd_msg)
 
 
 def main(args=None):
     rclpy.init(args=args)
-    node = StatesToJointStates()
+    node = StatesToCommandsBridge()
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:
         pass
     node.destroy_node()
     rclpy.shutdown()
+
 
 if __name__ == '__main__':
     main()
