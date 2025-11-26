@@ -3,6 +3,7 @@
 import argparse
 import rclpy
 from rclpy.executors import MultiThreadedExecutor
+import scripts
 from scripts.gait_controller import GaitController
 
 def main():
@@ -17,7 +18,6 @@ def main():
                     choices=['keyboard', 'gamepad'],
                     help="set input device: 'keyboard'/'gamepad' (default is keyboard)")
     args = ap.parse_args()
-    # print(args.object)
 
     rclpy.init()
 
@@ -36,6 +36,7 @@ def main():
         pass
     except Exception as e:
         print(f'Error: {e}')
+
     finally:
         if 'controller' in locals():
             controller.shutdown()

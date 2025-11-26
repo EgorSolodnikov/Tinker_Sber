@@ -1,19 +1,19 @@
-from .isaac_adapter import IsaacAdapter
-from .mujoco_adapter import MujocoAdapter
-from .robot_adapter import RobotAdapter
-from .base_adapter import BaseRobotAdapter
 from rclpy.node import Node
+from .adapters import BaseAdapter, IsaacAdapter, MujocoAdapter, RobotAdapter
 
 class AdapterFactory:
+    
+    _ADAPTER_MAP = {
+        'isaac': IsaacAdapter,
+        'mujoco': MujocoAdapter,
+        'robot': RobotAdapter
+    }
+
     @staticmethod
-    def create_adapter(adapter_type: str, node: Node) -> BaseRobotAdapter:
-        adapter_type = adapter_type.lower()
+    def get(adapter_type: str, node: Node) -> BaseAdapter:
+        adater_class = AdapterFactory._ADAPTER_MAP.get(adapter_type.lower())
+
+        if adater_class is None:
+            raise ValueError(f'Unknown adapter (control object) type: {adapter_type}')
         
-        if adapter_type == 'isaac':
-            return IsaacAdapter(node)
-        elif adapter_type == 'mujoco':
-            return MujocoAdapter(node)
-        elif adapter_type == 'robot':
-            return RobotAdapter(node)
-        else:
-            raise ValueError(f"Unknown adapter type: {adapter_type}")
+        return adater_class(node)

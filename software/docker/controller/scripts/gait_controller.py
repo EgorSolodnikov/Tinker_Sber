@@ -1,31 +1,24 @@
 import rclpy
 from rclpy.node import Node
 from controller_msg.msg import RobotState, TargetCommand, ControlCommand
+from .adapter_factory import AdapterFactory
+from .inference_model import InferenceModel
 
 class GaitController(Node):
-    def __init__(self):
+    def __init__(self, adapter_type: str, input_device: str = 'keyboard'):
         super().__init__('gait_controller')
 
-        self.state_subscription = self.create_subscription(
-            RobotState,
-            '/robot/state',
-            10
-        )
+        self.adapter_type = adapter_type
+        self.input_device = input_device
+
+        self.adapter = AdapterFactory.get(adapter_type, node=self)
+        self.adapter.initialize()
+
+        self.inference_model = InferenceModel('path/to/model.onnx') # concept of interaction with model
 
         self.target_subscription = self.create_subscription(
             TargetCommand,
-            '/command/target',
+            '/control/target',
             10
         )
 
-        self.control_publisher = self.create_publisher(
-            ControlCommand,
-            '/control/command',
-            10
-        )
-
-        self.rl_model = load_rl_model()
-
-
-def load_rl_model():
-    return
