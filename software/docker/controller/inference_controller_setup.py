@@ -3,8 +3,8 @@
 import argparse
 import rclpy
 from rclpy.executors import MultiThreadedExecutor
-import scripts
-from scripts.gait_controller import GaitController
+import src
+from src.gait_controller import GaitController
 
 def main():
     ap = argparse.ArgumentParser()
@@ -17,6 +17,10 @@ def main():
                     default="keyboard",
                     choices=['keyboard', 'gamepad'],
                     help="set input device: 'keyboard'/'gamepad' (default is keyboard)")
+    ap.add_argument("-p", "--path",
+                    type=str,
+                    default="./models/model_30000.pt",
+                    help="define inference model path (default is ./models/model_30000.pt)")
     args = ap.parse_args()
 
     rclpy.init()
@@ -24,7 +28,8 @@ def main():
     try:
         controller = GaitController(
             adapter_type = args.object,
-            input_device = args.device
+            device_type = args.device,
+            inference_ptah = args.path
         )
 
         executor = MultiThreadedExecutor()
