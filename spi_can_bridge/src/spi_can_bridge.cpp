@@ -1,10 +1,15 @@
 // spi_can_bridge.cpp
 #include <rclcpp/rclcpp.hpp>
-#include <std_msgs/msg/float32_multi_array.hpp>
-#include <sensor_msgs/msg/joint_state.hpp>
-#include <std_msgs/msg/u_int8_multi_array.hpp>
-#include <std_msgs/msg/float32.hpp>
-#include <geometry_msgs/msg/vector3.hpp>
+#include <builtin_interfaces/msg/time.hpp>
+
+// Custom message includes
+#include "tinker_msgs/msg/control_cmd.hpp"
+#include "tinker_msgs/msg/imu_state.hpp"
+#include "tinker_msgs/msg/low_cmd.hpp"
+#include "tinker_msgs/msg/low_state.hpp"
+#include "tinker_msgs/msg/motor_cmd.hpp"
+#include "tinker_msgs/msg/motor_state.hpp"
+#include "tinker_msgs/msg/one_motor_cmd.hpp"
 
 #include <sys/ipc.h>
 #include <sys/shm.h>
@@ -12,6 +17,7 @@
 #include <vector>
 #include <thread>
 #include <mutex>
+#include <array>
 
 #define MEM_SPI 0001
 #define MEM_SIZE 2048
@@ -27,27 +33,28 @@ public:
         // Initialize shared memory
         initialize_shared_memory();
         
-        // Publishers (from SPI2CAN to ROS 2)
-        joint_state_pub_ = this->create_publisher<sensor_msgs::msg::JointState>("/motors/states", 10);
-        imu_pub_ = this->create_publisher<geometry_msgs::msg::Vector3>("/imu/data", 10);
+        // Publishers (from SPI2CAN to ROS 2) - using custom messages
+        low_state_pub_ = this->create_publisher<tinker_msgs::msg::LowState>("/low_level_state", 10);
         
-        // Subscribers (from ROS 2 GUI to SPI2CAN)
-        commands_sub_ = this->create_subscription<sensor_msgs::msg::JointState>(
-            "/motors/commands", 10,
-            std::bind(&SpiCanBridge::commands_callback, this, std::placeholders::_1));
+        // Subscribers (from ROS 2 GUI to SPI2CAN) - using custom messages
+        low_cmd_sub_ = this->create_subscription<tinker_msgs::msg::LowCmd>(
+            "/low_level_command", 10,
+            std::bind(&SpiCanBridge::low_cmd_callback, this, std::placeholders::_1));
             
-        imu_commands_sub_ = this->create_subscription<std_msgs::msg::UInt8MultiArray>(
-            "/imu/commands", 10,
-            std::bind(&SpiCanBridge::imu_commands_callback, this, std::placeholders::_1));
+        control_cmd_sub_ = this->create_subscription<tinker_msgs::msg::ControlCmd>(
+            "/control_command", 10,
+            std::bind(&SpiCanBridge::control_cmd_callback, this, std::placeholders::_1));
             
-        beep_sub_ = this->create_subscription<std_msgs::msg::Float32>(
-            "/control_board/commands", 10,
-            std::bind(&SpiCanBridge::beep_callback, this, std::placeholders::_1));
+        one_motor_cmd_sub_ = this->create_subscription<tinker_msgs::msg::OneMotorCmd>(
+            "/single_motor_command", 10,
+            std::bind(&SpiCanBridge::one_motor_cmd_callback, this, std::placeholders::_1));
 
         // Timer for reading from shared memory and publishing to ROS
         timer_ = this->create_wall_timer(
             std::chrono::milliseconds(10),
             std::bind(&SpiCanBridge::timer_callback, this));
+
+        RCLCPP_INFO(this->get_logger(), "SPI CAN Bridge started with custom messages");
     }
 
 private:
@@ -68,34 +75,41 @@ private:
         RCLCPP_INFO(this->get_logger(), "Shared memory attached successfully");
     }
 
-    void commands_callback(const sensor_msgs::msg::JointState::SharedPtr msg) {
+    void low_cmd_callback(const tinker_msgs::msg::LowCmd::SharedPtr msg) {
         std::lock_guard<std::mutex> lock(mutex_);
         
-        // Convert JointState to SPI2CAN shared memory format
-        // This writes to the shared memory that SPI2CAN reads from
-        write_joint_commands_to_shared_memory(msg);
+        // Store the latest low level command
+        latest_low_cmd_ = *msg;
+        low_cmd_updated_ = true;
+        
+        RCLCPP_DEBUG(this->get_logger(), "Received LowCmd for %zu motors", msg->motor_cmd.size());
     }
 
-    void imu_commands_callback(const std_msgs::msg::UInt8MultiArray::SharedPtr msg) {
+    void control_cmd_callback(const tinker_msgs::msg::ControlCmd::SharedPtr msg) {
         std::lock_guard<std::mutex> lock(mutex_);
         
-        if (msg->data.size() >= 3) {
-            // Store IMU calibration commands to write to shared memory
-            imu_calibration_[0] = msg->data[0]; // acc_calibrate
-            imu_calibration_[1] = msg->data[1]; // mag_calibrate  
-            imu_calibration_[2] = msg->data[2]; // gyro_calibrate
-        }
+        // Store control command (enable/disable/clear error, etc.)
+        latest_control_cmd_ = *msg;
+        control_cmd_updated_ = true;
+        
+        RCLCPP_DEBUG(this->get_logger(), "Received ControlCmd: motor_id=%d, cmd=%d", 
+                     msg->motor_id, msg->cmd);
     }
 
-    void beep_callback(const std_msgs::msg::Float32::SharedPtr msg) {
+    void one_motor_cmd_callback(const tinker_msgs::msg::OneMotorCmd::SharedPtr msg) {
         std::lock_guard<std::mutex> lock(mutex_);
-        beep_state_ = msg->data;
+        
+        // Store single motor command
+        latest_one_motor_cmd_ = *msg;
+        one_motor_cmd_updated_ = true;
+        
+        RCLCPP_DEBUG(this->get_logger(), "Received OneMotorCmd for motor %d", msg->motor_id);
     }
 
     void timer_callback() {
         std::lock_guard<std::mutex> lock(mutex_);
         
-        // Read from shared memory (data from SPI2CAN)
+        // Read from shared memory (data from SPI2CAN) and publish custom messages
         if (shared_memory_ != nullptr) {
             read_from_shared_memory_and_publish();
         }
@@ -104,63 +118,92 @@ private:
         write_commands_to_shared_memory();
     }
 
-    void write_joint_commands_to_shared_memory(const sensor_msgs::msg::JointState::SharedPtr msg) {
-        // Store the latest commands
-        latest_commands_ = *msg;
-        commands_updated_ = true;
-    }
-
     void write_commands_to_shared_memory() {
         ShareMemory* shm = (ShareMemory*)shared_memory_;
         
         if (shm->flag == 0) {
             // Memory is ready for writing
             
-            // Convert ROS 2 commands to SPI2CAN format
-            // This is the reverse of the memory_read() function in SPI2CAN
+            // Convert custom ROS 2 messages to SPI2CAN format
             unsigned char write_buf[MEM_SIZE] = {0};
             int write_cnt = MEM_SIZE / 2; // Start at second half for commands
             
-            // Write motor commands (10 motors)
-            for (int i = 0; i < 10; i++) {
-                float q_set = 0.0f, dq_set = 0.0f, tau_ff = 0.0f;
-                
-                if (i < latest_commands_.position.size()) {
-                    q_set = latest_commands_.position[i];
-                }
-                if (i < latest_commands_.velocity.size()) {
-                    dq_set = latest_commands_.velocity[i];
-                }
-                if (i < latest_commands_.effort.size()) {
-                    tau_ff = latest_commands_.effort[i];
-                }
-                
-                // Convert floats to bytes (same as SPI2CAN's setDataFloat_spi)
-                write_float_to_buffer(write_buf, &write_cnt, q_set);
-                write_float_to_buffer(write_buf, &write_cnt, dq_set);
-                write_float_to_buffer(write_buf, &write_cnt, tau_ff);
+            // Write motor commands based on received message types
+            if (low_cmd_updated_) {
+                // Write LowCmd (all motors)
+                write_low_cmd_to_buffer(write_buf, &write_cnt);
+                low_cmd_updated_ = false;
+            } 
+            else if (one_motor_cmd_updated_) {
+                // Write OneMotorCmd (single motor)
+                write_one_motor_cmd_to_buffer(write_buf, &write_cnt);
+                one_motor_cmd_updated_ = false;
             }
             
-            // Write PID gains
-            write_float_to_buffer(write_buf, &write_cnt, kp_);
-            write_float_to_buffer(write_buf, &write_cnt, kd_);
-            
-            // Write control flags
-            write_buf[write_cnt++] = en_motor_;
-            write_buf[write_cnt++] = reset_q_;
-            write_buf[write_cnt++] = reset_err_;
-            
-            // Write IMU calibration flags
-            write_buf[write_cnt++] = imu_calibration_[0]; // Acc
-            write_buf[write_cnt++] = imu_calibration_[1]; // Gyro
-            write_buf[write_cnt++] = imu_calibration_[2]; // Mag
-            
-            // Write beep state
-            write_buf[write_cnt++] = (uint8_t)beep_state_;
+            // Write control commands if any
+            if (control_cmd_updated_) {
+                write_control_cmd_to_buffer(write_buf, &write_cnt);
+                control_cmd_updated_ = false;
+            }
             
             // Copy to shared memory
             memcpy(&shm->szMsg[MEM_SIZE/2], write_buf, MEM_SIZE/2);
             shm->flag = 1; // Signal that data is ready
+        }
+    }
+
+    void write_low_cmd_to_buffer(unsigned char* buffer, int* cnt) {
+        // Write all motor commands from LowCmd
+        for (const auto& motor_cmd : latest_low_cmd_.motor_cmd) {
+            write_float_to_buffer(buffer, cnt, motor_cmd.position);
+            write_float_to_buffer(buffer, cnt, motor_cmd.velocity);
+            write_float_to_buffer(buffer, cnt, motor_cmd.torque);
+            write_float_to_buffer(buffer, cnt, motor_cmd.kp);
+            write_float_to_buffer(buffer, cnt, motor_cmd.kd);
+        }
+        
+        // Write control flags (simplified - you might want to map these from your messages)
+        buffer[(*cnt)++] = 1; // enable flag
+        buffer[(*cnt)++] = 0; // reset zero flag  
+        buffer[(*cnt)++] = 0; // reset error flag
+    }
+
+    void write_one_motor_cmd_to_buffer(unsigned char* buffer, int* cnt) {
+        // Write single motor command - position it correctly in the buffer
+        int motor_offset = latest_one_motor_cmd_.motor_id * 20; // 5 floats * 4 bytes per motor
+        
+        // Ensure we don't overflow
+        if (motor_offset + 20 < MEM_SIZE/2) {
+            int temp_cnt = *cnt + motor_offset;
+            
+            write_float_to_buffer(buffer, &temp_cnt, latest_one_motor_cmd_.position);
+            write_float_to_buffer(buffer, &temp_cnt, latest_one_motor_cmd_.velocity);
+            write_float_to_buffer(buffer, &temp_cnt, latest_one_motor_cmd_.torque);
+            write_float_to_buffer(buffer, &temp_cnt, latest_one_motor_cmd_.kp);
+            write_float_to_buffer(buffer, &temp_cnt, latest_one_motor_cmd_.kd);
+        }
+        
+        // Still write control flags
+        buffer[(*cnt)++] = 1; // enable flag
+        buffer[(*cnt)++] = 0; // reset zero flag
+        buffer[(*cnt)++] = 0; // reset error flag
+    }
+
+    void write_control_cmd_to_buffer(unsigned char* buffer, int* cnt) {
+        // Map ControlCmd to appropriate flags in the buffer
+        switch (latest_control_cmd_.cmd) {
+            case 252: // ENABLE
+                buffer[(*cnt)++] = 1; // enable flag
+                break;
+            case 253: // DISABLE
+                buffer[(*cnt)++] = 0; // enable flag
+                break;
+            case 254: // SET_ZERO_POSITION
+                buffer[(*cnt)++] = 1; // reset zero flag
+                break;
+            case 251: // CLEAR_ERROR
+                buffer[(*cnt)++] = 1; // reset error flag
+                break;
         }
     }
 
@@ -170,47 +213,66 @@ private:
         if (shm->flag == 1) {
             // Memory has fresh data from SPI2CAN
             
-            // Parse the data (reverse of SPI2CAN's memory_write())
+            // Parse the data and create custom messages
             unsigned char* read_buf = shm->szMsg;
             int read_cnt = 0;
             
-            // Create JointState message for motor feedback
-            auto joint_state_msg = sensor_msgs::msg::JointState();
-            joint_state_msg.name.resize(10);
-            joint_state_msg.position.resize(10);
-            joint_state_msg.velocity.resize(10);
-            joint_state_msg.effort.resize(10);
+            // Create LowState message
+            auto low_state_msg = tinker_msgs::msg::LowState();
             
-            // Read IMU data
-            float pitch = read_float_from_buffer(read_buf, &read_cnt);
-            float roll = read_float_from_buffer(read_buf, &read_cnt);
-            float yaw = read_float_from_buffer(read_buf, &read_cnt);
+            // Set timestamp
+            auto now = this->now();
+            low_state_msg.timestamp_state.sec = now.seconds();
+            low_state_msg.timestamp_state.nanosec = now.nanoseconds() % 1000000000;
             
-            float pitch_rate = read_float_from_buffer(read_buf, &read_cnt);
-            float roll_rate = read_float_from_buffer(read_buf, &read_cnt);
-            float yaw_rate = read_float_from_buffer(read_buf, &read_cnt);
+            low_state_msg.tick = tick_counter_++;
             
-            float acc_x = read_float_from_buffer(read_buf, &read_cnt);
-            float acc_y = read_float_from_buffer(read_buf, &read_cnt);
-            float acc_z = read_float_from_buffer(read_buf, &read_cnt);
+            // Read IMU data and create IMUState
+            auto imu_state = tinker_msgs::msg::IMUState();
+            imu_state.timestamp_state = low_state_msg.timestamp_state;
             
-            // Read motor data (10 motors)
-            for (int i = 0; i < 10; i++) {
-                joint_state_msg.name[i] = "motor_" + std::to_string(i+1);
-                joint_state_msg.position[i] = read_float_from_buffer(read_buf, &read_cnt);
-                joint_state_msg.velocity[i] = read_float_from_buffer(read_buf, &read_cnt);
-                joint_state_msg.effort[i] = read_float_from_buffer(read_buf, &read_cnt);
+            // Read IMU quaternion (fixed arrays, use direct assignment)
+            for (int i = 0; i < 4; i++) {
+                imu_state.quaternion[i] = read_float_from_buffer(read_buf, &read_cnt);
             }
             
-            // Publish the messages
-            joint_state_pub_->publish(joint_state_msg);
+            // Read IMU gyroscope (fixed arrays, use direct assignment)
+            for (int i = 0; i < 3; i++) {
+                imu_state.gyroscope[i] = read_float_from_buffer(read_buf, &read_cnt);
+            }
             
-            // Publish IMU data
-            auto imu_msg = geometry_msgs::msg::Vector3();
-            imu_msg.x = pitch;
-            imu_msg.y = roll;
-            imu_msg.z = yaw;
-            imu_pub_->publish(imu_msg);
+            // Read IMU accelerometer (fixed arrays, use direct assignment)
+            for (int i = 0; i < 3; i++) {
+                imu_state.accelerometer[i] = read_float_from_buffer(read_buf, &read_cnt);
+            }
+            
+            // Read IMU RPY (fixed arrays, use direct assignment)
+            for (int i = 0; i < 3; i++) {
+                imu_state.rpy[i] = read_float_from_buffer(read_buf, &read_cnt);
+            }
+            
+            // Read IMU temperature
+            imu_state.temperature = static_cast<int16_t>(read_float_from_buffer(read_buf, &read_cnt));
+            
+            low_state_msg.imu_state = imu_state;
+            
+            // Read motor data (10 motors) - fixed array, use direct assignment
+            for (int i = 0; i < 10; i++) {
+                auto motor_state = tinker_msgs::msg::MotorState();
+                motor_state.timestamp_state = low_state_msg.timestamp_state;
+                
+                motor_state.position = read_float_from_buffer(read_buf, &read_cnt);
+                motor_state.velocity = read_float_from_buffer(read_buf, &read_cnt);
+                motor_state.torque = read_float_from_buffer(read_buf, &read_cnt);
+                motor_state.temperature_mosfet = static_cast<int16_t>(read_float_from_buffer(read_buf, &read_cnt));
+                motor_state.temperature_rotor = static_cast<int16_t>(read_float_from_buffer(read_buf, &read_cnt));
+                motor_state.error = static_cast<uint8_t>(read_float_from_buffer(read_buf, &read_cnt));
+                
+                low_state_msg.motor_state[i] = motor_state;
+            }
+            
+            // Publish the LowState message
+            low_state_pub_->publish(low_state_msg);
             
             shm->flag = 0; // Signal that we've read the data
         }
@@ -234,12 +296,13 @@ private:
         return *(float*)&i;
     }
 
-    // ROS 2 interfaces
-    rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr joint_state_pub_;
-    rclcpp::Publisher<geometry_msgs::msg::Vector3>::SharedPtr imu_pub_;
-    rclcpp::Subscription<sensor_msgs::msg::JointState>::SharedPtr commands_sub_;
-    rclcpp::Subscription<std_msgs::msg::UInt8MultiArray>::SharedPtr imu_commands_sub_;
-    rclcpp::Subscription<std_msgs::msg::Float32>::SharedPtr beep_sub_;
+    // ROS 2 interfaces - using custom messages
+    rclcpp::Publisher<tinker_msgs::msg::LowState>::SharedPtr low_state_pub_;
+    
+    rclcpp::Subscription<tinker_msgs::msg::LowCmd>::SharedPtr low_cmd_sub_;
+    rclcpp::Subscription<tinker_msgs::msg::ControlCmd>::SharedPtr control_cmd_sub_;
+    rclcpp::Subscription<tinker_msgs::msg::OneMotorCmd>::SharedPtr one_motor_cmd_sub_;
+    
     rclcpp::TimerBase::SharedPtr timer_;
 
     // Shared memory
@@ -247,13 +310,16 @@ private:
     void* shared_memory_;
     std::mutex mutex_;
 
-    // Command state
-    sensor_msgs::msg::JointState latest_commands_;
-    bool commands_updated_ = false;
-    uint8_t imu_calibration_[3] = {0};
-    float beep_state_ = 0.0f;
-    float kp_ = 0.0f, kd_ = 0.0f;
-    uint8_t en_motor_ = 0, reset_q_ = 0, reset_err_ = 0;
+    // Command state - using custom messages
+    tinker_msgs::msg::LowCmd latest_low_cmd_;
+    tinker_msgs::msg::ControlCmd latest_control_cmd_;
+    tinker_msgs::msg::OneMotorCmd latest_one_motor_cmd_;
+    
+    bool low_cmd_updated_ = false;
+    bool control_cmd_updated_ = false;
+    bool one_motor_cmd_updated_ = false;
+    
+    uint32_t tick_counter_ = 0;
 };
 
 int main(int argc, char** argv) {

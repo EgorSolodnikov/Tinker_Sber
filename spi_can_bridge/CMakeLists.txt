@@ -12,16 +12,16 @@ endif()
 
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(sensor_msgs REQUIRED)
-find_package(geometry_msgs REQUIRED)
-find_package(std_msgs REQUIRED)
+find_package(builtin_interfaces REQUIRED)
+
+# Find your custom message package
+find_package(tinker_msgs REQUIRED)
 
 add_executable(spi_can_bridge src/spi_can_bridge.cpp)
 ament_target_dependencies(spi_can_bridge 
   rclcpp 
-  sensor_msgs 
-  geometry_msgs 
-  std_msgs
+  builtin_interfaces
+  tinker_msgs
 )
 
 install(TARGETS
