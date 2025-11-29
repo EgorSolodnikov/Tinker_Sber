@@ -47,12 +47,11 @@ JOINT_NAMES_10 = [
     "joint_r_ankle",
 ]
 
-
 class MotorSliderNode(Node):
     def __init__(self, motor_count: int):
         super().__init__('gui_slider_node')
         self.motor_count = motor_count
-
+        
         # Publishers for custom messages
         self.control_cmd_publisher = self.create_publisher(
             ControlCmd, "/control_command", 10
@@ -63,16 +62,16 @@ class MotorSliderNode(Node):
         self.one_motor_cmd_publisher = self.create_publisher(
             OneMotorCmd, "/single_motor_command", 10
         )
-
+        
         # Subscriber for low level state
         self.low_state_subscriber = self.create_subscription(
             LowState, "/low_level_state", self.low_state_callback, 10
         )
-
+        
         # Store current state
         self.current_low_state = LowState()
         self.motor_states = [MotorState() for _ in range(10)]
-
+        
         self.get_logger().info('Tinker GUI started with custom messages')
 
     def low_state_callback(self, msg: LowState):
@@ -91,29 +90,29 @@ class MotorSliderNode(Node):
     def publish_low_command(self, motor_commands: List[MotorCmd]):
         """Publish LowCmd message for all motors"""
         msg = LowCmd()
-
+        
         # Set timestamp
         now = self.get_clock().now()
-        msg.timestamp_state = Time(sec=now.nanoseconds // 1000000000,
-                                   nanosec=now.nanoseconds % 1000000000)
-
+        msg.timestamp_state = Time(sec=now.nanoseconds // 1000000000, 
+                                  nanosec=now.nanoseconds % 1000000000)
+        
         # Convert list to fixed-size array
         for i, motor_cmd in enumerate(motor_commands):
             if i < len(msg.motor_cmd):
                 msg.motor_cmd[i] = motor_cmd
-
+        
         self.low_cmd_publisher.publish(msg)
 
-    def publish_single_motor_command(self, motor_id: int, position: float, velocity: float,
-                                     torque: float, kp: float, kd: float):
+    def publish_single_motor_command(self, motor_id: int, position: float, velocity: float, 
+                                   torque: float, kp: float, kd: float):
         """Publish OneMotorCmd message"""
         msg = OneMotorCmd()
-
+        
         # Set timestamp
         now = self.get_clock().now()
-        msg.timestamp_state = Time(sec=now.nanoseconds // 1000000000,
-                                   nanosec=now.nanoseconds % 1000000000)
-
+        msg.timestamp_state = Time(sec=now.nanoseconds // 1000000000, 
+                                  nanosec=now.nanoseconds % 1000000000)
+        
         msg.motor_id = motor_id
         msg.motor_group = 0  # Default group
         msg.position = position
@@ -121,7 +120,7 @@ class MotorSliderNode(Node):
         msg.torque = torque
         msg.kp = kp
         msg.kd = kd
-
+        
         self.one_motor_cmd_publisher.publish(msg)
 
 
@@ -135,20 +134,19 @@ class SliderWindow(QWidget):
         # Загружаем конфигурацию из YAML файла
         self.config = self._load_config()
         self.motor_count = self.config.get('motors_number', 12)
-
+        
         # Загружаем лимиты позиций из конфига
         self.pos_limits: List[Tuple[float, float]] = self._load_limits_from_config()
 
         # Контейнер со скроллом
         outer_layout = QVBoxLayout()
-
+        
         # Красная кнопка СТОП в верхней части
-        stop_button = QPushButton("ПАНЕЛЬ УПРАВЛЕНИЯ")
-        stop_button.setStyleSheet(
-            "QPushButton { background-color: red; color: white; font-weight: bold; font-size: 16px; padding: 10px; }")
+        stop_button = QPushButton("EMERGENCY STOP")
+        stop_button.setStyleSheet("QPushButton { background-color: red; color: white; font-weight: bold; font-size: 16px; padding: 10px; }")
         stop_button.clicked.connect(self._emergency_stop)
         outer_layout.addWidget(stop_button)
-
+        
         scroll = QScrollArea(self)
         scroll.setWidgetResizable(True)
         content = QWidget()
@@ -162,33 +160,36 @@ class SliderWindow(QWidget):
         # Хранилища UI-элементов по моторам
         self.motor_cmd_spinboxes: List[List[QDoubleSpinBox]] = []
         self.motor_cmd_data_labels: List[List[QLabel]] = []
-
+        
         # Блок Control Commands в первой строке
         control_group = QGroupBox("Control Commands")
         control_layout = QGridLayout(control_group)
-
+        
         # Motor ID selection
         control_layout.addWidget(QLabel("Motor ID:"), 0, 0)
         self.control_motor_id = QSpinBox()
-        self.control_motor_id.setRange(0, self.motor_count - 1)
+        self.control_motor_id.setRange(0, self.motor_count-1)
         control_layout.addWidget(self.control_motor_id, 0, 1)
-
+        
         # Control command buttons
         self.enable_btn = QPushButton("ENABLE")
         self.disable_btn = QPushButton("DISABLE")
         self.zero_btn = QPushButton("SET ZERO")
         self.clear_error_btn = QPushButton("CLEAR ERROR")
-
+        self.send_all_btn = QPushButton("SEND ALL MOTORS")  
+        
         self.enable_btn.clicked.connect(lambda: self._send_control_cmd(252))
         self.disable_btn.clicked.connect(lambda: self._send_control_cmd(253))
         self.zero_btn.clicked.connect(lambda: self._send_control_cmd(254))
         self.clear_error_btn.clicked.connect(lambda: self._send_control_cmd(251))
-
+        self.send_all_btn.clicked.connect(self._send_all_motors_cmd)  # Connect the top button
+        
         control_layout.addWidget(self.enable_btn, 1, 0)
         control_layout.addWidget(self.disable_btn, 1, 1)
         control_layout.addWidget(self.zero_btn, 1, 2)
         control_layout.addWidget(self.clear_error_btn, 1, 3)
-
+        control_layout.addWidget(self.send_all_btn, 2, 0, 1, 4)  # Span all 4 columns
+        
         self.grid.addWidget(control_group, 0, 0, 1, 2)
 
         # Создаём группы моторов и раскладываем по колонкам, начиная со 2-й строки
@@ -202,15 +203,15 @@ class SliderWindow(QWidget):
         # Status display area
         status_group = QGroupBox("System Status")
         status_layout = QVBoxLayout(status_group)
-
+        
         self.imu_status_label = QLabel("IMU: Quaternion=[-, -, -, -] | RPY=[-, -, -]°")
         self.tick_label = QLabel("Tick: -")
         self.timestamp_label = QLabel("Last Update: -")
-
+        
         status_layout.addWidget(self.imu_status_label)
         status_layout.addWidget(self.tick_label)
         status_layout.addWidget(self.timestamp_label)
-
+        
         self.grid.addWidget(status_group, (self.motor_count // columns) + 2, 0, 1, 2)
 
         # Таймер
@@ -240,16 +241,16 @@ class SliderWindow(QWidget):
         """Загрузить лимиты позиций из конфига"""
         limits = []
         motors_config = self.config.get('motors', {})
-
+        
         for i in range(self.motor_count):
-            motor_key = f"motor_{i + 1}"
+            motor_key = f"motor_{i+1}"
             motor_config = motors_config.get(motor_key, {})
             pos_limits = motor_config.get('position_limits', {})
-
+            
             min_pos = pos_limits.get('min', -1.57)
             max_pos = pos_limits.get('max', 1.57)
             limits.append((float(min_pos), float(max_pos)))
-
+        
         return limits
 
     def _build_motor_group(self, motor_index: int) -> QGroupBox:
@@ -259,15 +260,15 @@ class SliderWindow(QWidget):
         # Блок команд (pos/vel/trq/kp/kd)
         cmd_box = QGroupBox("Motor Commands")
         cmd_grid = QGridLayout(cmd_box)
-
+        
         cmd_names = ["Position", "Velocity", "Torque", "KP", "KD"]
         cmd_spinboxes: List[QDoubleSpinBox] = []
         cmd_data_labels: List[QLabel] = []
-
+        
         for i, name in enumerate(cmd_names):
             label = QLabel(f"{name}:")
             spinbox = QDoubleSpinBox()
-
+            
             if name == "Position":
                 lower, upper = self.pos_limits[motor_index]
                 spinbox.setMinimum(lower)
@@ -285,31 +286,28 @@ class SliderWindow(QWidget):
                 spinbox.setMinimum(0.0)
                 spinbox.setMaximum(100.0)
                 spinbox.setDecimals(3)
-
+                
             spinbox.setValue(0.0)
-
+            
             data_lbl = QLabel("current: 0.0")
             data_lbl.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
-
+            
             cmd_grid.addWidget(label, i, 0)
             cmd_grid.addWidget(spinbox, i, 1)
             cmd_grid.addWidget(data_lbl, i, 2)
             cmd_spinboxes.append(spinbox)
             cmd_data_labels.append(data_lbl)
 
-        # Кнопки отправки команд
+        # Кнопка отправки команды для одного мотора
         btn_layout = QHBoxLayout()
         send_single_btn = QPushButton("SEND SINGLE")
-        send_all_btn = QPushButton("SEND ALL MOTORS")
-
+        
         send_single_btn.clicked.connect(lambda _, m=motor_index: self._send_single_motor_cmd(m))
-        send_all_btn.clicked.connect(self._send_all_motors_cmd)
-
+        
         btn_layout.addWidget(send_single_btn)
-        btn_layout.addWidget(send_all_btn)
-
+        
         cmd_grid.addLayout(btn_layout, len(cmd_names), 0, 1, 3)
-
+        
         self.motor_cmd_spinboxes.append(cmd_spinboxes)
         self.motor_cmd_data_labels.append(cmd_data_labels)
         group_layout.addWidget(cmd_box)
@@ -325,32 +323,32 @@ class SliderWindow(QWidget):
     def _send_single_motor_cmd(self, motor_index: int):
         """Send OneMotorCmd for a single motor"""
         spinboxes = self.motor_cmd_spinboxes[motor_index]
-
+        
         position = spinboxes[0].value()
         velocity = spinboxes[1].value()
         torque = spinboxes[2].value()
         kp = spinboxes[3].value()
         kd = spinboxes[4].value()
-
+        
         self.ros_node.publish_single_motor_command(motor_index, position, velocity, torque, kp, kd)
         print(f"Sent OneMotorCmd for motor {motor_index}")
 
     def _send_all_motors_cmd(self):
         """Send LowCmd for all motors"""
         motor_commands = []
-
+        
         for motor_index in range(self.motor_count):
             spinboxes = self.motor_cmd_spinboxes[motor_index]
-
+            
             motor_cmd = MotorCmd()
             motor_cmd.position = spinboxes[0].value()
             motor_cmd.velocity = spinboxes[1].value()
             motor_cmd.torque = spinboxes[2].value()
             motor_cmd.kp = spinboxes[3].value()
             motor_cmd.kd = spinboxes[4].value()
-
+            
             motor_commands.append(motor_cmd)
-
+        
         self.ros_node.publish_low_command(motor_commands)
         print("Sent LowCmd for all motors")
 
@@ -358,12 +356,12 @@ class SliderWindow(QWidget):
         """Emergency stop - send disable commands to all motors"""
         for motor_id in range(self.motor_count):
             self.ros_node.publish_control_command(motor_id, 253)  # DISABLE
-
+        
         # Reset all UI controls to zero
         for motor_index in range(self.motor_count):
             for spinbox in self.motor_cmd_spinboxes[motor_index]:
                 spinbox.setValue(0.0)
-
+        
         print("EMERGENCY STOP: All motors disabled")
 
     def _on_timer(self):
@@ -373,32 +371,32 @@ class SliderWindow(QWidget):
             if motor_index < len(self.ros_node.motor_states):
                 motor_state = self.ros_node.motor_states[motor_index]
                 labels = self.motor_cmd_data_labels[motor_index]
-
+                
                 if len(labels) >= 5:
                     labels[0].setText(f"current: {motor_state.position:.3f}")
                     labels[1].setText(f"current: {motor_state.velocity:.3f}")
                     labels[2].setText(f"current: {motor_state.torque:.3f}")
                     # For KP and KD, we don't have feedback, so leave as is
-
+        
         # Update system status
         low_state = self.ros_node.current_low_state
         if hasattr(low_state, 'imu_state') and low_state.imu_state:
             imu = low_state.imu_state
-
+            
             # Quaternion
             quat_str = "[-, -, -, -]"
             if len(imu.quaternion) >= 4:
                 quat_str = f"[{imu.quaternion[0]:.3f}, {imu.quaternion[1]:.3f}, {imu.quaternion[2]:.3f}, {imu.quaternion[3]:.3f}]"
-
+            
             # RPY
             rpy_str = "[-, -, -]°"
             if len(imu.rpy) >= 3:
                 rpy_str = f"[{math.degrees(imu.rpy[0]):.1f}°, {math.degrees(imu.rpy[1]):.1f}°, {math.degrees(imu.rpy[2]):.1f}°]"
-
+            
             self.imu_status_label.setText(f"IMU: Quaternion={quat_str} | RPY={rpy_str}")
-
+        
         self.tick_label.setText(f"Tick: {low_state.tick}")
-
+        
         if low_state.timestamp_state.sec > 0:
             timestamp = f"{low_state.timestamp_state.sec}.{low_state.timestamp_state.nanosec:09d}"
             self.timestamp_label.setText(f"Last Update: {timestamp}")
@@ -406,7 +404,7 @@ class SliderWindow(QWidget):
 
 def main(args=None):
     rclpy.init(args=args)
-
+    
     # Загружаем конфиг перед созданием нод
     try:
         pkg_share = get_package_share_directory("tinker_gui")
@@ -417,7 +415,7 @@ def main(args=None):
     except Exception as e:
         print(f"Ошибка загрузки конфига: {e}")
         motor_count = 12
-
+    
     ros_node = MotorSliderNode(motor_count)
     app = QApplication(sys.argv)
     window = SliderWindow(ros_node)
@@ -455,7 +453,7 @@ def main(args=None):
         ros_timer.stop()
         ros_node.destroy_node()
         rclpy.shutdown()
-
+    
     sys.exit(exit_code)
 
 
