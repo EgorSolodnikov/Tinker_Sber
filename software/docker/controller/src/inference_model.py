@@ -5,8 +5,8 @@ class InferenceModel():
         self.model = torch.load(model_path)
         self.model.eval()
 
-    def run(self, observation):
-        input_tensor = torch.from_numpy
+    def run(self, input_tensor):
+        # input_tensor = torch.from_numpy
         input_tensor = input_tensor.unsqueeze(0)
 
         with torch.no_grad():

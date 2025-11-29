@@ -2,12 +2,15 @@ from abc import ABC, abstractmethod
 import rclpy
 from rclpy.node import Node
 from controller_msg.msg import RobotState, ControlCommand, TargetCommand
+from controller_msg.msg import IsaacObservation, IsaacAction
 
 class BaseAdapter(ABC):
     def __init__(self, node: Node):
         self.node = node
-        self.state_subscriber= None
+        self.observation_subscriber= None
         self.control_publisher = None
+        
+        self.state = None
 
     @abstractmethod
     def initialize(self):
@@ -28,17 +31,24 @@ class IsaacAdapter(BaseAdapter):
         super().__init__(node)
     
     def initialize(self):
-        self.state_subscriber = self.node.create_subscription(
-            #
+        self.observation_subscriber = self.node.create_subscription(
+            IsaacObservation,
+            '/isaac/observation',
+            self.observation_callback,
+            10
         )
         self.control_publisher = self.node.create_publisher(
-            #
+            IsaacAction,
+            '/isaac/action',
+            10
         )
         self.node.get_logger().info('Isaac adapter initialized')
 
+    def observation_callback(self, msg: IsaacObservation):
+        self.state = msg
+
     def publish_control(self, action):
-        # convert from model output (action) into topic message
-        pass
+        self.control_publisher.publish(action)
 
     def shutdown(self):
         return super().shutdown()

@@ -1,4 +1,5 @@
 import rclpy
+import torch
 from rclpy.node import Node
 from controller_msg.msg import RobotState, TargetCommand, ControlCommand
 from .factories import AdapterFactory, InputDeviceFactory
@@ -21,8 +22,10 @@ class GaitController(Node):
 
         self.inference_model = InferenceModel(model_path)
 
-        self.current_command = None
         self.current_state = None
+        self.current_command = None
+        self.obs = torch.Tensor # torch.empty(39)
+        self.prev_action = torch.Tensor # torch.empty(10)
         
         self.control_command = None
 
@@ -34,12 +37,18 @@ class GaitController(Node):
 
     def control_loop(self):
         try:
-            action = self.inference_model.run(self.control_command)
+            self.current_state = self.adapter.state
+            
+            # ? TASK: convert state+control -> obs 
+
+            action = self.inference_model.run(self.obs)
             self.adapter.publish_control(action)
+            self.prev_action = action
         except Exception as e:
             self.get_logger().error(f"Control loop error: {e}")
 
     def shutdown(self):
         self.adapter.shutdown()
+        self.device.shutdown()
         self.destroy_node()
 
