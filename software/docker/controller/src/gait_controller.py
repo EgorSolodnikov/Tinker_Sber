@@ -40,7 +40,7 @@ class GaitController(Node):
             self.lowstate_callback
         )
 
-        self.lowcmd_publisher = self.create_publisher(LowCmd, 'tinker_msgs/lowcmd')
+        self.lowcmd_publisher = self.create_publisher(LowCmd, '/tinker_msgs/lowcmd')
 
         self.control_timer = self.create_timer(0.01, self.control_loop)
         
