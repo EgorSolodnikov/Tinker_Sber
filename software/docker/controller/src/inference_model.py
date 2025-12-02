@@ -5,7 +5,7 @@ class InferenceModel():
         self.model = torch.load(model_path)
         self.model.eval()
 
-    def run(self, input_tensor):
+    def run(self, input_tensor: torch.Tensor):
         # input_tensor = torch.from_numpy
         input_tensor = input_tensor.unsqueeze(0)
 

@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 import rclpy
 from rclpy.node import Node
-from controller_msg.msg import RobotState, ControlCommand, TargetCommand
+from controller_msg.msg import RobotState
 from controller_msg.msg import IsaacObservation, IsaacAction
 
 class BaseAdapter(ABC):

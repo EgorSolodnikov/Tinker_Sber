@@ -3,6 +3,8 @@
 ## About
 
 ## Installation and launch
+- `docker build -t gait-controller:jazzy .`
+- `docker run -it --net=host gait-controller:jazzy`
 
 ## ROS2 node
 - GaitController:

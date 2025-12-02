@@ -8,10 +8,10 @@ from src.gait_controller import GaitController
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("object",
-                    type=str,
-                    choices=['robot', 'mujoco', 'isaac'],
-                    help="define control object: 'robot'/'mujoco'/'isaac' (MANDATORY: default is not declared)")
+    # ap.add_argument("object",
+    #                 type=str,
+    #                 choices=['robot', 'mujoco', 'isaac'],
+    #                 help="define control object: 'robot'/'mujoco'/'isaac' (MANDATORY: default is not declared)")
     ap.add_argument("-d", "--device",
                     type=str,
                     default="keyboard",
@@ -27,7 +27,7 @@ def main():
 
     try:
         controller = GaitController(
-            adapter_type = args.object,
+            # adapter_type = args.object,
             device_type = args.device,
             inference_ptah = args.path
         )

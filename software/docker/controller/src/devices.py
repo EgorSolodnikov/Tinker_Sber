@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 import rclpy
 import torch
+import numpy as np
 from rclpy.node import Node
-from controller_msg.msg import TargetCommand
 from pynput import keyboard
 
 class BaseDevice(ABC):
@@ -27,7 +27,7 @@ class BaseDevice(ABC):
 class KeyboardDevice(BaseDevice):
     def __init__(self, node: Node):
         super().__init__(node)
-        self.commands = torch.zeros((1, 5))
+        self.commands = np.zeros((5))
 
         self.linear_vel = 0.0
         self.lateral_vel = 0.0
@@ -101,12 +101,15 @@ class KeyboardDevice(BaseDevice):
         return True
 
     def update_commands(self):
-        self.commands[:, 0] = self.linear_vel
-        self.commands[:, 1] = self.lateral_vel
-        self.commands[:, 2] = self.angular_vel
-        self.commands[:, 3] = self.heading
-        self.commands[:, 4] = self.height
+        self.commands[0] = self.linear_vel
+        self.commands[1] = self.lateral_vel
+        self.commands[2] = self.angular_vel
+        self.commands[3] = self.heading
+        self.commands[4] = self.height
 
+    def get_commands(self):
+        return self.commands
+    
     def shutdown(self):
         pass
 
@@ -116,11 +119,12 @@ class GamepadDevice(BaseDevice):
         super().__init__(node)
 
     def initialize(self):
-        self.target_subscriber = self.create_subscription(
-            TargetCommand,
-            '/control/target',
-            10
-        )
+        # self.target_subscriber = self.create_subscription(
+        #     TargetCommand,
+        #     '/control/target',
+        #     10
+        # )
+        pass
 
         self.node.get_logger().info('Gamepad device initialized')
 
