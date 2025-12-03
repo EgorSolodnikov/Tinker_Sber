@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 import rclpy
 from rclpy.node import Node
-from controller_msg.msg import RobotState
-from controller_msg.msg import IsaacObservation, IsaacAction
+# from controller_msg.msg import RobotState
+# from controller_msg.msg import IsaacObservation, IsaacAction
 
 class BaseAdapter(ABC):
     def __init__(self, node: Node):
@@ -25,7 +25,7 @@ class BaseAdapter(ABC):
         self.node.destroy_subscription(self.state_subscriber)
         self.node.destroy_publisher(self.control_publisher)
 
-
+'''
 class IsaacAdapter(BaseAdapter):
     def __init__(self, node: Node):
         super().__init__(node)
@@ -52,7 +52,7 @@ class IsaacAdapter(BaseAdapter):
 
     def shutdown(self):
         return super().shutdown()
-
+'''
 
 class MujocoAdapter(BaseAdapter):
     def __init__(self, node: Node):

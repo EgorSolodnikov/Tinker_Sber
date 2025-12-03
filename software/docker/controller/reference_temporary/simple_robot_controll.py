@@ -15,6 +15,9 @@ from global_config import ROOT_DIR, PLAY_DIR
 from global_config import ROBOT_SEL
 from pynput import keyboard  # Добавляем pynput для обработки клавиш
 
+import threading
+import time
+
 import rclpy
 from rclpy import Node
 from tinker_msgs.msg import LowState, LowCmd, MotorCmd
@@ -26,6 +29,12 @@ class SimNode(Node):
         super().__init__('Simulator node')
 
         self.actions = torch.empty(10)
+
+        self.latest_actions = torch.zeros(10)  # Храним последние полученные actions
+        self.obs_received = False
+        self.obs_to_send = None
+        self.actions_received = False
+        self.lock = threading.Lock()
 
         self.lowstate_subscriber = self.create_subscription(
             LowCmd,
@@ -45,15 +54,44 @@ class SimNode(Node):
             actions = torch.cat((actions, motor.position))
         self.actions = actions
 
+        self.actions_received = True
+
     def publish_lowstate(self, obs):
         msg = LowState
-        msg.gyroscope = obs[0:3]
-        msg.rpy = obs[3:6]
+
+        if isinstance(obs, torch.Tensor):
+            obs_np = obs.cpu().numpy() if obs.is_cuda else obs.numpy()
+        else:
+            obs_np = obs
+
+        msg.gyroscope = obs_np[0:3]
+        msg.rpy = obs_np[3:6]
         for i, motor in enumerate(10, msg.motor_state):
-            motor.position = obs[9+i]
-            motor.velocity = obs[19+i]
+            motor.position = obs_np[9+i]
+            motor.velocity = obs_np[19+i]
 
         self.lowstate_publisher.publish(msg)
+
+    def wait_actions(self, obs):
+        with self.lock:
+            self.obs_to_send = obs
+            self.obs_received = True
+            self.actions_received = False
+
+        self.publish_lowstate(obs)
+
+        timeout = time.time() + 0.2
+        while not self.actions_received and time.time() < timeout:
+            rclpy.spin_once(self, timeout_sec=0.01)
+        
+        if self.actions_received:
+            with self.lock:
+                actions = self.latest_actions.clone()
+                self.obs_received = False
+            return actions
+        else:
+            self.get_logger().warn("Timeout waiting for actions, returning zeros")
+            return torch.zeros(10)
 
 
 def delete_files_in_directory(directory_path):
@@ -130,9 +168,20 @@ def play(args):
     for i in range(num_frames):
 
         obs = env.get_observations()
+        # actions = policy.act_teacher(obs.half())
 
-        actions = policy.act_teacher(obs.half())
-        obs, privileged_obs, rewards, costs, dones, infos = env.step(actions)
+        if hasattr(obs, 'obs'):
+            obs_tensor = obs.obs
+        else:
+            obs_tensor = obs
+
+        obs_for_ros = obs_tensor[0].cpu() if obs_tensor.is_cuda else obs_tensor[0]
+        
+        actions = sim_node.wait_actions(obs_for_ros)
+        
+        actions_tensor = actions.to(env.device).unsqueeze(0)
+
+        obs, privileged_obs, rewards, costs, dones, infos = env.step(actions_tensor)
         env.gym.step_graphics(env.sim)
         env.gym.render_all_camera_sensors(env.sim)
         env.gym.draw_viewer(env.viewer, env.sim, True)
@@ -147,8 +196,6 @@ def play(args):
 
     if RECORD_FRAMES:
         video.release()
-
-    listener.stop()
 
 if __name__ == '__main__':
     task_registry.register("H1", LeggedRobot, H1ConstraintHimRoughCfg(), H1ConstraintHimRoughCfgPPO())

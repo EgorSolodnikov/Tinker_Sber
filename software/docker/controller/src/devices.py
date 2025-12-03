@@ -14,10 +14,6 @@ class BaseDevice(ABC):
     @abstractmethod
     def initialize(self):
         pass
-    
-    @abstractmethod
-    def convert(self):
-        pass
 
     @abstractmethod
     def shutdown(self):

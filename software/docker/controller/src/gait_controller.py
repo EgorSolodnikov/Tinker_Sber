@@ -2,7 +2,7 @@ import rclpy
 import torch
 import numpy as np
 from rclpy.node import Node
-from .factories import AdapterFactory, InputDeviceFactory
+from .factories import InputDeviceFactory
 from .inference_model import InferenceModel
 from tinker_msgs.msg import LowState, LowCmd, MotorCmd
 
@@ -26,21 +26,25 @@ class GaitController(Node):
         self.rpy = np.zeros(3)
         self.omega = np.zeros(3)
         self.commands = np.zeros(3)
-        self.positions = np.zeros(3)
-        self.velocities = np.zeros(3)
-        self.prev_action = np.zeros(3)
+        self.positions = np.zeros(10)
+        self.velocities = np.zeros(10)
+        self.prev_action = np.zeros(10)
         
         self.obs_buf = np.zeros(39)
         self.obs_tensor = torch.empty(39)
-        self.prev_action_tensor = torch.empty(10)
+        self.prev_action_tensor = torch.zeros(10)
 
         self.lowstate_subscriber = self.create_subscription(
             LowState,
             '/tinker_msgs/lowstate',
-            self.lowstate_callback
+            self.lowstate_callback,
+            10
         )
 
-        self.lowcmd_publisher = self.create_publisher(LowCmd, '/tinker_msgs/lowcmd')
+        self.lowcmd_publisher = self.create_publisher(
+            LowCmd, 
+            '/tinker_msgs/lowcmd',
+            10)
 
         self.control_timer = self.create_timer(0.01, self.control_loop)
         

@@ -29,7 +29,7 @@ def main():
         controller = GaitController(
             # adapter_type = args.object,
             device_type = args.device,
-            inference_ptah = args.path
+            model_path = args.path
         )
 
         executor = MultiThreadedExecutor()
@@ -37,7 +37,7 @@ def main():
 
         executor.spin()
 
-    except KeyboardInterrupt():
+    except KeyboardInterrupt:
         pass
     except Exception as e:
         print(f'Error: {e}')

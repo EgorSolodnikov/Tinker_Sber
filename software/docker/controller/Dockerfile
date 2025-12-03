@@ -26,10 +26,10 @@ WORKDIR /workspace
 COPY . /workspace/
 
 RUN . /opt/ros/$ROS_DISTRO/setup.sh && \
-    cd /workspace/controller_msg && \
+    cd /workspace/tinker_msgs && \
     colcon build --symlink-install
 
-RUN echo "source /workspace/controller_msg/install/setup.bash" >> ~/.bashrc && \
+RUN echo "source /workspace/tinker_msgs/install/setup.bash" >> ~/.bashrc && \
     echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc
 
 RUN chmod +x /workspace/inference_controller_setup.py
