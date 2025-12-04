@@ -23,7 +23,7 @@ class BaseDevice(ABC):
 class KeyboardDevice(BaseDevice):
     def __init__(self, node: Node):
         super().__init__(node)
-        self.commands = np.zeros((5))
+        self.commands = np.zeros((3))
 
         self.linear_vel = 0.0
         self.lateral_vel = 0.0
@@ -100,8 +100,8 @@ class KeyboardDevice(BaseDevice):
         self.commands[0] = self.linear_vel
         self.commands[1] = self.lateral_vel
         self.commands[2] = self.angular_vel
-        self.commands[3] = self.heading
-        self.commands[4] = self.height
+        # self.commands[3] = self.heading
+        # self.commands[4] = self.height
 
     def get_commands(self):
         return self.commands

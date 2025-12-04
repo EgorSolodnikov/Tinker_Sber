@@ -1,5 +1,5 @@
 import torch
-from src.modules.actor_critic import ActorCriticRMA, ActorCriticMixedBarlowTwins
+from modules.actor_critic import ActorCriticRMA, ActorCriticMixedBarlowTwins
 
 
 class InferenceModel():
@@ -34,17 +34,29 @@ class InferenceModel():
             **policy_cfg
         )
 
+        self.obs_history = torch.zeros((10, 39)) 
+
         checkpoint = torch.load(model_path, map_location='cpu')
         self.model.load_state_dict(checkpoint['model_state_dict'])
         self.model.eval()
 
-    def run(self, input_tensor: torch.Tensor):
-        # input_tensor = torch.from_numpy
-        # input_tensor = input_tensor.unsqueeze(0)
+    def run(self, current_obs: torch.Tensor):
 
+        self.obs_history = torch.cat([
+            self.obs_history[1:],                    # [9, 39]
+            current_obs.squeeze(0).unsqueeze(0)      # [1, 39]
+        ], dim=0)                                    # [10, 39]
+        
+        # 2. Добавить batch dimension для истории
+        obs_hist = self.obs_history.unsqueeze(0)     # [1, 10, 39]
+        
+        # 3. Вызов модели с двумя входами
         with torch.no_grad():
-            output_tensor = self.model.act_teacher(input_tensor)
+            output_tensor = self.model.actor_teacher_backbone(current_obs, obs_hist)
 
-        action = output_tensor.squeeze(0).cpu().numpy()
+        # if full_obs.dim() == 2 and full_obs.shape[0] == 1:
+        #     action = output_tensor.squeeze(0).cpu().numpy()
+        # else:
+        action = output_tensor.cpu().numpy()
         
         return action

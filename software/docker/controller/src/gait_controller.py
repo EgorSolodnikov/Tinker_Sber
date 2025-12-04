@@ -32,7 +32,7 @@ class GaitController(Node):
         
         self.obs_buf = np.zeros(39)
         self.obs_tensor = torch.empty(39)
-        self.prev_action_tensor = torch.zeros(10)
+        # self.prev_action_tensor = torch.zeros(10)
 
         self.lowstate_subscriber = self.create_subscription(
             LowState,
@@ -53,18 +53,18 @@ class GaitController(Node):
         )
 
     def lowstate_callback(self, msg: LowState):
-        # self.obs_buf = self.lowstate2obs(msg)
+        # self.get_logger().info(f"Got state: omega={self.omega}, positions={self.positions[:2]}")
         imu_state = msg.imu_state
         self.omega = imu_state.gyroscope
         self.rpy = imu_state.rpy
         self.positions = np.array([motor.position for motor in msg.motor_state])
         self.velocities = np.array([motor.velocity for motor in msg.motors])
 
-    def publish_lowcmd_actions(self, actions):
-        msg = LowCmd
+    def publish_lowcmd_action(self, action):
+        msg = LowCmd()
         msg.motor_cmd = []
 
-        for pos in actions:
+        for pos in action:
             motor_cmd = MotorCmd()
             motor_cmd.position = float(pos)
             motor_cmd.velocity = 0.0
@@ -77,20 +77,7 @@ class GaitController(Node):
 
     def control_loop(self):
         try:
-            self.obs_buf = np.zeros(39)
-            # ? TASK: convert LowState + control(keyboard/gamepad) -> obs
-            # self.obs_buf = np.concatenate([self.obs_buf, self.omega])
-            # self.obs_buf = np.concatenate([self.obs_buf, self.rpy])
-
-            # get commands from device
             self.commands = self.device.get_commands()
-            # self.obs_buf = np.concatenate([self.obs_buf, self.commands])
-
-            # self.obs_buf = np.concatenate([self.obs_buf, self.positions])
-            # self.obs_buf = np.concatenate([self.obs_buf, self.velocities])
-
-            self.prev_action = self.prev_action_tensor.numpy()
-            # self.obs_buf = np.concatenate([self.obs_buf, self.prev_action])
 
             self.obs_buf = np.concatenate([self.omega, 
                                            self.rpy, 
@@ -98,14 +85,18 @@ class GaitController(Node):
                                            self.positions,
                                            self.velocities,
                                            self.prev_action])
+            
 
-            self.obs_tensor = torch.from_numpy(self.obs_buf)
+            self.obs_tensor = torch.from_numpy(self.obs_buf).float().unsqueeze(0)
 
             # Run model, publish actions
             action = self.inference_model.run(self.obs_tensor)
-            action.clamp_(min=-15, max=15)
-            self.publish_lowcmd_actions(action)
-            self.prev_action_tensor = action
+
+            action = action.flatten()
+            print(f'action: {action}')
+            action = np.clip(action, -15, 15)
+            self.publish_lowcmd_action(action)
+            self.prev_action = action
 
         except Exception as e:
             self.get_logger().error(f"Control loop error: {e}")

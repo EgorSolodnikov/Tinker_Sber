@@ -34,8 +34,8 @@ import torch
 import torch.nn as nn
 from torch.distributions import Normal
 import torch.nn.functional as F 
-from src.modules.common_modules import AutoEncoder, BetaVAE, MixedMlp, RnnBarlowTwinsStateHistoryEncoder, RnnStateHistoryEncoder, StateHistoryEncoder, get_activation, mlp_factory, mlp_layernorm_factory
-from src.modules.transformer_modules import ActionCausalTransformer, StateCausalClsTransformer, StateCausalHeadlessTransformer, StateCausalTransformer
+from modules.common_modules import AutoEncoder, BetaVAE, MixedMlp, RnnBarlowTwinsStateHistoryEncoder, RnnStateHistoryEncoder, StateHistoryEncoder, get_activation, mlp_factory, mlp_layernorm_factory
+from modules.transformer_modules import ActionCausalTransformer, StateCausalClsTransformer, StateCausalHeadlessTransformer, StateCausalTransformer
 
 class Config:
     def __init__(self):
