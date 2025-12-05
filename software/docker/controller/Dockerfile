@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
     python3-colcon-common-extensions \
     python3-empy \
     python3-lark \
+    iputils-ping \
     libgl1 \
     libglx-mesa0 \
     libglib2.0-0 \
