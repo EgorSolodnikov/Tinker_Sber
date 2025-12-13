@@ -47,6 +47,13 @@ JOINT_NAMES_10 = [
     "joint_r_ankle",
 ]
 
+# Default values for motors
+DEFAULT_POSITION = 0.0
+DEFAULT_VELOCITY = 0.0
+DEFAULT_TORQUE = 0.0
+DEFAULT_KP = 1.0
+DEFAULT_KD = 0.1
+
 class MotorSliderNode(Node):
     def __init__(self, motor_count: int):
         super().__init__('gui_slider_node')
@@ -171,24 +178,26 @@ class SliderWindow(QWidget):
         self.control_motor_id.setRange(0, self.motor_count-1)
         control_layout.addWidget(self.control_motor_id, 0, 1)
         
-        # Control command buttons
+        # Control command buttons - Added back SET ZERO
         self.enable_btn = QPushButton("ENABLE")
         self.disable_btn = QPushButton("DISABLE")
-        self.zero_btn = QPushButton("SET ZERO")
+        self.zero_btn = QPushButton("SET ZERO")  # Added back SET ZERO
         self.clear_error_btn = QPushButton("CLEAR ERROR")
         self.send_all_btn = QPushButton("SEND ALL MOTORS")  
         
         self.enable_btn.clicked.connect(lambda: self._send_control_cmd(252))
         self.disable_btn.clicked.connect(lambda: self._send_control_cmd(253))
-        self.zero_btn.clicked.connect(lambda: self._send_control_cmd(254))
+        self.zero_btn.clicked.connect(lambda: self._send_control_cmd(254))  # cmd=254
         self.clear_error_btn.clicked.connect(lambda: self._send_control_cmd(251))
-        self.send_all_btn.clicked.connect(self._send_all_motors_cmd)  # Connect the top button
+        self.send_all_btn.clicked.connect(self._send_all_motors_cmd)
         
+        # First row: 4 buttons
         control_layout.addWidget(self.enable_btn, 1, 0)
         control_layout.addWidget(self.disable_btn, 1, 1)
         control_layout.addWidget(self.zero_btn, 1, 2)
         control_layout.addWidget(self.clear_error_btn, 1, 3)
-        control_layout.addWidget(self.send_all_btn, 2, 0, 1, 4)  # Span all 4 columns
+        # Second row: SEND ALL MOTORS spans all 4 columns
+        control_layout.addWidget(self.send_all_btn, 2, 0, 1, 4)
         
         self.grid.addWidget(control_group, 0, 0, 1, 2)
 
@@ -262,6 +271,7 @@ class SliderWindow(QWidget):
         cmd_grid = QGridLayout(cmd_box)
         
         cmd_names = ["Position", "Velocity", "Torque", "KP", "KD"]
+        default_values = [DEFAULT_POSITION, DEFAULT_VELOCITY, DEFAULT_TORQUE, DEFAULT_KP, DEFAULT_KD]
         cmd_spinboxes: List[QDoubleSpinBox] = []
         cmd_data_labels: List[QLabel] = []
         
@@ -287,7 +297,7 @@ class SliderWindow(QWidget):
                 spinbox.setMaximum(100.0)
                 spinbox.setDecimals(3)
                 
-            spinbox.setValue(0.0)
+            spinbox.setValue(default_values[i])  # Set to default value
             
             data_lbl = QLabel("current: 0.0")
             data_lbl.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
@@ -298,13 +308,16 @@ class SliderWindow(QWidget):
             cmd_spinboxes.append(spinbox)
             cmd_data_labels.append(data_lbl)
 
-        # Кнопка отправки команды для одного мотора
+        # Кнопки отправки команд для одного мотора
         btn_layout = QHBoxLayout()
-        send_single_btn = QPushButton("SEND SINGLE")
+        send_single_btn = QPushButton("SEND")
+        motor_default_btn = QPushButton("SET DEFAULT")
         
         send_single_btn.clicked.connect(lambda _, m=motor_index: self._send_single_motor_cmd(m))
+        motor_default_btn.clicked.connect(lambda _, m=motor_index: self._individual_set_default(m))
         
         btn_layout.addWidget(send_single_btn)
+        btn_layout.addWidget(motor_default_btn)
         
         cmd_grid.addLayout(btn_layout, len(cmd_names), 0, 1, 3)
         
@@ -319,6 +332,39 @@ class SliderWindow(QWidget):
         motor_id = self.control_motor_id.value()
         self.ros_node.publish_control_command(motor_id, cmd_value)
         print(f"Sent ControlCmd: motor_id={motor_id}, cmd={cmd_value}")
+
+    def _individual_set_default(self, motor_index: int):
+        """Individual SET DEFAULT: Set specific motor to default values"""
+        print(f"SET DEFAULT: Setting motor {motor_index} to default values...")
+        
+        # Set specific motor GUI controls to default values
+        self._set_single_motor_to_default(motor_index)
+        print(f"SET DEFAULT: Set motor {motor_index} GUI controls to default values")
+        
+        # Send default position command to specific motor
+        self._send_single_default_command(motor_index)
+        print(f"SET DEFAULT: Sent default command to motor {motor_index}")
+
+    def _set_single_motor_to_default(self, motor_index: int):
+        """Set single motor GUI controls to default values"""
+        if motor_index < len(self.motor_cmd_spinboxes):
+            spinboxes = self.motor_cmd_spinboxes[motor_index]
+            spinboxes[0].setValue(DEFAULT_POSITION)   # Position
+            spinboxes[1].setValue(DEFAULT_VELOCITY)   # Velocity
+            spinboxes[2].setValue(DEFAULT_TORQUE)     # Torque
+            spinboxes[3].setValue(DEFAULT_KP)         # KP
+            spinboxes[4].setValue(DEFAULT_KD)         # KD
+    
+    def _send_single_default_command(self, motor_index: int):
+        """Send default position command for a single motor"""
+        self.ros_node.publish_single_motor_command(
+            motor_index, 
+            DEFAULT_POSITION, 
+            DEFAULT_VELOCITY, 
+            DEFAULT_TORQUE, 
+            DEFAULT_KP, 
+            DEFAULT_KD
+        )
 
     def _send_single_motor_cmd(self, motor_index: int):
         """Send OneMotorCmd for a single motor"""
@@ -350,19 +396,25 @@ class SliderWindow(QWidget):
             motor_commands.append(motor_cmd)
         
         self.ros_node.publish_low_command(motor_commands)
-        print("Sent LowCmd for all motors")
+        print(f"Sent LowCmd for all {self.motor_count} motors")
 
     def _emergency_stop(self):
-        """Emergency stop - send disable commands to all motors"""
+        """Emergency stop - send disable commands to all motors and set to default"""
+        print("EMERGENCY STOP: Sending DISABLE commands to all motors...")
+        
+        # Send DISABLE command to all motors
         for motor_id in range(self.motor_count):
-            self.ros_node.publish_control_command(motor_id, 253)  # DISABLE
+            self.ros_node.publish_control_command(motor_id, 253)  # DISABLE command
         
-        # Reset all UI controls to zero
+        # Set all UI controls to default values
         for motor_index in range(self.motor_count):
-            for spinbox in self.motor_cmd_spinboxes[motor_index]:
-                spinbox.setValue(0.0)
+            self._set_single_motor_to_default(motor_index)
         
-        print("EMERGENCY STOP: All motors disabled")
+        # Send default commands to all motors
+        for motor_index in range(self.motor_count):
+            self._send_single_default_command(motor_index)
+        
+        print(f"EMERGENCY STOP: All {self.motor_count} motors disabled and set to default values")
 
     def _on_timer(self):
         """Update GUI with current state data"""
