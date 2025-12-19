@@ -58,20 +58,14 @@ class GaitController(Node):
         self.omega = imu_state.gyroscope
         self.rpy = imu_state.rpy
         self.positions = np.array([motor.position for motor in msg.motor_state])
-        self.velocities = np.array([motor.velocity for motor in msg.motors])
+        self.velocities = np.array([motor.velocity for motor in msg.motor_state])
 
     def publish_lowcmd_action(self, action):
         msg = LowCmd()
-        msg.motor_cmd = []
-
-        for pos in action:
-            motor_cmd = MotorCmd()
-            motor_cmd.position = float(pos)
-            motor_cmd.velocity = 0.0
-            motor_cmd.torque = 0.0
-            motor_cmd.kp = 0.0
-            motor_cmd.kd = 0.0
-            msg.motor_cmd.append(motor_cmd)
+        msg.motor_cmd = [MotorCmd() for _ in range(10)]
+    
+        for i, pos in enumerate(action):
+            msg.motor_cmd[i].position = float(pos)
 
         self.lowcmd_publisher.publish(msg)
 
