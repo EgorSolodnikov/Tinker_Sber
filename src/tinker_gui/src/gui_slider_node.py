@@ -32,8 +32,8 @@ import signal
 import sys
 import math
 
-# Будет загружено из конфига
-MOTOR_COUNT = 12
+# Changed to 10 motors
+MOTOR_COUNT = 10
 JOINT_NAMES_10 = [
     "joint_l_yaw",
     "joint_l_roll",
@@ -140,7 +140,7 @@ class SliderWindow(QWidget):
 
         # Загружаем конфигурацию из YAML файла
         self.config = self._load_config()
-        self.motor_count = self.config.get('motors_number', 12)
+        self.motor_count = self.config.get('motors_number', MOTOR_COUNT)  # Use MOTOR_COUNT constant
         
         # Загружаем лимиты позиций из конфига
         self.pos_limits: List[Tuple[float, float]] = self._load_limits_from_config()
@@ -154,21 +154,86 @@ class SliderWindow(QWidget):
         stop_button.clicked.connect(self._emergency_stop)
         outer_layout.addWidget(stop_button)
         
-        scroll = QScrollArea(self)
+        # Create a main horizontal layout for left and right sections
+        main_horizontal_layout = QHBoxLayout()
+        
+        # Left side: Motor controls
+        left_widget = QWidget()
+        scroll = QScrollArea()
         scroll.setWidgetResizable(True)
         content = QWidget()
         self.grid = QGridLayout(content)
         self.grid.setHorizontalSpacing(16)
         self.grid.setVerticalSpacing(12)
         scroll.setWidget(content)
-        outer_layout.addWidget(scroll)
+        left_widget.setLayout(QVBoxLayout())
+        left_widget.layout().addWidget(scroll)
+        
+        # Right side: Global parameters (KP, KD) and System Status
+        right_widget = QWidget()
+        right_layout = QVBoxLayout(right_widget)
+        right_layout.setSpacing(20)
+        
+        # Global Gains Group (KP, KD)
+        gains_group = QGroupBox("Global Gains")
+        gains_layout = QGridLayout(gains_group)
+        
+        # KP control
+        gains_layout.addWidget(QLabel("KP:"), 0, 0)
+        self.global_kp_spinbox = QDoubleSpinBox()
+        self.global_kp_spinbox.setMinimum(0.0)
+        self.global_kp_spinbox.setMaximum(100.0)
+        self.global_kp_spinbox.setDecimals(3)
+        self.global_kp_spinbox.setValue(DEFAULT_KP)
+        self.global_kp_spinbox.valueChanged.connect(self._on_global_gains_changed)
+        gains_layout.addWidget(self.global_kp_spinbox, 0, 1)
+        
+        # KD control
+        gains_layout.addWidget(QLabel("KD:"), 1, 0)
+        self.global_kd_spinbox = QDoubleSpinBox()
+        self.global_kd_spinbox.setMinimum(0.0)
+        self.global_kd_spinbox.setMaximum(10.0)
+        self.global_kd_spinbox.setDecimals(3)
+        self.global_kd_spinbox.setValue(DEFAULT_KD)
+        self.global_kd_spinbox.valueChanged.connect(self._on_global_gains_changed)
+        gains_layout.addWidget(self.global_kd_spinbox, 1, 1)
+        
+        # Apply Gains button
+        self.apply_gains_btn = QPushButton("Apply Gains to All Motors")
+        self.apply_gains_btn.clicked.connect(self._apply_global_gains_to_all)
+        gains_layout.addWidget(self.apply_gains_btn, 2, 0, 1, 2)
+        
+        right_layout.addWidget(gains_group)
+        
+        # System Status Group
+        status_group = QGroupBox("System Status")
+        status_layout = QVBoxLayout(status_group)
+        
+        self.imu_status_label = QLabel("IMU: Quaternion=[-, -, -, -] | RPY=[-, -, -]°")
+        self.tick_label = QLabel("Tick: -")
+        self.timestamp_label = QLabel("Last Update: -")
+        
+        status_layout.addWidget(self.imu_status_label)
+        status_layout.addWidget(self.tick_label)
+        status_layout.addWidget(self.timestamp_label)
+        
+        right_layout.addWidget(status_group)
+        
+        # Add stretch to push everything to top
+        right_layout.addStretch()
+        
+        # Add left and right widgets to main layout
+        main_horizontal_layout.addWidget(left_widget, 3)  # 3 parts width for left
+        main_horizontal_layout.addWidget(right_widget, 1)  # 1 part width for right
+        
+        outer_layout.addLayout(main_horizontal_layout)
         self.setLayout(outer_layout)
 
         # Хранилища UI-элементов по моторам
         self.motor_cmd_spinboxes: List[List[QDoubleSpinBox]] = []
         self.motor_cmd_data_labels: List[List[QLabel]] = []
         
-        # Блок Control Commands в первой строке
+        # Блок Control Commands в первой строке левой части
         control_group = QGroupBox("Control Commands")
         control_layout = QGridLayout(control_group)
         
@@ -178,16 +243,16 @@ class SliderWindow(QWidget):
         self.control_motor_id.setRange(0, self.motor_count-1)
         control_layout.addWidget(self.control_motor_id, 0, 1)
         
-        # Control command buttons - Added back SET ZERO
+        # Control command buttons
         self.enable_btn = QPushButton("ENABLE")
         self.disable_btn = QPushButton("DISABLE")
-        self.zero_btn = QPushButton("SET ZERO")  # Added back SET ZERO
+        self.zero_btn = QPushButton("SET ZERO")
         self.clear_error_btn = QPushButton("CLEAR ERROR")
         self.send_all_btn = QPushButton("SEND ALL MOTORS")  
         
         self.enable_btn.clicked.connect(lambda: self._send_control_cmd(252))
         self.disable_btn.clicked.connect(lambda: self._send_control_cmd(253))
-        self.zero_btn.clicked.connect(lambda: self._send_control_cmd(254))  # cmd=254
+        self.zero_btn.clicked.connect(lambda: self._send_control_cmd(254))
         self.clear_error_btn.clicked.connect(lambda: self._send_control_cmd(251))
         self.send_all_btn.clicked.connect(self._send_all_motors_cmd)
         
@@ -208,20 +273,6 @@ class SliderWindow(QWidget):
             row = (motor_idx // columns) + 1
             col = motor_idx % columns
             self.grid.addWidget(group, row, col)
-
-        # Status display area
-        status_group = QGroupBox("System Status")
-        status_layout = QVBoxLayout(status_group)
-        
-        self.imu_status_label = QLabel("IMU: Quaternion=[-, -, -, -] | RPY=[-, -, -]°")
-        self.tick_label = QLabel("Tick: -")
-        self.timestamp_label = QLabel("Last Update: -")
-        
-        status_layout.addWidget(self.imu_status_label)
-        status_layout.addWidget(self.tick_label)
-        status_layout.addWidget(self.timestamp_label)
-        
-        self.grid.addWidget(status_group, (self.motor_count // columns) + 2, 0, 1, 2)
 
         # Таймер
         self.display_timer = QTimer(self)
@@ -244,7 +295,7 @@ class SliderWindow(QWidget):
             return config
         except Exception as e:
             print(f"Ошибка загрузки конфига: {e}")
-            return {"motors_number": 12, "motors": {}}
+            return {"motors_number": MOTOR_COUNT, "motors": {}}
 
     def _load_limits_from_config(self) -> List[Tuple[float, float]]:
         """Загрузить лимиты позиций из конфига"""
@@ -266,12 +317,12 @@ class SliderWindow(QWidget):
         group = QGroupBox(f"Motor {motor_index}")
         group_layout = QVBoxLayout(group)
 
-        # Блок команд (pos/vel/trq/kp/kd)
+        # Блок команд (position, velocity, torque only - KP and KD removed)
         cmd_box = QGroupBox("Motor Commands")
         cmd_grid = QGridLayout(cmd_box)
         
-        cmd_names = ["Position", "Velocity", "Torque", "KP", "KD"]
-        default_values = [DEFAULT_POSITION, DEFAULT_VELOCITY, DEFAULT_TORQUE, DEFAULT_KP, DEFAULT_KD]
+        cmd_names = ["Position", "Velocity", "Torque"]  # Removed KP and KD
+        default_values = [DEFAULT_POSITION, DEFAULT_VELOCITY, DEFAULT_TORQUE]
         cmd_spinboxes: List[QDoubleSpinBox] = []
         cmd_data_labels: List[QLabel] = []
         
@@ -291,10 +342,6 @@ class SliderWindow(QWidget):
             elif name == "Torque":
                 spinbox.setMinimum(-10.0)
                 spinbox.setMaximum(10.0)
-                spinbox.setDecimals(3)
-            else:  # KP, KD
-                spinbox.setMinimum(0.0)
-                spinbox.setMaximum(100.0)
                 spinbox.setDecimals(3)
                 
             spinbox.setValue(default_values[i])  # Set to default value
@@ -327,6 +374,37 @@ class SliderWindow(QWidget):
 
         return group
 
+    def _on_global_gains_changed(self):
+        """When global KP/KD values change"""
+        kp = self.global_kp_spinbox.value()
+        kd = self.global_kd_spinbox.value()
+        print(f"Global gains changed: KP={kp:.3f}, KD={kd:.3f}")
+
+    def _apply_global_gains_to_all(self):
+        """Apply global KP/KD values to all motors"""
+        kp = self.global_kp_spinbox.value()
+        kd = self.global_kd_spinbox.value()
+        
+        print(f"Applying global gains to all motors: KP={kp:.3f}, KD={kd:.3f}")
+        
+        # Send updated commands to all motors with current positions/velocities but new gains
+        motor_commands = []
+        
+        for motor_index in range(self.motor_count):
+            spinboxes = self.motor_cmd_spinboxes[motor_index]
+            
+            motor_cmd = MotorCmd()
+            motor_cmd.position = spinboxes[0].value()  # Position
+            motor_cmd.velocity = spinboxes[1].value()  # Velocity
+            motor_cmd.torque = spinboxes[2].value()    # Torque
+            motor_cmd.kp = kp                          # Global KP
+            motor_cmd.kd = kd                          # Global KD
+            
+            motor_commands.append(motor_cmd)
+        
+        self.ros_node.publish_low_command(motor_commands)
+        print(f"Applied global gains to all {self.motor_count} motors")
+
     def _send_control_cmd(self, cmd_value: int):
         """Send ControlCmd message"""
         motor_id = self.control_motor_id.value()
@@ -337,11 +415,11 @@ class SliderWindow(QWidget):
         """Individual SET DEFAULT: Set specific motor to default values"""
         print(f"SET DEFAULT: Setting motor {motor_index} to default values...")
         
-        # Set specific motor GUI controls to default values
+        # Set specific motor GUI controls to default values (position, velocity, torque)
         self._set_single_motor_to_default(motor_index)
         print(f"SET DEFAULT: Set motor {motor_index} GUI controls to default values")
         
-        # Send default position command to specific motor
+        # Send default position command to specific motor with global KP/KD
         self._send_single_default_command(motor_index)
         print(f"SET DEFAULT: Sent default command to motor {motor_index}")
 
@@ -352,29 +430,30 @@ class SliderWindow(QWidget):
             spinboxes[0].setValue(DEFAULT_POSITION)   # Position
             spinboxes[1].setValue(DEFAULT_VELOCITY)   # Velocity
             spinboxes[2].setValue(DEFAULT_TORQUE)     # Torque
-            spinboxes[3].setValue(DEFAULT_KP)         # KP
-            spinboxes[4].setValue(DEFAULT_KD)         # KD
     
     def _send_single_default_command(self, motor_index: int):
         """Send default position command for a single motor"""
+        kp = self.global_kp_spinbox.value()
+        kd = self.global_kd_spinbox.value()
+        
         self.ros_node.publish_single_motor_command(
             motor_index, 
             DEFAULT_POSITION, 
             DEFAULT_VELOCITY, 
             DEFAULT_TORQUE, 
-            DEFAULT_KP, 
-            DEFAULT_KD
+            kp, 
+            kd
         )
 
     def _send_single_motor_cmd(self, motor_index: int):
         """Send OneMotorCmd for a single motor"""
         spinboxes = self.motor_cmd_spinboxes[motor_index]
+        kp = self.global_kp_spinbox.value()
+        kd = self.global_kd_spinbox.value()
         
         position = spinboxes[0].value()
         velocity = spinboxes[1].value()
         torque = spinboxes[2].value()
-        kp = spinboxes[3].value()
-        kd = spinboxes[4].value()
         
         self.ros_node.publish_single_motor_command(motor_index, position, velocity, torque, kp, kd)
         print(f"Sent OneMotorCmd for motor {motor_index}")
@@ -382,21 +461,23 @@ class SliderWindow(QWidget):
     def _send_all_motors_cmd(self):
         """Send LowCmd for all motors"""
         motor_commands = []
+        kp = self.global_kp_spinbox.value()
+        kd = self.global_kd_spinbox.value()
         
         for motor_index in range(self.motor_count):
             spinboxes = self.motor_cmd_spinboxes[motor_index]
             
             motor_cmd = MotorCmd()
-            motor_cmd.position = spinboxes[0].value()
-            motor_cmd.velocity = spinboxes[1].value()
-            motor_cmd.torque = spinboxes[2].value()
-            motor_cmd.kp = spinboxes[3].value()
-            motor_cmd.kd = spinboxes[4].value()
+            motor_cmd.position = spinboxes[0].value()  # Position
+            motor_cmd.velocity = spinboxes[1].value()  # Velocity
+            motor_cmd.torque = spinboxes[2].value()    # Torque
+            motor_cmd.kp = kp                          # Global KP
+            motor_cmd.kd = kd                          # Global KD
             
             motor_commands.append(motor_cmd)
         
         self.ros_node.publish_low_command(motor_commands)
-        print(f"Sent LowCmd for all {self.motor_count} motors")
+        print(f"Sent LowCmd for all {self.motor_count} motors (KP={kp:.3f}, KD={kd:.3f})")
 
     def _emergency_stop(self):
         """Emergency stop - send disable commands to all motors and set to default"""
@@ -410,9 +491,19 @@ class SliderWindow(QWidget):
         for motor_index in range(self.motor_count):
             self._set_single_motor_to_default(motor_index)
         
-        # Send default commands to all motors
+        # Send default commands to all motors with current global gains
+        kp = self.global_kp_spinbox.value()
+        kd = self.global_kd_spinbox.value()
+        
         for motor_index in range(self.motor_count):
-            self._send_single_default_command(motor_index)
+            self.ros_node.publish_single_motor_command(
+                motor_index, 
+                DEFAULT_POSITION, 
+                DEFAULT_VELOCITY, 
+                DEFAULT_TORQUE, 
+                kp, 
+                kd
+            )
         
         print(f"EMERGENCY STOP: All {self.motor_count} motors disabled and set to default values")
 
@@ -424,11 +515,10 @@ class SliderWindow(QWidget):
                 motor_state = self.ros_node.motor_states[motor_index]
                 labels = self.motor_cmd_data_labels[motor_index]
                 
-                if len(labels) >= 5:
+                if len(labels) >= 3:
                     labels[0].setText(f"current: {motor_state.position:.3f}")
                     labels[1].setText(f"current: {motor_state.velocity:.3f}")
                     labels[2].setText(f"current: {motor_state.torque:.3f}")
-                    # For KP and KD, we don't have feedback, so leave as is
         
         # Update system status
         low_state = self.ros_node.current_low_state
@@ -463,10 +553,10 @@ def main(args=None):
         config_path = os.path.join(pkg_share, "config", "gui_node.yaml")
         with open(config_path, 'r') as file:
             config = yaml.safe_load(file)
-        motor_count = config.get('motors_number', 12)
+        motor_count = config.get('motors_number', MOTOR_COUNT)
     except Exception as e:
         print(f"Ошибка загрузки конфига: {e}")
-        motor_count = 12
+        motor_count = MOTOR_COUNT
     
     ros_node = MotorSliderNode(motor_count)
     app = QApplication(sys.argv)
